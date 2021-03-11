@@ -1,25 +1,3 @@
-[docs]: https://github.com/quantnetwork/overledger-sdk-javascript/blob/master/README.md
-[repo]: https://github.com/quantnetwork/overledger-sdk-javascript
-
-# @quantnetwork/overledger-core
-
-Core [Overledger SDK][repo] package.
-
-## Installation
-
-Install using [npm](https://www.npmjs.org/):
-```
-npm install @quantnetwork/overledger-core
-```
-
-Or, if you prefer using [yarn](https://yarnpkg.com/):
-
-```
-yarn add @quantnetwork/overledger-core
-```
-
-## API Reference
-
 <a name="module_overledger-core"></a>
 
 ## overledger-core
