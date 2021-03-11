@@ -1,0 +1,65 @@
+{
+  "name": "overledger-sdk-javascript-version2",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
+  "scripts": {
+    "dev": "nodemon --config nodemon.json --exec yarn run build",
+    "clean": "lerna run clean",
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test --stream",
+    "prepublishOnly": "yarn run build && yarn run test && yarn run docs",
+    "build": "make",
+    "lint": "lerna exec -- yarn run lint",
+    "docs": "lerna run docs && jsdoc2md --no-cache --plugin dmd-clear --files './packages/*/dist/**/*.js' > api_reference.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/quantnetwork/overledger-sdk-javascript-version2.git"
+  },
+  "author": "Quant Network <support@quant.network>",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^24.0.13",
+    "@types/web3": "^1.0.18",
+    "axios": "^0.18.0",
+    "dmd-clear": "^0.1.2",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^24.8.0",
+    "jsdoc-babel": "^0.5.0",
+    "jsdoc-md": "^9.1.1",
+    "jsdoc-to-markdown": "^5.0.3",
+    "lerna": "^4.0.0",
+    "merge": ">=1.2.1",
+    "nodemon": "^1.19.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.9.9"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "@quantnetwork/overledger-bundle": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "bitcoinjs-lib": "^5.1.10",
+    "coinselect": "^3.1.12",
+    "crypto-js": "^4.0.0",
+    "csv-writer": "^1.6.0",
+    "neat-csv": "^5.2.0",
+    "node-fetch": "^2.6.0",
+    "yarn": "^1.22.10"
+  }
+}
