@@ -13,7 +13,7 @@ const bpiKey = '...';
 
 ; (async () => {
     try {
-        const overledger = new OverledgerSDK(mappId, bpiKey, {
+        const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN },
             { dlt: DltNameOptions.ETHEREUM },
             { dlt: DltNameOptions.XRP_LEDGER }
