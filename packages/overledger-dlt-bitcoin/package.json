@@ -1,18 +1,16 @@
 {
-  "name": "@quantnetwork/overledger-bundle",
+  "name": "@quantnetwork/overledger-dlt-bitcoin",
   "version": "2.0.0",
-  "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
+  "description": "Quant Network Overledger Bitcoin software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "test": "jest --runInBand",
     "clean": "rm -rf dist && mkdir dist",
     "build": "yarn run clean && tsc --declaration",
-    "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'"
+    "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
+    "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/bundle",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/dlt-bitcoin",
   "contributors": [
     {
       "name": "Luke Riley",
@@ -37,13 +35,18 @@
   ],
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
+  "types": "dist/index.d.ts",
   "dependencies": {
-    "@quantnetwork/overledger-core": "^2.0.0",
-    "@quantnetwork/overledger-dlt-bitcoin": "^2.0.0"
+    "@quantnetwork/overledger-dlt-abstract": "^2.0.0",
+    "@quantnetwork/overledger-provider": "^2.0.0",
+    "@quantnetwork/overledger-types": "^2.0.0",
+    "axios": "^0.18.0",
+    "bitcoinjs-lib": "5.1.7",
+    "event-stream": "4.0.1",
+    "typedarray-to-buffer": "^3.1.5"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
-    "@types/web3": "^1.0.18",
     "jest": "^24.8.0",
     "lerna": "^3.14.0",
     "nodemon": "^1.19.0",
@@ -51,6 +54,9 @@
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "3574baa27bba109510db5f5a088e4684b286bf4b"
 }
