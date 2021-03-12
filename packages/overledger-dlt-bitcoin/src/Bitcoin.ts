@@ -1,6 +1,7 @@
 import * as bitcoin from 'bitcoinjs-lib';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import { MAINNET } from '@quantnetwork/overledger-provider';
+import { Account } from '@quantnetwork/overledger-types';
 
 /**
  * @memberof module:overledger-dlt-bitcoin

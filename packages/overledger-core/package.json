@@ -40,6 +40,7 @@
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
   "types": "dist/index.d.ts",
   "dependencies": {
+    "@quantnetwork/overledger-dlt-abstract": "^2.0.0",
     "@quantnetwork/overledger-provider": "^2.0.0",
     "@quantnetwork/overledger-types": "^2.0.0",
     "axios": "^0.18.0"
