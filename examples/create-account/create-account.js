@@ -6,8 +6,8 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 //  ---------------------------------------------------------
 //  -------------- BEGIN VARIABLES TO UPDATE ----------------
 //  ---------------------------------------------------------
-const mappId = '...';
-const bpiKey = '...';
+//const mappId = '...';
+//const bpiKey = '...';
 //  ---------------------------------------------------------
 //  -------------- END VARIABLES TO UPDATE ------------------
 //  ---------------------------------------------------------
@@ -21,7 +21,7 @@ const bpiKey = '...';
             ],
             provider: { network: 'testnet' },
         });
-
+        
         const bitcoinAccount = await overledger.dlts.bitcoin.createAccount();
         console.log('Bitcoin account:\n', bitcoinAccount);
         console.log("");
@@ -30,7 +30,7 @@ const bpiKey = '...';
         console.log('Ethereum account:\n', ethAccount);
         console.log("");
 
-        const xrpAccount = await overledger.dlts.ripple.createAccount();
+        const xrpAccount = await overledger.dlts["xrp-ledger"].createAccount();
         console.log('XRP ledger account:\n', xrpAccount);
         console.log("");
     } catch (e) {
