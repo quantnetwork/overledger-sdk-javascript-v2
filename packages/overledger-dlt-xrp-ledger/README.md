@@ -1,7 +1,7 @@
 [docs]: https://github.com/quantnetwork/overledger-sdk-javascript/blob/master/README.md
 [repo]: https://github.com/quantnetwork/overledger-sdk-javascript
 
-# @quantnetwork/overledger-dlt-ripple
+# @quantnetwork/overledger-dlt-xrp-ledger
 
 [Overledger SDK][repo] module for interaction with the Ripple distributed ledger technology.
 
@@ -9,13 +9,13 @@
 
 Install using [npm](https://www.npmjs.org/):
 ```
-npm install @quantnetwork/overledger-dlt-ripple
+npm install @quantnetwork/overledger-dlt-xrp-ledger
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
 
 ```
-yarn add @quantnetwork/overledger-dlt-ripple
+yarn add @quantnetwork/overledger-dlt-xrp-ledger
 ```
 
 ## API Reference
@@ -23,7 +23,7 @@ yarn add @quantnetwork/overledger-dlt-ripple
 ## Modules
 
 <dl>
-<dt><a href="#module_overledger-dlt-ripple">overledger-dlt-ripple</a></dt>
+<dt><a href="#module_overledger-dlt-xrp-ledger">overledger-dlt-xrp-ledger</a></dt>
 <dd></dd>
 </dl>
 
@@ -38,19 +38,19 @@ yarn add @quantnetwork/overledger-dlt-ripple
 </dd>
 </dl>
 
-<a name="module_overledger-dlt-ripple"></a>
+<a name="module_overledger-dlt-xrp-ledger"></a>
 
-## overledger-dlt-ripple
+## overledger-dlt-xrp-ledger
 
-* [overledger-dlt-ripple](#module_overledger-dlt-ripple)
+* [overledger-dlt-xrp-ledger](#module_overledger-dlt-xrp-ledger)
 
     * _static_
-        * [.default](#module_overledger-dlt-ripple.default)
+        * [.default](#module_overledger-dlt-xrp-ledger.default)
 
     * _inner_
-        * [~Ripple](#module_overledger-dlt-ripple.Ripple)
+        * [~Ripple](#module_overledger-dlt-xrp-ledger.Ripple)
 
-            * [new Ripple(sdk)](#new_module_overledger-dlt-ripple.Ripple_new)
+            * [new XRP Ledger(sdk)](#new_module_overledger-dlt-xrp-ledger.Ripple_new)
 
             * [.name](#module_overledger-dlt-ripple.Ripple+name)
 

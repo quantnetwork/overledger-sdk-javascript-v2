@@ -1,3 +1,4 @@
+//NOTE: You may need to run "yarn install" inside the examples/create-account folder, then node create-account.js
 //NOTE: replace @quantnetwork/ with ../../packages/ for all require statements below if you have not built the SDK yourself
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;

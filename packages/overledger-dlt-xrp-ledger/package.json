@@ -1,5 +1,5 @@
 {
-  "name": "@quantnetwork/overledger-dlt-ripple",
+  "name": "@quantnetwork/overledger-dlt-xrp-ledger",
   "version": "2.0.0",
   "description": "Quant Network Overledger Ripple software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
@@ -13,7 +13,7 @@
     "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
     "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/dlt-ripple",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/dlt-xrp-ledger",
   "contributors": [
     {
       "name": "Luke Riley",

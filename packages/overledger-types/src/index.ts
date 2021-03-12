@@ -7,6 +7,8 @@ import DLTOptions from './DLTOptions';
 import NetworkOptions from './NetworkOptions';
 import ProviderOptions from './ProviderOptions';
 import SDKOptions from './SDKOptions'
+import DltNameOptions from './associatedEnums/DltNameOptions';
+
 /**
  * Types used by the Overledger SDK packages.
  */
@@ -15,5 +17,6 @@ export {
   DLTOptions,
   NetworkOptions,
   ProviderOptions,
-  SDKOptions
+  SDKOptions,
+  DltNameOptions
 };

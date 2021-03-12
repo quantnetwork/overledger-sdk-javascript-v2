@@ -1,5 +1,5 @@
 /**
- * @module overledger-dlt-ripple
+ * @module overledger-dlt-xrp-ledger
  */
 
 import Ripple from './Ripple';

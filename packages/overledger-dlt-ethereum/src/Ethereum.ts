@@ -15,7 +15,7 @@ class Ethereum extends AbstractDLT {
   /**
    * Name of the DLT
    */
-  name: string = 'Ethereum';
+  name: string = 'ethereum';
 
   /**
    * Symbol of the DLT

@@ -4,7 +4,7 @@ import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import { Account } from '@quantnetwork/overledger-types';
 
 /**
- * @memberof module:overledger-dlt-ripple
+ * @memberof module:overledger-dlt-xrp-ledger
 */
 class Ripple extends AbstractDLT {
   rippleAPI: RippleAPI;
@@ -12,7 +12,7 @@ class Ripple extends AbstractDLT {
   /**
    * Name of the DLT
    */
-  name: string = 'XRP Ledger';
+  name: string = 'xrp-ledger';
 
   /**
    * Symbol of the DLT
