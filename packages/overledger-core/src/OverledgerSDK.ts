@@ -1,7 +1,7 @@
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
 import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest } from '@quantnetwork/overledger-types';
-import { AxiosInstance } from "axios";
+import { AxiosInstance, AxiosPromise } from "axios";
 
 /**
  * **
@@ -33,7 +33,7 @@ class OverledgerSDK {
         });
 
         this.provider = new Provider(options.provider);
-        this.request = this.provider.createRequest();
+        //this.request = this.provider.createRequest();
     }
 
     /**
@@ -73,10 +73,28 @@ class OverledgerSDK {
      * @param echoRequest
      */
     public getEcho(echoRequest: EchoRequest): Object {
+        this.request = this.provider.createRequest(undefined, "network.quant.devnet:quantbpikey", undefined);
+
         let request = JSON.stringify(echoRequest);
         return this.request.post('/echoecho', request);
     }
 
+    /**
+     * refresh access token
+     */
+    public refreshAccessToken(client_id: string, client_secret: string, refresh_token: string): AxiosPromise<Object> {
+
+        //var axios = require('axios');
+        this.request = this.provider.createRequest(undefined, undefined, "application/x-www-form-urlencoded");
+
+        const params = new URLSearchParams()
+        params.append('grant_type', 'refresh_token')
+        params.append('client_id', client_id)
+        params.append('client_secret', client_secret)
+        params.append('refresh_token', refresh_token)
+
+        return this.request.post("/oauth2/token", params);
+    }
 }
 
 export default OverledgerSDK;

@@ -5,6 +5,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 //  -------------- BEGIN VARIABLES TO UPDATE ----------------
 //  ---------------------------------------------------------
 //TODO: Following example will need to be modified once we have the OAuth2 in place, i am hardcoding the authorization header value with the v1 values
+//TODO: this is because we don't have yet a proper api gateway with v2 stuff in place and working perfectly....
 //  ---------------------------------------------------------
 //  -------------- END VARIABLES TO UPDATE ------------------
 //  ---------------------------------------------------------

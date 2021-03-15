@@ -21,11 +21,13 @@ class Provider {
   }
 
   /**
-   *
-   *
-   * @param {string} path Request endpoint resource path
+   * Creating a request, making this as flexible as possible with the possible values in the headers being passed in the method signature
+   * @param path
+   * @param accessToken
+   * @param contentType
+   * @param acceptString
    */
-  createRequest(path?: string): AxiosInstance {
+  createRequest(path?: string, accessToken?: string, contentType?: string, acceptString? :string): AxiosInstance {
     let overledgerUri: string;
 
     if (this.network === TESTNET) {
@@ -36,18 +38,19 @@ class Provider {
       overledgerUri = this.network;
     }
 
+    console.log(accessToken);
     const baseUrl: string = path ? overledgerUri + path : overledgerUri;
 
-    //TODO: Following code will need to be modified once we have the OAuth2 in place, i am hardcoding the authorization header value with the v1 values
+    let headersString = accessToken ? { 'Authorization': `Bearer ${accessToken}`, 'Content-type': contentType || 'application/json' ,
+      'Accept': acceptString || 'application/json', } : { 'Content-type': contentType || 'application/json', 'Accept': acceptString || 'application/json', };
+
     return axios.create({
       baseURL: baseUrl,
       timeout: this.options.timeout || 5000,
-      headers: {
-        Authorization: `Bearer network.quant.devnet:quantbpikey`,
-        'Content-type': 'application/json',
-      },
+      headers: headersString,
     });
   }
+
 }
 
 export default Provider;
