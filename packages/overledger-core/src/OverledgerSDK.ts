@@ -69,11 +69,8 @@ class OverledgerSDK {
     }
 
     /**
-     * Get the sequence numbers for the provided addresses
-     *
-     * @param {SequenceDataRequest[]} sequenceRequest Request for sequence numbers of the provided addresses
-     *
-     * @return {SequenceDataResponse} Sequence response
+     * Calls echoecho endpoint, just used to see if things connect
+     * @param echoRequest
      */
     public getEcho(echoRequest: EchoRequest): Object {
         let request = JSON.stringify(echoRequest);
