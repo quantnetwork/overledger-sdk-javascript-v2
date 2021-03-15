@@ -1,7 +1,7 @@
 {
-  "name": "@quantnetwork/overledger-bundle",
+  "name": "@quantnetwork/overledger-dlt-xrp-ledger",
   "version": "2.0.0",
-  "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
+  "description": "Quant Network Overledger Ripple software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
@@ -10,9 +10,10 @@
     "test": "jest --runInBand",
     "clean": "rm -rf dist && mkdir dist",
     "build": "yarn run clean && tsc --declaration",
-    "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'"
+    "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
+    "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/bundle",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/dlt-xrp-ledger",
   "contributors": [
     {
       "name": "Luke Riley",
@@ -37,15 +38,19 @@
   ],
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
+  "types": "dist/index.d.ts",
   "dependencies": {
-    "@quantnetwork/overledger-core": "^2.0.0",
-    "@quantnetwork/overledger-dlt-bitcoin": "^2.0.0",
-    "@quantnetwork/overledger-dlt-ethereum": "^2.0.0",
-    "@quantnetwork/overledger-dlt-xrp-ledger": "^2.0.0"
+    "@quantnetwork/overledger-dlt-abstract": "^2.0.0",
+    "@quantnetwork/overledger-provider": "^2.0.0",
+    "@quantnetwork/overledger-types": "^2.0.0",
+    "axios": "^0.18.0",
+    "five-bells-condition": "^5.0.1",
+    "ripple-address-codec": "^4.1.1",
+    "ripple-keypairs": "^1.0.1",
+    "ripple-lib": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
-    "@types/web3": "^1.0.18",
     "jest": "^24.8.0",
     "lerna": "^3.14.0",
     "nodemon": "^1.19.0",
