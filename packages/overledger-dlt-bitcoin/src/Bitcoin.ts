@@ -27,7 +27,8 @@ class Bitcoin extends AbstractDLT {
     super(sdk);
     if (sdk.network === MAINNET) {
       this.addressType = bitcoin.networks.bitcoin;
-    } else {
+    }
+    else {
       this.addressType = bitcoin.networks.testnet;
     }
   }

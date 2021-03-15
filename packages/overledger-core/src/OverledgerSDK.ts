@@ -1,6 +1,8 @@
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
-import { NetworkOptions, DLTOptions, SDKOptions } from '@quantnetwork/overledger-types';
+import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest } from '@quantnetwork/overledger-types';
+import { AxiosInstance } from "axios";
+
 /**
  * **
  * @memberof module:overledger-core
@@ -12,7 +14,8 @@ class OverledgerSDK {
     dlts: { [key: string]: AbstractDLT } = {};
     network: NetworkOptions;
     provider: Provider;
-
+    request: AxiosInstance;
+    
     /**
      * Create the Overledger SDK
      *
@@ -30,6 +33,7 @@ class OverledgerSDK {
         });
 
         this.provider = new Provider(options.provider);
+        this.request = this.provider.createRequest();
     }
 
     /**
@@ -63,6 +67,19 @@ class OverledgerSDK {
             }
         }
     }
+
+    /**
+     * Get the sequence numbers for the provided addresses
+     *
+     * @param {SequenceDataRequest[]} sequenceRequest Request for sequence numbers of the provided addresses
+     *
+     * @return {SequenceDataResponse} Sequence response
+     */
+    public getEcho(echoRequest: EchoRequest): Object {
+        let request = JSON.stringify(echoRequest);
+        return this.request.post('/echoecho', request);
+    }
+
 }
 
 export default OverledgerSDK;

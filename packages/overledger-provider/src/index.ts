@@ -14,6 +14,7 @@ export const TESTNET = testnet;
  */
 export const MAINNET = mainnet;
 
+
 /**
  * Network provider package.
  */

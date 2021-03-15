@@ -1,6 +1,5 @@
-import {
-  Account,
-} from '@quantnetwork/overledger-types';
+import { Account } from '@quantnetwork/overledger-types';
+import { AxiosPromise } from 'axios';
 
 /**
  * @memberof module:overledger-dlt-abstract
@@ -39,7 +38,11 @@ abstract class AbstractDLT {
     throw new Error('setAccount: abstract method must be implemented');
   }
 
-
+  /**
+   */
+  public getEcho(request: string): AxiosPromise<Object> {
+    return this.sdk.getEcho(request);
+  }
 
 
 }

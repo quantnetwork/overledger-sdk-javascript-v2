@@ -8,6 +8,8 @@ import NetworkOptions from './NetworkOptions';
 import ProviderOptions from './ProviderOptions';
 import SDKOptions from './SDKOptions'
 import DltNameOptions from './associatedEnums/DltNameOptions';
+import EchoRequest from "./EchoRequest";
+
 
 /**
  * Types used by the Overledger SDK packages.
@@ -18,5 +20,7 @@ export {
   NetworkOptions,
   ProviderOptions,
   SDKOptions,
-  DltNameOptions
+  DltNameOptions,
+  EchoRequest
+
 };
