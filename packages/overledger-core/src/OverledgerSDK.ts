@@ -8,7 +8,7 @@ import log4js from 'log4js';
  * **
  * @memberof module:overledger-core
  */
-const log = log4js.getLogger('Provider');
+const log = log4js.getLogger('OverledgerSDK');
 log.level = "info";
 class OverledgerSDK {
     /**
