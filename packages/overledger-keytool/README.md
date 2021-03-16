@@ -5,8 +5,7 @@
 
 Class used for the [Overledger SDK][repo] Keytool related operations
 
-## Installation
-
+## Installation 
 Install using [npm](https://www.npmjs.org/):
 ```
 npm install @quantnetwork/overledger-keytool

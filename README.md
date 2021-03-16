@@ -107,3 +107,8 @@ yarn run docs
 ### License
 
 The Apache 2.0 license can be found [here](LICENSE).
+
+### Hints
+npm install node-keytool
+npm install jks-js
+
