@@ -5,9 +5,9 @@ import log4js from 'log4js';
 /**
  * @memberof module:overledger-keytool
  */
-const log = log4js.getLogger('Keytool');
+const log = log4js.getLogger('CustomKeytool');
 log.level = "info";
-class Keytool {
+class CustomKeytool {
     storetype: string;
     debug: boolean;
 
@@ -17,16 +17,18 @@ class Keytool {
     }
 
 
-    public createKeystoreFile(fileName:string): void {
-        var Keytool = require('node-keytool');
-        var store = Keytool(fileName, 'changeit', {debug: this.debug, storetype: this.storetype});
+    public createKeystoreFile(fileName:string): Object {
+        var nodeKeytool = require('node-keytool');
+        var store = nodeKeytool(fileName, 'changeit', {debug: this.debug, storetype: this.storetype});
 
         if(store != undefined)
             console.log("Successfully created file: " + fileName);
+
+        return store;
     }
 
 
 }
 
-export default Keytool;
+export default CustomKeytool;
 

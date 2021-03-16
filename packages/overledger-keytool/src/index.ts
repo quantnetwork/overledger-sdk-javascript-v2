@@ -2,10 +2,10 @@
  * @module overledger-keytool
  */
 
-import Keytool from './Keytool'
+import CustomKeytool from './CustomKeytool'
 
 
 /**
  * Keytool package
  */
-export default Keytool;
+export default CustomKeytool;
