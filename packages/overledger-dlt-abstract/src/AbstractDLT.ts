@@ -40,8 +40,8 @@ abstract class AbstractDLT {
 
   /**
    */
-  public getEcho(request: string): AxiosPromise<Object> {
-    return this.sdk.getEcho(request);
+  public getEcho(request: string, accessToken?: string): AxiosPromise<Object> {
+    return this.sdk.getEcho(request, accessToken);
   }
 
 

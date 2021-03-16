@@ -22,12 +22,13 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
     let request = {
       echo: "echo"
     }
-
+    console.log("************Ethereum connector************");
     // Get the address sequences.
-    const ethereumSequenceRequest = await overledger.dlts.ethereum.getEcho(request.data);
+    const ethereumSequenceRequest = await overledger.dlts.ethereum.getEcho(request, "network.quant.devnet:quantbpikey");
     console.log(JSON.stringify(ethereumSequenceRequest.data, null, 2));
 
-    const xrpSequenceRequest = await overledger.dlts["xrp-ledger"].getEcho(request.data);
+    console.log("************XRP Ledger connector************");
+    const xrpSequenceRequest = await overledger.dlts["xrp-ledger"].getEcho(request, "network.quant.devnet:quantbpikey");
     console.log(JSON.stringify(xrpSequenceRequest.data, null, 2));
 
   } catch (e) {

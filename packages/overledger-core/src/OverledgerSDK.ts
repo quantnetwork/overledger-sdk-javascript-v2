@@ -2,11 +2,14 @@ import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
 import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest } from '@quantnetwork/overledger-types';
 import { AxiosInstance, AxiosPromise } from "axios";
+import log4js from 'log4js';
 
 /**
  * **
  * @memberof module:overledger-core
  */
+const log = log4js.getLogger('Provider');
+log.level = "info";
 class OverledgerSDK {
     /**
      * The object storing the DLTs loaded by the Overledger SDK
@@ -72,20 +75,21 @@ class OverledgerSDK {
      * Calls echoecho endpoint, just used to see if things connect
      * @param echoRequest
      */
-    public getEcho(echoRequest: EchoRequest): Object {
-        this.request = this.provider.createRequest(undefined, "network.quant.devnet:quantbpikey", undefined);
+    public getEcho(echoRequest: EchoRequest, accessToken?:string, pathToCall?:string): Object {
+        let echoRequestJson = JSON.stringify(echoRequest);
+        log.info("getEcho: " + echoRequestJson + ", " + accessToken + ", " + pathToCall);
+        this.request = this.provider.createRequest(accessToken, undefined);
 
-        let request = JSON.stringify(echoRequest);
-        return this.request.post('/echoecho', request);
+        return this.request.post(pathToCall==undefined?'/echoecho':pathToCall, echoRequestJson);
     }
 
     /**
      * refresh access token
      */
-    public refreshAccessToken(client_id: string, client_secret: string, refresh_token: string): AxiosPromise<Object> {
+    public refreshAccessToken(client_id: string, client_secret: string, refresh_token: string, pathToCall?: string): AxiosPromise<Object> {
+        log.info("refreshAccessToken: " + client_id + ", " + client_secret + ", " + refresh_token + ", " + pathToCall);
 
-        //var axios = require('axios');
-        this.request = this.provider.createRequest(undefined, undefined, "application/x-www-form-urlencoded");
+        this.request = this.provider.createRequest(undefined, "application/x-www-form-urlencoded");
 
         const params = new URLSearchParams()
         params.append('grant_type', 'refresh_token')
@@ -93,7 +97,7 @@ class OverledgerSDK {
         params.append('client_secret', client_secret)
         params.append('refresh_token', refresh_token)
 
-        return this.request.post("/oauth2/token", params);
+        return this.request.post(pathToCall==undefined?"/oauth2/token":pathToCall, params);
     }
 }
 
