@@ -5,6 +5,8 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 //  -------------- BEGIN VARIABLES TO UPDATE ----------------
 //  ---------------------------------------------------------
 //TODO: Following example will need to be modified once we have the OAuth2 in place, i am hardcoding the authorization header value with the v1 values
+//TODO: this is because we don't have yet a proper api gateway with v2 stuff in place and working perfectly....
+//TODO: this example is simply to show we can connect somewhere and do something, in this case connect to v1 and get sequence
 //  ---------------------------------------------------------
 //  -------------- END VARIABLES TO UPDATE ------------------
 //  ---------------------------------------------------------
@@ -17,16 +19,16 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
       provider: { network: 'http://api.devnet.overledger.io/v1' },
     });
 
-
     let request = {
       echo: "echo"
     }
-
+    console.log("************Ethereum connector************");
     // Get the address sequences.
-    const ethereumSequenceRequest = await overledger.dlts.ethereum.getEcho(request.data);
+    const ethereumSequenceRequest = await overledger.dlts.ethereum.getEcho(request, "network.quant.devnet:quantbpikey");
     console.log(JSON.stringify(ethereumSequenceRequest.data, null, 2));
 
-    const xrpSequenceRequest = await overledger.dlts["xrp-ledger"].getEcho(request.data);
+    console.log("************XRP Ledger connector************");
+    const xrpSequenceRequest = await overledger.dlts["xrp-ledger"].getEcho(request, "network.quant.devnet:quantbpikey");
     console.log(JSON.stringify(xrpSequenceRequest.data, null, 2));
 
   } catch (e) {

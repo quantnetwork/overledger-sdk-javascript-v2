@@ -1,12 +1,15 @@
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
 import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest } from '@quantnetwork/overledger-types';
-import { AxiosInstance } from "axios";
+import { AxiosInstance, AxiosPromise } from "axios";
+import log4js from 'log4js';
 
 /**
  * **
  * @memberof module:overledger-core
  */
+const log = log4js.getLogger('OverledgerSDK');
+log.level = "info";
 class OverledgerSDK {
     /**
      * The object storing the DLTs loaded by the Overledger SDK
@@ -33,7 +36,7 @@ class OverledgerSDK {
         });
 
         this.provider = new Provider(options.provider);
-        this.request = this.provider.createRequest();
+        //this.request = this.provider.createRequest();
     }
 
     /**
@@ -72,11 +75,32 @@ class OverledgerSDK {
      * Calls echoecho endpoint, just used to see if things connect
      * @param echoRequest
      */
-    public getEcho(echoRequest: EchoRequest): Object {
-        let request = JSON.stringify(echoRequest);
-        return this.request.post('/echoecho', request);
+    public getEcho(echoRequest: EchoRequest, accessToken?:string, pathToCall?:string): Object {
+        log.info("getEcho: " + echoRequest + ", " + accessToken + ", " + pathToCall);
+        let echoRequestJson = JSON.stringify(echoRequest);
+        log.info("echoRequestJson: " + echoRequestJson);
+
+        this.request = this.provider.createRequest(accessToken, undefined);
+
+        return this.request.post(pathToCall==undefined?'/echoecho':pathToCall, echoRequestJson);
     }
 
+    /**
+     * refresh access token
+     */
+    public refreshAccessToken(client_id: string, client_secret: string, refresh_token: string, pathToCall?: string): AxiosPromise<Object> {
+        log.info("refreshAccessToken: " + client_id + ", " + client_secret + ", " + refresh_token + ", " + pathToCall);
+
+        this.request = this.provider.createRequest(undefined, "application/x-www-form-urlencoded");
+
+        const params = new URLSearchParams()
+        params.append('grant_type', 'refresh_token')
+        params.append('client_id', client_id)
+        params.append('client_secret', client_secret)
+        params.append('refresh_token', refresh_token)
+
+        return this.request.post(pathToCall==undefined?"/oauth2/token":pathToCall, params);
+    }
 }
 
 export default OverledgerSDK;
