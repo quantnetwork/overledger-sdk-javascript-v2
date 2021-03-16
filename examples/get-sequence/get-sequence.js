@@ -19,7 +19,6 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
       provider: { network: 'http://api.devnet.overledger.io/v1' },
     });
 
-
     let request = {
       echo: "echo"
     }
