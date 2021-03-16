@@ -76,8 +76,10 @@ class OverledgerSDK {
      * @param echoRequest
      */
     public getEcho(echoRequest: EchoRequest, accessToken?:string, pathToCall?:string): Object {
+        log.info("getEcho: " + echoRequest + ", " + accessToken + ", " + pathToCall);
         let echoRequestJson = JSON.stringify(echoRequest);
-        log.info("getEcho: " + echoRequestJson + ", " + accessToken + ", " + pathToCall);
+        log.info("echoRequestJson: " + echoRequestJson);
+
         this.request = this.provider.createRequest(accessToken, undefined);
 
         return this.request.post(pathToCall==undefined?'/echoecho':pathToCall, echoRequestJson);
