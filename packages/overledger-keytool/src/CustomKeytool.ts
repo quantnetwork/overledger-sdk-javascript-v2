@@ -114,17 +114,19 @@ class CustomKeytool {
         let result = new Promise(function(myResolve, myReject) {
             store.gencert(alias, keypass, dname, infile, datain, outfile, rfcoutput, function(err, res) {
                 if (err || !res || !res.outdata) {
-                    if(err) {
+                    if (err) {
                         log.info("err: " + err);
                         myReject(err);
+                        return;
                     }
-                    return;
+                    log.info("Successfully created cert");
+                    if(!res || !res.outdata) {
+                        log.info('Certificate content (RFC formatted)');
+                        log.info(res.outdata);
+                    }
+                    myResolve("Done");
+                    return store;
                 }
-                log.info("Successfully created cert");
-                log.info('Certificate content (RFC formatted)');
-                log.info(res.outdata);
-                myResolve("Done");
-                return store;
             })});
 
         log.info("Ending generating certificate");
