@@ -18,44 +18,42 @@ class CustomKeytool {
         this.debug = debug !== undefined ? debug : false;
     }
 
-    //TODO: pass the alias as a parameter in the method
-    //TODO: pass the dname as a parameter
-    //TODO: pass the validity 
-    public createKeystoreFile(fileName:string): Object {
+    public async createKeystoreFile(fileName:string, keypass: string, alias: string, dname: string, validity: number): Promise<Object> {
         log.info("Creating keystore file: " + fileName);
 
-        const store = Keytool(fileName, 'changeit', {debug: this.debug, storetype: this.storetype});
+        const store = Keytool(fileName, keypass, {debug: this.debug, storetype: this.storetype});
 
-        var alias = 'keyalias' + Math.round(Math.random()*100);
-        var keypass = "changeit";
-        var dname = "CN=" + alias;
-        var validity = 120;
-        var valid_from = new Date();
+        const valid_from = new Date();
 
-        store.genkeypair(alias, keypass, dname, validity, null, null, null, null, valid_from, function(err, res) {
-            if (err) {
-                log.info(err);
-                return;
-            }
-            log.info('alias', res.alias, 'created');
-        });
+        /*
+         *   genkeypair(alias, keypass, dname, validity, keysize, keyalg, sigalg, destalias, startdate, x509ext, cb)
+         */
+        let result = new Promise(function(myResolve, myReject) {
+            store.genkeypair(alias, keypass, dname, validity, null, null, null, null, valid_from, function(err, res) {
+                if (err) {
+                    log.info(err);
+                    myReject(err);
+                    return;
+                }
+                log.info('alias', res.alias, 'created');
+                myResolve("Done");
+                return store;
+        })});
 
-        if(store !== undefined)
-            log.info("Successfully created file: " + fileName);
-
-        return store;
+        log.info("Ending creating keystore file");
+        return await result;
     }
 
-    public readKeystoreFile(fileName:string): void {
+    public readKeystoreFile(fileName: string, keypass: string, alias: string): void {
         log.info("Reading keystore file: " + fileName);
 
-        const keystore = jks.toPem(fs.readFileSync(fileName), 'changeit');
+        const keystore = jks.toPem(fs.readFileSync(fileName), keypass);
         if(keystore !== undefined)
-            log.info("read keystore successfully");
+            log.info("Read keystore successfully");
 
         log.info(keystore);
-        if(keystore['keyalias55'] !== undefined) {
-            const {cert, key} = keystore['keyalias55'];
+        if(keystore[alias] !== undefined) {
+            const {cert, key} = keystore[alias];
             if (cert !== undefined)
                 log.info(cert);
             if (key !== undefined)
@@ -66,7 +64,98 @@ class CustomKeytool {
         }
     }
 
+    public listContentKeystoreFile(fileName: string, keypass: string): void {
+        log.info("Listing content of keystore file: " + fileName);
 
+        let printList = function printlist(err, res) {
+            if (err) {
+                log.error('Error listing keystore content', err);
+                return;
+            }
+
+            log.info('Keystore type: ' + res.storetype + ' Provider: ' + res.provider + ' (' + res.certs.length + ' certificates)');
+            for (let certidx = 0; certidx < res.certs.length; certidx++) {
+                let resobj = res.certs[certidx];
+                log.info('#' + certidx, resobj.certtype, '(' + resobj.issued + ')', resobj.alias, resobj.algorithm, resobj.fingerprint);
+            }
+        };
+
+        const store = Keytool(fileName, keypass, {debug: this.debug, storetype: this.storetype});
+
+        if(store !== undefined)
+            log.info("Found keystore file successfully");
+
+        store.list(function(err, res) {
+            printList(err, res);
+        });
+    }
+
+
+    /**
+     * Generates a certificate from the request given as a) an input file (parameter infile) or b) as a string in-memory (parameter datain).
+     * If the parameter outfile is omitted or null, the result object contains the certificate data.
+     * If the parameter dname is specified, this will be used in favor of the distinguished name used to generate the request.
+     * signature:  store.gencert(alias, keypass, dname, infile, datain, outfile, rfcoutput)
+     * example:    store.gencert(ca_alias, 'changeit', 'CN=request_override_dn,OU=example', 'example.req', null, null, true)
+     * @param fileName
+     * @param alias
+     * @param keypass
+     * @param dname
+     * @param infile
+     * @param datain
+     * @param outfile
+     * @param rfcoutput
+     */
+    public async generateCert(fileName:string,  keypass: string, alias: string,  dname: string, infile: string, datain: string, outfile: string, rfcoutput: boolean): Promise<Object> {
+        log.info("Generating certificate: " + alias);
+
+        const store = Keytool(fileName, keypass, {debug: this.debug, storetype: this.storetype});
+
+        let result = new Promise(function(myResolve, myReject) {
+            store.gencert(alias, keypass, dname, infile, datain, outfile, rfcoutput, function(err, res) {
+                if (err || !res || !res.outdata) {
+                    if(err) {
+                        log.info("err: " + err);
+                        myReject(err);
+                    }
+                    return;
+                }
+                log.info("Successfully created cert");
+                log.info('Certificate content (RFC formatted)');
+                log.info(res.outdata);
+                myResolve("Done");
+                return store;
+            })});
+
+        log.info("Ending generating certificate");
+        return await result;
+    }
+
+    /**
+     * Generated a certificate request for the given alias. If outfile is omitted or null, res.outdata will contain the certificate data.
+     */
+    public async certRequest(fileName: string,  keypass: string, alias: string, dname: string, outfile: string): Promise<Object> {
+        log.info("Requesting certificate: " + alias);
+
+        const store = Keytool(fileName, keypass, {debug: this.debug, storetype: this.storetype});
+
+        let result = new Promise(function(myResolve, myReject) {
+            store.certreq(alias, keypass, dname, outfile, function(err, res) {
+                if (err) {
+                    log.error(err);
+                    myReject(err);
+                    return;
+                }
+                log.info("Request stored in file: " + outfile);
+                log.info('response: ' + res);
+                myResolve("Done");
+            });
+                return store;
+            });
+
+        log.info("Ending requesting certificate");
+        return await result;
+    }
 }
 
 export default CustomKeytool;

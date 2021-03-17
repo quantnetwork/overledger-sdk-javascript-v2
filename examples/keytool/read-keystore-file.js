@@ -11,15 +11,14 @@ const customKeytool = require('@quantnetwork/overledger-keytool').default;
 
 
 /*
- * Example to create a keystore file with the filename supplied
+ * Example to read a keystore file, assume there is a file already called richard.jks, or change the filename as required
+ * This will read the file and give back the cert and key portions of the file
  */
 ; (async () => {
     try {
         const test = new customKeytool("JKS", true);
-        test.createKeystoreFile("richard.jks", "changeit", "secret", "CN=secret", 120).then(
-            function(value) {test.readKeystoreFile("richard.jks", "changeit", "secret");},
-            function(error){console.log("Error: " + error);}
-        );
+
+        test.readKeystoreFile("richard.jks", "changeit", "secret");
 
     } catch (e) {
         console.error('error', e);
