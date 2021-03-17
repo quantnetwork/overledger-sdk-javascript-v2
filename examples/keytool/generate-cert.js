@@ -11,21 +11,23 @@ const customKeytool = require('@quantnetwork/overledger-keytool').default;
 
 
 /*
- * Example to request and then generate a cert from a cert file
+ * Example to request and then generate a cert from a cert file and then importing the cert to another keystore
  * The following example is doing these:
  * 1. create a keystore file
  * 2. from the keystore file created, request a cert and save that into a .req file
  * 3. from the .req file generate a cert and put the result in the .cer file
- * 4. import the .cer file into a keystore
+ * 4. import the .cer file into a different keystore file
  */
 ; (async () => {
     try {
         const test = new customKeytool("JKS", true);
 
-        await test.createKeystoreFile("richardtestcert.jks", "mypassword", "certalias", "CN=certalias", 120);
-        await test.certRequest("richardtestcert.jks", "mypassword", "certalias", "CN=certalias", "requestFileForCert.req");
+        //await test.createKeystoreFile("richardtestcert.jks", "mypassword", "certalias", "CN=certalias", 120);
+        //await test.certRequest("richardtestcert.jks", "mypassword", "certalias", "CN=certalias", "requestFileForCert.req");
 
-        await test.generateCert("richardtestcert.jks",  "mypassword", "certalias", "CN=certalias2","requestFileForCert.req",null,"outfileForCert.cer",true);
+        //await test.generateCert("richardtestcert.jks",  "mypassword", "certalias", "CN=certalias2","requestFileForCert.req",null,"outfileForCert.cer",true);
+
+        await test.importCert("richard.jks", "changeit","importedFromCerFile", "outfileForCert.cer", null);
 
     } catch (e) {
         console.error('Error happened: ', e);

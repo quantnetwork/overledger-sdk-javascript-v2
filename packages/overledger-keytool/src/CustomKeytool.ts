@@ -156,6 +156,32 @@ class CustomKeytool {
         log.info("Ending requesting certificate");
         return await result;
     }
+
+    public async importCert(fileName: string,  keypass: string, alias: string, infile: string, datain: string): Promise<Object> {
+        log.info("Importing certificate: " + alias);
+
+        const store = Keytool(fileName, keypass, {debug: this.debug, storetype: this.storetype});
+
+        //importcert(alias, keypass, infile, datain, trustcacerts, cb)
+        //store.importcert('imported-fromstdin', 'changeit', undefined, res.outdata, true, function(err, res) {
+        let result = new Promise(function(myResolve, myReject) {
+            store.importcert(alias, keypass, infile, datain, function(err, res) {
+                if (err) {
+                    log.error(err);
+                    myReject(err);
+                    return;
+                }
+                log.info("Certificate imported.");
+                log.info('response: ' + JSON.stringify(res));
+                myResolve("Done");
+            });
+            return store;
+        });
+
+        log.info("Ending importing certificate");
+        return await result;
+    }
+
 }
 
 export default CustomKeytool;
