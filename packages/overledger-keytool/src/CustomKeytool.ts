@@ -7,6 +7,8 @@ import fs from 'fs';
 /**
  * @memberof module:overledger-keytool
  */
+const util = require('util');
+const readFile = util.promisify(fs.readFile);
 const log = log4js.getLogger('CustomKeytool');
 log.level = "info";
 class CustomKeytool {
@@ -44,10 +46,13 @@ class CustomKeytool {
         return await result;
     }
 
-    public readKeystoreFile(fileName: string, keypass: string, alias: string): void {
+    public async readKeystoreFile(fileName: string, keypass: string, alias: string): Promise<void> {
         log.info("Reading keystore file: " + fileName);
 
-        const keystore = jks.toPem(fs.readFileSync(fileName), keypass);
+        const content = await readFile(fileName);
+
+        const keystore = jks.toPem(content, keypass);
+
         if(keystore !== undefined)
             log.info("Read keystore successfully");
 
@@ -64,21 +69,23 @@ class CustomKeytool {
         }
     }
 
+    private static printList(err, res): void {
+        if (err) {
+            log.error('Error listing keystore content', err);
+            return;
+        }
+
+        log.info('Keystore type: ' + res.storetype + ' Provider: ' + res.provider + ' (' + res.certs.length + ' certificates)');
+        let index = 0;
+
+        res.certs.map(resobj => {
+            log.info('#' + index, resobj.certtype, '(' + resobj.issued + ')', resobj.alias, resobj.algorithm, resobj.fingerprint);
+            index++;
+        });
+    }
+
     public listContentKeystoreFile(fileName: string, keypass: string): void {
         log.info("Listing content of keystore file: " + fileName);
-
-        let printList = function printlist(err, res) {
-            if (err) {
-                log.error('Error listing keystore content', err);
-                return;
-            }
-
-            log.info('Keystore type: ' + res.storetype + ' Provider: ' + res.provider + ' (' + res.certs.length + ' certificates)');
-            for (let certidx = 0; certidx < res.certs.length; certidx++) {
-                let resobj = res.certs[certidx];
-                log.info('#' + certidx, resobj.certtype, '(' + resobj.issued + ')', resobj.alias, resobj.algorithm, resobj.fingerprint);
-            }
-        };
 
         const store = Keytool(fileName, keypass, {debug: this.debug, storetype: this.storetype});
 
@@ -86,7 +93,7 @@ class CustomKeytool {
             log.info("Found keystore file successfully");
 
         store.list(function(err, res) {
-            printList(err, res);
+            CustomKeytool.printList(err, res);
         });
     }
 

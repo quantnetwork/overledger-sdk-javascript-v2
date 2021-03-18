@@ -17,7 +17,7 @@ const CustomKeytool = require('@quantnetwork/overledger-keytool').default;
     try {
         const test = new CustomKeytool("JKS", true);
         await test.createKeystoreFile("richard.jks", "changeit", "secret", "CN=secret", 120);
-        test.readKeystoreFile("richard.jks", "changeit", "secret");
+        await test.readKeystoreFile("richard.jks", "changeit", "secret");
 
     } catch (e) {
         console.error('error', e);
