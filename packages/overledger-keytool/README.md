@@ -21,9 +21,9 @@ yarn add @quantnetwork/overledger-keytool
 
 <a name="module_overledger-keytool"></a>
 
-## overledger-provider
+## overledger-keytool
 
-* [overledger-provider](#module_overledger-keytool)
+* [overledger-keytool](#module_overledger-keytool)
 
 
 
