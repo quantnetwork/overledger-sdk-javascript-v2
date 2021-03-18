@@ -1,5 +1,5 @@
 //NOTE: replace @quantnetwork/ with ../../packages/ for all require statements below if you have not built the SDK yourself
-const customKeytool = require('@quantnetwork/overledger-keytool').default;
+const CustomKeytool = require('@quantnetwork/overledger-keytool').default;
 
 //  ---------------------------------------------------------
 //  -------------- BEGIN VARIABLES TO UPDATE ----------------
@@ -15,11 +15,9 @@ const customKeytool = require('@quantnetwork/overledger-keytool').default;
  */
 ; (async () => {
     try {
-        const test = new customKeytool("JKS", true);
-        test.createKeystoreFile("richard.jks", "changeit", "secret", "CN=secret", 120).then(
-            function(value) {test.readKeystoreFile("richard.jks", "changeit", "secret");},
-            function(error){console.log("Error: " + error);}
-        );
+        const test = new CustomKeytool("JKS", true);
+        await test.createKeystoreFile("richard.jks", "changeit", "secret", "CN=secret", 120);
+        test.readKeystoreFile("richard.jks", "changeit", "secret");
 
     } catch (e) {
         console.error('error', e);
