@@ -9,7 +9,9 @@ import ProviderOptions from './ProviderOptions';
 import SDKOptions from './SDKOptions'
 import DltNameOptions from './associatedEnums/DltNameOptions';
 import EchoRequest from "./EchoRequest";
-
+import PreparedTransaction from "./PreparedTransaction";
+import SignedPreparedTransaction from "./SignedPreparedTransaction";
+import EthereumPreparedTransactionNativeData from "./EthereumPreparedTransactionNativeData";
 
 /**
  * Types used by the Overledger SDK packages.
@@ -21,6 +23,9 @@ export {
   ProviderOptions,
   SDKOptions,
   DltNameOptions,
-  EchoRequest
+  EchoRequest,
+  PreparedTransaction,
+  SignedPreparedTransaction,
+  EthereumPreparedTransactionNativeData,
 
 };

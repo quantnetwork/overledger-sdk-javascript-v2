@@ -1,11 +1,14 @@
 import { RippleAPI } from 'ripple-lib';
 import { deriveKeypair, deriveAddress } from 'ripple-keypairs';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
-import { Account } from '@quantnetwork/overledger-types';
+import { Account, PreparedTransaction } from '@quantnetwork/overledger-types';
+import log4js from "log4js";
 
 /**
  * @memberof module:overledger-dlt-xrp-ledger
 */
+const log = log4js.getLogger('Ripple');
+log.level = "info";
 class Ripple extends AbstractDLT {
   rippleAPI: RippleAPI;
   account: Account;
@@ -86,6 +89,12 @@ class Ripple extends AbstractDLT {
     }
    this.account = thisAccount;
   }
+
+  sign(unsignedTransaction: PreparedTransaction): Promise<string> {
+    log.info(unsignedTransaction);
+    return Promise.resolve("Not Implemented");
+  }
+
 }
 
 

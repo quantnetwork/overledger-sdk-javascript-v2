@@ -2,11 +2,14 @@
 import Web3 from 'web3';
 import { MAINNET } from '@quantnetwork/overledger-provider';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
-import {Account } from '@quantnetwork/overledger-types';
+import { Account, PreparedTransaction, EthereumPreparedTransactionNativeData } from '@quantnetwork/overledger-types';
+import log4js from "log4js";
 
 /**
  * @memberof module:overledger-dlt-ethereum
 */
+const log = log4js.getLogger('Ethereum');
+log.level = "info";
 class Ethereum extends AbstractDLT {
   chainId: number;
   account: Account;
@@ -100,6 +103,28 @@ class Ethereum extends AbstractDLT {
     }
    this.account = thisAccount;
 
+  }
+
+  async sign(unsignedTransaction: PreparedTransaction): Promise<string> {
+    log.info("Signing: " + JSON.stringify(unsignedTransaction));
+
+    return new Promise((resolve, reject) => {
+
+      //TODO: I am assuming SDK will need to do the HEX conversion for the data inside nativeData for now. It would be better if Prepared Object is the one doing the HEX
+      log.info('PRE HEX data: ==> ' + JSON.stringify(unsignedTransaction));
+      let transactionData = unsignedTransaction.nativeData as EthereumPreparedTransactionNativeData;
+      transactionData.data =this.web3.utils.asciiToHex(transactionData.data);
+      unsignedTransaction.nativeData = transactionData;
+      log.info('POST HEX data: ==> ' + JSON.stringify(unsignedTransaction));
+
+      this.web3.eth.accounts.signTransaction(unsignedTransaction.nativeData, this.account.privateKey, (err, data) => {
+        if (err) {
+          log.error("Error: " + err);
+          return reject(err);
+        }
+        return resolve(data.rawTransaction);
+      });
+    });
   }
 }
 

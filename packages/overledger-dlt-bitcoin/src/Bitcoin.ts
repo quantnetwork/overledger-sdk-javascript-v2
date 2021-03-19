@@ -1,11 +1,14 @@
 import * as bitcoin from 'bitcoinjs-lib';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import { MAINNET } from '@quantnetwork/overledger-provider';
-import { Account } from '@quantnetwork/overledger-types';
+import { Account, PreparedTransaction } from '@quantnetwork/overledger-types';
+import log4js from "log4js";
 
 /**
  * @memberof module:overledger-dlt-bitcoin
 */
+const log = log4js.getLogger('Bitcoin');
+log.level = "info";
 class Bitcoin extends AbstractDLT {
   addressType: bitcoin.Network;
   account: Account;
@@ -93,6 +96,11 @@ class Bitcoin extends AbstractDLT {
       password: thisPassword,
     }
    this.account = thisAccount;
+  }
+
+  sign(unsignedTransaction: PreparedTransaction): Promise<string> {
+    log.info(unsignedTransaction);
+    return Promise.resolve("Not Implemented");
   }
 
 }

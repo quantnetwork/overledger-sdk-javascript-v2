@@ -1,6 +1,6 @@
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
-import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest } from '@quantnetwork/overledger-types';
+import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest, PreparedTransaction, SignedPreparedTransaction } from '@quantnetwork/overledger-types';
 import { AxiosInstance, AxiosPromise } from "axios";
 import log4js from 'log4js';
 
@@ -18,6 +18,7 @@ class OverledgerSDK {
     network: NetworkOptions;
     provider: Provider;
     request: AxiosInstance;
+
     
     /**
      * Create the Overledger SDK
@@ -101,6 +102,20 @@ class OverledgerSDK {
 
         return this.request.post(pathToCall==undefined?"/oauth2/token":pathToCall, params);
     }
+
+    /**
+     * Signing a prepared object
+     * @param unsignedData
+     */
+    public async sign(dltName: string, unsignedData: PreparedTransaction): Promise<SignedPreparedTransaction> {
+
+        const signedTransaction = await this.dlts[dltName].sign(unsignedData);
+
+        return {
+            signedTransaction: signedTransaction,
+        };
+    }
+
 }
 
 export default OverledgerSDK;
