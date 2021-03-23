@@ -117,7 +117,8 @@ class Ethereum extends AbstractDLT {
       unsignedTransaction.nativeData = transactionData;
       log.info('POST HEX data: ==> ' + JSON.stringify(unsignedTransaction));
 
-      this.web3.eth.accounts.signTransaction(unsignedTransaction.nativeData, this.account.privateKey, (err, data) => {
+      let transactionConfig = unsignedTransaction.nativeData as object;
+      this.web3.eth.accounts.signTransaction(transactionConfig, this.account.privateKey, (err, data) => {
         if (err) {
           log.error("Error: " + err);
           return reject(err);
