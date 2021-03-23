@@ -14,13 +14,14 @@ const partyAEthereumPrivateKey = "e352ad01a835ec50ba301ed7ffb305555cbf3b635082af
 
 ; (async () => {
     try {
-        //read from JKS file input,. contain above key eventually after reading
+        //TODO: I do not know how to generate the jks file correctly via the PKCS12 flow
+        //read from JKS file input and retrieve the key
         const test = new CustomKeytool("JKS", true);
         let keyFromFile = await test.getKeyFromFile("pk.jks", "password", "1");
         console.log("Key: " + keyFromFile);
 
-        //TODO: how do i convert the keyFromFile to be same as partyAEthereumPrivateKey???
-
+        //TODO: assuming i have the correct file, it would be a matter of decoding the keyFromFile back via Base64.decodeBase64 I am guessing
+        //TODO: then that decoded value will be passed into the setAccount method for ETH account.
 
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN },
