@@ -1,4 +1,4 @@
-import { Account } from '@quantnetwork/overledger-types';
+import { Account, PreparedTransaction } from '@quantnetwork/overledger-types';
 import { AxiosPromise } from 'axios';
 
 /**
@@ -44,6 +44,7 @@ abstract class AbstractDLT {
     return this.sdk.getEcho(request, accessToken);
   }
 
+  abstract sign(unsignedTransaction: PreparedTransaction): Promise<string>;
 
 }
 

@@ -69,6 +69,35 @@ class CustomKeytool {
         }
     }
 
+    public async getKeyFromFile(fileName: string, keypass: string, alias: string): Promise<string> {
+        log.info("Getting key from keystore file: " + fileName);
+
+        const content = await readFile(fileName);
+
+        const keystore = jks.toPem(content, keypass);
+
+        if(keystore !== undefined)
+            log.info("Read keystore successfully");
+
+        log.info(keystore);
+        if(keystore[alias] !== undefined) {
+            const {cert, key} = keystore[alias];
+            if (cert !== undefined)
+                log.info(cert);
+            if (key !== undefined) {
+                let keystr = key as string;
+                console.info("keystr: " + keystr);
+                let result = keystr.match(/-----BEGIN PRIVATE KEY-----([.\s\S]*)-----END PRIVATE KEY-----/);
+                console.info("result: " + result[1]);
+                return result[1];
+            }
+        }
+        else {
+            log.info("alias element seems to be undefined");
+        }
+        return "";
+    }
+
     private static printList(err, res): void {
         if (err) {
             log.error('Error listing keystore content', err);
