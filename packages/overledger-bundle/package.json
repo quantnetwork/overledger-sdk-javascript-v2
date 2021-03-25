@@ -12,7 +12,7 @@
     "build": "yarn run clean && tsc --declaration",
     "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/bundle",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-bundle",
   "contributors": [
     {
       "name": "Luke Riley",
@@ -36,7 +36,7 @@
     }
   ],
   "license": "Apache-2.0",
-  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
+  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "dependencies": {
     "@quantnetwork/overledger-core": "^2.0.0",
     "@quantnetwork/overledger-dlt-bitcoin": "^2.0.0",
