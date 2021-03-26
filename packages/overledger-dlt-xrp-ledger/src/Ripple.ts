@@ -1,7 +1,7 @@
 import { RippleAPI } from 'ripple-lib';
 import { deriveKeypair, deriveAddress } from 'ripple-keypairs';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
-import { Account, PreparedTransaction } from '@quantnetwork/overledger-types';
+import { Account, PreparedTransaction, XRPLedgerPreparedTransactionNativeData } from '@quantnetwork/overledger-types';
 import log4js from "log4js";
 
 /**
@@ -91,8 +91,27 @@ class Ripple extends AbstractDLT {
   }
 
   sign(unsignedTransaction: PreparedTransaction): Promise<string> {
-    log.info(unsignedTransaction);
-    return Promise.resolve("Not Implemented");
+
+    let transactionData = unsignedTransaction.nativeData as XRPLedgerPreparedTransactionNativeData;
+    log.info("Signing: " + JSON.stringify(transactionData));
+
+    const customTxJson = "{\"Flags\":2147483648,\n" +
+        "\t\t\t  \"TransactionType\":\"Payment\",\n" +
+        "\t\t\t  \"Account\":\"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59\",\n" +
+        "\t\t\t  \"Destination\":\"rpZc4mVfWUif9CRoHRKKcmhu1nx2xktxBo\",\n" +
+        "\t\t\t  \"Amount\":{\"value\":\"0.01\",\n" +
+        "\t\t\t\t\t\t\t\"currency\":\"USD\",\n" +
+        "\t\t\t\t\t\t\t\"issuer\":\"rMH4UxPrbuMa1spCBR98hLLyNJp4d8p4tM\"},\n" +
+        "\t\t\t  \"SendMax\":{\"value\":\"0.01\",\"currency\":\"USD\",\"issuer\":\"rMH4UxPrbuMa1spCBR98hLLyNJp4d8p4tM\"},\n" +
+        "\t\t\t  \"LastLedgerSequence\":8820051,\n" +
+        "\t\t\t  \"Fee\":\"12\",\n" +
+        "\t\t\t  \"Sequence\":23}";
+    const signedData = this.rippleAPI.sign(customTxJson, this.account.privateKey);
+    //const signedData = this.rippleAPI.sign(JSON.stringify(transactionData.payment), this.account.privateKey);
+
+    log.info("SignedData object: " + JSON.stringify(signedData));
+
+    return Promise.resolve("");
   }
 
 }
