@@ -27,6 +27,12 @@ yarn add @quantnetwork/overledger-core
 * [overledger-core](#module_overledger-core)
 
     * [.OverledgerSDK](#module_overledger-core.OverledgerSDK)
+    In OverledgerSDK, we are using secure-env for loading up values for environment variables. Please ensure you have secure-env installed.
+    Create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE.
+    For example: USER_NAME=MYUSER
+    
+    Once created, run secure-env .env -s myPassword
+    A new encrypted file .env.enc will be created in your project root directory. You can delete the .env file after this to prevent stealing. 
 
     * [.default](#module_overledger-core.default)
 
@@ -40,4 +46,5 @@ yarn add @quantnetwork/overledger-core
 
 ### *overledger-core*.default
 Core Overledger SDK class. Individual dlt packages must be installed manually.
+
 
