@@ -77,11 +77,6 @@ class Bitcoin extends AbstractDLT {
     thisPrivateKey = accountInfo.privateKey;
     thisAddress = bitcoin.payments
       .p2pkh({ pubkey: keyPair.publicKey, network: this.addressType }).address;
-    log.info("thisAddress: " + thisAddress);
-    log.info("addressType: " + this.addressType.scriptHash);
-    log.info("pubKeyHash: " + this.addressType.pubKeyHash);
-    log.info("wif: " + this.addressType.wif);
-    log.info("messagePrefix: " + this.addressType.messagePrefix);
 
     thisPublicKey = keyPair.publicKey.toString('hex');
     if ((typeof accountInfo.provider !== 'undefined')) {
@@ -105,15 +100,9 @@ class Bitcoin extends AbstractDLT {
   }
 
   sign(unsignedTransaction: PreparedTransaction): Promise<string> {
-    //log.info(unsignedTransaction);
     let transactionData = unsignedTransaction.nativeData as BitcoinPreparedTransactionNativeData;
     // for each input sign them:
     const myKeyPair = bitcoin.ECPair.fromWIF(this.account.privateKey, this.addressType);
-    log.info("this.account.privateKey: " + this.account.privateKey);
-    log.info("private-key: ");
-    log.info(myKeyPair.privateKey.toString('hex'));
-    log.info("public-key: ");
-    log.info(myKeyPair.publicKey.toString('hex'));
 
     const transaction = this.buildTransaction(transactionData);
 
@@ -133,8 +122,6 @@ class Bitcoin extends AbstractDLT {
 
     let counter = 0;
     while (counter < thisTransaction.outputs.length) {
-      console.log;("Address.fromBase58: ");
-      console.log(thisTransaction.outputs[counter].address);
       tx.addOutput(thisTransaction.outputs[counter].address, thisTransaction.outputs[counter].amount);
       counter = counter + 1;
     }
@@ -142,11 +129,6 @@ class Bitcoin extends AbstractDLT {
 
      counter = 0;
     while (counter < thisTransaction.inputs.length) {
-      console.log("transactionHash: ");
-      console.log(thisTransaction.inputs[counter].transactionHash);
-      console.log("vout: ");
-      console.log(thisTransaction.inputs[counter].vout);
-
       tx.addInput(thisTransaction.inputs[counter].transactionHash,
         parseInt(thisTransaction.inputs[counter].vout,
           10)
