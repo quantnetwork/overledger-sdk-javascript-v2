@@ -32,41 +32,30 @@ const partyAxrpPrivateKey = 'sswERuW1KWEwMXF6VFpRY72PxfC9b';
         });
 
         let preparedTransaction = "{\n" +
-            "    \"requestId\": \"b670c3ec-1bd9-4773-8e9d-aa18868c8648\",\n" +
+            " \"requestId\": \"b670c3ec-1bd9-4773-8e9d-aa18868c8648\",\n" +
             "    \"requestTime\": null,\n" +
             "    \"gatewayFee\": 10,\n" +
             "    \"gatewayFeeUnit\": \"QNT\",\n" +
             "    \"nativeData\": {\n" +
-            "\t\n" +
-            "        \"address\": \"rhTa8RGotyJQAW8sS2tFVVfvcHYXaps9hC\",\n" +
-            "        \"payment\": {\n" +
-            "            \"source\": {\n" +
-            "                \"address\": \"rhTa8RGotyJQAW8sS2tFVVfvcHYXaps9hC\",\n" +
-            "                \"amount\": {\n" +
-            "                    \"value\": \"225000\",\n" +
-            "                    \"currency\": \"XRP\"\n" +
-            "                }\n" +
-            "            },\n" +
-            "            \"destination\": {\n" +
-            "                \"address\": \"rKoGTTkPefCuQR31UHsfk9jKnrQHz6LtKe\",\n" +
-            "                \"minAmount\": {\n" +
-            "                    \"value\": \"225000\",\n" +
-            "                    \"currency\": \"XRP\"\n" +
-            "                }\n" +
-            "            },\n" +
-            "            \"memos\": [\n" +
-            "                {\n" +
-            "                    \"data\": \"25 AK47S 69420666\"\n" +
-            "                }\n" +
-            "            ]\n" +
-            "        },\n" +
-            "        \"instructions\": {\n" +
-            "            \"maxLedgerVersion\": 4294967295,\n" +
-            "            \"sequence\": 557,\n" +
-            "            \"fee\": \"0.000012\"\n" +
-            "        }\n" +
-            "    }\n" +
-            "}";
+            "\t\t\t  \"TransactionType\":\"Payment\",\n" +
+            "\t\t\t  \"Account\":\"rhTa8RGotyJQAW8sS2tFVVfvcHYXaps9hC\",\n" +
+            "\t\t\t  \"Destination\":\"rKoGTTkPefCuQR31UHsfk9jKnrQHz6LtKe\",\n" +
+            "\t\t\t  \"Amount\":\"1\",\n" +
+            "\t\t\t  \"Flags\":2147483648,\n" +
+            "\t\t\t  \"Memos\":\n" +
+            "\t\t\t    [\n" +
+            "\t\t\t        {\n" +
+            "\t\t\t            \"Memo\":\n" +
+            "\t\t\t                {\n" +
+            "\t\t\t                    \"MemoData\":\"4F564C2053444B2054657374\"\n" +
+            "\t\t\t                }\n" +
+            "\t\t\t        }\n" +
+            "\t\t\t   ],\n" +
+            "\t\t\t   \"LastLedgerSequence\":4294967295,\n" +
+            "\t\t\t   \"Fee\":\"12\",\n" +
+            "\t\t\t   \"Sequence\":557\n" +
+            "\t\t\t }\n" +
+            "}"
 
         overledger.dlts[DltNameOptions.XRP_LEDGER].setAccount({privateKey: partyAxrpPrivateKey});
 

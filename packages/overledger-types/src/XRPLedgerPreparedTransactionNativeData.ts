@@ -1,14 +1,19 @@
-import XRPLedgerPreparedPayment from "./XRPLedgerPreparedPayment";
-import XRPLedgerPreparedInstructions from "./XRPLedgerPreparedInstructions";
+import XRPLedgerPreparedMemos from "./XRPLedgerPreparedMemos";
 
 /**
  * @memberof module:overledger-types
  */
 type XRPLedgerPreparedTransactionNativeData = {
 
-  address: string,
-  payment: XRPLedgerPreparedPayment,
-  instructions: XRPLedgerPreparedInstructions,
+  transactionType: string,
+  account: string,
+  destination: string,
+  amount: string,
+  flags: string,
+  memos: XRPLedgerPreparedMemos,
+  lastLedgerSequence: BigInteger,
+  fee: string,
+  sequence: BigInteger,
 };
 
 export default XRPLedgerPreparedTransactionNativeData;
