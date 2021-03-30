@@ -1,7 +1,7 @@
 import { RippleAPI } from 'ripple-lib';
 import { deriveKeypair, deriveAddress } from 'ripple-keypairs';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
-import { Account, PreparedTransaction } from '@quantnetwork/overledger-types';
+import { Account, PreparedTransaction, XRPLedgerPreparedTransactionNativeData } from '@quantnetwork/overledger-types';
 import log4js from "log4js";
 
 /**
@@ -91,8 +91,15 @@ class Ripple extends AbstractDLT {
   }
 
   sign(unsignedTransaction: PreparedTransaction): Promise<string> {
-    log.info(unsignedTransaction);
-    return Promise.resolve("Not Implemented");
+
+    let transactionData = unsignedTransaction.nativeData as XRPLedgerPreparedTransactionNativeData;
+    log.info("**Signing: " + JSON.stringify(transactionData));
+
+    const signedData = this.rippleAPI.sign(JSON.stringify(transactionData), this.account.privateKey);
+
+    log.info("SignedData object: " + JSON.stringify(signedData));
+
+    return Promise.resolve(signedData.signedTransaction);
   }
 
 }

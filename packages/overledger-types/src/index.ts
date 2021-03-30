@@ -12,6 +12,8 @@ import EchoRequest from "./EchoRequest";
 import PreparedTransaction from "./PreparedTransaction";
 import SignedPreparedTransaction from "./SignedPreparedTransaction";
 import EthereumPreparedTransactionNativeData from "./EthereumPreparedTransactionNativeData";
+import XRPLedgerPreparedTransactionNativeData from "./XRPLedgerPreparedTransactionNativeData";
+import XRPLedgerPreparedMemos from "./XRPLedgerPreparedMemos";
 
 /**
  * Types used by the Overledger SDK packages.
@@ -27,5 +29,6 @@ export {
   PreparedTransaction,
   SignedPreparedTransaction,
   EthereumPreparedTransactionNativeData,
-
+  XRPLedgerPreparedTransactionNativeData,
+  XRPLedgerPreparedMemos,
 };
