@@ -13,6 +13,8 @@ import PreparedTransaction from "./PreparedTransaction";
 import SignedPreparedTransaction from "./SignedPreparedTransaction";
 import EthereumPreparedTransactionNativeData from "./EthereumPreparedTransactionNativeData";
 import BitcoinPreparedTransactionNativeData from "./BitcoinPreparedTransactionNativeData";
+import XRPLedgerPreparedTransactionNativeData from "./XRPLedgerPreparedTransactionNativeData";
+import XRPLedgerPreparedMemos from "./XRPLedgerPreparedMemos";
 
 /**
  * Types used by the Overledger SDK packages.
@@ -29,4 +31,6 @@ export {
   SignedPreparedTransaction,
   EthereumPreparedTransactionNativeData,
   BitcoinPreparedTransactionNativeData,
+  XRPLedgerPreparedTransactionNativeData,
+  XRPLedgerPreparedMemos,
 };
