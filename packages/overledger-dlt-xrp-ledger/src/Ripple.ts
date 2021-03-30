@@ -45,7 +45,7 @@ class Ripple extends AbstractDLT {
       privateKey: generated.secret,
       publicKey: keypair.publicKey,
       password: "",
-      provder: "",
+      provider: "",
     };
 
     return account;

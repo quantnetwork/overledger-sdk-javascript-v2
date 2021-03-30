@@ -37,8 +37,10 @@ class OverledgerSDK {
         });
 
         this.provider = new Provider(options.provider);
+
         let secureEnv = require('secure-env');
-        process.env = secureEnv({secret:options.password});
+        process.env = secureEnv({secret: options.password});
+
     }
 
     /**
