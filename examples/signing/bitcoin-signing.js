@@ -18,10 +18,11 @@ const partyABitcoinPrivateKey = 'cNmsFjPqWCaVdhbPoHQJqDpayYdtKR9Qo81KVAEMHJwmgRV
                 { dlt: DltNameOptions.BITCOIN },
             ],
             provider: { network: 'testnet' },
+            password: 'password',
         });
 
-        overledger.dlts.bitcoin.setAccount({privateKey: partyABitcoinPrivateKey});
-
+        overledger.dlts.bitcoin.setAccount({privateKey: process.env.PARTY_A_BITCOIN_PRIVATE_KEY});
+    
         let preparedTransaction = "{\n  " +
             " \"requestId\": \"393f80e3-6a54-4f78-9c48-de1fb3cee8e1\",\n  " +
             "  \"gatewayFee\": \"10\",\n  " +
@@ -45,8 +46,7 @@ const partyABitcoinPrivateKey = 'cNmsFjPqWCaVdhbPoHQJqDpayYdtKR9Qo81KVAEMHJwmgRV
             "               }\n        ],\n      " +
             "  \"fee\": \"2200\"\n    }" +
             "\n}";
-        //TODO: I am assuming the data field is NOT in HEX form, the code inside SDK will do some hex conversion at this point in time. Better to have PREP do this.
-        overledger.dlts.bitcoin.setAccount({ privateKey: partyABitcoinPrivateKey });
+
 
         let result = await overledger.sign(DltNameOptions.BITCOIN, JSON.parse(preparedTransaction));
         console.log("Signed: " + JSON.stringify(result));
