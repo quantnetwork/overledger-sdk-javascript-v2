@@ -14,6 +14,7 @@ import ProviderOptions from './ProviderOptions';
 type SDKOptions = {
   dlts: DLTOptions[],
   provider?: ProviderOptions,
+  password?: string,
 };
 
 export default SDKOptions;
