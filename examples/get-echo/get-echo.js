@@ -1,3 +1,9 @@
+//NOTE: Please create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE.
+//Run: secure-env .env -s mySecretPassword
+//You will then get a .env.enc file created in your project root directory. You can delete the .env file after this to prevent stealing.
+//pass in the password in OverledgerSdk
+//
+
 //NOTE: replace @quantnetwork/ with ../../packages/ for all require statements below if you have not built the SDK yourself
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
@@ -17,6 +23,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
     const overledger = new OverledgerSDK({
       dlts: [{ dlt: DltNameOptions.BITCOIN }, { dlt: DltNameOptions.ETHEREUM }, { dlt: DltNameOptions.XRP_LEDGER }],
       provider: { network: 'http://api.devnet.overledger.io/v1' },
+      password: 'password',
     });
 
     let request = {

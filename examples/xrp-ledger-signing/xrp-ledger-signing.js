@@ -1,12 +1,18 @@
+//NOTE: Please create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE.
+//Run: secure-env .env -s mySecretPassword
+//You will then get a .env.enc file created in your project root directory. You can delete the .env file after this to prevent stealing.
+//pass in the password in OverledgerSdk
+//
+
 //NOTE: You may need to run "yarn install" inside the examples/create-account folder, then node create-account.js
 //NOTE: replace @quantnetwork/ with ../../packages/ for all require statements below if you have not built the SDK yourself
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
-const CustomKeytool = require('@quantnetwork/overledger-keytool').default;
+
 //  ---------------------------------------------------------
 //  -------------- BEGIN VARIABLES TO UPDATE ----------------
 //  ---------------------------------------------------------
-const partyAxrpPrivateKey = 'sswERuW1KWEwMXF6VFpRY72PxfC9b';
+//const partyAxrpPrivateKey = 'sswERuW1KWEwMXF6VFpRY72PxfC9b';
 
 //  ---------------------------------------------------------
 //  -------------- END VARIABLES TO UPDATE ------------------
@@ -14,14 +20,6 @@ const partyAxrpPrivateKey = 'sswERuW1KWEwMXF6VFpRY72PxfC9b';
 
 ; (async () => {
     try {
-        //TODO: I do not know how to generate the jks file correctly via the PKCS12 flow
-        //read from JKS file input and retrieve the key
-        //const test = new CustomKeytool("JKS", true);
-        //let keyFromFile = await test.getKeyFromFile("pk.jks", "password", "1");
-        //console.log("Key: " + keyFromFile);
-
-        //TODO: assuming i have the correct file, it would be a matter of decoding the keyFromFile back via Base64.decodeBase64 I am guessing
-        //TODO: then that decoded value will be passed into the setAccount method for Ripple account.
 
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN },
@@ -29,7 +27,13 @@ const partyAxrpPrivateKey = 'sswERuW1KWEwMXF6VFpRY72PxfC9b';
             { dlt: DltNameOptions.XRP_LEDGER }
             ],
             provider: { network: 'testnet' },
+            password: 'password',
         });
+
+        console.log("=====")
+        console.log(process.env.PARTY_A_XRP_PRIVATE_KEY);
+        console.log("=====")
+
 
         let preparedTransaction = "{\n" +
             " \"requestId\": \"b670c3ec-1bd9-4773-8e9d-aa18868c8648\",\n" +
@@ -57,7 +61,7 @@ const partyAxrpPrivateKey = 'sswERuW1KWEwMXF6VFpRY72PxfC9b';
             "\t\t\t }\n" +
             "}"
 
-        overledger.dlts[DltNameOptions.XRP_LEDGER].setAccount({privateKey: partyAxrpPrivateKey});
+        overledger.dlts[DltNameOptions.XRP_LEDGER].setAccount({privateKey: process.env.PARTY_A_XRP_PRIVATE_KEY});
 
         let result = await overledger.sign(DltNameOptions.XRP_LEDGER, JSON.parse(preparedTransaction) );
         console.log("Signed: " + JSON.stringify(result));

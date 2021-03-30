@@ -1,3 +1,9 @@
+//NOTE: Please create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE.
+//Run: secure-env .env -s mySecretPassword
+//You will then get a .env.enc file created in your project root directory. You can delete the .env file after this to prevent stealing.
+//pass in the password in OverledgerSdk
+//
+
 //NOTE: replace @quantnetwork/ with ../../packages/ for all require statements below if you have not built the SDK yourself
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
@@ -5,10 +11,10 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 //  ---------------------------------------------------------
 //  -------------- BEGIN VARIABLES TO UPDATE ----------------
 //  ---------------------------------------------------------
-const clientID = '45ei2llnq25eugla3h0khrnr6m'; //your app clientId
-const clientSecret = '7l5egg2k4q0im91gcmb7lb2htrn1fvg50cb9up5tcnub0pt2atm'; //your app clientSecret
+//const clientID = '45ei2llnq25eugla3h0khrnr6m'; //your app clientId
+//const clientSecret = '7l5egg2k4q0im91gcmb7lb2htrn1fvg50cb9up5tcnub0pt2atm'; //your app clientSecret
 //your refresh token
-const refreshToken = 'eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.lvB4HNeZnCz3xjERT5YqwfPfhNJxaRoxMYwiZOhbnBqB_ehjts77dBO1GHvmsLKuxsk3kKdcpqX4-9WQTgfNpdYAtrrJOGzIVa2surFu_gl6V-w3ERhZk0f7ppRyGCedjaK4k1G0XX7U9p0wGAqirKLsxxxIO-Lh1EzyrDSKZ70zZLGNSt_QPuErS_fjGwemwc8Wg6fhv4Ek5XMSGaMnhypYovsFyMWhjW93Wr1GoKLyTpaoCHDcbd3RqDrxUCxvfU9DqVpZqc7zrdCuO_2TiNU7SWGjd9X1kfiAhbZYyA9D9Ruiyy_ZghSEdnscwWrThUAovFA-5wWH5XsG8PmfDw.T4ngD0FRbxVVFF1e.JdLwW-VP7oF4BGJ8MrlkG7-BJN8JO9mITkn0rN393v-ygZL4zNV9mRjbF0DcaqbLtMZ_jUAIMgfxtGU6ZlLb4WK1_gcc68VeQPrDTVNAycfbv4leRTyqVdwc0vIG1lQ8R-D9iCxEfC161_UYp0t9yb5QwvRHSfj4xBcgiefshm-h0DfiImRV9fxBYJ6x9bo_C64XcYwHux9nCDVXL7nn_HjfDy5YEkOsmjV8X7WZ-Wk5EV0ZMft6PdpK86VrloU3QVZc2K9GPuIF0_uI2tH41ZtXblavveZliLFCQwSMWxkoDn0KCYEAa1N-Lzlnas4FUt-zh_mcRIjnzH_TS17A9NWB_NJ_jbU47ZKa9KnmoWRk1HVKgoebqWQId0glCUGvJvvMKUpvZyl7uPsol8T-wFO1Z1dy4tMYlwXPdqD_yUD6gMW_vsED3yagNF9pf5vvMUoHeyzsDMKlsW-Zcbcqdv9L9rv5zFslR9AZLQdeuAFNzeepKY1gVYmQBZjUOJq804rQOaHOjYVDhMTraZ3eWeEwsI0m_1c1mPhxJffjgMbvq3sALP_Lfsdzh_4Is3iL56kpyEnO0Nl1_0z8jWzaFIlmj6AUhuBe6VkWU945Sao2D_h4fSkJCG35G5sTiOE0g7sc38pgP-cpsHhPD1YyaLd3cG5QkDhKomm-E6pAMF3NzSLsn3xihVecsYVOtV-eBlid2Tp9i3iMHuqtOI76eA5uwr7dLm7_jC1S5aWl35axvfwdSgli9jVFAPkvrOaupewc4eFV2zrZoIj_7fp5ohjV1vYMQvAsM5lRxCahFsXZ02WK6qr4gvr8aQ_X9qv1It0BnnKmOxv78JgpTPIGwKMaaS4JZHZyW1gePe_tPu3Cm29pkUuy6nTkoRrreFsUStuzweDyuSxR7tY-fNYWU83dYuDMmXz2GfYWTf7wR782-v3YQS1VaBVscOZ3qVkRh3WMcHFiwUuT4bpdAFHl2lDbJ17gWzwOmACbsJirVSOd5bdqJo6jyYU9Veto2O5bn1MHup-zb1h3kH8u3DL28LDqG7qgUsAv77HsX8VU0pz7bVwfnpgrWCcebByO5b_3j9i6tXW8lKzJEOjoPa8c-rAkTT39VIlZWziwKoJ9LWBThrbJ4cwhoWONo2ZfAXvnEEPNoSIpv9sMzhwCh19tQGmcuiPT_SUMqCRHuUk_lKUSlU3xuKvDz7A6XiR51F_oTtVQ62toitYbvMMZpvbqk4_UXmymlJsPLTmQxcJs3eT3-FUXAPQkH-oZUlLi4gO31lbSfPMda97398aio1PtYV1oZVSUKP8s7YtpxRkEtbg2aM20gnLF1lWAHIY.QUFItNZPa2anwytv-a6Icg';
+const refreshToken = 'eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.N8h9RwB1rxcjSDbDqjW0nipb1rOAAgXPOn3TBufM0rifl5J7S395WWkl5y4yG_wGxpbBMzP1v1pKOG1Cl7htreU1g1RUZco5ZCuQczr7TRvbizAJHOX2HQnYoBHk32YjxNTcqjM9RqSOwiUjTRlXrXATcJ9KagRgJ3ecH6Y3FmUFcav7AQRtXtPhrOHFAHpzAv4BCllQ5LoOmHDv7Xy27p5tjAjHJv1-52TISMieUPH6zwHNDlkBVuic0JAqQFBLD2MFXUibDXwe73N211MQqt8eclftt6sa8UhHK0VBkN1z32QPR8q9qXuMSUZgc87K0LKuZA_OB4jz0setx3eg8A.Lo7tQLYSjCLHpfsN.K9riG5qNDO9-MDiT2K8Be-RU5ssirveUN7eHNCqsHcTyI6ChSmycM0BOqy0ol6Ep7jncqW03IVxRSJzWDXzP-64smTaqQVL8mQil5n-fIFnqWUWxUdPkJlv25ZAk2G0KxDPW9cYKoJukfpk95np9GPMsBzljAWRf6hwbrQLTzEwMQm7VAlEqIOMK33z1HELezP5p-YK7S-3dfp2ewjdpfXFPlmIsHhYFU6ZQ6Cf0wNZ_ZyVEYJ1SbAvDTobXeMwsgZtk8n4Lr2cX-Tdo4IRzP5LKTkRTwZHJ8YJOzHnonGZhA9vmiKAV0yvYwyEn_MOFu8xPjbbsVgo1mBEU9gs_a5KlXwW1RAUKgzfrMXA5IE07wMs7nJDLBFWLtvXOVttGKqx9PzwGe5OPaPcoH4Wbj-Vl40L8llQHnwiSf4_bn0-M2V9Wp93s_0gX5zazfjPuOy2D0nlq3DpCVRRWaIcFEEsh89mlA5FgUsd9YiF6gt8ObNRfgBtllx03J0rtbIUFZBVqesPn94eycPYCvLb540vR6PSSUDfqbjQ6Dn1JyF1dhW3Nz-5McHxCvaz3s4C4hYwBm656hjPyxqLUyedcyCKKSzCpeo3rKd5IC7DNQPNZpVpgs8Ks3OG2vYb7qsWJ-9vtsOgkQShS1aaZzHiQ06xJOKROCsa3YBuBRJIvGXQo61BrMI_Z3Tx7bcSlcJpRVLgiHqDnhadfxB1ZzosiZOjm3DLpVM6Pdec-cosf-SU9mOXFOUEeepmWxSTo4e1QT-dNTMmjuNUNDxuvbAUNeeGWLLDJ-eTBLIqDUUVRHT5KhGdOnb5Zpy0DHaIEOPj2uIGNaye8Jaw_oLwuvK7jSepRusWKd0QvjlghP7lh7kVo2Z3ZPccgk9sajEufx1YoN2dshGepNyDjtOyRHjh_NgR_FAIMD1ySUQjnSUdNm0N6vXC03CjAXFk9skWhDCi2DV8K9U8ClSrSYd0EM11MXtHIyfi-dY20DUmyFd361HW-rjvmNmjKa3N-C4wSVaSx4xBfm94dc8SSgOPJwpsxINioa78BUSMJAZ_pzoVyrdP_AduIbTwgE1qgrxG33Haa5ENaf3ZBj3wgC0E0pUBlPzT49cizJD_-p9YzK4fOvV__AtQXXdyEna7u3eR57BXI025_C4kqrYT6lAL_qwARZZ9pms2_oTnZhiAX28NK_DxhhGllEDazyYmy5Ee3Az-VlgUSaBJB5_ItxLMV4fPmokV-OoxaI6nZRd8fjEFWIUf22R2E34KLjZ1DfL3gnvmFT3yoaP4ryo0Nq3_43oCXfUS6-jY0IiaK0XRtD0mkv7o6XSOpyKKxG4uPPz4.s1ShMdEIFDzCpK2IF8VhFg';
 //  ---------------------------------------------------------
 //  -------------- END VARIABLES TO UPDATE ------------------
 //  ---------------------------------------------------------
@@ -24,9 +30,10 @@ const refreshToken = 'eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRV
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN }, { dlt: DltNameOptions.ETHEREUM }, { dlt: DltNameOptions.XRP_LEDGER }],
             provider: { network: 'https://richardquant.auth.us-east-2.amazoncognito.com' },
+            password: 'password',
         });
 
-        const response = await overledger.refreshAccessToken(clientID, clientSecret, refreshToken);
+        const response = await overledger.refreshAccessToken(process.env.CLIENT_ID, process.env.CLIENT_SECRET, refreshToken);
         console.log('response code: ', response.status)
         console.log('response:\n', response.data);
 
