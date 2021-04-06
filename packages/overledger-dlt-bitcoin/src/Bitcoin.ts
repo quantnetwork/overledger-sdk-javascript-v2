@@ -116,34 +116,18 @@ class Bitcoin extends AbstractDLT {
   }
 
   buildTransaction(thisTransaction: BitcoinPreparedTransactionNativeData): any {
-    let tx;
-    tx = new bitcoin.TransactionBuilder(this.addressType, 0); // set maximum fee rate = 0 to be flexible on fee rate
-    const data = Buffer.from(thisTransaction.data, 'utf8'); // Message is inserted
+    // Set maximum fee rate = 0 to be flexible on fee rate
+    let transaction = new bitcoin.TransactionBuilder(this.addressType, 0);
 
-    let counter = 0;
-    while (counter < thisTransaction.outputs.length) {
-      tx.addOutput(thisTransaction.outputs[counter].address, thisTransaction.outputs[counter].amount);
-      counter = counter + 1;
-    }
+    thisTransaction.inputs.forEach(input => transaction.addInput(input.transactionHash, parseInt(input.vout, 10)));
+    thisTransaction.outputs.forEach(output => transaction.addOutput(output.address, output.amount));
 
+    // Message is inserted as an additional transaction output
+    const data = Buffer.from(thisTransaction.data, 'utf8');
+    const returnMessage = bitcoin.script.compile([bitcoin.opcodes.OP_RETURN, data]);
+    transaction.addOutput(returnMessage, 0);
 
-     counter = 0;
-    while (counter < thisTransaction.inputs.length) {
-      tx.addInput(thisTransaction.inputs[counter].transactionHash,
-        parseInt(thisTransaction.inputs[counter].vout,
-          10)
-      );
-      counter = counter + 1;
-    }
-
-    const ret = bitcoin.script.compile(
-      [
-        bitcoin.opcodes.OP_RETURN,
-        data,
-      ]);
-    tx.addOutput(ret, 0);
-
-    return tx;
+    return transaction;
   }
 
 }
