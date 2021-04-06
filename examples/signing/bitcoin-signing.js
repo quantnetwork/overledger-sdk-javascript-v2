@@ -1,14 +1,12 @@
+//NOTE: Please create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE.
+//Run: secure-env .env -s password
+//You will then get a .env.enc file created in your project root directory. You can delete the .env file after this to prevent stealing.
+//pass in the password in OverledgerSdk
+//
 //NOTE: You may need to run "yarn install" inside the examples/create-account folder, then node create-account.js
 //NOTE: replace @quantnetwork/ with ../../packages/ for all require statements below if you have not built the SDK yourself
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
-
-
-//  -------------- BEGIN VARIABLES TO UPDATE ----------------
-
-const partyABitcoinPrivateKey = 'cNmsFjPqWCaVdhbPoHQJqDpayYdtKR9Qo81KVAEMHJwmgRVJZjDu';
-
-//  -------------- END VARIABLES TO UPDATE ------------------
 
 ; (async () => {
     try {
@@ -18,10 +16,11 @@ const partyABitcoinPrivateKey = 'cNmsFjPqWCaVdhbPoHQJqDpayYdtKR9Qo81KVAEMHJwmgRV
                 { dlt: DltNameOptions.BITCOIN },
             ],
             provider: { network: 'testnet' },
+            password: 'password',
         });
 
-        overledger.dlts.bitcoin.setAccount({privateKey: partyABitcoinPrivateKey});
-
+        overledger.dlts.bitcoin.setAccount({privateKey: process.env.PARTY_A_BITCOIN_PRIVATE_KEY});
+    
         let preparedTransaction = "{\n  " +
             " \"requestId\": \"393f80e3-6a54-4f78-9c48-de1fb3cee8e1\",\n  " +
             "  \"gatewayFee\": \"10\",\n  " +
@@ -45,8 +44,7 @@ const partyABitcoinPrivateKey = 'cNmsFjPqWCaVdhbPoHQJqDpayYdtKR9Qo81KVAEMHJwmgRV
             "               }\n        ],\n      " +
             "  \"fee\": \"2200\"\n    }" +
             "\n}";
-        //TODO: I am assuming the data field is NOT in HEX form, the code inside SDK will do some hex conversion at this point in time. Better to have PREP do this.
-        overledger.dlts.bitcoin.setAccount({ privateKey: partyABitcoinPrivateKey });
+
 
         let result = await overledger.sign(DltNameOptions.BITCOIN, JSON.parse(preparedTransaction));
         console.log("Signed: " + JSON.stringify(result));
