@@ -10,7 +10,7 @@
     "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
     "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/dlt-bitcoin",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-dlt-bitcoin",
   "contributors": [
     {
       "name": "Luke Riley",
@@ -34,7 +34,7 @@
     }
   ],
   "license": "Apache-2.0",
-  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
+  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "types": "dist/index.d.ts",
   "dependencies": {
     "@quantnetwork/overledger-dlt-abstract": "^2.0.0",
@@ -43,7 +43,8 @@
     "axios": "^0.18.0",
     "bitcoinjs-lib": "5.1.7",
     "event-stream": "4.0.1",
-    "typedarray-to-buffer": "^3.1.5"
+    "typedarray-to-buffer": "^3.1.5",
+    "log4js": "^6.3.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",

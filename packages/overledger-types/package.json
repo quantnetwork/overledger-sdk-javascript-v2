@@ -12,7 +12,7 @@
     "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
     "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/types",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-types",
   "contributors": [
     {
       "name": "Luke Riley",
@@ -36,7 +36,7 @@
     }
   ],
   "license": "Apache-2.0",
-  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
+  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "dependencies": {
     "axios": "^0.19.0"
   },

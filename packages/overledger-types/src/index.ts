@@ -12,6 +12,7 @@ import EchoRequest from "./EchoRequest";
 import PreparedTransaction from "./PreparedTransaction";
 import SignedPreparedTransaction from "./SignedPreparedTransaction";
 import EthereumPreparedTransactionNativeData from "./EthereumPreparedTransactionNativeData";
+import BitcoinPreparedTransactionNativeData from "./BitcoinPreparedTransactionNativeData";
 import XRPLedgerPreparedTransactionNativeData from "./XRPLedgerPreparedTransactionNativeData";
 import XRPLedgerPreparedMemos from "./XRPLedgerPreparedMemos";
 
@@ -29,6 +30,7 @@ export {
   PreparedTransaction,
   SignedPreparedTransaction,
   EthereumPreparedTransactionNativeData,
+  BitcoinPreparedTransactionNativeData,
   XRPLedgerPreparedTransactionNativeData,
   XRPLedgerPreparedMemos,
 };

@@ -19,7 +19,7 @@
   },
   "author": "Quant Network <support@quant.network>",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
+  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "devDependencies": {
     "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
