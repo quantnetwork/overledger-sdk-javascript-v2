@@ -1,8 +1,9 @@
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
-import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest, PreparedTransaction, SignedPreparedTransaction } from '@quantnetwork/overledger-types';
+import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest, PreparedTransaction, SignedPreparedTransaction, RefreshTokensResponse } from '@quantnetwork/overledger-types';
 import { AxiosInstance, AxiosPromise } from "axios";
 import log4js from 'log4js';
+import CognitoProvider from '../../overledger-aws-provider/dist';
 
 /**
  * **
@@ -18,8 +19,9 @@ class OverledgerSDK {
     network: NetworkOptions;
     provider: Provider;
     request: AxiosInstance;
+    cognitoProvider: CognitoProvider;
 
-    
+
     /**
      * Create the Overledger SDK
      *
@@ -37,9 +39,10 @@ class OverledgerSDK {
         });
 
         this.provider = new Provider(options.provider);
+        this.cognitoProvider = new CognitoProvider(options.userPoolID);
 
         let secureEnv = require('secure-env');
-        process.env = secureEnv({secret: options.password});
+        process.env = secureEnv({secret: options.envPassword});
 
     }
 
@@ -104,6 +107,20 @@ class OverledgerSDK {
         params.append('refresh_token', refresh_token)
 
         return this.request.post(pathToCall==undefined?"/oauth2/token":pathToCall, params);
+    }
+
+
+    /**
+     * get new set of tokens using clientId, username and password
+     */
+    public async getTokensUsingClientIdAndSecret(client_id: string, username: string, password: string): Promise<RefreshTokensResponse> {
+        const refreshExpiredTokensResult = await this.cognitoProvider.performSRPAuthentication(username, password, client_id);
+
+        return {
+            accessToken: refreshExpiredTokensResult.accessToken,
+            refreshToken: refreshExpiredTokensResult.refreshToken,
+            idToken: refreshExpiredTokensResult.idToken,
+        };
     }
 
     /**

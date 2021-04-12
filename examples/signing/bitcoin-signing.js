@@ -16,7 +16,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
                 { dlt: DltNameOptions.BITCOIN },
             ],
             provider: { network: 'testnet' },
-            password: 'password',
+            envPassword: 'password',
         });
 
         overledger.dlts.bitcoin.setAccount({privateKey: process.env.PARTY_A_BITCOIN_PRIVATE_KEY});

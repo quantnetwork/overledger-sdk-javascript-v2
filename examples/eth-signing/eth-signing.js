@@ -26,7 +26,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             { dlt: DltNameOptions.XRP_LEDGER }
             ],
             provider: { network: 'testnet' },
-            password: 'password',
+            envPassword: 'password',
         });
 
         console.log("=====")

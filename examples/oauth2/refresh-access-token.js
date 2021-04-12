@@ -30,7 +30,7 @@ const refreshToken = 'eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRV
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN }, { dlt: DltNameOptions.ETHEREUM }, { dlt: DltNameOptions.XRP_LEDGER }],
             provider: { network: 'https://richardquant.auth.us-east-2.amazoncognito.com' },
-            password: 'password',
+            envPassword: 'password',
         });
 
         const response = await overledger.refreshAccessToken(process.env.CLIENT_ID, process.env.CLIENT_SECRET, refreshToken);

@@ -15,6 +15,7 @@ import EthereumPreparedTransactionNativeData from "./EthereumPreparedTransaction
 import BitcoinPreparedTransactionNativeData from "./BitcoinPreparedTransactionNativeData";
 import XRPLedgerPreparedTransactionNativeData from "./XRPLedgerPreparedTransactionNativeData";
 import XRPLedgerPreparedMemos from "./XRPLedgerPreparedMemos";
+import RefreshTokensResponse from "./RefreshTokensResponse";
 
 /**
  * Types used by the Overledger SDK packages.
@@ -33,4 +34,5 @@ export {
   BitcoinPreparedTransactionNativeData,
   XRPLedgerPreparedTransactionNativeData,
   XRPLedgerPreparedMemos,
+  RefreshTokensResponse,
 };
