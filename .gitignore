@@ -2,3 +2,5 @@ node_modules/
 /packages/*/node_modules
 dist/
 /packages/*/dist
+
+*DS_STORE

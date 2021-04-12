@@ -81,8 +81,30 @@ to the client as a downloadable artifact on the overledger-ui
 2) After the above yarn command runs successfully - we now need to zip up the contents of the entire directory as a zip
 
 
+	The zip should be created with a name-version.zip - at the moment I think the clearest approach is a name like this:
 
-	> zip -r overledger-sdk-javascript-version2-1.0.0.zip /path/to/root/of/project
+		overledger-sdk-javascript-version2-1.0.0.zip
+
+
+	At the moment, I created a file to store the version number, so that developers can easily update the version accordingly.
+	The file is called 'build.properties' and lives at the root of the repository. 
+
+	To extract the version number to append to the output zip file name above you can use this command:
+
+
+		> grep "${1}" build.properties|cut -d'=' -f2
+
+
+	This will grab the version number for you, you would need to store that in a variable and then append it to the file name like this:
+
+		versionNumber="`grep "${1}" build.properties|cut -d'=' -f2`"
+		outputZipName="overledger-sdk-javascript-v2-${versionNumber}.zip"
+
+
+
+	Therfore the zip command would be like this:
+
+		> zip -r $outputZipName ./overledger-sdk-javascript-version2 -x "*.git*" -x "*buildInstructions*" -x "package-lock.json" -x "yarn.lock"
 
 
 
