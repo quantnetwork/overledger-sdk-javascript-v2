@@ -30,7 +30,7 @@ to the client as a downloadable artifact on the overledger-ui
 2) Now install some required packages for NPM:
 
 	> npm install --global yarn
-	> npm install --g lerna
+	> npm install --global lerna
 
 
 3) Install NVM
