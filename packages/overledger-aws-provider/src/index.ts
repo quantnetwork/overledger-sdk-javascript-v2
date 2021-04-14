@@ -4,11 +4,16 @@
 
 
 import CognitoProvider from './CognitoProvider';
-
+import CognitoUserImpl from './CognitoUserImpl';
 
 
 
 /**
  * Cognito provider package.
  */
-export default CognitoProvider ;
+export {
+    CognitoProvider,
+    CognitoUserImpl,
+};
+
+export default CognitoProvider;

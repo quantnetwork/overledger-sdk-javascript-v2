@@ -21,7 +21,8 @@
   "dependencies": {
     "@quantnetwork/overledger-types": "^2.0.0",
     "amazon-cognito-identity-js": "^4.6.0",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "aws-sdk": "2.177.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",

@@ -3,7 +3,7 @@ import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
 import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest, PreparedTransaction, SignedPreparedTransaction, RefreshTokensResponse } from '@quantnetwork/overledger-types';
 import { AxiosInstance, AxiosPromise } from "axios";
 import log4js from 'log4js';
-import CognitoProvider from '../../overledger-aws-provider/dist';
+import CognitoProvider from '@quantnetwork/overledger-aws-provider';
 
 /**
  * **
@@ -111,10 +111,11 @@ class OverledgerSDK {
 
 
     /**
-     * get new set of tokens using clientId, username and password
+     * get new set of tokens using username, password, clientId and clientSecret 
      */
-    public async getTokensUsingClientIdAndSecret(client_id: string, username: string, password: string): Promise<RefreshTokensResponse> {
-        const refreshExpiredTokensResult = await this.cognitoProvider.performSRPAuthentication(username, password, client_id);
+    public async getTokensUsingClientIdAndSecret(username: string, password: string, client_id: string, client_secret: string): Promise<RefreshTokensResponse> {
+        console.log(username,password);
+        const refreshExpiredTokensResult = await this.cognitoProvider.getNewSetOfTokens(username, password, client_id, client_secret);
 
         return {
             accessToken: refreshExpiredTokensResult.accessToken,

@@ -20,7 +20,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             dlts: [{ dlt: DltNameOptions.BITCOIN },
             { dlt: DltNameOptions.ETHEREUM },
             { dlt: DltNameOptions.XRP_LEDGER }],
-            userPoolID: 'us-east-2_EsD2OUTDD', //your userpool id
+            userPoolID: 'us-east-2_e5Zg528SV', //your userpool id
             envPassword: 'password',
         });
 
@@ -34,7 +34,8 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 
             });
         })).then(async (res) => {
-            const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.CLIENT_ID, res.username_var, res.password_var);
+            const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(res.username_var, res.password_var,
+                process.env.CLIENT_ID, process.env.CLIENT_SECRET);
             console.log('accessToken:\n', refreshTokensResponse.accessToken)
             console.log('refreshToken:\n', refreshTokensResponse.refreshToken);
             console.log('idToken:\n', refreshTokensResponse.idToken);

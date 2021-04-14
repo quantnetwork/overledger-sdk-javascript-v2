@@ -1,6 +1,6 @@
 default:
 	yarn run bootstrap
-	cd packages/overledger-keytool && yarn run build && cd ../..
+	
 	cd packages/overledger-types && yarn run build && cd ../..
 	cd packages/overledger-aws-provider && yarn run build && cd ../..
 	cd packages/overledger-provider && yarn run build && cd ../..
