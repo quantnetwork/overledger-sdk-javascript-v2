@@ -20,8 +20,8 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             dlts: [{ dlt: DltNameOptions.BITCOIN },
             { dlt: DltNameOptions.ETHEREUM },
             { dlt: DltNameOptions.XRP_LEDGER }],
-            userPoolID: 'us-east-2_e5Zg528SV', //your userpool id
-            envPassword: 'password',
+            userPoolID: 'us-east-1_7n8WG7elO', //your userpool id
+            envFilePassword: 'password',
         });
 
         const response = await new Promise((resolve, reject) => readline.question("Please enter the username: ", (username) => {

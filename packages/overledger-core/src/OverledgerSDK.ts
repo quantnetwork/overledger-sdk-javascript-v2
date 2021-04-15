@@ -42,7 +42,7 @@ class OverledgerSDK {
         this.cognitoProvider = new CognitoProvider(options.userPoolID);
 
         let secureEnv = require('secure-env');
-        process.env = secureEnv({secret: options.envPassword});
+        process.env = secureEnv({secret: options.envFilePassword});
 
     }
 

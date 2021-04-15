@@ -14,7 +14,7 @@ import ProviderOptions from './ProviderOptions';
 type SDKOptions = {
   dlts: DLTOptions[],
   provider?: ProviderOptions,
-  envPassword?: string,
+  envFilePassword?: string,
   userPoolID?: string
 };
 

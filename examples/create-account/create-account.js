@@ -26,7 +26,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             { dlt: DltNameOptions.XRP_LEDGER }
             ],
             provider: { network: 'testnet' },
-            envPassword: 'password',
+            envFilePassword: 'password',
         });
         
         const bitcoinAccount = await overledger.dlts.bitcoin.createAccount();
