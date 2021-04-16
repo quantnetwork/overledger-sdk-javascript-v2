@@ -23,7 +23,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
     const overledger = new OverledgerSDK({
       dlts: [{ dlt: DltNameOptions.BITCOIN }, { dlt: DltNameOptions.ETHEREUM }, { dlt: DltNameOptions.XRP_LEDGER }],
       provider: { network: 'http://api.devnet.overledger.io/v1' },
-      password: 'password',
+      envFilePassword: 'password',
     });
 
     let request = {
