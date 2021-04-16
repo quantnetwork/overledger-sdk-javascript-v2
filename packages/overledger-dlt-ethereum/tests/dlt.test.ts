@@ -1,22 +1,22 @@
-import Dlt from '../src';
 import OverledgerSDK from '@quantnetwork/overledger-core';
+import { DltNameOptions } from '@quantnetwork/overledger-types';
 
 describe('Dlt', () => {
-  test('Can construct the DLT', () => {
-    const mappId = 'mockMappId';
-    const bpiKey = 'mockBpiKey';
-    const mockPrivateKey = '0x9b28cc593f9847c085635d05200be8a68a4ea6836c6918e6ef5659ca993ab72b';
+    test('Can construct the DLT', () => {
+        const mockAddress = '0x93Cdb71c0De6700706D61C8eE0BcF8eE1cedb17d';
+        const mockPrivateKey = '0xac47bab8ad27c796f6080eeec866ef93c2d4b344e2b0b188af6980292505594a';
 
-    const sdkOptions = {
-      dlts: [
-        { dlt: 'ethereum' },
-      ],
-    };
+        const sdkOptions = {
+            dlts: [{ dlt: DltNameOptions.ETHEREUM },],
+        };
 
-    const sdk = new OverledgerSDK(mappId, bpiKey, sdkOptions);
-    sdk.dlts.ethereum.setAccount({privateKey: mockPrivateKey});
+        const sdk = new OverledgerSDK(sdkOptions);
+        sdk.dlts[DltNameOptions.ETHEREUM].setAccount({
+            privateKey: mockPrivateKey,
+            address: mockAddress,
+        },);
 
-    expect(sdk.dlts.ethereum.name).toEqual('ethereum');
-    expect(sdk.dlts.ethereum.account.privateKey).toEqual(mockPrivateKey);
-  });
+        expect(sdk.dlts[DltNameOptions.ETHEREUM].name).toEqual(DltNameOptions.ETHEREUM);
+        expect(sdk.dlts[DltNameOptions.ETHEREUM].account.privateKey).toEqual(mockPrivateKey);
+    });
 });
