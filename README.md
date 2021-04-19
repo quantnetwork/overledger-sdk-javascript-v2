@@ -4,7 +4,7 @@ Welcome to the developer's guide to use the Overledger SDK written in Javascript
 
 ## Introduction to the Overledger SDK
 
-Overledger is a REST API that allows applications to connect to multiple distributed ledger technologies (DLTs) or blockchains through the use of a consistent interface. The Overledger SDK enables developers to create signed transactions and send them to the supported DLTs.
+Overledger is a REST API that allows applications to connect to multiple distributed ledger technologies (DLTs) or blockchains through the use of a standardised interface. The Overledger SDK enables developers to create signed transactions and send them to the supported DLTs.
 
 ## Technologies
 
