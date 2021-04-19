@@ -1,4 +1,4 @@
-import XRPLedgerPreparedMemos from "./XRPLedgerPreparedMemos";
+import XRPLedgerPreparedMemos from './XRPLedgerPreparedMemos';
 
 /**
  * @memberof module:overledger-types

@@ -15,7 +15,7 @@ type SDKOptions = {
   dlts: DLTOptions[],
   provider?: ProviderOptions,
   envFilePassword?: string,
-  userPoolID?: string
+  userPoolID?: string,
 };
 
 export default SDKOptions;

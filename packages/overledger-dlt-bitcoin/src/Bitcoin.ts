@@ -104,32 +104,23 @@ class Bitcoin extends AbstractDLT {
     // for each input sign them:
     const myKeyPair = bitcoin.ECPair.fromWIF(this.account.privateKey, this.addressType);
 
-    const transaction = this.buildTransaction(transactionData);
-
-    let counter = 0;
-    while (counter < transactionData.inputs.length) {
-      // currently we are only supporting the p2pkh script
-      transaction.sign({ prevOutScriptType: 'p2pkh', vin: counter, keyPair: myKeyPair });
-      counter = counter + 1;
-    }
-    return Promise.resolve(transaction.build().toHex());
-  }
-
-  buildTransaction(thisTransaction: BitcoinPreparedTransactionNativeData): any {
     // Set maximum fee rate = 0 to be flexible on fee rate
     let transaction = new bitcoin.TransactionBuilder(this.addressType, 0);
 
-    thisTransaction.inputs.forEach(input => transaction.addInput(input.transactionHash, parseInt(input.vout, 10)));
-    thisTransaction.outputs.forEach(output => transaction.addOutput(output.address, output.amount));
+    transactionData.inputs.forEach(input => transaction.addInput(input.transactionHash, parseInt(input.vout, 10)));
+    transactionData.outputs.forEach(output => transaction.addOutput(output.address, output.amount));
 
     // Message is inserted as an additional transaction output
-    const data = Buffer.from(thisTransaction.data, 'utf8');
+    const data = Buffer.from(transactionData.data, 'utf8');
     const returnMessage = bitcoin.script.compile([bitcoin.opcodes.OP_RETURN, data]);
     transaction.addOutput(returnMessage, 0);
 
-    return transaction;
-  }
+    for (let i = 0; i < transactionData.inputs.length; i++) {
+        transaction.sign({ prevOutScriptType: 'p2pkh', vin: i, keyPair: myKeyPair });
+    }
 
+    return Promise.resolve(transaction.build().toHex());
+  }
 }
 
 export default Bitcoin;
