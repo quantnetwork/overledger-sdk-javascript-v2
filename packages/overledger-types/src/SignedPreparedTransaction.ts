@@ -1,8 +1,4 @@
 /**
- */
-
-
-/**
  * @memberof module:overledger-types
  */
 type SignedPreparedTransaction = {

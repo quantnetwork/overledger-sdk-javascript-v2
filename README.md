@@ -91,6 +91,8 @@ Please check the examples folder for details on how to sign and send transaction
 
 ## Development
 
+If updating the SDK, please follow this short development guide.
+
 The Overledger JavaScript SDK manages multiple packages through [Lerna](https://lerna.js.org/). To develop the SDK, first install lerna:
 
 ```
@@ -104,6 +106,14 @@ yarn run build
 ```
 
 This will build and link the packages together.
+
+### Linting
+
+Make sure to also lint the code base after your updates.
+
+```
+yarn run lint
+```
 
 ### Running tests
 
