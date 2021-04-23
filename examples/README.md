@@ -36,7 +36,7 @@ Make sure you change the password here as well as in any examples you would like
 
 ## Running
 
-To run an example, simply call the js file from the root folder of the project.
+Each example contains detailed comments about various bits that need to be adjusted. To run an example, simply call the js file from the root folder of the project.
 E.g:
 ```
 node examples/signing/ethereum-signing.js
