@@ -30,7 +30,7 @@ npm install -g lerna@3.22.0
 ```
 
 To build the project, download the yarn package manager and run:
-
+>Note: For Windows users, please use git bash as the build currently uses UNIX-based commands
 ```
 yarn run build
 ```
