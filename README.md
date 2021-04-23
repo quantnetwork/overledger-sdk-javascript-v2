@@ -30,7 +30,7 @@ npm install -g lerna@3.22.0
 ```
 
 To build the project, download the yarn package manager and run:
-
+>Note: For Windows users, please use git bash as the build currently uses UNIX-based commands
 ```
 yarn run build
 ```
@@ -74,13 +74,7 @@ yarn add @quantnetwork/overledger-dlt-ethereum
 
 ## Getting started
 
-To get started, you can take a look at the examples folder for common use cases. If you would like to run those exact examples, you will first need to install a couple development tools for the environment encryption dependencies.
-
-```
-npm install secure-env
-npm install node-keytool
-npm install jks-js
-```
+To get started, you can take a look at the examples folder for common use cases. There is a README file with detailed instructions in the signing example.
 
 ## API Reference
 

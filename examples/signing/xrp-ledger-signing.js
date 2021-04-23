@@ -61,7 +61,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             "\t\t\t }\n" +
             "}"
 
-        overledger.dlts[DltNameOptions.XRP_LEDGER].setAccount({privateKey: process.env.PARTY_A_XRP_PRIVATE_KEY});
+        overledger.dlts[DltNameOptions.XRP_LEDGER].setAccount({privateKey: process.env.PARTY_A_XRP_LEDGER_PRIVATE_KEY});
 
         let result = await overledger.sign(DltNameOptions.XRP_LEDGER, JSON.parse(preparedTransaction) );
         console.log("Signed: " + JSON.stringify(result));
