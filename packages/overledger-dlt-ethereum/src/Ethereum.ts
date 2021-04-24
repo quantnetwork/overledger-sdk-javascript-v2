@@ -106,16 +106,12 @@ class Ethereum extends AbstractDLT {
   }
 
   async sign(unsignedTransaction: PreparedTransaction): Promise<string> {
-    log.info("Signing: " + JSON.stringify(unsignedTransaction));
-
     return new Promise((resolve, reject) => {
 
       //TODO: I am assuming SDK will need to do the HEX conversion for the data inside nativeData for now. It would be better if Prepared Object is the one doing the HEX
-      log.info('PRE HEX data: ==> ' + JSON.stringify(unsignedTransaction));
       let transactionData = unsignedTransaction.nativeData as EthereumPreparedTransactionNativeData;
       transactionData.data =this.web3.utils.asciiToHex(transactionData.data);
       unsignedTransaction.nativeData = transactionData;
-      log.info('POST HEX data: ==> ' + JSON.stringify(unsignedTransaction));
 
       let transactionConfig = unsignedTransaction.nativeData as object;
       this.web3.eth.accounts.signTransaction(transactionConfig, this.account.privateKey, (err, data) => {

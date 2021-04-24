@@ -93,11 +93,8 @@ class Ripple extends AbstractDLT {
   sign(unsignedTransaction: PreparedTransaction): Promise<string> {
 
     let transactionData = unsignedTransaction.nativeData as XRPLedgerPreparedTransactionNativeData;
-    log.info("**Signing: " + JSON.stringify(transactionData));
 
     const signedData = this.rippleAPI.sign(JSON.stringify(transactionData), this.account.privateKey);
-
-    log.info("SignedData object: " + JSON.stringify(signedData));
 
     return Promise.resolve(signedData.signedTransaction);
   }
