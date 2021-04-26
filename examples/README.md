@@ -4,6 +4,21 @@
 
 First, we need to create a file called '.env' in the root directory of the project and paste in the required variables that you will be securing:
 
+### Getting test tokens and accounts
+
+For Bitcoin and Ethereum, you will have to use the example script from this folder: /examples/create-account
+
+Then, to fund your addresses, you will have to use the publicly available faucets:
+- Ethereum: https://faucet.ropsten.be/
+- Bitcoin: https://bitcoinfaucet.uo1.net/ - please note Bitcoin faucets change frequently, if this one is down, simply do a web search for "bitcoin testnet faucet" to get to the latest working one.
+
+For the XRP Ledger accounts, the developers behind the technology have been kind enough to fully support a testnet with account creation and automatic funding at:
+- XRP Ledger: https://xrpl.org/xrp-testnet-faucet.html
+
+Once you have funded your desired accounts, feel free to proceed to the next step.
+
+### Setting the environment variables
+
 >Note: For ease of use, we have included some example private keys for accounts with test tokens
 
 `/.env`
