@@ -21,7 +21,7 @@ overledger.dlts[DltNameOptions.BITCOIN].setAccount({privateKey: process.env.PART
             signed: signedTransaction
         }
 
-        console.log('Overleder Transaction Execution Request: \n' + JSON.stringify(executeTransactionRequest, null, 2));
+        console.log('Overledger Transaction Execution Request: \n' + JSON.stringify(executeTransactionRequest, null, 2));
 
     } catch (e) {
         console.error('error', e);
