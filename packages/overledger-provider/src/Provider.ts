@@ -36,7 +36,7 @@ class Provider {
     let overledgerUri: string;
 
     if (this.network === TESTNET) {
-      overledgerUri = 'https://api.testnet.overledger.io/v2';
+      overledgerUri = 'https://api.sandbox.overledger.io/v2';
     }  else if (this.network === MAINNET) {
       overledgerUri = 'https://api.overledger.io/v2';
     } else {
