@@ -2,9 +2,7 @@
 
 ## Setup
 
-At this point you should now create a file called '.env' in the root directory of the project and paste in the required variables that you will be securing:
-
-Paste the following sample content (Replace the underscore values with your own app details):
+First, we need to create a file called '.env' in the root directory of the project and paste in the required variables that you will be securing:
 
 >Note: For ease of use, we have included some example private keys for accounts with test tokens
 
@@ -42,4 +40,4 @@ E.g:
 node examples/signing/ethereum-signing.js
 ```
 
-This should produce a signedTransaction as an output which you can send to the Overledger API.
+This should produce an output which you can send to the Overledger API.
