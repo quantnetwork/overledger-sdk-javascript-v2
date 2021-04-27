@@ -18,7 +18,7 @@ The Overledger SDK is a collection of node packages written in Typescript. Curre
 
 ## Installation
 
-Currently, V2.0.0 of the Overledger SDK is not published on NPM or Yarn. Thus, we have to build it on our machine before using it in our own projects.
+Currently, v2 of the Overledger SDK is not published on NPM or Yarn. Thus, we have to build it on our machine before using it in our own projects.
 
 The Overledger SDK can be installed as a node module. If all supported DLTs are necessary, 
 the overledger-bundle package can be installed, which will include all required dependencies.
