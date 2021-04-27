@@ -7,12 +7,12 @@
     "access": "public"
   },
   "scripts": {
-    "test": "jest --runInBand",
+    "test": "jest --runInBand --passWithNoTests",
     "clean": "rm -rf dist && mkdir dist",
     "build": "yarn run clean && tsc --declaration",
     "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript/tree/master/packages/bundle",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-bundle",
   "contributors": [
     {
       "name": "Luke Riley",
@@ -36,14 +36,12 @@
     }
   ],
   "license": "Apache-2.0",
-  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript#readme",
+  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "dependencies": {
-    "@quantnetwork/overledger-core": "^1.0.0-beta.4",
-    "@quantnetwork/overledger-dlt-bitcoin": "^1.0.0-beta.4",
-    "@quantnetwork/overledger-dlt-corda": "^1.0.0-beta.4",
-    "@quantnetwork/overledger-dlt-ethereum": "^1.0.0-beta.4",
-    "@quantnetwork/overledger-dlt-hyperledger_fabric": "^1.0.0-beta.4",
-    "@quantnetwork/overledger-dlt-ripple": "^1.0.0-beta.4"
+    "@quantnetwork/overledger-core": "^2.0.0",
+    "@quantnetwork/overledger-dlt-bitcoin": "^2.0.0",
+    "@quantnetwork/overledger-dlt-ethereum": "^2.0.0",
+    "@quantnetwork/overledger-dlt-xrp-ledger": "^2.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",

@@ -1,19 +1,16 @@
 {
-  "name": "@quantnetwork/overledger-core",
+  "name": "@quantnetwork/overledger-dlt-bitcoin",
   "version": "2.0.0",
-  "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
+  "description": "Quant Network Overledger Bitcoin software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "test": "jest --runInBand --passWithNoTests",
+    "test": "jest --runInBand",
     "clean": "rm -rf dist && mkdir dist",
     "build": "yarn run clean && tsc --declaration",
     "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
     "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-core",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-dlt-bitcoin",
   "contributors": [
     {
       "name": "Luke Riley",
@@ -43,20 +40,24 @@
     "@quantnetwork/overledger-dlt-abstract": "^2.0.0",
     "@quantnetwork/overledger-provider": "^2.0.0",
     "@quantnetwork/overledger-types": "^2.0.0",
-    "@quantnetwork/overledger-aws-provider": "^2.0.0",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "bitcoinjs-lib": "5.1.7",
+    "event-stream": "4.0.1",
+    "typedarray-to-buffer": "^3.1.5",
+    "log4js": "^6.3.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
-    "dmd-clear": "^0.1.2",
     "jest": "^24.8.0",
-    "jsdoc": "^3.6.3",
     "lerna": "^3.14.0",
     "nodemon": "^1.19.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "3574baa27bba109510db5f5a088e4684b286bf4b"
 }
