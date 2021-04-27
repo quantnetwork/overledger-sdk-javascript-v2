@@ -20,7 +20,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             dlts: [{ dlt: DltNameOptions.BITCOIN },
             { dlt: DltNameOptions.ETHEREUM },
             { dlt: DltNameOptions.XRP_LEDGER }],
-            userPoolID: 'us-east-1_7n8WG7elO', //your userpool id
+            userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
             envFilePassword: 'password',
         });
 
