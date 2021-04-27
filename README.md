@@ -18,25 +18,32 @@ The Overledger SDK is a collection of node packages written in Typescript. Curre
 
 ## Installation
 
+Currently, V2.0.0 of the Overledger SDK is not published on NPM or Yarn. Thus, we have to build it on our machine before using it in our own projects.
+
 The Overledger SDK can be installed as a node module. If all supported DLTs are necessary, 
 the overledger-bundle package can be installed, which will include all required dependencies.
 
 #### Building
 
-The Overledger JavaScript SDK manages multiple packages through [Lerna](https://lerna.js.org/). To build the SDK, first we need to install the lerna dependency:
+The Overledger JavaScript SDK manages multiple packages through [Lerna](https://lerna.js.org/). To build the SDK, first we need to globally install the lerna dependency:
 
 ```
 npm install -g lerna@3.22.0
 ```
 
-To build the project, download the yarn package manager and run:
->Note: For Windows users, please use git bash as the build currently uses UNIX-based commands. You will also need
-to make sure you have 'make' installed for windows. This is done by running powershell first as Administrator and then installing make with chocolatey: ```choco install make``` 
+To build the project, first download the yarn package manager:
 
+```
+npm install -g yarn
+```
+
+Then, we can run run:
 
 ```
 yarn run build
 ```
+
+>Note: For Windows users, please use git bash as the build currently uses UNIX-based commands. You will also need to make sure you have 'make' installed for windows. This is done by running powershell first as Administrator and then installing make with chocolatey: ```choco install make```
 
 This will build and link the packages together.
 To test if the package built correctly, you can run

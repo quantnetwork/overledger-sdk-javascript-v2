@@ -20,37 +20,29 @@ yarn add @quantnetwork/overledger-dlt-bitcoin
 
 ## API Reference
 
+## Modules
+
+<dl>
+<dt><a href="#module_overledger-dlt-bitcoin">overledger-dlt-bitcoin</a></dt>
+<dd></dd>
+</dl>
+
+## Classes
+
+<dl>
+<dt><a href="#Bitcoin">Bitcoin</a></dt>
+<dd></dd>
+</dl>
+
 <a name="module_overledger-dlt-bitcoin"></a>
 
 ## overledger-dlt-bitcoin
 
 * [overledger-dlt-bitcoin](#module_overledger-dlt-bitcoin)
 
-    * _static_
-        * [.default](#module_overledger-dlt-bitcoin.default)
+    * [.default](#module_overledger-dlt-bitcoin.default)
 
-    * _inner_
-        * [~Bitcoin](#module_overledger-dlt-bitcoin.Bitcoin)
-
-            * [new Bitcoin(sdk, options)](#new_module_overledger-dlt-bitcoin.Bitcoin_new)
-
-            * [.name](#module_overledger-dlt-bitcoin.Bitcoin+name)
-
-            * [.symbol](#module_overledger-dlt-bitcoin.Bitcoin+symbol)
-
-            * [.buildTransaction(thisTransaction)](#module_overledger-dlt-bitcoin.Bitcoin+buildTransaction)
-
-            * [._transactionValidation(thisTransaction)](#module_overledger-dlt-bitcoin.Bitcoin+_transactionValidation)
-
-            * [._sign(thisTransaction)](#module_overledger-dlt-bitcoin.Bitcoin+_sign)
-
-            * [.createAccount()](#module_overledger-dlt-bitcoin.Bitcoin+createAccount)
-
-            * [.setAccount(accountInfo)](#module_overledger-dlt-bitcoin.Bitcoin+setAccount)
-
-            * [._buildSmartContractQuery(dltAddress, contractQueryDetails)](#module_overledger-dlt-bitcoin.Bitcoin+_buildSmartContractQuery)
-
-            * [._smartContractQueryValidation(contractQueryDetails)](#module_overledger-dlt-bitcoin.Bitcoin+_smartContractQueryValidation)
+    * [.log](#module_overledger-dlt-bitcoin.log)
 
 
 <a name="module_overledger-dlt-bitcoin.default"></a>
@@ -58,92 +50,54 @@ yarn add @quantnetwork/overledger-dlt-bitcoin
 ### *overledger-dlt-bitcoin*.default
 Development package for Bitcoin blockchain.
 
-<a name="module_overledger-dlt-bitcoin.Bitcoin"></a>
+<a name="module_overledger-dlt-bitcoin.log"></a>
 
-### *overledger-dlt-bitcoin*~Bitcoin
+### *overledger-dlt-bitcoin*.log
+<a name="Bitcoin"></a>
 
-* [~Bitcoin](#module_overledger-dlt-bitcoin.Bitcoin)
+## Bitcoin
 
-    * [new Bitcoin(sdk, options)](#new_module_overledger-dlt-bitcoin.Bitcoin_new)
+* [Bitcoin](#Bitcoin)
 
-    * [.name](#module_overledger-dlt-bitcoin.Bitcoin+name)
+    * [new Bitcoin(sdk, options)](#new_Bitcoin_new)
 
-    * [.symbol](#module_overledger-dlt-bitcoin.Bitcoin+symbol)
+    * [.name](#Bitcoin+name)
 
-    * [.buildTransaction(thisTransaction)](#module_overledger-dlt-bitcoin.Bitcoin+buildTransaction)
+    * [.symbol](#Bitcoin+symbol)
 
-    * [._transactionValidation(thisTransaction)](#module_overledger-dlt-bitcoin.Bitcoin+_transactionValidation)
+    * [.createAccount()](#Bitcoin+createAccount)
 
-    * [._sign(thisTransaction)](#module_overledger-dlt-bitcoin.Bitcoin+_sign)
-
-    * [.createAccount()](#module_overledger-dlt-bitcoin.Bitcoin+createAccount)
-
-    * [.setAccount(accountInfo)](#module_overledger-dlt-bitcoin.Bitcoin+setAccount)
-
-    * [._buildSmartContractQuery(dltAddress, contractQueryDetails)](#module_overledger-dlt-bitcoin.Bitcoin+_buildSmartContractQuery)
-
-    * [._smartContractQueryValidation(contractQueryDetails)](#module_overledger-dlt-bitcoin.Bitcoin+_smartContractQueryValidation)
+    * [.setAccount(accountInfo)](#Bitcoin+setAccount)
 
 
-<a name="new_module_overledger-dlt-bitcoin.Bitcoin_new"></a>
+<a name="new_Bitcoin_new"></a>
 
-#### new Bitcoin(sdk, options)
+### new Bitcoin(sdk, options)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sdk | <code>any</code> | the sdk instance |
 | options | <code>Object</code> | any additional options to instantiate this dlt |
 
-<a name="module_overledger-dlt-bitcoin.Bitcoin+name"></a>
+<a name="Bitcoin+name"></a>
 
-#### *bitcoin*.name
+### *bitcoin*.name
 Name of the DLT
 
-<a name="module_overledger-dlt-bitcoin.Bitcoin+symbol"></a>
+<a name="Bitcoin+symbol"></a>
 
-#### *bitcoin*.symbol
+### *bitcoin*.symbol
 Symbol of the DLT
 
-<a name="module_overledger-dlt-bitcoin.Bitcoin+buildTransaction"></a>
+<a name="Bitcoin+createAccount"></a>
 
-#### *bitcoin*.buildTransaction(thisTransaction)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| thisTransaction | <code>TransactionEthereumRequest</code> | details on the information to include in this transaction for the Bitcoin distributed ledger |
-
-Takes the Overledger definition of a transaction and converts it into a specific Bitcoin transaction
-
-**Returns**: <code>Transaction</code> - the Bitcoin transaction  
-<a name="module_overledger-dlt-bitcoin.Bitcoin+_transactionValidation"></a>
-
-#### *bitcoin*._transactionValidation(thisTransaction)
-
-| Param | Description |
-| --- | --- |
-| thisTransaction | The transaction request |
-
-validates an OVL transactionRequest according to XRP specific rules
-
-<a name="module_overledger-dlt-bitcoin.Bitcoin+_sign"></a>
-
-#### *bitcoin*._sign(thisTransaction)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| thisTransaction | <code>TransactionRequest</code> | an instantiated overledger definition of an XRP transaction |
-
-Takes in an overledger definition of a transaction for XRP, converts it into a form that the XRP distributed ledger will understand, and then signs the transaction
-
-<a name="module_overledger-dlt-bitcoin.Bitcoin+createAccount"></a>
-
-#### *bitcoin*.createAccount()
+### *bitcoin*.createAccount()
 Create a Bitcoin account
 
 **Returns**: <code>Account</code> - the new Bitcoin account  
-<a name="module_overledger-dlt-bitcoin.Bitcoin+setAccount"></a>
+<a name="Bitcoin+setAccount"></a>
 
-#### *bitcoin*.setAccount(accountInfo)
+### *bitcoin*.setAccount(accountInfo)
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -151,26 +105,3 @@ Create a Bitcoin account
 
 Set an account for signing transactions for a specific DLT
 
-<a name="module_overledger-dlt-bitcoin.Bitcoin+_buildSmartContractQuery"></a>
-
-#### *bitcoin*._buildSmartContractQuery(dltAddress, contractQueryDetails)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| dltAddress | <code>string</code> | the user's Bitcoin address |
-| contractQueryDetails | <code>Object</code> | the definition of the smart contract function the user wants to interact with, including information on what parameters to use in the function call. |
-
-Allows a user to build a smart contract query for the Bitcoin distributed ledger (currently not supported for Bitcoin)
-
-**Returns**: <code>Object</code> - success indicates if this query building was correct, if yes then it will be in the response field of the object  
-<a name="module_overledger-dlt-bitcoin.Bitcoin+_smartContractQueryValidation"></a>
-
-#### *bitcoin*._smartContractQueryValidation(contractQueryDetails)
-
-| Param | Description |
-| --- | --- |
-| contractQueryDetails | the query details |
-
-validates an OVL smart contract query according to Bitcoin specific rules
-
-**Returns**: <code>Object</code> - success indicates if this query building was correct, if yes then it will be in the response field of the object  
