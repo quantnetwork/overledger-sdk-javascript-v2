@@ -20,25 +20,33 @@ yarn add @quantnetwork/overledger-provider
 
 ## API Reference
 
+## Modules
+
+<dl>
+<dt><a href="#module_overledger-provider">overledger-provider</a></dt>
+<dd></dd>
+</dl>
+
+## Classes
+
+<dl>
+<dt><a href="#Provider">Provider</a></dt>
+<dd></dd>
+</dl>
+
 <a name="module_overledger-provider"></a>
 
 ## overledger-provider
 
 * [overledger-provider](#module_overledger-provider)
 
-    * _static_
-        * [.TESTNET](#module_overledger-provider.TESTNET)
+    * [.TESTNET](#module_overledger-provider.TESTNET)
 
-        * [.MAINNET](#module_overledger-provider.MAINNET)
+    * [.MAINNET](#module_overledger-provider.MAINNET)
 
-        * [.default](#module_overledger-provider.default)
+    * [.default](#module_overledger-provider.default)
 
-    * _inner_
-        * [~Provider](#module_overledger-provider.Provider)
-
-            * [new Provider(mappId, bpiKey, ProviderOptions)](#new_module_overledger-provider.Provider_new)
-
-            * [.createRequest(path)](#module_overledger-provider.Provider+createRequest)
+    * [.log](#module_overledger-provider.log)
 
 
 <a name="module_overledger-provider.TESTNET"></a>
@@ -56,20 +64,23 @@ Constant for the mainnet URL (placeholder).
 ### *overledger-provider*.default
 Network provider package.
 
-<a name="module_overledger-provider.Provider"></a>
+<a name="module_overledger-provider.log"></a>
 
-### *overledger-provider*~Provider
+### *overledger-provider*.log
+<a name="Provider"></a>
 
-* [~Provider](#module_overledger-provider.Provider)
+## Provider
 
-    * [new Provider(mappId, bpiKey, ProviderOptions)](#new_module_overledger-provider.Provider_new)
+* [Provider](#Provider)
 
-    * [.createRequest(path)](#module_overledger-provider.Provider+createRequest)
+    * [new Provider(mappId, bpiKey, ProviderOptions)](#new_Provider_new)
+
+    * [.createRequest(path, accessToken, contentType, acceptString)](#Provider+createRequest)
 
 
-<a name="new_module_overledger-provider.Provider_new"></a>
+<a name="new_Provider_new"></a>
 
-#### new Provider(mappId, bpiKey, ProviderOptions)
+### new Provider(mappId, bpiKey, ProviderOptions)
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -77,11 +88,16 @@ Network provider package.
 | bpiKey | <code>string</code> | The Overledger Blockchain Programming Interface license key |
 | ProviderOptions | <code>ProviderOptions</code> | Overledger network provider options |
 
-<a name="module_overledger-provider.Provider+createRequest"></a>
+<a name="Provider+createRequest"></a>
 
-#### *provider*.createRequest(path)
+### *provider*.createRequest(path, accessToken, contentType, acceptString)
 
-| Param | Type | Description |
-| --- | --- | --- |
-| path | <code>string</code> | Request endpoint resource path |
+| Param |
+| --- |
+| path | 
+| accessToken | 
+| contentType | 
+| acceptString | 
+
+Creating a request, making this as flexible as possible with the possible values in the headers being passed in the method signature
 
