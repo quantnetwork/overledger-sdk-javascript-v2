@@ -30,7 +30,10 @@ npm install -g lerna@3.22.0
 ```
 
 To build the project, download the yarn package manager and run:
->Note: For Windows users, please use git bash as the build currently uses UNIX-based commands
+>Note: For Windows users, please use git bash as the build currently uses UNIX-based commands. You will also need
+to make sure you have 'make' installed for windows. This is done by running powershell first as Administrator and then installing make with chocolatey: ```choco install make``` 
+
+
 ```
 yarn run build
 ```
