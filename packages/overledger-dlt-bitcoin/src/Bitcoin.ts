@@ -110,9 +110,6 @@ class Bitcoin extends AbstractDLT {
     transactionData.outputs.forEach(output => transaction.addOutput(output));
 
     // Message is inserted as an additional transaction output
-    // const data = Buffer.from(transactionData.data, 'utf8');
-    // const returnMessage = bitcoin.script.compile([bitcoin.opcodes.OP_RETURN, data]);
-    // transaction.addOutput(returnMessage);
     const data = transactionData.data;
     const dataLength = data.length;
     if (data && dataLength > 0) {
