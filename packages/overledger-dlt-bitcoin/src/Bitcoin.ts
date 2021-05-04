@@ -106,7 +106,7 @@ class Bitcoin extends AbstractDLT {
 
     // Set maximum fee rate = 0 to be flexible on fee rate
     const transaction = new bitcoin.Psbt({ network: this.addressType });
-    transactionData.inputs.forEach(input => transaction.addInput({ hash: input.transactionHash, index: parseInt(input.vout, 10), nonWitnessUtxo: Buffer.from(input.rawTransaction, 'hex') }));
+    transactionData.inputs.forEach(input => transaction.addInput({ hash: input.hash, index: input.index, nonWitnessUtxo: Buffer.from(input.rawTransaction, 'hex') }));
     transactionData.outputs.forEach(output => transaction.addOutput(output));
 
     // Message is inserted as an additional transaction output

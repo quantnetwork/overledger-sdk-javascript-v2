@@ -5,10 +5,9 @@
  * @memberof module:overledger-types
  */
 type BitcoinPreparedInput = {
-  transactionHash: string,
-  vout: string,
+  hash: string,
+  index: number,
   rawTransaction: string,
-  address: string,
 };
 
 export default BitcoinPreparedInput;
