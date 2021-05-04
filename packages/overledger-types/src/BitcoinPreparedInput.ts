@@ -7,6 +7,7 @@
 type BitcoinPreparedInput = {
   transactionHash: string,
   vout: string,
+  rawTransaction: string,
   address: string,
 };
 
