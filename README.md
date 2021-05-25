@@ -88,10 +88,12 @@ To get started, you can take a look at the examples folder for common use cases.
 
 ## API Reference
 
-The SDK packages provide functions for interacting with the Overledger BPI Gateway as well as support for offline account generation and transaction signing.
-The functions which interact with the Overledger BPI (send, get) return a promise with a standard Axios response which includes the BPI data in the `data` field.
+The SDK packages provide functions for interacting with the Overledger API Gateway as well as support for offline account generation and transaction signing.
+The functions which interact with the Overledger API (send, get) return a promise with a standard Axios response which includes the BPI data in the `data` field.
 
-Please check the examples folder for details on how to sign and send transactions, as well as do account queries. The api reference page can be found [here](api_reference.md).
+Please check the examples folder for details on how to sign and send transactions, as well as do account queries. The sdk reference page can be found [here](api_reference.md).
+
+The Overledger API Swagger docs can be found here: https://api.sandbox.overledger.io/v2/documentation/swagger-ui.html
 
 ## Development
 
