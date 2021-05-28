@@ -1,5 +1,5 @@
 import { RippleAPI } from 'ripple-lib';
-import { deriveKeypair, deriveAddress } from 'ripple-keypairs';
+import { deriveKeypair, deriveAddress, sign, verify } from 'ripple-keypairs';
 import { bytesToHex } from 'ripple-keypairs/dist/utils';
 import BN from 'bn.js';
 
@@ -80,6 +80,7 @@ class Ripple extends AbstractDLT {
       log.info("Using privateKey to generate publicKey.");
       let privateKey = this.formatPrivateKey(accountInfo.privateKey);
       const publicKey = bytesToHex(Secp256k1.keyFromPrivate(privateKey.slice(2)).getPublic().encodeCompressed());
+      this.validateKeyPair(privateKey, publicKey);
       keypair = { privateKey, publicKey };
     }
 
@@ -133,6 +134,18 @@ class Ripple extends AbstractDLT {
   formatPrivateKey(privateKey: string): string {
     const prefix = '00';
     return prefix + new BN(privateKey).toString(16, 64);
+  }
+
+  validateKeyPair(privateKey: string, publicKey: string): boolean {
+
+    const messageToVerify = Buffer.from('This test message should verify.').toString('hex');
+    const signature = sign(messageToVerify, privateKey);
+
+    /* istanbul ignore if */
+    if (verify(messageToVerify, signature, publicKey) !== true) {
+      throw new Error('derived keypair did not generate verifiable signature');
+    }
+    return true;
   }
 
 }
