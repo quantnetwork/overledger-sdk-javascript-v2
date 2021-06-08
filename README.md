@@ -54,33 +54,11 @@ yarn run test
 
 #### Installing
 
-After building, you can install it in your own project. Make sure to specify the version if you'd like to use this version of the SDK vs the public one from NPM.
+After building, you can install it in your own project. Until this version is published, you will need to point to your locally built version.
 
 ```
-npm install @quantnetwork/overledger-bundle@2.0.0
+npm install /this/is/an/example/path/overledger-sdk-javascript-v2
 ```
-
-Or, if you prefer using [yarn](https://yarnpkg.com/):
-
-```
-yarn add @quantnetwork/overledger-bundle@2.0.0
-```
-
-Alternatively, the suite of packages allows developers to chose which blockchains/DLTs they would like to utilise by installing the core package and the individual DLT packages. Such as if you only want to install overledger-core and overledger-ethereum you would enter:
-
-```
-npm install @quantnetwork/overledger-core@2.0.0
-npm install @quantnetwork/overledger-dlt-ethereum@2.0.0
-```
-
-Or, if you prefer using [yarn](https://yarnpkg.com/):
-
-```
-yarn add @quantnetwork/overledger-core
-yarn add @quantnetwork/overledger-dlt-ethereum
-```
-
-
 
 ## Getting started
 
