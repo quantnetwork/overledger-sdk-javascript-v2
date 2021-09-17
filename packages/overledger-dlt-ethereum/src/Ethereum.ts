@@ -109,9 +109,6 @@ class Ethereum extends AbstractDLT {
     return new Promise((resolve, reject) => {
 
       let transactionConfig = unsignedTransaction.nativeData as object;
-      // These two values are not actually encoded into the signing, however without them, web3.js will try to call a remote provider instead of performing offline signing.
-      transactionConfig.hardfork = unsignedTransaction.hardfork || 'london';
-      transactionConfig.chain = unsignedTransaction.chain || 'mainnet';
       this.web3.eth.accounts.signTransaction(transactionConfig, this.account.privateKey, (err, data) => {
         if (err) {
           log.error("Error: " + err);
