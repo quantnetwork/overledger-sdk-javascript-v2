@@ -44,7 +44,7 @@
     "@quantnetwork/overledger-provider": "^2.0.0",
     "@quantnetwork/overledger-types": "^2.0.0",
     "axios": "^0.18.0",
-    "web3": "^1.3.4",
+    "web3": "^1.5.2",
     "log4js": "^6.3.0"
   },
   "devDependencies": {
