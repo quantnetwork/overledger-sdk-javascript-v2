@@ -13,7 +13,8 @@
         "chainId": 3,
         "to": "0xB3ea4D180f31B4000F2fbCC58a085eF2ffD5a763",
         "gas": "25540",
-        "gasPrice": "5000000000",
+        "maxFeePerGas": "1000",
+        "maxPriorityFeePerGas": "3",
         "value": "1000000000000",
         "data": "000000323520414b343753203639343230363636"
     }
