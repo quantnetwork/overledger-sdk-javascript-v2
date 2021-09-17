@@ -1,6 +1,7 @@
 node_modules/
 /packages/*/node_modules
 dist/
+yarn.lock
 /packages/*/dist
 
 *DS_STORE
