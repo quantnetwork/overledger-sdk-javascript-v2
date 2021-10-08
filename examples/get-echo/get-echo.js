@@ -30,13 +30,17 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
       echo: "echo"
     }
     console.log("************Ethereum connector************");
-    // Get the address sequences.
-    const ethereumSequenceRequest = await overledger.dlts.ethereum.getEcho(request, "network.quant.devnet:quantbpikey");
-    console.log(JSON.stringify(ethereumSequenceRequest.data, null, 2));
+    // Get echo
+    const ethereumRequest = await overledger.dlts["ethereum"].getEcho(request, "network.quant.devnet:quantbpikey");
+    console.log(JSON.stringify(ethereumRequest.data, null, 2));
 
     console.log("************XRP Ledger connector************");
-    const xrpSequenceRequest = await overledger.dlts["xrp-ledger"].getEcho(request, "network.quant.devnet:quantbpikey");
-    console.log(JSON.stringify(xrpSequenceRequest.data, null, 2));
+    const xrpRequest = await overledger.dlts["xrp-ledger"].getEcho(request, "network.quant.devnet:quantbpikey");
+    console.log(JSON.stringify(xrpRequest.data, null, 2));
+
+    console.log("************Bitcoin connector************");
+    const btcRequest = await overledger.dlts["bitcoin"].getEcho(request, "network.quant.devnet:quantbpikey");
+    console.log(JSON.stringify(btcRequest.data, null, 2));
 
   } catch (e) {
     console.error('error:', e);

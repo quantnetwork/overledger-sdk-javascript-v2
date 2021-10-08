@@ -4,7 +4,6 @@
 
 import Ripple from './Ripple';
 
-
 /**
  * Development package for Ripple (XRP Ledger).
  */

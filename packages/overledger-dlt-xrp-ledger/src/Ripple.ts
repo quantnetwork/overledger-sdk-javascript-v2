@@ -2,13 +2,13 @@ import { RippleAPI } from 'ripple-lib';
 import { deriveKeypair, deriveAddress } from 'ripple-keypairs';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import { Account, PreparedTransaction, XRPLedgerPreparedTransactionNativeData } from '@quantnetwork/overledger-types';
-import log4js from "log4js";
+import log4js from 'log4js';
 
 /**
  * @memberof module:overledger-dlt-xrp-ledger
 */
 const log = log4js.getLogger('Ripple');
-log.level = "info";
+log.level = 'info';
 class Ripple extends AbstractDLT {
   rippleAPI: RippleAPI;
   account: Account;
@@ -44,8 +44,8 @@ class Ripple extends AbstractDLT {
       address: generated.address,
       privateKey: generated.secret,
       publicKey: keypair.publicKey,
-      password: "",
-      provider: "",
+      password: '',
+      provider: '',
     };
 
     return account;
@@ -57,42 +57,42 @@ class Ripple extends AbstractDLT {
    * @param {Account} accountInfo The standardised account information
    */
   setAccount(accountInfo: Account): void {
-    if (typeof accountInfo.privateKey === 'undefined'){
-      throw "accountInfo.privateKey must be set";
+    if (typeof accountInfo.privateKey === 'undefined') {
+      throw 'accountInfo.privateKey must be set';
     }
-    let thisPrivateKey = "";
-    let thisAddress = "";
-    let thisPublicKey = "";
-    let thisProvider = "";
-    let thisPassword = "";
+    let thisPrivateKey = '';
+    let thisAddress = '';
+    let thisPublicKey = '';
+    let thisProvider = '';
+    let thisPassword = '';
     const keypair = deriveKeypair(accountInfo.privateKey);
     const generatedAddress = deriveAddress(keypair.publicKey);
     thisPrivateKey = accountInfo.privateKey;
     thisPublicKey = keypair.publicKey;
     thisAddress = generatedAddress;
-    if ((typeof accountInfo.provider !== 'undefined')){
+    if ((typeof accountInfo.provider !== 'undefined')) {
       thisProvider = accountInfo.provider;
     } else {
-      thisProvider = "";
+      thisProvider = '';
     }
-    if ((typeof accountInfo.password !== 'undefined')){
+    if ((typeof accountInfo.password !== 'undefined')) {
       thisPassword = accountInfo.password;
     } else {
-      thisPassword = "";
+      thisPassword = '';
     }
-    let thisAccount = {
+    const thisAccount = {
       privateKey: thisPrivateKey,
       address: thisAddress,
       publicKey: thisPublicKey,
       provider: thisProvider,
       password: thisPassword,
-    }
-   this.account = thisAccount;
+    };
+    this.account = thisAccount;
   }
 
   sign(unsignedTransaction: PreparedTransaction): Promise<string> {
 
-    let transactionData = unsignedTransaction.nativeData as XRPLedgerPreparedTransactionNativeData;
+    const transactionData = unsignedTransaction.nativeData as XRPLedgerPreparedTransactionNativeData;
 
     const signedData = this.rippleAPI.sign(JSON.stringify(transactionData), this.account.privateKey);
 
@@ -100,6 +100,5 @@ class Ripple extends AbstractDLT {
   }
 
 }
-
 
 export default Ripple;

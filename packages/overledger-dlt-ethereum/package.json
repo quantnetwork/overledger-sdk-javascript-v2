@@ -31,9 +31,9 @@
       "url": "https://github.com/alexchiriac"
     },
     {
-      "name": "Sebastien Bramille",
-      "email": "sebastien.bramille@quant.network",
-      "url": "https://github.com/oktapodia"
+      "name": "Mahsa Bayat",
+      "email": "mahsa.bayat@quant.network",
+      "url": "https://github.com/mahsa-bytt"
     }
   ],
   "license": "Apache-2.0",
@@ -43,17 +43,17 @@
     "@quantnetwork/overledger-dlt-abstract": "^2.0.0",
     "@quantnetwork/overledger-provider": "^2.0.0",
     "@quantnetwork/overledger-types": "^2.0.0",
-    "axios": "^0.18.0",
-    "web3": "^1.3.4",
+    "axios": "^0.21.1",
+    "web3": "^1.6.0",
     "log4js": "^6.3.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "jest": "^24.8.0",
-    "lerna": "^3.14.0",
+    "@types/jest": "^27.0.0",
+    "jest": "^27.0.0",
+    "lerna": "^4.0.0",
     "merge": ">=1.2.1",
-    "nodemon": "^1.19.0",
-    "ts-jest": "^24.0.2",
+    "nodemon": "^2.0.13",
+    "ts-jest": "^27.0.0",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.5"

@@ -8,20 +8,45 @@ Overledger is a REST API that allows applications to connect to multiple distrib
 
 ## Technologies
 
-The Overledger SDK is a collection of node packages written in Typescript. Currently, the supported DLTs are Bitcoin, Ethereum and Ripple.
+The Overledger SDK is a collection of node packages written in Typescript. Currently, the supported DLTs are Bitcoin, Ethereum and the XRP Ledger.
 
 ## Prerequisites
 
-- nodejs 10
+- nodejs >= 10.22.0 and <= 11
 - yarn
 - lerna
 
+If you are using nvm, `nvm use' will automatically set the correct node version via the .nvmrc file.
+
 ## Installation
 
-Currently, v2 of the Overledger SDK is not published on NPM or Yarn. Thus, we have to build it on our machine before using it in our own projects.
+The Overledger SDK can be installed as node modules. 
 
-The Overledger SDK can be installed as a node module. If all supported DLTs are necessary, 
-the overledger-bundle package can be installed, which will include all required dependencies.
+If all supported Distributed Ledger Technologies (DLTs) are necessary, the bundle package can be installed, which will include all required dependencies.
+
+```
+npm install @quantnetwork/overledger-bundle
+```
+
+Or, if you prefer using [yarn](https://yarnpkg.com/):
+
+```
+yarn add @quantnetwork/overledger-bundle
+```
+
+Alternatively, the suite of packages allows developers to chose which DLTs they would like to utilise by installing the core package and the individual DLT packages. For example, if you only want to use the Ethereum blockchain, you will need only the overledger-core and overledger-ethereum packages, which you can install via:
+
+```
+npm install @quantnetwork/overledger-core
+npm install @quantnetwork/overledger-dlt-ethereum
+```
+
+Or, if you prefer using [yarn](https://yarnpkg.com/):
+
+```
+yarn add @quantnetwork/overledger-core
+yarn add @quantnetwork/overledger-dlt-ethereum
+```
 
 #### Building
 
@@ -66,7 +91,7 @@ Or, if you prefer using [yarn](https://yarnpkg.com/):
 yarn add @quantnetwork/overledger-bundle@2.0.0
 ```
 
-Alternatively, the suite of packages allows developers to chose which blockchains/DLTs they would like to utilise by installing the core package and the individual DLT packages. Such as if you only want to install overledger-core and overledger-ethereum you would enter:
+Alternatively, the suite of packages allows developers to chose which DLTs they would like to utilise by installing the core package and the individual DLT packages. For example, if you only want to use the Ethereum blockchain, you will need only the overledger-core and overledger-ethereum packages, which you can install via:
 
 ```
 npm install @quantnetwork/overledger-core@2.0.0
@@ -84,16 +109,16 @@ yarn add @quantnetwork/overledger-dlt-ethereum
 
 ## Getting started
 
-To get started, you can take a look at the examples folder for common use cases. There is a README file with detailed instructions in the signing example.
+To get started, you can take a look at the examples folder for basic use cases. For more complicated use cases, please explore our Overledger demo application github [here](https://github.com/quantnetwork/quant-demo-application).
 
 ## API Reference
 
 The SDK packages provide functions for interacting with the Overledger API Gateway as well as support for offline account generation and transaction signing.
 The functions which interact with the Overledger API (send, get) return a promise with a standard Axios response which includes the BPI data in the `data` field.
 
-Please check the examples folder for details on how to sign and send transactions, as well as do account queries. The sdk reference page can be found [here](api_reference.md).
+Please check the examples folder for details on how to sign and send transactions, as well as how to perform account queries. The sdk reference page can be found [here](api_reference.md).
 
-The Overledger API Swagger docs can be found here: https://api.sandbox.overledger.io/v2/documentation/swagger-ui.html
+The Overledger API Swagger docs can be found [here](https://docs.overledger.io/).
 
 ## Development
 

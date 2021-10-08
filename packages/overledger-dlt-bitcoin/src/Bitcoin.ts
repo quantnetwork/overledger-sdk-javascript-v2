@@ -2,13 +2,13 @@ import * as bitcoin from 'bitcoinjs-lib';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import { MAINNET } from '@quantnetwork/overledger-provider';
 import { Account, PreparedTransaction, BitcoinPreparedTransactionNativeData } from '@quantnetwork/overledger-types';
-import log4js from "log4js";
+import log4js from 'log4js';
 
 /**
  * @memberof module:overledger-dlt-bitcoin
 */
 const log = log4js.getLogger('Bitcoin');
-log.level = "info";
+log.level = 'info';
 class Bitcoin extends AbstractDLT {
   addressType: bitcoin.Network;
   account: Account;
@@ -30,13 +30,10 @@ class Bitcoin extends AbstractDLT {
     super(sdk);
     if (sdk.network === MAINNET) {
       this.addressType = bitcoin.networks.bitcoin;
-    }
-    else {
+    } else {
       this.addressType = bitcoin.networks.testnet;
     }
   }
-
-
 
   /**
    * Create a Bitcoin account
@@ -53,8 +50,8 @@ class Bitcoin extends AbstractDLT {
       privateKey,
       address,
       publicKey: pubkey.toString('hex'),
-      password: "",
-      provider: "",
+      password: '',
+      provider: '',
     };
 
   }
@@ -66,13 +63,13 @@ class Bitcoin extends AbstractDLT {
    */
   setAccount(accountInfo: Account): void {
     if (typeof accountInfo.privateKey === 'undefined') {
-      throw "accountInfo.privateKey must be set";
+      throw 'accountInfo.privateKey must be set';
     }
-    let thisPrivateKey = "";
-    let thisAddress = "";
-    let thisPublicKey = "";
-    let thisProvider = "";
-    let thisPassword = "";
+    let thisPrivateKey = '';
+    let thisAddress = '';
+    let thisPublicKey = '';
+    let thisProvider = '';
+    let thisPassword = '';
     const keyPair = bitcoin.ECPair.fromWIF(accountInfo.privateKey, this.addressType);
     thisPrivateKey = accountInfo.privateKey;
     thisAddress = bitcoin.payments
@@ -82,30 +79,30 @@ class Bitcoin extends AbstractDLT {
     if ((typeof accountInfo.provider !== 'undefined')) {
       thisProvider = accountInfo.provider;
     } else {
-      thisProvider = "";
+      thisProvider = '';
     }
     if ((typeof accountInfo.password !== 'undefined')) {
       thisPassword = accountInfo.password;
     } else {
-      thisPassword = "";
+      thisPassword = '';
     }
-    let thisAccount = {
+    const thisAccount = {
       privateKey: thisPrivateKey,
       address: thisAddress,
       publicKey: thisPublicKey,
       provider: thisProvider,
       password: thisPassword,
-    }
+    };
     this.account = thisAccount;
   }
 
   sign(unsignedTransaction: PreparedTransaction): Promise<string> {
-    let transactionData = unsignedTransaction.nativeData as BitcoinPreparedTransactionNativeData;
+    const transactionData = unsignedTransaction.nativeData as BitcoinPreparedTransactionNativeData;
     // for each input sign them:
     const myKeyPair = bitcoin.ECPair.fromWIF(this.account.privateKey, this.addressType);
 
     // Set maximum fee rate = 0 to be flexible on fee rate
-    let transaction = new bitcoin.TransactionBuilder(this.addressType, 0);
+    const transaction = new bitcoin.TransactionBuilder(this.addressType, 0);
 
     transactionData.inputs.forEach(input => transaction.addInput(input.transactionHash, parseInt(input.vout, 10)));
     transactionData.outputs.forEach(output => transaction.addOutput(output.address, output.amount));
@@ -115,8 +112,11 @@ class Bitcoin extends AbstractDLT {
     const returnMessage = bitcoin.script.compile([bitcoin.opcodes.OP_RETURN, data]);
     transaction.addOutput(returnMessage, 0);
 
-    for (let i = 0; i < transactionData.inputs.length; i++) {
-        transaction.sign({ prevOutScriptType: 'p2pkh', vin: i, keyPair: myKeyPair });
+    let counter = 0;
+    while (counter < transactionData.inputs.length) {
+      // currently we are only supporting the p2pkh script
+      transaction.sign({ prevOutScriptType: 'p2pkh', vin: counter, keyPair: myKeyPair });
+      counter = counter + 1;
     }
 
     return Promise.resolve(transaction.build().toHex());
