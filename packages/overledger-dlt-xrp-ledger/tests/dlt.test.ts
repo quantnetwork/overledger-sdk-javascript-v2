@@ -9,7 +9,7 @@ describe('Dlt', () => {
         const sdkOptions = {
             dlts: [{ dlt: DltNameOptions.XRP_LEDGER },],
         };
-      
+
         const sdk = new OverledgerSDK(sdkOptions);
         sdk.dlts[DltNameOptions.XRP_LEDGER].setAccount({
             privateKey: mockPrivateKey,
@@ -17,6 +17,5 @@ describe('Dlt', () => {
         },);
 
         expect(sdk.dlts[DltNameOptions.XRP_LEDGER].name).toEqual(DltNameOptions.XRP_LEDGER);
-        expect(sdk.dlts[DltNameOptions.XRP_LEDGER].account.privateKey).toEqual(mockPrivateKey);
     });
 });
