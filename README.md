@@ -4,7 +4,9 @@ Welcome to the developer's guide to use the Overledger SDK written in Javascript
 
 ## Introduction to the Overledger SDK
 
-Overledger is a REST API that allows applications to connect to multiple distributed ledger technologies (DLTs) or blockchains through the use of a standardised interface. The Overledger SDK enables developers to create signed transactions and send them to the supported DLTs.
+Overledger is a REST API that allows applications to connect to multiple distributed ledger technologies (DLTs) or blockchains through the use of a standardised interface. 
+
+The Overledger SDK enables developers to read blockchain data, create blockchain accounts, create signed transactions, and send signed transactions to the supported DLTs.
 
 ## Technologies
 
@@ -22,7 +24,7 @@ If you are using nvm, `nvm use' will automatically set the correct node version 
 
 The Overledger SDK can be installed as node modules. 
 
-If all supported Distributed Ledger Technologies (DLTs) are necessary, the bundle package can be installed, which will include all required dependencies.
+If all supported Distributed Ledger Technologies (DLTs) are necessary, the bundle package can be installed, which will include all the required dependencies.
 
 ```
 npm install @quantnetwork/overledger-bundle
@@ -34,7 +36,7 @@ Or, if you prefer using [yarn](https://yarnpkg.com/):
 yarn add @quantnetwork/overledger-bundle
 ```
 
-Alternatively, the suite of packages allows developers to chose which DLTs they would like to utilise by installing the core package and the individual DLT packages. For example, if you only want to use the Ethereum blockchain, you will need only the overledger-core and overledger-ethereum packages, which you can install via:
+Alternatively, the suite of node packages allows developers to chose which DLTs they would like to utilise by installing the core overledger package and the individual DLT packages. For example, if you only want to use the Ethereum blockchain, you will need only the overledger-core and overledger-ethereum packages, which you can install via:
 
 ```
 npm install @quantnetwork/overledger-core
@@ -71,7 +73,8 @@ yarn run build
 >Note: For Windows users, please use git bash as the build currently uses UNIX-based commands. You will also need to make sure you have 'make' installed for windows. This is done by running powershell first as Administrator and then installing make with chocolatey: ```choco install make```
 
 This will build and link the packages together.
-To test if the package built correctly, you can run
+
+To test if the package built correctly, you can run:
 
 ```
 yarn run test
@@ -82,20 +85,20 @@ yarn run test
 After building, you can install it in your own project. Make sure to specify the version if you'd like to use this version of the SDK vs the public one from NPM.
 
 ```
-npm install @quantnetwork/overledger-bundle@2.0.0
+npm install @quantnetwork/overledger-bundle@2.0.1
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
 
 ```
-yarn add @quantnetwork/overledger-bundle@2.0.0
+yarn add @quantnetwork/overledger-bundle@2.0.1
 ```
 
 Alternatively, the suite of packages allows developers to chose which DLTs they would like to utilise by installing the core package and the individual DLT packages. For example, if you only want to use the Ethereum blockchain, you will need only the overledger-core and overledger-ethereum packages, which you can install via:
 
 ```
-npm install @quantnetwork/overledger-core@2.0.0
-npm install @quantnetwork/overledger-dlt-ethereum@2.0.0
+npm install @quantnetwork/overledger-core@2.0.1
+npm install @quantnetwork/overledger-dlt-ethereum@2.0.1
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
