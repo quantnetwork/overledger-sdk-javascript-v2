@@ -52,10 +52,5 @@
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.5"
   },
-  "engines": {
-    "node": "<=10.0.0",
-    "npm": ">=6.0.0"
-  },
-  "engineStrict": true,
   "gitHead": "3574baa27bba109510db5f5a088e4684b286bf4b"
 }

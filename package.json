@@ -54,6 +54,5 @@
     "secure-env": "^1.2.0",
     "yarn": "^1.22.10"
   },
-  "engineStrict": true,
   "preinstall": "echo 'engine-strict=true' >> .npmrc"
 }
