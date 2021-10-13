@@ -2,7 +2,7 @@
 import Web3 from 'web3';
 import { MAINNET } from '@quantnetwork/overledger-provider';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
-import { Account, PreparedTransaction, EthereumPreparedTransactionNativeData } from '@quantnetwork/overledger-types';
+import { Account, PreparedTransaction } from '@quantnetwork/overledger-types';
 import log4js from 'log4js';
 
 /**
@@ -107,14 +107,11 @@ class Ethereum extends AbstractDLT {
   async sign(unsignedTransaction: PreparedTransaction): Promise<string> {
     return new Promise((resolve, reject) => {
 
-      const transactionData = unsignedTransaction.nativeData as EthereumPreparedTransactionNativeData;
-      transactionData.data = this.web3.utils.asciiToHex(transactionData.data);
-      unsignedTransaction.nativeData = transactionData;
-
-      const transactionConfig = unsignedTransaction.nativeData as object;
+      let transactionConfig = unsignedTransaction.nativeData as object;
+      console.log(JSON.stringify(transactionConfig));
       this.web3.eth.accounts.signTransaction(transactionConfig, this.account.privateKey, (err, data) => {
         if (err) {
-          log.error(`Error:  ${err}`);
+          log.error(`Error: ${err}`);
           return reject(err);
         }
         return resolve(data.rawTransaction);

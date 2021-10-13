@@ -6,7 +6,7 @@
  */
 type BitcoinPreparedOutput = {
   address: string,
-  amount: number,
+  value: number,
 };
 
 export default BitcoinPreparedOutput;

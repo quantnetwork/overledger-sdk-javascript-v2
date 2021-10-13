@@ -1,5 +1,5 @@
 {
-    "requestId": "b95ee19e-5391-4593-8177-00171b5840e4",
+    "requestId": "18e871cf-5f25-4d74-8bb9-c1726a5123a0",
     "gatewayFee": {
         "amount": "0",
         "unit": "QNT"
@@ -9,21 +9,22 @@
         "unit": "BTC"
     },
     "nativeData": {
-        "data": "OVL Message",
+        "data": "OVL Transaction Message",
         "inputs": [
             {
-                "transactionHash": "c76057a7ce2b1f106df5daff6781780e3dfaffba4891ab8338b8e804e137a6d0",
-                "vout": "1"
+                "hash": "f53371092a0069f52ac9b42c3ee8cf0e6032281bfa854b93a03d799a81bff620",
+                "index": 0,
+                "rawTransaction": "02000000000101f60872adf92208cd84b2994fc0fa443eee99603dff84b1c90988d17291debe1f0100000017160014a9490728fe51540f32e028c8df8ed42f4c39258dfeffffff02a0860100000000001976a914ba0844189ef0df240f8ec4ae378cc6cf279696c188ac293df9000000000017a9144bfde3109cbbee7e0f413601dcbbf388cfd219338702473044022038c5b249c315fe693d8fdabba4a09d986fd7745be3c33cc02ddd6ecbd56f1a81022027dd222a1ff76643f0c3d74d613d06a4d3855f49c4fc4be179d2731350e35bdc012103adfc67886dd1cd909efb0b5851c66be0e2a7d9d6630a4af7bbba43b8c7355d646b062000"
             }
         ],
         "outputs": [
             {
                 "address": "mtHsSjGeVhSQVqcM3fv5A79qoSJ5TgEjtj",
-                "amount": 1000
+                "value": 10
             },
             {
                 "address": "msvRtgZy4R3TUfi8jwkn4fDDxdH9DqFmfZ",
-                "amount": 7404
+                "value": 9690
             }
         ],
         "fee": "0.0000031"

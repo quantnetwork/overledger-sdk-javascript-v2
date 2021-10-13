@@ -102,24 +102,27 @@ class Bitcoin extends AbstractDLT {
     const myKeyPair = bitcoin.ECPair.fromWIF(this.account.privateKey, this.addressType);
 
     // Set maximum fee rate = 0 to be flexible on fee rate
-    const transaction = new bitcoin.TransactionBuilder(this.addressType, 0);
-
-    transactionData.inputs.forEach(input => transaction.addInput(input.transactionHash, parseInt(input.vout, 10)));
-    transactionData.outputs.forEach(output => transaction.addOutput(output.address, output.amount));
+    const transaction = new bitcoin.Psbt({ network: this.addressType });
+    transactionData.inputs.forEach(input => transaction.addInput({ hash: input.hash, index: input.index, nonWitnessUtxo: Buffer.from(input.rawTransaction, 'hex') }));
+    //for bitcoin scripts the next line needs to change (see v1 sdk)
+    transactionData.outputs.forEach(output => transaction.addOutput({value: output.value, address: output.address }));
 
     // Message is inserted as an additional transaction output
-    const data = Buffer.from(transactionData.data, 'utf8');
-    const returnMessage = bitcoin.script.compile([bitcoin.opcodes.OP_RETURN, data]);
-    transaction.addOutput(returnMessage, 0);
-
-    let counter = 0;
-    while (counter < transactionData.inputs.length) {
-      // currently we are only supporting the p2pkh script
-      transaction.sign({ prevOutScriptType: 'p2pkh', vin: counter, keyPair: myKeyPair });
-      counter = counter + 1;
+    const data = transactionData.data;
+    const dataLength = data.length;
+    if (data && dataLength > 0) {
+      const unspendableReturnPayment = bitcoin.payments.embed({ data: [Buffer.from(data, 'utf8')], network: this.addressType });
+      const dataOutput = { script: unspendableReturnPayment.output, value: 0 };
+      transaction.addOutput(dataOutput);
     }
 
-    return Promise.resolve(transaction.build().toHex());
+    for (let i = 0; i < transactionData.inputs.length; i++) {
+      transaction.signInput(i, myKeyPair);
+      transaction.validateSignaturesOfInput(i);
+      transaction.finalizeInput(i);
+    }
+
+    return Promise.resolve(transaction.extractTransaction(true).toHex());
   }
 }
 
