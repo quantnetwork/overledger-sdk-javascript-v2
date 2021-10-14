@@ -44,6 +44,7 @@
     "@quantnetwork/overledger-provider": "^2.1.1",
     "@quantnetwork/overledger-types": "^2.1.1",
     "axios": "^0.21.1",
+    "elliptic": "^6.5.2",
     "ripple-keypairs": "^1.0.3",
     "ripple-lib": "^1.10.0",
     "log4js": "^6.3.0"
