@@ -1,5 +1,8 @@
 import { RippleAPI } from 'ripple-lib';
-import { deriveKeypair, deriveAddress } from 'ripple-keypairs';
+import { deriveKeypair, deriveAddress, sign, verify } from 'ripple-keypairs';
+import { bytesToHex } from 'ripple-keypairs/dist/utils';
+import BN from 'bn.js';
+
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import { Account, PreparedTransaction, XRPLedgerPreparedTransactionNativeData } from '@quantnetwork/overledger-types';
 import log4js from 'log4js';
@@ -67,7 +70,7 @@ class Ripple extends AbstractDLT {
     let thisPassword = '';
     const keypair = deriveKeypair(accountInfo.privateKey);
     const generatedAddress = deriveAddress(keypair.publicKey);
-    thisPrivateKey = accountInfo.privateKey;
+    thisPrivateKey = keypair.privateKey;
     thisPublicKey = keypair.publicKey;
     thisAddress = generatedAddress;
     if ((typeof accountInfo.provider !== 'undefined')) {
@@ -94,11 +97,33 @@ class Ripple extends AbstractDLT {
 
     const transactionData = unsignedTransaction.nativeData as XRPLedgerPreparedTransactionNativeData;
 
-    const signedData = this.rippleAPI.sign(JSON.stringify(transactionData), this.account.privateKey);
-
+    const signedData = this.rippleAPI.sign(JSON.stringify(transactionData), {
+      privateKey: this.account.privateKey,
+      publicKey: this.account.publicKey
+    });
     return Promise.resolve(signedData.signedTransaction);
   }
 
-}
+  /**
+ * ripple seed validation
+ */
+  isValidSeed(seed: string): boolean {
+    try {
+      deriveKeypair(seed);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  };
+
+  formatPrivateKey(privateKey: string): string {
+    const prefix = '00';
+    return prefix + new BN(privateKey).toString(16, 64);
+  }
+
+  validateKeyPair(privateKey: string, publicKey: string): boolean {
+
+    const messageToVerify = Buffer.from('This test message should verify.').toString('hex');
+    const signature = sign(messageToVerify, privateKey);
 
 export default Ripple;

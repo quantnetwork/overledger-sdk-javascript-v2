@@ -43,8 +43,8 @@
     "axios": "^0.21.1",
     "bitcoinjs-lib": "5.1.7",
     "event-stream": "4.0.1",
-    "typedarray-to-buffer": "^3.1.5",
-    "log4js": "^6.3.0"
+    "log4js": "^6.3.0",
+    "typedarray-to-buffer": "^3.1.5"
   },
   "devDependencies": {
     "@types/jest": "^27.0.0",

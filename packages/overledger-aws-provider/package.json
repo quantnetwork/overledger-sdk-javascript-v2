@@ -14,7 +14,6 @@
     "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
   "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-aws-provider",
-
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "types": "dist/index.d.ts",
