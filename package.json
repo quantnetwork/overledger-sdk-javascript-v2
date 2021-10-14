@@ -1,7 +1,7 @@
 {
   "name": "overledger-sdk-javascript-version2",
   "private": true,
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
   "scripts": {
     "dev": "nodemon --config nodemon.json --exec yarn run build",
