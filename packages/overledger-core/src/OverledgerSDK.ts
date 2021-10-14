@@ -39,9 +39,11 @@ class OverledgerSDK {
 
     this.provider = new Provider(options.provider);
     this.cognitoProvider = new CognitoProvider(options.userPoolID);
-
-    const secureEnv = require('secure-env');
-    process.env = secureEnv({ secret: options.envFilePassword });
+    if (typeof options.envFilePassword !== 'undefined') {
+      // Private keys may not aways be in the secure env file, e.g. in our test scripts
+      const secureEnv = require('secure-env');
+      process.env = secureEnv({ secret: options.envFilePassword });
+    }
 
   }
 
@@ -81,9 +83,7 @@ class OverledgerSDK {
   * @param echoRequest
   */
   public getEcho(echoRequest: EchoRequest, accessToken?:string, pathToCall?:string): Object {
-    log.info(`getEcho: ${echoRequest}, ${accessToken}, ${pathToCall}`);
     const echoRequestJson = JSON.stringify(echoRequest);
-    log.info(`echoRequestJson: ${echoRequestJson}`);
     this.request = this.provider.createRequest(accessToken, undefined);
     return this.request.post(pathToCall === undefined ? '/echoecho' : pathToCall, echoRequestJson);
   }
@@ -92,7 +92,6 @@ class OverledgerSDK {
   * refresh access token
   */
   public refreshAccessToken(clientId: string, clientSecret: string, refreshToken: string, pathToCall?: string): AxiosPromise<Object> {
-    log.info(`refreshAccessToken: ${clientId}, ${clientSecret}, ${refreshToken}, ${pathToCall}`);
     this.request = this.provider.createRequest(undefined, 'application/x-www-form-urlencoded');
     const params = new URLSearchParams();
     params.append('grant_type', 'refresh_token');
@@ -107,7 +106,6 @@ class OverledgerSDK {
   * get new set of tokens using username, password, clientId and clientSecret
   */
   public async getTokensUsingClientIdAndSecret(username: string, password: string, clientId: string, clientSecret: string): Promise<RefreshTokensResponse> {
-    console.log(username, password);
     const refreshExpiredTokensResult = await this.cognitoProvider.getNewSetOfTokens(username, password, clientId, clientSecret);
     return {
       accessToken: refreshExpiredTokensResult.accessToken,

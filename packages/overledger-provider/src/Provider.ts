@@ -31,7 +31,6 @@ class Provider {
    * @param acceptString
    */
   createRequest(accessToken?: string, contentType?: string, acceptString? :string): AxiosInstance {
-    log.info(`createRequest: ${accessToken}, ${contentType}, ${acceptString}`);
 
     let overledgerUri: string;
 

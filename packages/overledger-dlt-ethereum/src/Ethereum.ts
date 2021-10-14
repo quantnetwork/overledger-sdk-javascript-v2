@@ -107,8 +107,7 @@ class Ethereum extends AbstractDLT {
   async sign(unsignedTransaction: PreparedTransaction): Promise<string> {
     return new Promise((resolve, reject) => {
 
-      let transactionConfig = unsignedTransaction.nativeData as object;
-      console.log(JSON.stringify(transactionConfig));
+      const transactionConfig = unsignedTransaction.nativeData as object;
       this.web3.eth.accounts.signTransaction(transactionConfig, this.account.privateKey, (err, data) => {
         if (err) {
           log.error(`Error: ${err}`);
