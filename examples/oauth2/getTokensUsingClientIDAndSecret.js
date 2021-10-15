@@ -11,35 +11,25 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 
 ; (async () => {
     try {
-        const readline = require('readline').createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
-
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN },
             { dlt: DltNameOptions.ETHEREUM },
             { dlt: DltNameOptions.XRP_LEDGER }],
             userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
+            provider: { network: 'https://auth.overledger.io/' },
             envFilePassword: 'password',
         });
 
-        const response = await new Promise((resolve, reject) => readline.question("Please enter the username: ", (username) => {
-            readline.question("Please enter the password: ", function (password) {
-                readline.close();
-                resolve({
-                    password_var: password,
-                    username_var: username,
-                });
+        console.log("USER:" + process.env.USER_NAME);
+        console.log("PASSWORD:" + process.env.PASSWORD);
+        console.log("CLIENTID:" + process.env.CLIENT_ID);
+        console.log("SECRET:" + process.env.CLIENT_SECRET);
 
-            });
-        })).then(async (res) => {
-            const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(res.username_var, res.password_var,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);
+        const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
+            process.env.CLIENT_ID, process.env.CLIENT_SECRET);
             console.log('accessToken:\n', refreshTokensResponse.accessToken)
             console.log('refreshToken:\n', refreshTokensResponse.refreshToken);
             console.log('idToken:\n', refreshTokensResponse.idToken);
-        });
     } catch (e) {
         console.error('error', e);
     }
