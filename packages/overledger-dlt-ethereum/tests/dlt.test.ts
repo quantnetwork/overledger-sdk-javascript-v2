@@ -1,8 +1,8 @@
 import OverledgerSDK from '@quantnetwork/overledger-core';
 import { DltNameOptions } from '@quantnetwork/overledger-types';
 
-const mockAddress = '0x93Cdb71c0De6700706D61C8eE0BcF8eE1cedb17d';
-const mockPrivateKey = '0xe352ad01a835ec50ba301ed7ffb305555cbf3b635082af140b3864f8e3e443d3';
+const mockAddress = '0xb619bca484d0247D88281dAF4ad62Aba666E4A8f';
+const mockPrivateKey = '0x0070999c7d2b8cf84db93ac1075ef99af3df7f59be22a7b5339fc9867c8bbf25';
 const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.ETHEREUM },],
 };
@@ -20,7 +20,7 @@ describe('Dlt', () => {
         expect(sdk.dlts[DltNameOptions.ETHEREUM].account.privateKey).toEqual(mockPrivateKey);
     });
 
-    test('Can sign a transaction', async () => {
+    test('Can sign a london upgrade transaction (eip1559 transaction type 2)', async () => {
 
         const sdk = new OverledgerSDK(sdkOptions);
         sdk.dlts[DltNameOptions.ETHEREUM].setAccount({
@@ -30,7 +30,21 @@ describe('Dlt', () => {
 
         const ethPreparedTransaction = require('./resources/ethereum-prepared-transaction.json');
         let signedTransaction = (await sdk.sign(DltNameOptions.ETHEREUM, ethPreparedTransaction)).signedTransaction;
-        expect(signedTransaction).toEqual("0x02f889031985174876e80085174876e81482537894fd218e9a20400535ffaa8fae54d07d375b3a38278609184e72a000974f564c205472616e73616374696f6e204d657373616765c001a0240117c3c9584dde1ab630ece2eb4b0337a31420961ffa57ef90488c2232596ca03f67e961aae17f9ef92ebbceb3690ec021b0a37164a763b1782cde41a581cc58");
+        expect(signedTransaction).toEqual("0x02f889031985174876e80085174876e81482537894fd218e9a20400535ffaa8fae54d07d375b3a38278609184e72a000974f564c205472616e73616374696f6e204d657373616765c001a053b8d4131d64c39958505d489b35ce4a71b98e9ebc33b8ab4165396e006f90c8a063d3167741da1309d4048ec6af33d3a85f4992c1a2564fbe13284a5798a92cae");
+
+    });
+
+    test('Can sign a legacy transaction (transaction type 0)', async () => {
+
+        const sdk = new OverledgerSDK(sdkOptions);
+        sdk.dlts[DltNameOptions.ETHEREUM].setAccount({
+            privateKey: mockPrivateKey,
+            address: mockAddress,
+        },);
+
+        const ethPreparedTransaction = require('./resources/ethereum-prepared-transaction-legacy.json');
+        let signedTransaction = (await sdk.sign(DltNameOptions.ETHEREUM, ethPreparedTransaction)).signedTransaction;
+        expect(signedTransaction).toEqual("0xf87f82049785012a05f2008263c494b3ea4d180f31b4000f2fbcc58a085ef2ffd5a76385e8d4a5100094000000323520414b34375320363934323036363629a083dab32421b966ab6900a022df55c082dc2b1f9bdd3fb4d2cb461e17192756b9a07b026d7bdc6ef6df44310ea73d9d26c6b9fa928a02caa5bf8cf2c0b3027aca9c");
 
     });
 });
