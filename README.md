@@ -28,7 +28,7 @@ the overledger-bundle package can be installed, which will include all required 
 The Overledger JavaScript SDK manages multiple packages through [Lerna](https://lerna.js.org/). To build the SDK, first we need to globally install the lerna dependency:
 
 ```
-npm install -g lerna
+npm install -g lerna@3.22.0
 ```
 
 To build the project, first download the yarn package manager:
