@@ -30,7 +30,9 @@ describe('Dlt', () => {
         expect(typeof account.privateKey).toBe('string');
         expect(account.privateKey.length).toEqual(29);
         expect(typeof account.address).toBe('string');
-        expect(account.address.length).toEqual(34);
+        // between 25-35 characters: https://support.uphold.com/hc/en-us/articles/360000879426-How-do-I-send-XRP-from-my-Uphold-account-to-an-external-XRP-ledger-address-
+        expect(account.address.length).toBeGreaterThanOrEqual(25);
+        expect(account.address.length).toBeLessThanOrEqual(35);
         expect(typeof account.publicKey).toBe('string');
         expect(account.publicKey.length).toEqual(66);
         expect(typeof account.password).toBe('string');
