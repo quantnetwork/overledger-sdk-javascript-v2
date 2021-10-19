@@ -22,6 +22,23 @@ describe('Dlt', () => {
         expect(sdk.dlts[DltNameOptions.XRP_LEDGER].account.privateKey).toEqual(mockPrivateKeyVersionOfSeed);
     });
 
+    test('Can create an account', async () => {
+
+        const sdk = new OverledgerSDK(sdkOptions);
+        const account = await sdk.dlts[DltNameOptions.XRP_LEDGER].createAccount();
+
+        expect(typeof account.privateKey).toBe('string');
+        expect(account.privateKey.length).toEqual(29);
+        expect(typeof account.address).toBe('string');
+        expect(account.address.length).toEqual(34);
+        expect(typeof account.publicKey).toBe('string');
+        expect(account.publicKey.length).toEqual(66);
+        expect(typeof account.password).toBe('string');
+        expect(account.password.length).toEqual(0);
+        expect(typeof account.provider).toBe('string');
+        expect(account.provider.length).toEqual(0);
+    });
+
     test('Can sign a transaction', async () => {
         const mockSeed2 = "sswERuW1KWEwMXF6VFpRY72PxfC9b";
         const sdk = new OverledgerSDK(sdkOptions);

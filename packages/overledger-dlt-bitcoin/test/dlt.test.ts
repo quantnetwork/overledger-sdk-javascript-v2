@@ -19,6 +19,23 @@ describe('Dlt', () => {
         expect(sdk.dlts[DltNameOptions.BITCOIN].account.privateKey).toEqual(mockPrivateKey);
     });
 
+    test('Can create an account', async () => {
+
+        const sdk = new OverledgerSDK(sdkOptions);
+        const account = await sdk.dlts[DltNameOptions.BITCOIN].createAccount();
+
+        expect(typeof account.privateKey).toBe('string');
+        expect(account.privateKey.length).toEqual(52);
+        expect(typeof account.address).toBe('string');
+        expect(account.address.length).toEqual(34);
+        expect(typeof account.publicKey).toBe('string');
+        expect(account.publicKey.length).toEqual(66);
+        expect(typeof account.password).toBe('string');
+        expect(account.password.length).toEqual(0);
+        expect(typeof account.provider).toBe('string');
+        expect(account.provider.length).toEqual(0);
+    });
+
     test('Can sign a transaction', async () => {
 
         const privateKey2 = "cMt5GBJPNbWMuGDQoPs4NEdoxxpEPY4MAj21WJQy1ATMh3W3cmt7";
