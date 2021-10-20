@@ -12,7 +12,9 @@ describe('Aws', () => {
         if (typeof process.env.USER_NAME == 'undefined') {
             //do not run tests
             expect(0).toEqual(0);
+            console.log("Clean exit from token test");
         } else {
+            console.log("Running full token test");
             //run tests using github secrets - see github repo
             const overledger = new OverledgerSDK({
                 dlts: [{ dlt: DltNameOptions.BITCOIN },
