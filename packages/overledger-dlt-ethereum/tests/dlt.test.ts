@@ -7,7 +7,7 @@ const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.ETHEREUM },],
 };
 
-describe('Dlt', () => {
+describe('Unit Tests:', () => {
     test('Can construct the DLT', () => {
 
         const sdk = new OverledgerSDK(sdkOptions);

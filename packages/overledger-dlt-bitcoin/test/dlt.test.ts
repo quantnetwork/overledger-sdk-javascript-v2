@@ -6,7 +6,7 @@ const mockPrivateKey = 'cNmsFjPqWCaVdhbPoHQJqDpayYdtKR9Qo81KVAEMHJwmgRVJZjDu';
 const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.BITCOIN },],
 };
-describe('Dlt', () => {
+describe('Unit Tests:', () => {
     test('Can construct the DLT', () => {
 
         const sdk = new OverledgerSDK(sdkOptions);

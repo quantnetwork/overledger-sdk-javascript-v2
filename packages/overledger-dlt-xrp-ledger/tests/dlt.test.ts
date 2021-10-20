@@ -7,7 +7,7 @@ const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.XRP_LEDGER },],
 };
 
-describe('Dlt', () => {
+describe('Unit Tests:', () => {
     test('Can construct the DLT', () => {
 
         const mockPrivateKeyVersionOfSeed = '000FEA7F693B30168E216DA364DC45A0D6D18E0D84AFC1A2D4C9150BC8CA688B2A';
