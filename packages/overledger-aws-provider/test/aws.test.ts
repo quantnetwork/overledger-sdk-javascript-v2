@@ -27,7 +27,7 @@ describe('Aws', () => {
         // refresh token is variable in length but must have at least 3 sections split by .
         expect(typeof refreshTokensResponse.refreshToken).toBe('string');
         expect(refreshTokensResponse.refreshToken.length).toBeGreaterThan(4);
-        expect(refreshTokensResponse.refreshToken.split(".").length).toEqual(3);
+        expect(refreshTokensResponse.refreshToken.split(".").length).toBeGreaterThanOrEqual(3);
         // id token is variable in length but must have at least 3 sections split by .
         expect(typeof refreshTokensResponse.idToken).toBe('string');
         expect(refreshTokensResponse.idToken.length).toBeGreaterThan(4);
