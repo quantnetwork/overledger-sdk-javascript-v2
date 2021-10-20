@@ -29,6 +29,7 @@ const refreshToken = 'eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRV
     try {
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN }, { dlt: DltNameOptions.ETHEREUM }, { dlt: DltNameOptions.XRP_LEDGER }],
+            provider: { network: 'https://auth.overledger.io/' },
             envFilePassword: 'password',
         });
 

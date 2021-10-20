@@ -1,28 +1,32 @@
 import OverledgerSDK from '@quantnetwork/overledger-core';
 import { DltNameOptions } from '@quantnetwork/overledger-types';
 
-const mockAddress = 'mo54poo7oLL5LvHEYwhDmYdCpqvx7j3Ks2';
-const mockPrivateKey = 'cNmsFjPqWCaVdhbPoHQJqDpayYdtKR9Qo81KVAEMHJwmgRVJZjDu';
-const sdkOptions = {
-    dlts: [{ dlt: DltNameOptions.BITCOIN },],
-};
-describe('Dlt', () => {
+describe('Aws', () => {
 
-    test('Can create an account', async () => {
+    test('Can get tokens using client ID and client secret', async () => {
 
-        const sdk = new OverledgerSDK(sdkOptions);
-        const account = await sdk.dlts[DltNameOptions.BITCOIN].createAccount();
+        const overledger = new OverledgerSDK({
+            dlts: [{ dlt: DltNameOptions.BITCOIN },
+            { dlt: DltNameOptions.ETHEREUM },
+            { dlt: DltNameOptions.XRP_LEDGER }],
+            userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
+            provider: { network: 'https://auth.overledger.io/' },
+            envFilePassword: 'password',
+        });
 
-        expect(typeof account.privateKey).toBe('string');
-        expect(account.privateKey.length).toEqual(52);
-        expect(typeof account.address).toBe('string');
-        expect(account.address.length).toEqual(34);
-        expect(typeof account.publicKey).toBe('string');
-        expect(account.publicKey.length).toEqual(66);
-        expect(typeof account.password).toBe('string');
-        expect(account.password.length).toEqual(0);
-        expect(typeof account.provider).toBe('string');
-        expect(account.provider.length).toEqual(0);
+        const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
+            process.env.CLIENT_ID, process.env.CLIENT_SECRET);
+
+        expect(typeof refreshTokensResponse.accessToken).toBe('string');
+        //expect(account.privateKey.length).toEqual(52);
+        expect(typeof refreshTokensResponse.refreshToken).toBe('string');
+        //expect(account.address.length).toEqual(34);
+        expect(typeof refreshTokensResponse.idToken).toBe('string');
+        //expect(account.publicKey.length).toEqual(66);
+        //expect(typeof account.password).toBe('string');
+        //expect(account.password.length).toEqual(0);
+        //expect(typeof account.provider).toBe('string');
+        //expect(account.provider.length).toEqual(0);
     });
 
 });

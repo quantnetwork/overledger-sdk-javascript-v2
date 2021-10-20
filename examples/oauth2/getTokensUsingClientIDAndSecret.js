@@ -20,11 +20,6 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             envFilePassword: 'password',
         });
 
-        console.log("USER:" + process.env.USER_NAME);
-        console.log("PASSWORD:" + process.env.PASSWORD);
-        console.log("CLIENTID:" + process.env.CLIENT_ID);
-        console.log("SECRET:" + process.env.CLIENT_SECRET);
-
         const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
             process.env.CLIENT_ID, process.env.CLIENT_SECRET);
             console.log('accessToken:\n', refreshTokensResponse.accessToken)
