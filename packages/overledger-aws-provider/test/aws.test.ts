@@ -1,5 +1,9 @@
 import OverledgerSDK from '@quantnetwork/overledger-core';
 import { DltNameOptions } from '@quantnetwork/overledger-types';
+//const path = require('path');
+//const thisPath = path.resolve(__dirname, '../../../.env');
+//console.log("thisPath: " + thisPath);
+//require('dotenv-flow').config({ path: thisPath });
 
 describe('Aws', () => {
 

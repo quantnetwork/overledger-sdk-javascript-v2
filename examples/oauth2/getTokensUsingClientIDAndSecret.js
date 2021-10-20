@@ -5,7 +5,7 @@
 //pass in the password in OverledgerSdk
 //
 
-//NOTE: replace @quantnetwork/ with ../../packages/ for all require statements below if you have not built the SDK yourself
+//NOTE: replace @quantnetwork/ with ../../packages/ for all require statements below if you have built the SDK yourself
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 
