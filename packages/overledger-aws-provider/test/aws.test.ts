@@ -14,8 +14,7 @@ describe('Aws', () => {
             { dlt: DltNameOptions.ETHEREUM },
             { dlt: DltNameOptions.XRP_LEDGER }],
             userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
-            provider: { network: 'https://auth.overledger.io/' },
-            envFilePassword: 'password',
+            provider: { network: 'https://auth.overledger.io/' }
         });
 
         const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
