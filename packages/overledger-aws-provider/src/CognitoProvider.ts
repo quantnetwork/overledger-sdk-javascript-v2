@@ -17,7 +17,7 @@ class CognitoProvider {
     this.POOL_ID = userPoolID;
   }
 
-  public async getNewSetOfTokens(username: string, password: string, clientId: string, clientsecret: string): Promise<RefreshTokensResponse> {
+  public async getNewSetOfTokens(username: string, password: string, clientId: string, clientSecret: string): Promise<RefreshTokensResponse> {
     const amazonCognitoIdentity = require('amazon-cognito-identity-js');
 
     const userPool = new amazonCognitoIdentity.CognitoUserPool({
@@ -25,7 +25,7 @@ class CognitoProvider {
       ClientId: clientId, // your client id here
     });
 
-    const cognitoUser = new CognitoUserImpl(username, userPool, clientsecret);
+    const cognitoUser = new CognitoUserImpl(username, userPool, clientSecret);
 
     const authenticationData = {
       Username: username,

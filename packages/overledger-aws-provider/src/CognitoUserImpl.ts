@@ -27,7 +27,7 @@ class CognitoUserImpl {
     this.client = new CognitoIdentityServiceProvider({
       apiVersion: '2016-04-19',
       region: this.pool.getUserPoolId().split('_')[0],
-      endpoint: `https://cognito-idp. ${this.pool.getUserPoolId().split('_')[0]}.amazonaws.com/`,
+      endpoint: `https://cognito-idp.${this.pool.getUserPoolId().split('_')[0]}.amazonaws.com/`,
     });
     this.secretKey = secretKey;
     this.session = null;
@@ -84,15 +84,14 @@ class CognitoUserImpl {
           }
 
           const dateNow = dateHelper.getNowString();
+
           const signatureString = util.crypto.hmac(
-              hkdf,
-              util.buffer.concat([
-                new util.Buffer(this.pool.getUserPoolId().split('_')[1], 'utf8'),
-                new util.Buffer(this.username, 'utf8'),
-                new util.Buffer(challengeParameters.SECRET_BLOCK, 'base64'),
-                new util.Buffer(dateNow, 'utf8')]),
-              'base64',
-              'sha256');
+            hkdf,
+            util.buffer.concat([new util.Buffer(this.pool.getUserPoolId().split('_')[1], 'utf8'),
+            new util.Buffer(this.username, 'utf8'),
+            new util.Buffer(challengeParameters.SECRET_BLOCK, 'base64'),
+            new util.Buffer(dateNow, 'utf8'),
+          ]), 'base64', 'sha256');
 
           const challengeResponses = {
             USERNAME: this.username,
@@ -125,7 +124,7 @@ class CognitoUserImpl {
         });
         return undefined;
       });
-    // getLargeAValue callback end
+      // getLargeAValue callback end
     });
   }
 
@@ -147,12 +146,12 @@ class CognitoUserImpl {
     return undefined;
   }
 
-    /**
-     * This is used to build a user session from tokens retrieved in the authentication result
-     * @param {object} authResult Successful auth response from server.
-     * @returns {CognitoUserSession} The new user session.
-     * @private
-     */
+  /**
+  * This is used to build a user session from tokens retrieved in the authentication result
+  * @param {object} authResult Successful auth response from server.
+  * @returns {CognitoUserSession} The new user session.
+  * @private
+  */
   private getCognitoUserSession(authResult): AmazonCognitoIdentity.CognitoUserSession {
     const idToken = new AmazonCognitoIdentity.CognitoIdToken(authResult);
     const accessToken = new AmazonCognitoIdentity.CognitoAccessToken(authResult);
