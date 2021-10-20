@@ -15,7 +15,7 @@ jobs:
     environment: OverledgerCTA
     env: 
       PASSWORD: ${{ secrets.PASSWORD }}
-      USER_NAME: ${{ secrets.USERNAME }}
+      USER_NAME: ${{ secrets.USER_NAME }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
     strategy:
