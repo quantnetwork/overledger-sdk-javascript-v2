@@ -16,20 +16,22 @@ describe('Aws', () => {
             userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
             provider: { network: 'https://auth.overledger.io/' }
         });
-
+        console.log("process.env.USER_NAME: " + process.env.USER_NAME);
+        console.log("process.env.PASSWORD: " + process.env.PASSWORD);
         const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
             process.env.CLIENT_ID, process.env.CLIENT_SECRET);
-
+        // access token is variable in length but must have at least 3 sections split by .
         expect(typeof refreshTokensResponse.accessToken).toBe('string');
-        //expect(account.privateKey.length).toEqual(52);
+        expect(refreshTokensResponse.accessToken.length).toBeGreaterThan(4);
+        expect(refreshTokensResponse.accessToken.split(".").length).toEqual(3);
+        // refresh token is variable in length but must have at least 3 sections split by .
         expect(typeof refreshTokensResponse.refreshToken).toBe('string');
-        //expect(account.address.length).toEqual(34);
+        expect(refreshTokensResponse.refreshToken.length).toBeGreaterThan(4);
+        expect(refreshTokensResponse.refreshToken.split(".").length).toEqual(3);
+        // id token is variable in length but must have at least 3 sections split by .
         expect(typeof refreshTokensResponse.idToken).toBe('string');
-        //expect(account.publicKey.length).toEqual(66);
-        //expect(typeof account.password).toBe('string');
-        //expect(account.password.length).toEqual(0);
-        //expect(typeof account.provider).toBe('string');
-        //expect(account.provider.length).toEqual(0);
+        expect(refreshTokensResponse.idToken.length).toBeGreaterThan(4);
+        expect(refreshTokensResponse.idToken.split(".").length).toEqual(3);
     });
 
 });
