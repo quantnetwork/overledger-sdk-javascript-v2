@@ -23,8 +23,6 @@ describe('Aws', () => {
                 userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
                 provider: { network: 'https://auth.overledger.io/' }
             });
-            console.log("process.env.USER_NAME: " + process.env.USER_NAME);
-            console.log("process.env.PASSWORD: " + process.env.PASSWORD);
             const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);
             // access token is variable in length but must have at least 3 sections split by .
