@@ -2,6 +2,13 @@ node_modules/
 /packages/*/node_modules
 dist/
 yarn.lock
+.env.enc
+/examples/create-account/.env.enc
+/examples/oauth2/.env.enc
+/examples/signing/.env.enc
+*/.env.enc
 /packages/*/dist
+~/.nvm
+
 
 *DS_STORE

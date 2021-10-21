@@ -1,6 +1,6 @@
 {
   "name": "@quantnetwork/overledger-core",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
@@ -31,29 +31,28 @@
       "url": "https://github.com/alexchiriac"
     },
     {
-      "name": "Sebastien Bramille",
-      "email": "sebastien.bramille@quant.network",
-      "url": "https://github.com/oktapodia"
+      "name": "Mahsa Bayat",
+      "email": "mahsa.bayat@quant.network",
+      "url": "https://github.com/mahsa-bytt"
     }
   ],
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@quantnetwork/overledger-aws-provider": "^2.1.0",
-    "@quantnetwork/overledger-dlt-abstract": "^2.1.0",
-    "@quantnetwork/overledger-provider": "^2.1.0",
-    "@quantnetwork/overledger-types": "^2.1.0",
-    "axios": "^0.18.0"
+    "@quantnetwork/overledger-dlt-abstract": "^2.1.1",
+    "@quantnetwork/overledger-provider": "^2.1.1",
+    "@quantnetwork/overledger-types": "^2.1.1",
+    "@quantnetwork/overledger-aws-provider": "^2.1.1",
+    "axios": "^0.21.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
     "dmd-clear": "^0.1.2",
-    "jest": "^24.8.0",
+    "jest": "^27.0.0",
     "jsdoc": "^3.6.3",
-    "lerna": "^3.14.0",
-    "nodemon": "^1.19.0",
-    "ts-jest": "^24.0.2",
+    "lerna": "^4.0.0",
+    "nodemon": "^2.0.13",
+    "ts-jest": "^27.0.0",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.5"
