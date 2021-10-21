@@ -1,8 +1,6 @@
 import OverledgerSDK from '@quantnetwork/overledger-core';
 import { DltNameOptions } from '@quantnetwork/overledger-types';
 
-let refreshToken = "";
-
 describe('Integration Tests:', () => {
 
     test('Can get tokens using client ID and client secret', async () => {
@@ -31,7 +29,6 @@ describe('Integration Tests:', () => {
             expect(typeof refreshTokensResponse.refreshToken).toBe('string');
             expect(refreshTokensResponse.refreshToken.length).toBeGreaterThan(4);
             expect(refreshTokensResponse.refreshToken.split(".").length).toBeGreaterThanOrEqual(3);
-            refreshToken = refreshTokensResponse.refreshToken;
             // id token is variable in length but must have at least 3 sections split by .
             expect(typeof refreshTokensResponse.idToken).toBe('string');
             expect(refreshTokensResponse.idToken.length).toBeGreaterThan(4);
@@ -58,9 +55,9 @@ describe('Integration Tests:', () => {
             });
             const refreshTokensResponse1 = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);
-
+            console.log("refreshTokensResponse1: " + JSON.stringify(refreshTokensResponse1));
             const refreshTokensResponse2 = await overledger.refreshAccessToken(process.env.CLIENT_ID, process.env.CLIENT_SECRET, refreshTokensResponse1.refreshToken);
-    
+            console.log("refreshTokensResponse2: " + JSON.stringify(refreshTokensResponse2));   
             // access token is variable in length but must have at least 3 sections split by .
             expect(typeof refreshTokensResponse2.accessToken).toBe('string');
             expect(refreshTokensResponse2.accessToken.length).toBeGreaterThan(4);
