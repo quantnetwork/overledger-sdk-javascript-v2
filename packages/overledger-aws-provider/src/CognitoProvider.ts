@@ -51,6 +51,8 @@ class CognitoProvider {
         accessToken: response.getAccessToken().getJwtToken(),
         refreshToken: response.getRefreshToken().getToken(),
         idToken: response.getIdToken().getJwtToken(),
+        expiresIn: -1, // no expiration given
+        tokenType: '',
       };
     });
   }

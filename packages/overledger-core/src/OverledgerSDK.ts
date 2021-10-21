@@ -1,7 +1,7 @@
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
 import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest, PreparedTransaction, SignedPreparedTransaction, RefreshTokensResponse } from '@quantnetwork/overledger-types';
-import { AxiosInstance, AxiosPromise } from 'axios';
+import { AxiosInstance } from 'axios';
 import log4js from 'log4js';
 import CognitoProvider from '@quantnetwork/overledger-aws-provider';
 
@@ -91,7 +91,7 @@ class OverledgerSDK {
   /**
   * refresh access token
   */
-  public refreshAccessToken(clientId: string, clientSecret: string, refreshToken: string, pathToCall?: string): AxiosPromise<Object> {
+  public async refreshAccessToken(clientId: string, clientSecret: string, refreshToken: string, pathToCall?: string): Promise<RefreshTokensResponse> {
     this.request = this.provider.createRequest(undefined, 'application/x-www-form-urlencoded');
     const params = new URLSearchParams();
     params.append('grant_type', 'refresh_token');
@@ -99,7 +99,15 @@ class OverledgerSDK {
     params.append('client_secret', clientSecret);
     params.append('refresh_token', refreshToken);
 
-    return this.request.post(pathToCall === undefined ? '/oauth2/token' : pathToCall, params);
+    const refreshExpiredTokensResult = await this.request.post(pathToCall === undefined ? '/oauth2/token' : pathToCall, params);
+    return {
+            // note that these are the only params returned in the refreshExpiredTokensResult object
+      accessToken: refreshExpiredTokensResult.data.access_token,
+      refreshToken: '',
+      idToken: refreshExpiredTokensResult.data.id_token,
+      expiresIn: refreshExpiredTokensResult.data.expires_in,
+      tokenType: refreshExpiredTokensResult.data.token_type,
+    };
   }
 
   /**
@@ -108,9 +116,12 @@ class OverledgerSDK {
   public async getTokensUsingClientIdAndSecret(username: string, password: string, clientId: string, clientSecret: string): Promise<RefreshTokensResponse> {
     const refreshExpiredTokensResult = await this.cognitoProvider.getNewSetOfTokens(username, password, clientId, clientSecret);
     return {
+      // note that these are the only params returned in the refreshExpiredTokensResult object
       accessToken: refreshExpiredTokensResult.accessToken,
       refreshToken: refreshExpiredTokensResult.refreshToken,
       idToken: refreshExpiredTokensResult.idToken,
+      expiresIn: -1, // no expiration given
+      tokenType: '',
     };
   }
 

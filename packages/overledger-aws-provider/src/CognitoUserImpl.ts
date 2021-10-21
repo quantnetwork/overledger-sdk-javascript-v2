@@ -88,10 +88,10 @@ class CognitoUserImpl {
           const signatureString = util.crypto.hmac(
             hkdf,
             util.buffer.concat([
-              new util.Buffer(this.pool.getUserPoolId().split('_')[1], 'utf8'),
-              new util.Buffer(this.username, 'utf8'),
-              new util.Buffer(challengeParameters.SECRET_BLOCK, 'base64'),
-              new util.Buffer(dateNow, 'utf8')]),
+              new util.Buffer.from(this.pool.getUserPoolId().split('_')[1], 'utf8'),
+              new util.Buffer.from(this.username, 'utf8'),
+              new util.Buffer.from(challengeParameters.SECRET_BLOCK, 'base64'),
+              new util.Buffer.from(dateNow, 'utf8')]),
             'base64', 'sha256');
 
           const challengeResponses = {

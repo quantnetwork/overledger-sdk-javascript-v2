@@ -32,8 +32,7 @@ const refreshToken = 'eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRV
         });
 
         const response = await overledger.refreshAccessToken(process.env.CLIENT_ID, process.env.CLIENT_SECRET, refreshToken);
-        console.log('response code: ', response.status)
-        console.log('response:\n', response.data);
+        console.log('response:\n', response);
 
     } catch (e) {
         console.error('error', e);

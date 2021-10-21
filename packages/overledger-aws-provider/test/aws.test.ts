@@ -53,16 +53,21 @@ describe('Integration Tests:', () => {
                 dlts: [{ dlt: DltNameOptions.BITCOIN }, { dlt: DltNameOptions.ETHEREUM }, { dlt: DltNameOptions.XRP_LEDGER }],
                 provider: { network: 'https://auth.overledger.io/' },
             });
-            const response = await overledger.refreshAccessToken(process.env.CLIENT_ID, process.env.CLIENT_SECRET, refreshToken);
+            const refreshTokensResponse = await overledger.refreshAccessToken(process.env.CLIENT_ID, process.env.CLIENT_SECRET, refreshToken);
     
             // access token is variable in length but must have at least 3 sections split by .
-            expect(typeof response.data.accessToken).toBe('string');
-            expect(response.data.accessToken.length).toBeGreaterThan(4);
-            expect(response.data.accessToken.split(".").length).toEqual(3);
+            expect(typeof refreshTokensResponse.accessToken).toBe('string');
+            expect(refreshTokensResponse.accessToken.length).toBeGreaterThan(4);
+            expect(refreshTokensResponse.accessToken.split(".").length).toEqual(3);
             // id token is variable in length but must have at least 3 sections split by .
-            expect(typeof response.data.idToken).toBe('string');
-            expect(response.data.idToken.length).toBeGreaterThan(4);
-            expect(response.data.idToken.split(".").length).toEqual(3);
+            expect(typeof refreshTokensResponse.idToken).toBe('string');
+            expect(refreshTokensResponse.idToken.length).toBeGreaterThan(4);
+            expect(refreshTokensResponse.idToken.split(".").length).toEqual(3);
+            // upon refresh, token will be given an expiry
+            expect(typeof refreshTokensResponse.expiresIn).toBe('number');
+            expect(typeof refreshTokensResponse.expiresIn).toBeGreaterThan(0);
+            // upon refresh, token type given will be Bearer
+            expect(typeof refreshTokensResponse.tokenType).toEqual('Bearer');
         }
 
     });
