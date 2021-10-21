@@ -68,7 +68,7 @@ describe('Integration Tests:', () => {
             expect(typeof refreshTokensResponse2.expiresIn).toBe('number');
             expect(refreshTokensResponse2.expiresIn).toBeGreaterThan(0);
             // upon refresh, token type given will be Bearer
-            expect(typeof refreshTokensResponse2.tokenType).toEqual('Bearer');
+            expect(refreshTokensResponse2.tokenType).toEqual('Bearer');
         }
 
     });
