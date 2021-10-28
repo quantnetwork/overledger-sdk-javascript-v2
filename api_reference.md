@@ -466,6 +466,8 @@ Set an account for signing transactions for a specific DLT
 
     * [.setAccount(accountInfo)](#Ripple+setAccount)
 
+    * [.isValidSeed()](#Ripple+isValidSeed)
+
 
 <a name="new_Ripple_new"></a>
 
@@ -500,6 +502,11 @@ Create an XRP account
 | accountInfo | [<code>Account</code>](#Account) | The standardised account information |
 
 Set an account for signing for a specific DLT
+
+<a name="Ripple+isValidSeed"></a>
+
+### *ripple*.isValidSeed()
+ripple seed validation
 
 <a name="Provider"></a>
 

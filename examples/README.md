@@ -33,7 +33,7 @@ PARTY_A_ETHEREUM_PRIVATE_KEY=e352ad01a835ec50ba301ed7ffb305555cbf3b635082af140b3
 PARTY_A_XRP_LEDGER_PRIVATE_KEY=sswERuW1KWEwMXF6VFpRY72PxfC9b
 ```
 
-Once you have created this file, you will need to secure it with "secure-env".
+Once you have created this file, you will need to secure it by using "secure-env". To do so, you should install this program via:
 
 ```
 npm install -g secure-env

@@ -1,5 +1,5 @@
-[docs]: https://github.com/quantnetwork/overledger-sdk-javascript/blob/master/README.md
-[repo]: https://github.com/quantnetwork/overledger-sdk-javascript
+[docs]: https://github.com/quantnetwork/overledger-sdk-javascript-v2/blob/master/README.md
+[repo]: https://github.com/quantnetwork/overledger-sdk-javascript-v2
 
 # @quantnetwork/overledger-core
 

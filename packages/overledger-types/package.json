@@ -1,6 +1,6 @@
 {
   "name": "@quantnetwork/overledger-types",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Quant Network Overledger types package for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
@@ -30,26 +30,25 @@
       "url": "https://github.com/alexchiriac"
     },
     {
-      "name": "Sebastien Bramille",
-      "email": "sebastien.bramille@quant.network",
-      "url": "https://github.com/oktapodia"
+      "name": "Mahsa Bayat",
+      "email": "mahsa.bayat@quant.network",
+      "url": "https://github.com/mahsa-bytt"
     }
   ],
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "axios": "^0.19.0",
-    "jest": "^24.8.0",
-    "lerna": "^3.14.0",
-    "nodemon": "^1.19.0",
-    "ts-jest": "^24.0.2",
+    "axios": "^0.21.1",
+    "jest": "^27.0.0",
+    "lerna": "^4.0.0",
+    "nodemon": "^2.0.13",
+    "ts-jest": "^27.0.0",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.5"
   },
-  "gitHead": "3574baa27bba109510db5f5a088e4684b286bf4b"
+  "gitHead": "a0cef352061805a0d24c42dfc69750c0b1bf231a"
 }
