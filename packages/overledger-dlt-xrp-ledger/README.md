@@ -1,5 +1,5 @@
-[docs]: https://github.com/quantnetwork/overledger-sdk-javascript/blob/master/README.md
-[repo]: https://github.com/quantnetwork/overledger-sdk-javascript
+[docs]: https://github.com/quantnetwork/overledger-sdk-javascript-v2/blob/master/README.md
+[repo]: https://github.com/quantnetwork/overledger-sdk-javascript-v2
 
 # @quantnetwork/overledger-dlt-xrp-ledger
 
@@ -69,6 +69,8 @@ Development package for Ripple (XRP Ledger).
 
     * [.setAccount(accountInfo)](#Ripple+setAccount)
 
+    * [.isValidSeed()](#Ripple+isValidSeed)
+
 
 <a name="new_Ripple_new"></a>
 
@@ -103,4 +105,9 @@ Create an XRP account
 | accountInfo | <code>Account</code> | The standardised account information |
 
 Set an account for signing for a specific DLT
+
+<a name="Ripple+isValidSeed"></a>
+
+### *ripple*.isValidSeed()
+ripple seed validation
 
