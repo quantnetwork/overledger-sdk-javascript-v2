@@ -49,8 +49,8 @@
     "@quantnetwork/overledger-provider": "^2.1.1",
     "@quantnetwork/overledger-types": "^2.1.1",
     "axios": "^0.21.1",
-    "web3": "^1.6.0",
-    "log4js": "^6.3.0"
+    "log4js": "^6.3.0",
+    "web3": "^1.6.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.0",
@@ -63,5 +63,5 @@
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.5"
   },
-  "gitHead": "3574baa27bba109510db5f5a088e4684b286bf4b"
+  "gitHead": "a0cef352061805a0d24c42dfc69750c0b1bf231a"
 }
