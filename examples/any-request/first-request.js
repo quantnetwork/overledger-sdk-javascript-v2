@@ -16,15 +16,29 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             { dlt: DltNameOptions.ETHEREUM },
             { dlt: DltNameOptions.XRP_LEDGER }],
             userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
-            provider: { network: 'https://auth.overledger.io/' },
+            provider: { network: 'https://api.sandbox.overledger.io/v2' },
             envFilePassword: 'password',
         });
 
         const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
             process.env.CLIENT_ID, process.env.CLIENT_SECRET);
-            console.log('accessToken:\n', refreshTokensResponse.accessToken)
+            console.log('accessToken:\n', refreshTokensResponse.accessToken);
             console.log('refreshToken:\n', refreshTokensResponse.refreshToken);
             console.log('idToken:\n', refreshTokensResponse.idToken);
+
+        const overledgerRequest = {
+            "location": {
+                "technology": "Bitcoin",
+                "network": "Testnet"
+            }
+        }
+
+        const overledgerInstance = overledger.provider.createRequest(refreshTokensResponse.accessToken.toString());
+
+        const overledgerResponse = await overledgerInstance.post("/preparation/search/block/latest",overledgerRequest);
+
+        console.log("\n\noverledgerResponse: " + JSON.stringify(overledgerResponse));
+
     } catch (e) {
         console.error('error', e);
     }
