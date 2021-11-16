@@ -66,7 +66,7 @@ describe('Unit Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.location.network == 'Ropsten Testnet')||(overledgerResponse2.data.location.network == 'Mainnet')){
+            if ((overledgerResponse2.data.location.network.toLowerCase() === 'ropsten testnet')||(overledgerResponse2.data.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -156,6 +156,8 @@ describe('Unit Tests:', () => {
     });
 
     test('Can get block by hash via prep-execute', async () => {
+
+
 
     });
 
