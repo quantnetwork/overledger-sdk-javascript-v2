@@ -8,6 +8,11 @@ const sdkOptions = {
 };
 
 describe('Unit Tests:', () => {
+
+    beforeEach(() => {
+        jest.setTimeout(10000);
+      });
+    
     test('Can construct the DLT', () => {
 
         const sdk = new OverledgerSDK(sdkOptions);
