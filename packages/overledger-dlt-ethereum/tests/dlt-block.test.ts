@@ -837,7 +837,7 @@ describe('Unit Tests:', () => {
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByNumber,overledgerRequest);
             //location information is not taken from nativeData
             //status information is not takenn directly from native block data
-            expect(overledgerResponse2.data.block.blockId).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.timestamp);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.number);
