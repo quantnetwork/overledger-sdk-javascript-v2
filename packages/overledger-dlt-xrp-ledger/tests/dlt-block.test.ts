@@ -142,17 +142,17 @@ describe('Integration Tests:', () => {
             //child is not found directly from native data
             if (overledgerResponse2.data.block.numberOfTransactions > 0){
                 expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.transactionHashes.length);
-            }
-            let count = 0;
-            let txsSame = true;
-            while (count < overledgerResponse2.data.block.nativeData.transactionHashes.length){
-                if (!(overledgerResponse2.data.block.transactionIds[count] === overledgerResponse2.data.block.nativeData.transactionHashes[count])){
-                    txsSame = false;
-                    count = overledgerResponse2.data.block.nativeData.transactionHashes.length;
+                let count = 0;
+                let txsSame = true;
+                while (count < overledgerResponse2.data.block.nativeData.transactionHashes.length){
+                    if (!(overledgerResponse2.data.block.transactionIds[count] === overledgerResponse2.data.block.nativeData.transactionHashes[count])){
+                        txsSame = false;
+                        count = overledgerResponse2.data.block.nativeData.transactionHashes.length;
+                    }
+                    count = count + 1;
                 }
-                count = count + 1;
+                expect(txsSame).toBe(true);
             }
-            expect(txsSame).toBe(true);
 
         }
 
@@ -281,18 +281,17 @@ describe('Integration Tests:', () => {
             //child is not found directly from native data
             if (overledgerResponse2.data.block.numberOfTransactions > 0){
                 expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.transactionHashes.length);
-            }
-            let count = 0;
-            let txsSame = true;
-            while (count < overledgerResponse2.data.block.nativeData.transactionHashes.length){
-                if (!(overledgerResponse2.data.block.transactionIds[count] === overledgerResponse2.data.block.nativeData.transactionHashes[count])){
-                    txsSame = false;
-                    count = overledgerResponse2.data.block.nativeData.transactionHashes.length;
+                let count = 0;
+                let txsSame = true;
+                while (count < overledgerResponse2.data.block.nativeData.transactionHashes.length){
+                    if (!(overledgerResponse2.data.block.transactionIds[count] === overledgerResponse2.data.block.nativeData.transactionHashes[count])){
+                        txsSame = false;
+                        count = overledgerResponse2.data.block.nativeData.transactionHashes.length;
+                    }
+                    count = count + 1;
                 }
-                count = count + 1;
+                expect(txsSame).toBe(true);
             }
-            expect(txsSame).toBe(true);
-
         }
 
     });
@@ -421,18 +420,17 @@ describe('Integration Tests:', () => {
             //child is not found directly from native data
             if (overledgerResponse2.data.block.numberOfTransactions > 0){
                 expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.transactionHashes.length);            
-            }
-            let count = 0;
-            let txsSame = true;
-            while (count < overledgerResponse2.data.block.nativeData.transactionHashes.length){
-                if (!(overledgerResponse2.data.block.transactionIds[count] === overledgerResponse2.data.block.nativeData.transactionHashes[count])){
-                    txsSame = false;
-                    count = overledgerResponse2.data.block.nativeData.transactionHashes.length;
+                let count = 0;
+                let txsSame = true;
+                while (count < overledgerResponse2.data.block.nativeData.transactionHashes.length){
+                    if (!(overledgerResponse2.data.block.transactionIds[count] === overledgerResponse2.data.block.nativeData.transactionHashes[count])){
+                        txsSame = false;
+                        count = overledgerResponse2.data.block.nativeData.transactionHashes.length;
+                    }
+                    count = count + 1;
                 }
-                count = count + 1;
+                expect(txsSame).toBe(true);
             }
-            expect(txsSame).toBe(true);
-
         }
 
     });
@@ -547,18 +545,20 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[2].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHash);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.parentLedgerHash);
             //child is not found directly from native data
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length);
-            let count = 0;
-            let txsSame = true;
-            while (count < overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length){
-                if (!(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds[count] === overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes[count])){
-                    txsSame = false;
-                    count = overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length;
+            if (overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length);
+                let count = 0;
+                let txsSame = true;
+                while (count < overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length){
+                    if (!(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds[count] === overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes[count])){
+                        txsSame = false;
+                        count = overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length;
+                    }
+                    count = count + 1;
                 }
-                count = count + 1;
+                expect(txsSame).toBe(true);
+    
             }
-            expect(txsSame).toBe(true);
-
         }
 
     });
@@ -670,17 +670,19 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[2].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHash);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.parentLedgerHash);
             //child is not found directly from native data
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length);
-            let count = 0;
-            let txsSame = true;
-            while (count < overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length){
-                if (!(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds[count] === overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes[count])){
-                    txsSame = false;
-                    count = overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length;
+            if (overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length);
+                let count = 0;
+                let txsSame = true;
+                while (count < overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length){
+                    if (!(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds[count] === overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes[count])){
+                        txsSame = false;
+                        count = overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length;
+                    }
+                    count = count + 1;
                 }
-                count = count + 1;
+                expect(txsSame).toBe(true);
             }
-            expect(txsSame).toBe(true);
 
         }
 
@@ -794,17 +796,20 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[2].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHash);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.parentLedgerHash);
             //child is not found directly from native data
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length);
-            let count = 0;
-            let txsSame = true;
-            while (count < overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length){
-                if (!(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds[count] === overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes[count])){
-                    txsSame = false;
-                    count = overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length;
+            if (overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length);
+                let count = 0;
+                let txsSame = true;
+                while (count < overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length){
+                    if (!(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds[count] === overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes[count])){
+                        txsSame = false;
+                        count = overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.transactionHashes.length;
+                    }
+                    count = count + 1;
                 }
-                count = count + 1;
+                expect(txsSame).toBe(true);
+    
             }
-            expect(txsSame).toBe(true);
 
         }
 
