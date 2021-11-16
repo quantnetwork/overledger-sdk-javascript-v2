@@ -9,7 +9,7 @@ const sdkOptions = {
 
 //the changeable links after .../block/
 const latestBlock = "latest";
-const blockByHash = "F1CC4E0859F370D4E9E4DBC5B39398DFDCF90B677F7B96AC9E715589015B55DE"";
+const blockByHash = "F1CC4E0859F370D4E9E4DBC5B39398DFDCF90B677F7B96AC9E715589015B55DE";
 const blockByNumber = "22781034";
 
 describe('Integration Tests:', () => {
