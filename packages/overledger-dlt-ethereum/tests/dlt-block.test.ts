@@ -12,7 +12,7 @@ const latestBlock = "latest";
 const blockByHash = "0x9cadecd455be78ad94cd01e07a4321022c042214f46b88f888b2dc493e2d2843";
 const blockByNumber = "11437136";
 
-describe('Unit Tests:', () => {
+describe('Integration Tests:', () => {
 
     beforeEach(() => {
         jest.setTimeout(10000);

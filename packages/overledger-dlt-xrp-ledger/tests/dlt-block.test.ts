@@ -9,10 +9,10 @@ const sdkOptions = {
 
 //the changeable links after .../block/
 const latestBlock = "latest";
-const blockByHash = "C34F39C4FFC31C484573E60742E94AB959816FAF17787EDB334591C74F20803E";
-const blockByNumber = "22778215";
+const blockByHash = "F1CC4E0859F370D4E9E4DBC5B39398DFDCF90B677F7B96AC9E715589015B55DE"";
+const blockByNumber = "22781034";
 
-describe('Unit Tests:', () => {
+describe('Integration Tests:', () => {
 
     beforeEach(() => {
         jest.setTimeout(10000);
@@ -70,7 +70,9 @@ describe('Unit Tests:', () => {
             //expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
             //no sizes in xrp blocks
             expect(typeof overledgerResponse2.data.block.numberOfTransactions).toBe('number');
-            expect(typeof overledgerResponse2.data.block.transactionIds).toBe('object');
+            if (overledgerResponse2.data.block.numberOfTransactions > 0){
+                expect(typeof overledgerResponse2.data.block.transactionIds).toBe('object');
+            }
             expect(typeof overledgerResponse2.data.block.nativeData).toBe('object');
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('XRP Ledger');
@@ -96,7 +98,9 @@ describe('Unit Tests:', () => {
             //expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(0);
             //there are no sizes of XRP ledger blocks as of yet
             expect(overledgerResponse2.data.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
-            expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
+            if (overledgerResponse2.data.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
+            }
         }
     });
 
@@ -202,7 +206,9 @@ describe('Unit Tests:', () => {
             expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
             //no sizes in xrp blocks
             expect(typeof overledgerResponse2.data.block.numberOfTransactions).toBe('number');
-            expect(typeof overledgerResponse2.data.block.transactionIds).toBe('object');
+            if (overledgerResponse2.data.block.numberOfTransactions > 0){
+                expect(typeof overledgerResponse2.data.block.transactionIds).toBe('object');
+            }
             expect(typeof overledgerResponse2.data.block.nativeData).toBe('object');
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('XRP Ledger');
@@ -227,7 +233,10 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(64);
             //there are no sizes of XRP ledger blocks as of yet
             expect(overledgerResponse2.data.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
-            expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
+            if (overledgerResponse2.data.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
+            }
+
         }
 
     });
@@ -335,7 +344,9 @@ describe('Unit Tests:', () => {
             expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
             //no sizes in xrp blocks
             expect(typeof overledgerResponse2.data.block.numberOfTransactions).toBe('number');
-            expect(typeof overledgerResponse2.data.block.transactionIds).toBe('object');
+            if (overledgerResponse2.data.block.numberOfTransactions > 0){
+                expect(typeof overledgerResponse2.data.block.transactionIds).toBe('object');
+            }
             expect(typeof overledgerResponse2.data.block.nativeData).toBe('object');
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('XRP Ledger');
@@ -360,7 +371,10 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(64);
             //there are no sizes of XRP ledger blocks as of yet
             expect(overledgerResponse2.data.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
-            expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
+            if (overledgerResponse2.data.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
+            }
+
         }
 
     });
@@ -458,7 +472,9 @@ describe('Unit Tests:', () => {
             //expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
             //no sizes in xrp blocks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe('number');
-            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds).toBe('object');
+            if (overledgerResponse2.data.block.numberOfTransactions > 0){
+                expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds).toBe('object');
+            }
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.nativeData).toBe('object');
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('XRP Ledger');
@@ -484,7 +500,10 @@ describe('Unit Tests:', () => {
             //expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(0);
             //there are no sizes of XRP ledger blocks as of yet
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
+            if (overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
+            }
+
         }
     });
 
@@ -577,7 +596,9 @@ describe('Unit Tests:', () => {
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.child).toBe('string');
             //no sizes in xrp blocks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe('number');
-            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds).toBe('object');
+            if (overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions > 0){
+                expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds).toBe('object');
+            }
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.nativeData).toBe('object');
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('XRP Ledger');
@@ -602,7 +623,9 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.child.length).toEqual(64);
             //there are no sizes of XRP ledger blocks as of yet
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
+            if (overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
+            }
         }
 
     });
@@ -697,7 +720,9 @@ describe('Unit Tests:', () => {
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.child).toBe('string');
             //no sizes in xrp blocks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe('number');
-            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds).toBe('object');
+            if (overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions > 0){
+                expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds).toBe('object');
+            }
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.nativeData).toBe('object');
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('XRP Ledger');
@@ -722,7 +747,9 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.child.length).toEqual(64);
             //there are no sizes of XRP ledger blocks as of yet
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
+            if (overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions > 0){
+                expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
+            }
         }
 
     });

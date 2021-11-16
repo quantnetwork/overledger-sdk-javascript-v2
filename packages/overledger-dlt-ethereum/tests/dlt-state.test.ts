@@ -7,7 +7,7 @@ const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.ETHEREUM },],
 };
 
-describe('Unit Tests:', () => {
+describe('Integration Tests:', () => {
 
     beforeEach(() => {
         jest.setTimeout(10000);
