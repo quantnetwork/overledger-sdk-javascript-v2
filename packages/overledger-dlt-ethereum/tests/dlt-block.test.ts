@@ -64,7 +64,7 @@ describe('Unit Tests:', () => {
             expect(typeof overledgerResponse2.data.block.transactionIds).toBe('object');
             expect(typeof overledgerResponse2.data.block.nativeData).toBe('object');
             //data checks
-            expect(typeof overledgerResponse2.data.location.technology).toBe('Ethereum');
+            expect(overledgerResponse2.data.location.technology).toBe('Ethereum');
             let networkCheck = false;
             if ((overledgerResponse2.data.location.network == 'Ropsten Testnet')||(overledgerResponse2.data.location.network == 'Mainnet')){
                 networkCheck = true;
@@ -146,7 +146,7 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.block.linkedBlocks.parent).toBe(overledgerResponse2.data.block.nativeData.parentHash);
             //child is not found directly from native data
             //memory is not found directly from a native data parameter
-            expect(overledgerResponse2.data.block.size[1].value).toBe(overledgerResponse2.data.block.nativeData.gasUsed);
+            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.gasUsed);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.transactions.length);
             //transactionId issue in nativeData
 
