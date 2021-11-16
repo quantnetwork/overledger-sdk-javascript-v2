@@ -58,8 +58,8 @@ describe('Unit Tests:', () => {
             expect(typeof overledgerResponse2.data.block.hashes[0].type).toBe('string');
             expect(typeof overledgerResponse2.data.block.linkedBlocks.parent).toBe('string');
             expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
-            expect(typeof overledgerResponse2.data.block.size.type).toBe('string');
-            expect(typeof overledgerResponse2.data.block.size.value).toBe('string');
+            expect(typeof overledgerResponse2.data.block.size[0].type).toBe('string');
+            expect(typeof overledgerResponse2.data.block.size[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.block.numberOfTransactions).toBe('number');
             expect(typeof overledgerResponse2.data.block.transactionIds).toBe('object');
             expect(typeof overledgerResponse2.data.block.nativeData).toBe('object');
@@ -138,11 +138,11 @@ describe('Unit Tests:', () => {
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(overledgerResponse2.data.block.timestamp).toBe(overledgerResponse2.data.block.nativeData.timestamp);
             expect(overledgerResponse2.data.block.number).toBe(overledgerResponse2.data.block.nativeData.number);
-            expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(overledgerResponse2.data.block.nativeData.parentHash);
+            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.nativeData.parentHash);
             expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.nativeData.hash);
-            expect(overledgerResponse2.data.block.hashes[2].value.length).toEqual(overledgerResponse2.data.block.nativeData.transactionsRoot);
-            expect(overledgerResponse2.data.block.hashes[3].value.length).toEqual(overledgerResponse2.data.block.nativeData.stateRoot);
-            expect(overledgerResponse2.data.block.hashes[4].value.length).toEqual(overledgerResponse2.data.block.nativeData.receiptsRoot);
+            expect(overledgerResponse2.data.block.hashes[2].value).toEqual(overledgerResponse2.data.block.nativeData.transactionsRoot);
+            expect(overledgerResponse2.data.block.hashes[3].value).toEqual(overledgerResponse2.data.block.nativeData.stateRoot);
+            expect(overledgerResponse2.data.block.hashes[4].value).toEqual(overledgerResponse2.data.block.nativeData.receiptsRoot);
             expect(overledgerResponse2.data.block.linkedBlocks.parent).toBe(overledgerResponse2.data.block.nativeData.parentHash);
             //child is not found directly from native data
             //memory is not found directly from a native data parameter
