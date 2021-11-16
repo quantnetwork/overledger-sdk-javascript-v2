@@ -27,7 +27,7 @@ describe('Unit Tests:', () => {
             const overledgerRequest = {
                 "location": {
                     "technology": "Ethereum",
-                    "network": "Testnet"
+                    "network": "Ropsten Testnet"
                 }
             }
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/latest",overledgerRequest);
@@ -125,7 +125,7 @@ describe('Unit Tests:', () => {
             const overledgerRequest = {
                 "location": {
                     "technology": "Ethereum",
-                    "network": "Testnet"
+                    "network": "Ropsten Testnet"
                 }
             }
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/latest",overledgerRequest);
