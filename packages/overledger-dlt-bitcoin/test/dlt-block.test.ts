@@ -9,8 +9,8 @@ const sdkOptions = {
 
 //the changeable links after .../block/
 const latestBlock = "latest";
-const blockByHash = "000000000000001263538f9483b907589ada9eb9669bdeb15ce1af9c4f423766";
-const blockByNumber = "2104201";
+const blockByHash = "000000000000001c2422de32fdb31718cd518a7dc89d2354464810160dbc1d40";
+const blockByNumber = "2104199";
 
 describe('Unit Tests:', () => {
 
@@ -80,7 +80,7 @@ describe('Unit Tests:', () => {
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(overledgerResponse2.data.block.timestamp).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.block.hashes.length).toEqual(1);
+            expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
             expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
             expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
@@ -137,7 +137,7 @@ describe('Unit Tests:', () => {
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBe(overledgerResponse2.data.block.nativeData.size);
             expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
+            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;
@@ -219,7 +219,7 @@ describe('Unit Tests:', () => {
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(overledgerResponse2.data.block.timestamp).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.block.hashes.length).toEqual(1);
+            expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
             expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
             expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
@@ -276,7 +276,7 @@ describe('Unit Tests:', () => {
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBe(overledgerResponse2.data.block.nativeData.size);
             expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
+            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;
@@ -358,7 +358,7 @@ describe('Unit Tests:', () => {
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(overledgerResponse2.data.block.timestamp).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.block.hashes.length).toEqual(1);
+            expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
             expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
             expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
@@ -415,7 +415,7 @@ describe('Unit Tests:', () => {
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBe(overledgerResponse2.data.block.nativeData.size);
             expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
+            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;
