@@ -6,23 +6,8 @@ const sdkOptions = {
     userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
     provider: { network: 'https://auth.overledger.io/' }
 };
-let refreshTokensResponse;
-let overledgerInstance;
 
 describe('Unit Tests:', () => {
-    beforeEach(async() => {
-
-        const sdk = new OverledgerSDK(sdkOptions);
-
-
-        if (!(typeof process.env.USER_NAME == 'undefined')) {
-            //get required token if secrets are available
-            refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString());     
-        }
-        
-    });
 
     test('Can get latest block via prep-execute', async () => {
 
@@ -31,6 +16,12 @@ describe('Unit Tests:', () => {
             expect(0).toEqual(0);
             console.log("Test only to completion via automated github");
         } else {
+            //setup sdk
+            const sdk = new OverledgerSDK(sdkOptions);
+            //get required token if secrets are available
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
+                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
+                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -124,7 +115,12 @@ describe('Unit Tests:', () => {
             expect(0).toEqual(0);
             console.log("Test only to completion via automated github");
         } else {
-
+            //setup sdk
+            const sdk = new OverledgerSDK(sdkOptions);
+            //get required token if secrets are available
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
+                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
+                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
