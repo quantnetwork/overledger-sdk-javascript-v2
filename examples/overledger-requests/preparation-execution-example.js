@@ -30,14 +30,14 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         //setup overledger preparation request
         const overledgerRequest = {
             "location": {
-                "technology": "ethereum",
-                "network": "ropsten testnet"
+                "technology": "XRP Ledger",
+                "network": "Testnet"
             }
         }
         const overledgerInstance = overledger.provider.createRequest(refreshTokensResponse.accessToken.toString());
 
         //send overledger preparation request
-        const overledgerResponse = await overledgerInstance.post("/preparation/search/block/latest",overledgerRequest);
+        const overledgerResponse = await overledgerInstance.post("/preparation/search/block/66BA95F2663BFB0EDFBCB8A71A196F83847F7626236672F0BF3DB78906A54A47",overledgerRequest);
 
         console.log("\n\nOverledgerResponse: " + JSON.stringify(overledgerResponse.data));
 
