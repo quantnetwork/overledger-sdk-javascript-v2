@@ -4,7 +4,7 @@ import { DltNameOptions } from '@quantnetwork/overledger-types';
 const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.ETHEREUM },],
     userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
-    provider: { network: 'https://auth.overledger.io/' }
+    provider: { network: 'https://api.sandbox.overledger.io/v2' }
 };
 
 describe('Unit Tests:', () => {
@@ -41,7 +41,7 @@ describe('Unit Tests:', () => {
             expect(parseInt(overledgerResponse.data.gatewayFee.amount)).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse.data.gatewayFee.unit.length).toBeGreaterThan(2);
 
-            const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId,overledgerRequest);
+            const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
             //typeof checks
             expect(typeof overledgerResponse2.data.location.technology).toBe('string');
             expect(typeof overledgerResponse2.data.location.network).toBe('string');
@@ -130,7 +130,7 @@ describe('Unit Tests:', () => {
             }
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/latest",overledgerRequest);
 
-            const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId,overledgerRequest);
+            const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
 
             //location information is not taken from nativeData
             //status information is not takenn directly from native block data

@@ -44,7 +44,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         //setup overledger execution request
 
         //send overledger execution request
-        const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId,overledgerRequest);
+        const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
 
         console.log("\n\nOverledgerResponse: " + JSON.stringify(overledgerResponse2.data));
 
