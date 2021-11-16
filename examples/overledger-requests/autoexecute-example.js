@@ -30,8 +30,8 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         //setup overledger preparation request
         const overledgerRequest = {
             "location": {
-                "technology": "Bitcoin",
-                "network": "Testnet"
+                "technology": "Ethereum",
+                "network": "Ropsten Testnet"
             }
         }
         const overledgerInstance = overledger.provider.createRequest(refreshTokensResponse.accessToken.toString());
