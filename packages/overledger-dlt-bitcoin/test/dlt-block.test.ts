@@ -14,6 +14,10 @@ const blockByNumber = "2104199";
 
 describe('Unit Tests:', () => {
 
+    beforeEach(() => {
+        jest.setTimeout(10000);
+      });
+      
     test('Can get latest standardised block via prep-execute', async () => {
 
         if (typeof process.env.USER_NAME == 'undefined') {
