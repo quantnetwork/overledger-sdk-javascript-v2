@@ -215,8 +215,8 @@ describe('Unit Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('Bitcoin');
             expect(overledgerResponse2.data.location.network).toBe('testnet');
-            expect(overledgerResponse2.data.status.value).toBe('PENDING');
-            expect(overledgerResponse2.data.status.code).toBe('BLK1002');
+            expect(overledgerResponse2.data.status.value).toBe('SUCCESSFUL');
+            expect(overledgerResponse2.data.status.code).toBe('BLK1003');
             //no data check needed on status.description or status.message. Rely on status.value or status.code only
             expect(parseInt(overledgerResponse2.data.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.blockId.length).toEqual(64);
@@ -354,8 +354,8 @@ describe('Unit Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('Bitcoin');
             expect(overledgerResponse2.data.location.network).toBe('testnet');
-            expect(overledgerResponse2.data.status.value).toBe('PENDING');
-            expect(overledgerResponse2.data.status.code).toBe('BLK1002');
+            expect(overledgerResponse2.data.status.value).toBe('SUCCESSFUL');
+            expect(overledgerResponse2.data.status.code).toBe('BLK1003');
             //no data check needed on status.description or status.message. Rely on status.value or status.code only
             expect(parseInt(overledgerResponse2.data.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.blockId.length).toEqual(64);
