@@ -83,8 +83,8 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
             expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
-            expect(overledgerResponse2.data.block.hashes[0].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.blockId);
+            expect(overledgerResponse2.data.block.hashes[1].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.block.linkedBlocks.parent.length).toEqual(64);
             //child block doesn't exist in bitcoin latest block search
             //expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(0);
@@ -222,8 +222,8 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
             expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
-            expect(overledgerResponse2.data.block.hashes[0].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.blockId);
+            expect(overledgerResponse2.data.block.hashes[1].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.block.linkedBlocks.parent.length).toEqual(64);
             expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(64);
             expect(overledgerResponse2.data.block.size.length).toEqual(3);
@@ -361,8 +361,8 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
             expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
-            expect(overledgerResponse2.data.block.hashes[0].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.blockId);
+            expect(overledgerResponse2.data.block.hashes[1].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.block.linkedBlocks.parent.length).toEqual(64);
             expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(64);
             expect(overledgerResponse2.data.block.size.length).toEqual(3);
