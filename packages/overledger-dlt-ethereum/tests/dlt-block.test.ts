@@ -102,7 +102,8 @@ describe('Unit Tests:', () => {
             expect(overledgerResponse2.data.block.hashes[4].type).toBe('TRANSACTION_RECEIPTS_MERKLE_ROOT');
             expect(overledgerResponse2.data.block.linkedBlocks.parent.length).toEqual(66);
             expect(overledgerResponse2.data.block.linkedBlocks.parent.substring(0,2)).toBe('0x');
-            expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(0);
+            //occasionally we are to slow to get the latest block and a child block is being returned
+            //expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(0);
             expect(overledgerResponse2.data.block.size.length).toEqual(2);
             expect(overledgerResponse2.data.block.size[0].type).toBe('MEMORY');
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBeGreaterThan(3);
