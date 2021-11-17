@@ -37,7 +37,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         const overledgerInstance = overledger.provider.createRequest(refreshTokensResponse.accessToken.toString());
 
         //send overledger preparation request
-        const overledgerResponse = await overledgerInstance.post("/preparation/search/block/F1CC4E0859F370D4E9E4DBC5B39398DFDCF90B677F7B96AC9E715589015B55DE",overledgerRequest);
+        const overledgerResponse = await overledgerInstance.post("/preparation/search/block/latest",overledgerRequest);
 
         console.log("\n\nOverledgerResponse: " + JSON.stringify(overledgerResponse.data));
 
