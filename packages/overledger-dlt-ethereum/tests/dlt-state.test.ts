@@ -11,7 +11,7 @@ let address = "0x650A87cfB9165C9F4Ccc7B971D971f50f753e761";
 
 describe('Integration Tests:', () => {
 
-    beforeEach(() => {
+    beforeAll(async() => {
         jest.setTimeout(10000);
       });
     

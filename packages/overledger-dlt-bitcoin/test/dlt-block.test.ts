@@ -14,7 +14,7 @@ const blockByNumber = "2104199";
 
 describe('Integration Tests:', () => {
 
-    beforeEach(() => {
+    beforeAll(async() => {
         jest.setTimeout(10000);
       });
       

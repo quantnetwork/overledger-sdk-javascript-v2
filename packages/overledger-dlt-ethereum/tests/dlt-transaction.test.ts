@@ -9,7 +9,7 @@ const sdkOptions = {
 
 describe('Integration Tests:', () => {
 
-    beforeEach(() => {
+    beforeAll(async() => {
         jest.setTimeout(10000);
       });
     
