@@ -138,11 +138,13 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.location.technology).toBe('string');
             expect(typeof overledgerResponse2.data.location.network).toBe('string');
             expect(typeof overledgerResponse2.data.balances[0].unit).toBe('string');
-            //balances.value instead of balances.amount
+            expect(typeof overledgerResponse2.data.balances[0].amount).toBe('string');
+            expect(typeof overledgerResponse2.data.addressId).toBe('string');
             //addressId is in the wrong place
             expect(overledgerResponse2.data.location.technology).toEqual('Ethereum');
             expect(overledgerResponse2.data.location.network).toEqual('ropsten testnet');
             expect(overledgerResponse2.data.balances[0].unit).toEqual('ETH');
+            expect(parseInt(overledgerResponse2.data.balances[0].amount)).toBeGreaterThanOrEqual(0);
             //balances.value instead of balances.amount
             //addressId is in the wrong place
         }
