@@ -43,12 +43,10 @@ class Provider {
     }
 
     const baseUrl: string = overledgerUri;
-    log.info(`baseUrl:  ${baseUrl}`);
 
     const headersString = accessToken ? { Authorization: `Bearer ${accessToken}`, 'Content-type': contentType || 'application/json' ,
       Accept: acceptString || 'application/json'} : { 'Content-type': contentType || 'application/json', Accept: acceptString || 'application/json' };
 
-    log.info(`headersString:  ${JSON.stringify(headersString)}`);
 
     return axios.create({
       baseURL: baseUrl,
