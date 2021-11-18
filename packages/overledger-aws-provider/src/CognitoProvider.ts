@@ -34,8 +34,6 @@ class CognitoProvider {
 
     const authenticationDetails = new amazonCognitoIdentity.AuthenticationDetails(authenticationData);
 
-    log.info('Starting to get new tokens from aws cognito.');
-
     return new Promise<CognitoUserSession>(async (resolve) => {
       await cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess(result) {
@@ -46,7 +44,6 @@ class CognitoProvider {
         },
       });
     }).then((response) => {
-      log.info('Successfully got the response from aws cognito.');
       return {
         accessToken: response.getAccessToken().getJwtToken(),
         refreshToken: response.getRefreshToken().getToken(),
