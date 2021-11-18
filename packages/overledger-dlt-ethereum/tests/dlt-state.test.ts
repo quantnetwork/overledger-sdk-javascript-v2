@@ -12,8 +12,9 @@ let address = "0x650A87cfB9165C9F4Ccc7B971D971f50f753e761";
 describe('Integration Tests:', () => {
 
     beforeAll(async() => {
-        jest.setTimeout(10000);
-      });
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + 1000);
+      },1000);
     
 
     test('Can get address balance via prep-execute', async () => {

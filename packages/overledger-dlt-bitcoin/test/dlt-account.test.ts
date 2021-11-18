@@ -9,8 +9,9 @@ const sdkOptions = {
 describe('Unit Tests:', () => {
 
     beforeAll(async() => {
-        jest.setTimeout(10000);
-      });
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + 1000);
+      },1000);
     
     test('Can construct the DLT', () => {
 
