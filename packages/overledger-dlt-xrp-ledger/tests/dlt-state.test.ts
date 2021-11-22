@@ -2,12 +2,12 @@ import OverledgerSDK from '@quantnetwork/overledger-core';
 import { DltNameOptions } from '@quantnetwork/overledger-types';
 
 const sdkOptions = {
-    dlts: [{ dlt: DltNameOptions.ETHEREUM },],
+    dlts: [{ dlt: DltNameOptions.XRP_LEDGER },],
     userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
     provider: { network: 'https://api.sandbox.overledger.io/v2' }
 };
 
-let address = "0x650A87cfB9165C9F4Ccc7B971D971f50f753e761";
+let address = "rKoGTTkPefCuQR31UHsfk9jKnrQHz6LtKe";
 
 describe('Integration Tests:', () => {
 
@@ -34,8 +34,8 @@ describe('Integration Tests:', () => {
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
+                    "technology": "XRP Ledger",
+                    "network": "Testnet"
                 }
             }
             const overledgerResponse = await overledgerInstance.post("/preparation/search/address/balance/" + address,overledgerRequest);
@@ -56,9 +56,10 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.balances[0].unit).toBe('string');
             //balances.value instead of balances.amount
             //addressId is in the wrong place
-            expect(overledgerResponse2.data.location.technology).toEqual('Ethereum');
-            expect(overledgerResponse2.data.location.network).toEqual('ropsten testnet');
-            expect(overledgerResponse2.data.balances[0].unit).toEqual('ETH');
+                //XRP ledger location different here to in block response
+            //expect(overledgerResponse2.data.location.technology).toEqual('XRP Ledger');
+            expect(overledgerResponse2.data.location.network).toEqual('testnet');
+            expect(overledgerResponse2.data.balances[0].unit).toEqual('XRP');
             //balances.value instead of balances.amount
             //addressId is in the wrong place
         }
@@ -82,8 +83,8 @@ describe('Integration Tests:', () => {
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
+                    "technology": "XRP Ledger",
+                    "network": "Testnet"
                 }
             }
             const overledgerResponse = await overledgerInstance.post("/preparation/search/address/sequence/" + address,overledgerRequest);
@@ -105,10 +106,12 @@ describe('Integration Tests:', () => {
                 expect(typeof overledgerResponse2.data.sequence).toBe('string');
                 expect(typeof overledgerResponse2.data.addressId).toBe('string');
             //data checks
-                expect(overledgerResponse2.data.location.technology).toEqual('Ethereum');
-                expect(overledgerResponse2.data.location.network).toEqual('ropsten testnet');
+                            //XRP ledger location different here to in block response
+                //expect(overledgerResponse2.data.location.technology).toEqual('XRP Ledger');
+                expect(overledgerResponse2.data.location.network).toEqual('testnet');
                 expect(parseInt(overledgerResponse2.data.sequence)).toBeGreaterThan(0);
-                expect(overledgerResponse2.data.addressId.length).toEqual(42);      
+                expect(overledgerResponse2.data.addressId.length).toBeGreaterThanOrEqual(25);     
+                expect(overledgerResponse2.data.addressId.length).toBeLessThanOrEqual(35);
         }
     });
 
@@ -130,13 +133,13 @@ describe('Integration Tests:', () => {
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
+                    "technology": "XRP Ledger",
+                    "network": "Testnet"
                 }
             }
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/address/balance/" + address,overledgerRequest);
             //typeof checks
-                //location is currently missing
+                //location object not yet in autoexecute
             //expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.location.technology).toBe('string');
             //expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.location.network).toBe('string');
             expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].unit).toBe('string');
@@ -144,11 +147,11 @@ describe('Integration Tests:', () => {
             //expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].amount).toBe('string');
             expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.addressId).toBe('string');
             //addressId is in the wrong place
-                //location is currently missing
-            //expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.location.technology).toEqual('Ethereum');
-            //expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.location.network).toEqual('ropsten testnet');
-            expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].unit).toEqual('ETH');
-                //balance format needss to be changed
+                                //XRP ledger location different here to in block response
+            //expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.location.technology).toEqual('XRP Ledger');
+            //expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.location.network).toEqual('testnet');
+            expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].unit).toEqual('XRP');
+                //balance amount format needs to be changed
             //expect(parseInt(overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].amount)).toBeGreaterThanOrEqual(0);
             //balances.value instead of balances.amount
             //addressId is in the wrong place
@@ -173,8 +176,8 @@ describe('Integration Tests:', () => {
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
+                    "technology": "XRP Ledger",
+                    "network": "Testnet"
                 }
             }
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/address/sequence/" + address,overledgerRequest);
@@ -184,10 +187,12 @@ describe('Integration Tests:', () => {
                 expect(typeof overledgerResponse2.data.executionAddressSequenceSearchResponse.sequence).toBe('string');
                 expect(typeof overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId).toBe('string');
             //data checks
-                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.location.technology).toEqual('Ethereum');
-                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.location.network).toEqual('ropsten testnet');
+                                    //XRP ledger location different here to in block response
+                //expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.location.technology).toEqual('XRP Ledger');
+                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.location.network).toEqual('testnet');
                 expect(parseInt(overledgerResponse2.data.executionAddressSequenceSearchResponse.sequence)).toBeGreaterThan(0);
-                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId.length).toEqual(42);      
+                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId.length).toBeGreaterThanOrEqual(25);  
+                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId.length).toBeLessThanOrEqual(35);   
         }
     });
 

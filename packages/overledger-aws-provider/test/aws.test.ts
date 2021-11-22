@@ -3,6 +3,11 @@ import { DltNameOptions } from '@quantnetwork/overledger-types';
 
 describe('Integration Tests:', () => {
 
+    beforeAll(async() => {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + 1000);
+      },1000);
+
     test('Can get tokens using client ID and client secret', async () => {
 
         if (typeof process.env.USER_NAME == 'undefined') {

@@ -14,9 +14,10 @@ const blockByNumber = "22781034";
 
 describe('Integration Tests:', () => {
 
-    beforeEach(() => {
-        jest.setTimeout(10000);
-      });
+    beforeAll(async() => {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + 1000);
+      },1000);
 
     test('Can get latest standardised block via prep-execute', async () => {
 
