@@ -47,7 +47,6 @@ class Provider {
     const headersString = accessToken ? { Authorization: `Bearer ${accessToken}`, 'Content-type': contentType || 'application/json' ,
       Accept: acceptString || 'application/json'} : { 'Content-type': contentType || 'application/json', Accept: acceptString || 'application/json' };
 
-
     return axios.create({
       baseURL: baseUrl,
       timeout: this.options.timeout || 5000,
