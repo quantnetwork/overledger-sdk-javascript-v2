@@ -110,7 +110,8 @@ describe('Integration Tests:', () => {
                 //expect(overledgerResponse2.data.location.technology).toEqual('XRP Ledger');
                 expect(overledgerResponse2.data.location.network).toEqual('testnet');
                 expect(parseInt(overledgerResponse2.data.sequence)).toBeGreaterThan(0);
-                expect(overledgerResponse2.data.addressId.length).toEqual(42);      
+                expect(overledgerResponse2.data.addressId.length).toBeGreaterThanOrEqual(25);     
+                expect(overledgerResponse2.data.addressId.length).toBeLessThanOrEqual(35);
         }
     });
 
@@ -138,8 +139,9 @@ describe('Integration Tests:', () => {
             }
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/address/balance/" + address,overledgerRequest);
             //typeof checks
-            expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.location.technology).toBe('string');
-            expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.location.network).toBe('string');
+                //location object not yet in autoexecute
+            //expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.location.technology).toBe('string');
+            //expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.location.network).toBe('string');
             expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].unit).toBe('string');
                 //balance amount format needs to be changed
             //expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].amount).toBe('string');
@@ -190,7 +192,7 @@ describe('Integration Tests:', () => {
                 expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.location.network).toEqual('testnet');
                 expect(parseInt(overledgerResponse2.data.executionAddressSequenceSearchResponse.sequence)).toBeGreaterThan(0);
                 expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId.length).toBeGreaterThanOrEqual(25);  
-                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId.length).toBeLessThanOrEqual(35);    
+                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId.length).toBeLessThanOrEqual(35);   
         }
     });
 
