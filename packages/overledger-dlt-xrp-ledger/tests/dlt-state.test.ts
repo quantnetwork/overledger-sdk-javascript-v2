@@ -97,7 +97,7 @@ describe('Integration Tests:', () => {
             expect(parseInt(overledgerResponse.data.gatewayFee.amount)).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse.data.gatewayFee.unit.length).toBeGreaterThan(2);
 
-            const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
+            const overledgerResponse2 = await overledgerInstance.post("/execution/search/address/sequence?requestId="+overledgerResponse.data.requestId);
             //typeof checks
                 //typeof checks
                 expect(typeof overledgerResponse2.data.location.technology).toBe('string');
