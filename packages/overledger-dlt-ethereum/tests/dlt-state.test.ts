@@ -136,16 +136,16 @@ describe('Integration Tests:', () => {
             }
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/address/balance/" + address,overledgerRequest);
             //typeof checks
-            expect(typeof overledgerResponse2.data.location.technology).toBe('string');
-            expect(typeof overledgerResponse2.data.location.network).toBe('string');
-            expect(typeof overledgerResponse2.data.balances[0].unit).toBe('string');
-            expect(typeof overledgerResponse2.data.balances[0].amount).toBe('string');
-            expect(typeof overledgerResponse2.data.addressId).toBe('string');
+            expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.location.technology).toBe('string');
+            expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.location.network).toBe('string');
+            expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].unit).toBe('string');
+            expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].amount).toBe('string');
+            expect(typeof overledgerResponse2.data.executionAddressBalanceSearchResponse.addressId).toBe('string');
             //addressId is in the wrong place
-            expect(overledgerResponse2.data.location.technology).toEqual('Ethereum');
-            expect(overledgerResponse2.data.location.network).toEqual('ropsten testnet');
-            expect(overledgerResponse2.data.balances[0].unit).toEqual('ETH');
-            expect(parseInt(overledgerResponse2.data.balances[0].amount)).toBeGreaterThanOrEqual(0);
+            expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.location.technology).toEqual('Ethereum');
+            expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.location.network).toEqual('ropsten testnet');
+            expect(overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].unit).toEqual('ETH');
+            expect(parseInt(overledgerResponse2.data.executionAddressBalanceSearchResponse.balances[0].amount)).toBeGreaterThanOrEqual(0);
             //balances.value instead of balances.amount
             //addressId is in the wrong place
         }
@@ -175,15 +175,15 @@ describe('Integration Tests:', () => {
             }
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/address/sequence/" + address,overledgerRequest);
                 //typeof checks
-                expect(typeof overledgerResponse2.data.location.technology).toBe('string');
-                expect(typeof overledgerResponse2.data.location.network).toBe('string');
-                expect(typeof overledgerResponse2.data.sequence).toBe('string');
-                expect(typeof overledgerResponse2.data.addressId).toBe('string');
+                expect(typeof overledgerResponse2.data.executionAddressSequenceSearchResponse.location.technology).toBe('string');
+                expect(typeof overledgerResponse2.data.executionAddressSequenceSearchResponse.location.network).toBe('string');
+                expect(typeof overledgerResponse2.data.executionAddressSequenceSearchResponse.sequence).toBe('string');
+                expect(typeof overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId).toBe('string');
             //data checks
-                expect(overledgerResponse2.data.location.technology).toEqual('Ethereum');
-                expect(overledgerResponse2.data.location.network).toEqual('ropsten testnet');
-                expect(parseInt(overledgerResponse2.data.sequence)).toBeGreaterThan(0);
-                expect(overledgerResponse2.data.addressId.length).toEqual(42);      
+                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.location.technology).toEqual('Ethereum');
+                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.location.network).toEqual('ropsten testnet');
+                expect(parseInt(overledgerResponse2.data.executionAddressSequenceSearchResponse.sequence)).toBeGreaterThan(0);
+                expect(overledgerResponse2.data.executionAddressSequenceSearchResponse.addressId.length).toEqual(42);      
         }
     });
 
