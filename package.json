@@ -21,6 +21,7 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "devDependencies": {
+    "@npmcli/fs": "^1.0.0",
     "axios": "^0.21.1",
     "dmd-clear": "^0.1.2",
     "jest": "^27.0.0",
@@ -31,8 +32,7 @@
     "ts-jest": "^27.0.0",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.9.7",
-    "@npmcli/fs": "^1.0.0"
+    "typescript": "^3.9.7"
   },
   "workspaces": [
     "packages/*"
