@@ -103,7 +103,7 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
         }
-    });
+    }, 6000);
 
     test('Standardised latest block and native block align via prep-execute', async () => {
 
