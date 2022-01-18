@@ -9,8 +9,8 @@ const sdkOptions = {
 
 //the changeable links after .../block/
 const latestBlock = "latest";
-const blockByHash = "F1CC4E0859F370D4E9E4DBC5B39398DFDCF90B677F7B96AC9E715589015B55DE";
-const blockByNumber = "22781034";
+const blockByHash = "680C9F655C6782442740A860AC97EC596B5701F17B7D5792B8B5A0C2CC8B3B14";
+const blockByNumber = "24400651";
 
 describe('Integration Tests:', () => {
 
@@ -103,7 +103,7 @@ describe('Integration Tests:', () => {
                 expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
             }
         }
-    });
+    }, 6000);
 
     test('Standardised latest block and native block align via prep-execute', async () => {
 
