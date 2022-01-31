@@ -19,18 +19,22 @@ Once you have funded your desired accounts, feel free to proceed to the next ste
 
 ### Setting the environment variables
 
->Note: For ease of use, we have included some example private keys for accounts with test tokens
-
 `/.env`
 ```
-USER_NAME=example_username
+USER_NAME=your-overledger-devportal-email-address-here
+PASSWORD=your-overledger-devportal-password-here
+CLIENT_ID=your-overledger-devportal-application-client-id-here
+CLIENT_SECRET=your-overledger-devportal-application-client-secret-here
 
-CLIENT_ID=example_clientid
-CLIENT_SECRET=example_secret
+PARTY_A_BITCOIN_ADDRESS=your-bitcoin-address-here
+PARTY_A_ETHEREUM_ADDRESS=your-ethereum-address-here
+PARTY_A_XRP_LEDGER_ADDRESS=your-xrp-ledger-address-here
 
-PARTY_A_BITCOIN_PRIVATE_KEY=cNmsFjPqWCaVdhbPoHQJqDpayYdtKR9Qo81KVAEMHJwmgRVJZjDu
-PARTY_A_ETHEREUM_PRIVATE_KEY=e352ad01a835ec50ba301ed7ffb305555cbf3b635082af140b3864f8e3e443d3
-PARTY_A_XRP_LEDGER_PRIVATE_KEY=sswERuW1KWEwMXF6VFpRY72PxfC9b
+PARTY_A_BITCOIN_PRIVATE_KEY=your-bitcoin-private-key-here
+PARTY_A_ETHEREUM_PRIVATE_KEY=your-ethereum-private-key-here
+PARTY_A_XRP_LEDGER_PRIVATE_KEY=your-xrp-ledger-private-key-here
+
+PARTY_A_BITCOIN_FUNDING_TX=your-bitcoin-address-funding-transaction-here
 ```
 
 Once you have created this file, you will need to secure it by using "secure-env". To do so, you should install this program via:
