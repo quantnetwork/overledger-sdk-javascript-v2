@@ -1,8 +1,8 @@
 
 //NOTE: Please create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE.
-//Run: secure-env .env -s mySecretPassword
-//You will then get a .env.enc file created in your project root directory. You can delete the .env file after this to prevent stealing.
-//pass in the password of the .env.enc file in OverledgerSDK and copy the .env.enc file to this folder
+// Run: secure-env .env -s mySecretPassword
+// You will then get a .env.enc file created in your project root directory. You can delete the .env file after this to prevent stealing.
+// pass in the password of the .env.enc file in OverledgerSDK and copy the .env.enc file to this folder
 //
 
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
