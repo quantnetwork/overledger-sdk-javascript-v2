@@ -13,7 +13,7 @@ const preparedTransaction = require('./ethereum-prepared-transaction.json');
 const overledger = new OverledgerSDK({
     dlts: [{ dlt: DltNameOptions.ETHEREUM }],
     provider: { network: 'testnet' },
-    envFilePassword: 'password'
+    envFilePassword: 'MY_PASSWORD'
 });
 // Setting our private key from the encrypted .env file
 overledger.dlts[DltNameOptions.ETHEREUM].setAccount({privateKey: process.env.PARTY_A_ETHEREUM_PRIVATE_KEY});
