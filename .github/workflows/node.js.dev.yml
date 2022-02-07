@@ -18,6 +18,8 @@ jobs:
       USER_NAME: ${{ secrets.USER_NAME }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      USER_POOL_ID: ${{ secrets.USER_POOL_ID }}
+      NETWORK: ${{ secrets.NETWORK }}
     strategy:
       matrix:
         node-version: [10.22.0, 12.13.0, 14.15.0, 16.1.0]
