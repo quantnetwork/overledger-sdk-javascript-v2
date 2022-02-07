@@ -3,8 +3,8 @@ import { DltNameOptions } from '@quantnetwork/overledger-types';
 
 const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.ETHEREUM },],
-    userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
-    provider: { network: 'https://api.sandbox.overledger.io/v2' }
+    userPoolID: process.env.USER_POOL_ID, //your userpool id
+    provider: { network: process.env.NETWORK }
 };
 
 let address = "0x650A87cfB9165C9F4Ccc7B971D971f50f753e761";
