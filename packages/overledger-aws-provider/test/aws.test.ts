@@ -3,11 +3,6 @@ import { DltNameOptions } from '@quantnetwork/overledger-types';
 
 describe('Integration Tests:', () => {
 
-    beforeAll(async() => {
-        var start = new Date().getTime();
-        while (new Date().getTime() < start + 1000);
-      },1000);
-
     test('Can get tokens using client ID and client secret', async () => {
 
         if (typeof process.env.USER_NAME == 'undefined') {
@@ -22,7 +17,7 @@ describe('Integration Tests:', () => {
                 { dlt: DltNameOptions.ETHEREUM },
                 { dlt: DltNameOptions.XRP_LEDGER }],
                 userPoolID: process.env.USER_POOL_ID, //your userpool id
-                provider: { network: process.env.NETWORK }
+                provider: { network: process.env.COGNITO_POOL_URL }
             });
             const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);
@@ -56,7 +51,7 @@ describe('Integration Tests:', () => {
                 { dlt: DltNameOptions.ETHEREUM },
                 { dlt: DltNameOptions.XRP_LEDGER }],
                 userPoolID: process.env.USER_POOL_ID, //your userpool id
-                provider: { network: process.env.NETWORK }
+                provider: { network: process.env.COGNITO_POOL_URL }
             });
             const refreshTokensResponse1 = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);
