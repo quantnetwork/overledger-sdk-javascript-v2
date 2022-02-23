@@ -3,7 +3,7 @@
 
 # @quantnetwork/overledger-dlt-xrp-ledger
 
-[Overledger SDK][repo] module for interaction with the Substract distributed ledger technology.
+[Overledger SDK][repo] module for interaction with the Substrate distributed ledger technology.
 
 ## Installation
 
@@ -30,7 +30,7 @@ yarn add @quantnetwork/overledger-dlt-xrp-ledger
 ## Classes
 
 <dl>
-<dt><a href="#Ripple">Substract</a></dt>
+<dt><a href="#Ripple">Substrate</a></dt>
 <dd></dd>
 </dl>
 
@@ -48,18 +48,18 @@ yarn add @quantnetwork/overledger-dlt-xrp-ledger
 <a name="module_overledger-dlt-xrp-ledger.default"></a>
 
 ### *overledger-dlt-xrp-ledger*.default
-Development package for Substract (XRP Ledger).
+Development package for Substrate (XRP Ledger).
 
 <a name="module_overledger-dlt-xrp-ledger.log"></a>
 
 ### *overledger-dlt-xrp-ledger*.log
-<a name="Substract"></a>
+<a name="Substrate"></a>
 
-## Substract
+## Substrate
 
-* [Substract](#Ripple)
+* [Substrate](#Ripple)
 
-    * [new Substract(sdk)](#new_Ripple_new)
+    * [new Substrate(sdk)](#new_Ripple_new)
 
     * [.name](#Ripple+name)
 
@@ -74,29 +74,29 @@ Development package for Substract (XRP Ledger).
 
 <a name="new_Ripple_new"></a>
 
-### new Substract(sdk)
+### new Substrate(sdk)
 
 | Param | Type |
 | --- | --- |
 | sdk | <code>any</code> | 
 
-<a name="Substract+name"></a>
+<a name="Substrate+name"></a>
 
 ### *ripple*.name
 Name of the DLT
 
-<a name="Substract+symbol"></a>
+<a name="Substrate+symbol"></a>
 
 ### *ripple*.symbol
 Symbol of the DLT
 
-<a name="Substract+createAccount"></a>
+<a name="Substrate+createAccount"></a>
 
 ### *ripple*.createAccount()
 Create an XRP account
 
 **Returns**: <code>Account</code> - (privateKey, address)  
-<a name="Substract+setAccount"></a>
+<a name="Substrate+setAccount"></a>
 
 ### *ripple*.setAccount(accountInfo)
 
@@ -106,7 +106,7 @@ Create an XRP account
 
 Set an account for signing for a specific DLT
 
-<a name="Substract+isValidSeed"></a>
+<a name="Substrate+isValidSeed"></a>
 
 ### *ripple*.isValidSeed()
 ripple seed validation

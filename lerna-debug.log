@@ -5,7 +5,7 @@
 0 silly argv }
 1 notice cli v4.0.0
 2 verbose rootPath /Users/joaoalves/Projects/overledger-sdk-javascript-v2
-3 error JSONError: Unexpected token "}" (0x7D) in JSON at position 1353 while parsing near "...ot/api\": \"6.0.5\",\n  },\n  \"devDependencie..." in packages/overledger-dlt-substract/package.json
+3 error JSONError: Unexpected token "}" (0x7D) in JSON at position 1353 while parsing near "...ot/api\": \"6.0.5\",\n  },\n  \"devDependencie..." in packages/overledger-dlt-substrate/package.json
 3 error
 3 error [0m [90m 33 |[39m     [32m"log4js"[39m[33m:[39m [32m"^6.3.0"[39m[33m,[39m[0m
 3 error [0m [90m 34 |[39m     [32m"@polkadot/api"[39m[33m:[39m [32m"6.0.5"[39m[33m,[39m[0m

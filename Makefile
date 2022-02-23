@@ -10,4 +10,4 @@ default:
 	cd packages/overledger-dlt-ethereum && yarn run build && cd ../..
 	cd packages/overledger-dlt-xrp-ledger && yarn run build && cd ../..
 	cd packages/overledger-bundle && yarn run build && cd ../..
-	
+	cd packages/overledger-dlt-substrate && yarn run build && cd ../..

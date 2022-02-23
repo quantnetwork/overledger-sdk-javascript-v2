@@ -1,6 +1,8 @@
 import EthereumPreparedTransactionNativeData from './EthereumPreparedTransactionNativeData';
 import BitcoinPreparedTransactionNativeData from './BitcoinPreparedTransactionNativeData';
 import XRPLedgerPreparedTransactionNativeData from './XRPLedgerPreparedTransactionNativeData';
+import SubstratePreparedTransactionNativeData from './SubstratePreparedTransactionNativeData';
+
 
 /**
  */
@@ -14,7 +16,8 @@ type PreparedTransaction = {
   gatewayFeeUnit: string,
   nativeData: EthereumPreparedTransactionNativeData |
     BitcoinPreparedTransactionNativeData |
-    XRPLedgerPreparedTransactionNativeData,  // If you are adding a new native data type, use ||, e.g. EthereumPreparedTransactionNativeData||BitcoinPreparedTransactionNativeData
+    XRPLedgerPreparedTransactionNativeData |
+    SubstratePreparedTransactionNativeData, // If you are adding a new native data type, use ||, e.g. EthereumPreparedTransactionNativeData||BitcoinPreparedTransactionNativeData
 };
 
 export default PreparedTransaction;

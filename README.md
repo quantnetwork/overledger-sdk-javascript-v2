@@ -10,7 +10,7 @@ The Overledger SDK enables developers to create blockchain accounts, create sign
 
 ## Technologies
 
-The Overledger SDK is a collection of node packages written in Typescript. Currently, the supported DLTs are Substract, Ethereum and the XRP Ledger.
+The Overledger SDK is a collection of node packages written in Typescript. Currently, the supported DLTs are Substrate, Ethereum and the XRP Ledger.
 
 ## Prerequisites
 

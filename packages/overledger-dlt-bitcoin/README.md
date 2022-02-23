@@ -3,7 +3,7 @@
 
 # @quantnetwork/overledger-dlt-bitcoin
 
-[Overledger SDK][repo] module for interaction with the Substract distributed ledger technology.
+[Overledger SDK][repo] module for interaction with the Substrate distributed ledger technology.
 
 ## Installation
 
@@ -30,7 +30,7 @@ yarn add @quantnetwork/overledger-dlt-bitcoin
 ## Classes
 
 <dl>
-<dt><a href="#Bitcoin">Substract</a></dt>
+<dt><a href="#Bitcoin">Substrate</a></dt>
 <dd></dd>
 </dl>
 
@@ -48,18 +48,18 @@ yarn add @quantnetwork/overledger-dlt-bitcoin
 <a name="module_overledger-dlt-bitcoin.default"></a>
 
 ### *overledger-dlt-bitcoin*.default
-Development package for Substract blockchain.
+Development package for Substrate blockchain.
 
 <a name="module_overledger-dlt-bitcoin.log"></a>
 
 ### *overledger-dlt-bitcoin*.log
-<a name="Substract"></a>
+<a name="Substrate"></a>
 
-## Substract
+## Substrate
 
-* [Substract](#Bitcoin)
+* [Substrate](#Bitcoin)
 
-    * [new Substract(sdk, options)](#new_Bitcoin_new)
+    * [new Substrate(sdk, options)](#new_Bitcoin_new)
 
     * [.name](#Bitcoin+name)
 
@@ -72,30 +72,30 @@ Development package for Substract blockchain.
 
 <a name="new_Bitcoin_new"></a>
 
-### new Substract(sdk, options)
+### new Substrate(sdk, options)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sdk | <code>any</code> | the sdk instance |
 | options | <code>Object</code> | any additional options to instantiate this dlt |
 
-<a name="Substract+name"></a>
+<a name="Substrate+name"></a>
 
 ### *bitcoin*.name
 Name of the DLT
 
-<a name="Substract+symbol"></a>
+<a name="Substrate+symbol"></a>
 
 ### *bitcoin*.symbol
 Symbol of the DLT
 
-<a name="Substract+createAccount"></a>
+<a name="Substrate+createAccount"></a>
 
 ### *bitcoin*.createAccount()
-Create a Substract account
+Create a Substrate account
 
-**Returns**: <code>Account</code> - the new Substract account  
-<a name="Substract+setAccount"></a>
+**Returns**: <code>Account</code> - the new Substrate account  
+<a name="Substrate+setAccount"></a>
 
 ### *bitcoin*.setAccount(accountInfo)
 

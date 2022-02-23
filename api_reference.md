@@ -26,11 +26,11 @@
 <dl>
 <dt><a href="#OverledgerSDK">OverledgerSDK</a></dt>
 <dd></dd>
-<dt><a href="#Bitcoin">Substract</a></dt>
+<dt><a href="#Bitcoin">Substrate</a></dt>
 <dd></dd>
 <dt><a href="#Ethereum">Ethereum</a></dt>
 <dd></dd>
-<dt><a href="#Ripple">Substract</a></dt>
+<dt><a href="#Ripple">Substrate</a></dt>
 <dd></dd>
 <dt><a href="#Provider">Provider</a></dt>
 <dd></dd>
@@ -171,7 +171,7 @@ Abstract class for DLT modules. All DLT packages need to extend this class.
 <a name="module_overledger-dlt-bitcoin.default"></a>
 
 ### *overledger-dlt-bitcoin*.default
-Development package for Substract blockchain.
+Development package for Substrate blockchain.
 
 <a name="module_overledger-dlt-bitcoin.log"></a>
 
@@ -209,7 +209,7 @@ Development package for Ethereum.
 <a name="module_overledger-dlt-xrp-ledger.default"></a>
 
 ### *overledger-dlt-xrp-ledger*.default
-Development package for Substract (XRP Ledger).
+Development package for Substrate (XRP Ledger).
 
 <a name="module_overledger-dlt-xrp-ledger.log"></a>
 
@@ -347,13 +347,13 @@ get new set of tokens using username, password, clientId and clientSecret
 
 Signing a prepared object
 
-<a name="Substract"></a>
+<a name="Substrate"></a>
 
-## Substract
+## Substrate
 
-* [Substract](#Bitcoin)
+* [Substrate](#Bitcoin)
 
-    * [new Substract(sdk, options)](#new_Bitcoin_new)
+    * [new Substrate(sdk, options)](#new_Bitcoin_new)
 
     * [.name](#Bitcoin+name)
 
@@ -366,30 +366,30 @@ Signing a prepared object
 
 <a name="new_Bitcoin_new"></a>
 
-### new Substract(sdk, options)
+### new Substrate(sdk, options)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sdk | <code>any</code> | the sdk instance |
 | options | <code>Object</code> | any additional options to instantiate this dlt |
 
-<a name="Substract+name"></a>
+<a name="Substrate+name"></a>
 
 ### *bitcoin*.name
 Name of the DLT
 
-<a name="Substract+symbol"></a>
+<a name="Substrate+symbol"></a>
 
 ### *bitcoin*.symbol
 Symbol of the DLT
 
-<a name="Substract+createAccount"></a>
+<a name="Substrate+createAccount"></a>
 
 ### *bitcoin*.createAccount()
-Create a Substract account
+Create a Substrate account
 
-**Returns**: [<code>Account</code>](#Account) - the new Substract account  
-<a name="Substract+setAccount"></a>
+**Returns**: [<code>Account</code>](#Account) - the new Substrate account  
+<a name="Substrate+setAccount"></a>
 
 ### *bitcoin*.setAccount(accountInfo)
 
@@ -450,13 +450,13 @@ Create an Ethereum account
 
 Set an account for signing transactions for a specific DLT
 
-<a name="Substract"></a>
+<a name="Substrate"></a>
 
-## Substract
+## Substrate
 
-* [Substract](#Ripple)
+* [Substrate](#Ripple)
 
-    * [new Substract(sdk)](#new_Ripple_new)
+    * [new Substrate(sdk)](#new_Ripple_new)
 
     * [.name](#Ripple+name)
 
@@ -471,29 +471,29 @@ Set an account for signing transactions for a specific DLT
 
 <a name="new_Ripple_new"></a>
 
-### new Substract(sdk)
+### new Substrate(sdk)
 
 | Param | Type |
 | --- | --- |
 | sdk | <code>any</code> | 
 
-<a name="Substract+name"></a>
+<a name="Substrate+name"></a>
 
 ### *ripple*.name
 Name of the DLT
 
-<a name="Substract+symbol"></a>
+<a name="Substrate+symbol"></a>
 
 ### *ripple*.symbol
 Symbol of the DLT
 
-<a name="Substract+createAccount"></a>
+<a name="Substrate+createAccount"></a>
 
 ### *ripple*.createAccount()
 Create an XRP account
 
 **Returns**: [<code>Account</code>](#Account) - (privateKey, address)  
-<a name="Substract+setAccount"></a>
+<a name="Substrate+setAccount"></a>
 
 ### *ripple*.setAccount(accountInfo)
 
@@ -503,7 +503,7 @@ Create an XRP account
 
 Set an account for signing for a specific DLT
 
-<a name="Substract+isValidSeed"></a>
+<a name="Substrate+isValidSeed"></a>
 
 ### *ripple*.isValidSeed()
 ripple seed validation

@@ -29,7 +29,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         });
         
         const bitcoinAccount = await overledger.dlts.bitcoin.createAccount();
-        console.log('Substract account:\n', bitcoinAccount);
+        console.log('Substrate account:\n', bitcoinAccount);
         console.log("");
 
         const ethAccount = await overledger.dlts.ethereum.createAccount();

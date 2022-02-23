@@ -8,20 +8,20 @@
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 // Importing an example preparedTransaction from the Overledger Preparation API
-const preparedTransaction = require('./substract-prepared-transaction.json');
+const preparedTransaction = require('./substrate-prepared-transaction.json');
 // Constructing the Overledger library
 const overledger = new OverledgerSDK({
-    dlts: [{ dlt: DltNameOptions.SUBSTRACT }],
+    dlts: [{ dlt: DltNameOptions.SUBSTRATE }],
     provider: { network: 'westend' },
     envFilePassword: 'password'
 });
 // Setting our private key from the encrypted .env file
-overledger.dlts[DltNameOptions.SUBSTRACT].setAccount({privateKey: process.env.PARTY_A_SUBSTRACT_MNEMONIC});
+overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({privateKey: process.env.PARTY_A_SUBSTRATE_MNEMONIC});
 // Wraping the main function in an async block to be able to call the sign function
 ; (async () => {
     try {
         // Signing the prepared transaction
-        let signedTransaction = (await overledger.sign(DltNameOptions.SUBSTRACT, preparedTransaction)).signedTransaction;
+        let signedTransaction = (await overledger.sign(DltNameOptions.SUBSTRATE, preparedTransaction)).signedTransaction;
         // Building the Overledger Execution API request
         let executeTransactionRequest = {
             requestId: preparedTransaction.requestId,

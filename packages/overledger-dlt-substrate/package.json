@@ -1,7 +1,7 @@
 {
-  "name": "@quantnetwork/overledger-dlt-substract",
+  "name": "@quantnetwork/overledger-dlt-substrate",
   "version": "2.1.1",
-  "description": "Quant Network Overledger Substract software development kit (SDK) for the JavaScript (JS) programming language.",
+  "description": "Quant Network Overledger Substrate software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
     "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-dlt-substract",
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-dlt-substrate",
   "contributors": [
     {
       "name": "Joao Alves",
@@ -31,7 +31,6 @@
     "axios": "^0.21.1",
     "elliptic": "^6.5.2",
     "log4js": "^6.3.0",
-    "@polkadot/api": "6.0.5",
     "@substrate/txwrapper-polkadot": "^1.5.1"
   },
   "devDependencies": {

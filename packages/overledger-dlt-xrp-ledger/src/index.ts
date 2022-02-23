@@ -5,6 +5,6 @@
 import Ripple from './Ripple';
 
  /**
-  * Development package for Substract (XRP Ledger).
+  * Development package for Substrate (XRP Ledger).
   */
 export default Ripple;
