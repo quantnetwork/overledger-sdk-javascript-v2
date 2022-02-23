@@ -1,0 +1,47 @@
+{
+  "name": "@quantnetwork/overledger-dlt-substract",
+  "version": "2.1.1",
+  "description": "Quant Network Overledger Substract software development kit (SDK) for the JavaScript (JS) programming language.",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest --runInBand",
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "yarn run clean && tsc --declaration",
+    "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
+    "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
+  },
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-dlt-substract",
+  "contributors": [
+    {
+      "name": "Joao Alves",
+      "email": "joao.alves@quant.network",
+      "url": "https://github.com/jvaralves"
+    }
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@quantnetwork/overledger-dlt-abstract": "^2.1.1",
+    "@quantnetwork/overledger-provider": "^2.1.1",
+    "@quantnetwork/overledger-types": "^2.1.1",
+    "axios": "^0.21.1",
+    "elliptic": "^6.5.2",
+    "log4js": "^6.3.0",
+    "@polkadot/api": "6.0.5",
+    "@substrate/txwrapper-polkadot": "^1.5.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "lerna": "^4.0.0",
+    "nodemon": "^2.0.13",
+    "ts-jest": "^27.0.0",
+    "tslint": "^5.16.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^4.5.5"
+  },
+  "gitHead": "a0cef352061805a0d24c42dfc69750c0b1bf231a"
+}

@@ -3,7 +3,7 @@
 
 # @quantnetwork/overledger-dlt-bitcoin
 
-[Overledger SDK][repo] module for interaction with the Bitcoin distributed ledger technology.
+[Overledger SDK][repo] module for interaction with the Substract distributed ledger technology.
 
 ## Installation
 
@@ -30,7 +30,7 @@ yarn add @quantnetwork/overledger-dlt-bitcoin
 ## Classes
 
 <dl>
-<dt><a href="#Bitcoin">Bitcoin</a></dt>
+<dt><a href="#Bitcoin">Substract</a></dt>
 <dd></dd>
 </dl>
 
@@ -48,18 +48,18 @@ yarn add @quantnetwork/overledger-dlt-bitcoin
 <a name="module_overledger-dlt-bitcoin.default"></a>
 
 ### *overledger-dlt-bitcoin*.default
-Development package for Bitcoin blockchain.
+Development package for Substract blockchain.
 
 <a name="module_overledger-dlt-bitcoin.log"></a>
 
 ### *overledger-dlt-bitcoin*.log
-<a name="Bitcoin"></a>
+<a name="Substract"></a>
 
-## Bitcoin
+## Substract
 
-* [Bitcoin](#Bitcoin)
+* [Substract](#Bitcoin)
 
-    * [new Bitcoin(sdk, options)](#new_Bitcoin_new)
+    * [new Substract(sdk, options)](#new_Bitcoin_new)
 
     * [.name](#Bitcoin+name)
 
@@ -72,30 +72,30 @@ Development package for Bitcoin blockchain.
 
 <a name="new_Bitcoin_new"></a>
 
-### new Bitcoin(sdk, options)
+### new Substract(sdk, options)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sdk | <code>any</code> | the sdk instance |
 | options | <code>Object</code> | any additional options to instantiate this dlt |
 
-<a name="Bitcoin+name"></a>
+<a name="Substract+name"></a>
 
 ### *bitcoin*.name
 Name of the DLT
 
-<a name="Bitcoin+symbol"></a>
+<a name="Substract+symbol"></a>
 
 ### *bitcoin*.symbol
 Symbol of the DLT
 
-<a name="Bitcoin+createAccount"></a>
+<a name="Substract+createAccount"></a>
 
 ### *bitcoin*.createAccount()
-Create a Bitcoin account
+Create a Substract account
 
-**Returns**: <code>Account</code> - the new Bitcoin account  
-<a name="Bitcoin+setAccount"></a>
+**Returns**: <code>Account</code> - the new Substract account  
+<a name="Substract+setAccount"></a>
 
 ### *bitcoin*.setAccount(accountInfo)
 

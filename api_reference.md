@@ -26,11 +26,11 @@
 <dl>
 <dt><a href="#OverledgerSDK">OverledgerSDK</a></dt>
 <dd></dd>
-<dt><a href="#Bitcoin">Bitcoin</a></dt>
+<dt><a href="#Bitcoin">Substract</a></dt>
 <dd></dd>
 <dt><a href="#Ethereum">Ethereum</a></dt>
 <dd></dd>
-<dt><a href="#Ripple">Ripple</a></dt>
+<dt><a href="#Ripple">Substract</a></dt>
 <dd></dd>
 <dt><a href="#Provider">Provider</a></dt>
 <dd></dd>
@@ -171,7 +171,7 @@ Abstract class for DLT modules. All DLT packages need to extend this class.
 <a name="module_overledger-dlt-bitcoin.default"></a>
 
 ### *overledger-dlt-bitcoin*.default
-Development package for Bitcoin blockchain.
+Development package for Substract blockchain.
 
 <a name="module_overledger-dlt-bitcoin.log"></a>
 
@@ -209,7 +209,7 @@ Development package for Ethereum.
 <a name="module_overledger-dlt-xrp-ledger.default"></a>
 
 ### *overledger-dlt-xrp-ledger*.default
-Development package for Ripple (XRP Ledger).
+Development package for Substract (XRP Ledger).
 
 <a name="module_overledger-dlt-xrp-ledger.log"></a>
 
@@ -347,13 +347,13 @@ get new set of tokens using username, password, clientId and clientSecret
 
 Signing a prepared object
 
-<a name="Bitcoin"></a>
+<a name="Substract"></a>
 
-## Bitcoin
+## Substract
 
-* [Bitcoin](#Bitcoin)
+* [Substract](#Bitcoin)
 
-    * [new Bitcoin(sdk, options)](#new_Bitcoin_new)
+    * [new Substract(sdk, options)](#new_Bitcoin_new)
 
     * [.name](#Bitcoin+name)
 
@@ -366,30 +366,30 @@ Signing a prepared object
 
 <a name="new_Bitcoin_new"></a>
 
-### new Bitcoin(sdk, options)
+### new Substract(sdk, options)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sdk | <code>any</code> | the sdk instance |
 | options | <code>Object</code> | any additional options to instantiate this dlt |
 
-<a name="Bitcoin+name"></a>
+<a name="Substract+name"></a>
 
 ### *bitcoin*.name
 Name of the DLT
 
-<a name="Bitcoin+symbol"></a>
+<a name="Substract+symbol"></a>
 
 ### *bitcoin*.symbol
 Symbol of the DLT
 
-<a name="Bitcoin+createAccount"></a>
+<a name="Substract+createAccount"></a>
 
 ### *bitcoin*.createAccount()
-Create a Bitcoin account
+Create a Substract account
 
-**Returns**: [<code>Account</code>](#Account) - the new Bitcoin account  
-<a name="Bitcoin+setAccount"></a>
+**Returns**: [<code>Account</code>](#Account) - the new Substract account  
+<a name="Substract+setAccount"></a>
 
 ### *bitcoin*.setAccount(accountInfo)
 
@@ -450,13 +450,13 @@ Create an Ethereum account
 
 Set an account for signing transactions for a specific DLT
 
-<a name="Ripple"></a>
+<a name="Substract"></a>
 
-## Ripple
+## Substract
 
-* [Ripple](#Ripple)
+* [Substract](#Ripple)
 
-    * [new Ripple(sdk)](#new_Ripple_new)
+    * [new Substract(sdk)](#new_Ripple_new)
 
     * [.name](#Ripple+name)
 
@@ -471,29 +471,29 @@ Set an account for signing transactions for a specific DLT
 
 <a name="new_Ripple_new"></a>
 
-### new Ripple(sdk)
+### new Substract(sdk)
 
 | Param | Type |
 | --- | --- |
 | sdk | <code>any</code> | 
 
-<a name="Ripple+name"></a>
+<a name="Substract+name"></a>
 
 ### *ripple*.name
 Name of the DLT
 
-<a name="Ripple+symbol"></a>
+<a name="Substract+symbol"></a>
 
 ### *ripple*.symbol
 Symbol of the DLT
 
-<a name="Ripple+createAccount"></a>
+<a name="Substract+createAccount"></a>
 
 ### *ripple*.createAccount()
 Create an XRP account
 
 **Returns**: [<code>Account</code>](#Account) - (privateKey, address)  
-<a name="Ripple+setAccount"></a>
+<a name="Substract+setAccount"></a>
 
 ### *ripple*.setAccount(accountInfo)
 
@@ -503,7 +503,7 @@ Create an XRP account
 
 Set an account for signing for a specific DLT
 
-<a name="Ripple+isValidSeed"></a>
+<a name="Substract+isValidSeed"></a>
 
 ### *ripple*.isValidSeed()
 ripple seed validation

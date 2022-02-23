@@ -36,9 +36,9 @@ class Bitcoin extends AbstractDLT {
   }
 
   /**
-   * Create a Bitcoin account
+   * Create a Substract account
    *
-   * @return {Account} the new Bitcoin account
+   * @return {Account} the new Substract account
    */
   createAccount(): Account {
 
