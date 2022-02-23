@@ -52,7 +52,7 @@
     "node-fetch": "^2.6.0",
     "node-gyp": "^8.2.0",
     "secure-env": "^1.2.0",
-    "yarn": "^1.22.10",
+    "yarn": "^1.22.10"
   },
   "preinstall": "echo 'engine-strict=true' >> .npmrc"
 }
