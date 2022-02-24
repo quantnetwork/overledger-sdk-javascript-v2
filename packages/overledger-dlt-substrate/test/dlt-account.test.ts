@@ -4,6 +4,8 @@ import { DltNameOptions } from '@quantnetwork/overledger-types';
 const mockSeed = 'circle umbrella admit renew length shrimp dinosaur ivory eternal trend remain cradle';
 const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.SUBSTRATE },],
+    provider: { network: 'westend' },
+    envFilePassword: 'password',
 };
 describe('Unit Tests:', () => {
 
@@ -17,7 +19,8 @@ describe('Unit Tests:', () => {
         const sdk = new OverledgerSDK(sdkOptions);
         sdk.dlts[DltNameOptions.SUBSTRATE].setAccount({
             privateKey: mockSeed,
-        },);
+            address: 'test',
+        });
 
         expect(sdk.dlts[DltNameOptions.SUBSTRATE].name).toEqual(DltNameOptions.SUBSTRATE);
         expect(sdk.dlts[DltNameOptions.SUBSTRATE].account.privateKey).toEqual(mockSeed);
@@ -44,9 +47,10 @@ describe('Unit Tests:', () => {
 
 
         const sdk = new OverledgerSDK(sdkOptions);
-        sdk.dlts[DltNameOptions.BITCOIN].setAccount({
-            privateKey: mockSeed,
-        },);
+        sdk.dlts[DltNameOptions.SUBSTRATE].setAccount({
+                                                          privateKey: mockSeed,
+                                                          address: 'test',
+                                                      });
 
         const substratePreparedTransaction = require('./resources/substrate-prepared-transaction.json');
         let signedTransaction = (await sdk.sign(DltNameOptions.SUBSTRATE, substratePreparedTransaction)).signedTransaction;

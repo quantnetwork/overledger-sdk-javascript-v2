@@ -9,14 +9,14 @@
     "unit": "DOT"
   },
   "nativeData": {
-    "value": 10,
     "dest": "5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y",
+    "value": 100000000,
     "nonce": "0x00000000",
-    "blockHash": "0xcb45d5451eb56aad2d8b869d79a34059b01ccd402de64f96949f643237841035",
-    "blockNumber": 3889,
+    "blockHash": "0x9cf22ff9eb338da2e2aee0e817ff24de4a68127250e5e1a345a5bd8459a1ddb4",
+    "blockNumber": 13914,
     "genesisHash": "0x82ff30dc16ab27278482a0b3588107814f6faaeb44efa15b39d1ca313bf73431",
     "era": {
-      "mortalEra": "0x1503"
+      "mortalEra": "0xa501"
     },
     "metadata": {
       "magicNumber": 1635018093,

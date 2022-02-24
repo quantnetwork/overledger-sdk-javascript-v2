@@ -3,7 +3,7 @@
 
 # @quantnetwork/overledger-dlt-bitcoin
 
-[Overledger SDK][repo] module for interaction with the Substrate distributed ledger technology.
+[Overledger SDK][repo] module for interaction with the Bitcoin distributed ledger technology.
 
 ## Installation
 
@@ -30,7 +30,7 @@ yarn add @quantnetwork/overledger-dlt-bitcoin
 ## Classes
 
 <dl>
-<dt><a href="#Bitcoin">Substrate</a></dt>
+<dt><a href="#Bitcoin">Bitcoin</a></dt>
 <dd></dd>
 </dl>
 
@@ -48,18 +48,18 @@ yarn add @quantnetwork/overledger-dlt-bitcoin
 <a name="module_overledger-dlt-bitcoin.default"></a>
 
 ### *overledger-dlt-bitcoin*.default
-Development package for Substrate blockchain.
+Development package for Bitcoin blockchain.
 
 <a name="module_overledger-dlt-bitcoin.log"></a>
 
 ### *overledger-dlt-bitcoin*.log
-<a name="Substrate"></a>
+<a name="Bitcoin"></a>
 
-## Substrate
+## Bitcoin
 
-* [Substrate](#Bitcoin)
+* [Bitcoin](#Bitcoin)
 
-    * [new Substrate(sdk, options)](#new_Bitcoin_new)
+    * [new Bitcoin(sdk, options)](#new_Bitcoin_new)
 
     * [.name](#Bitcoin+name)
 
@@ -72,30 +72,30 @@ Development package for Substrate blockchain.
 
 <a name="new_Bitcoin_new"></a>
 
-### new Substrate(sdk, options)
+### new Bitcoin(sdk, options)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sdk | <code>any</code> | the sdk instance |
 | options | <code>Object</code> | any additional options to instantiate this dlt |
 
-<a name="Substrate+name"></a>
+<a name="Bitcoin+name"></a>
 
 ### *bitcoin*.name
 Name of the DLT
 
-<a name="Substrate+symbol"></a>
+<a name="Bitcoin+symbol"></a>
 
 ### *bitcoin*.symbol
 Symbol of the DLT
 
-<a name="Substrate+createAccount"></a>
+<a name="Bitcoin+createAccount"></a>
 
 ### *bitcoin*.createAccount()
-Create a Substrate account
+Create a Bitcoin account
 
-**Returns**: <code>Account</code> - the new Substrate account  
-<a name="Substrate+setAccount"></a>
+**Returns**: <code>Account</code> - the new Bitcoin account  
+<a name="Bitcoin+setAccount"></a>
 
 ### *bitcoin*.setAccount(accountInfo)
 

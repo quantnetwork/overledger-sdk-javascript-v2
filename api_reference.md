@@ -26,11 +26,11 @@
 <dl>
 <dt><a href="#OverledgerSDK">OverledgerSDK</a></dt>
 <dd></dd>
-<dt><a href="#Bitcoin">Substrate</a></dt>
+<dt><a href="#Bitcoin">Bitcoin</a></dt>
 <dd></dd>
 <dt><a href="#Ethereum">Ethereum</a></dt>
 <dd></dd>
-<dt><a href="#Ripple">Substrate</a></dt>
+<dt><a href="#Ripple">Ripple</a></dt>
 <dd></dd>
 <dt><a href="#Provider">Provider</a></dt>
 <dd></dd>
@@ -73,9 +73,9 @@ Main Overledger SDK bundle. Includes all the packages for all supported DLTs.
 
 * [overledger-core](#module_overledger-core)
 
-    * [.default](#module_overledger-core.default)
+  * [.default](#module_overledger-core.default)
 
-    * [.log](#module_overledger-core.log)
+  * [.log](#module_overledger-core.log)
 
 
 <a name="module_overledger-core.default"></a>
@@ -94,24 +94,7 @@ Core Overledger SDK class. Individual dlt packages must be installed manually.
 
 * [overledger-dlt-abstract](#module_overledger-dlt-abstract)
 
-    * [.AbstractDLT](#module_overledger-dlt-abstract.AbstractDLT)
-
-        * [new AbstractDLT(sdk)](#new_module_overledger-dlt-abstract.AbstractDLT_new)
-
-        * [.createAccount()](#module_overledger-dlt-abstract.AbstractDLT+createAccount)
-
-        * [.setAccount(AccountInfo)](#module_overledger-dlt-abstract.AbstractDLT+setAccount)
-
-        * [.getEcho()](#module_overledger-dlt-abstract.AbstractDLT+getEcho)
-
-    * [.default](#module_overledger-dlt-abstract.default)
-
-
-<a name="module_overledger-dlt-abstract.AbstractDLT"></a>
-
-### *overledger-dlt-abstract*.AbstractDLT
-
-* [.AbstractDLT](#module_overledger-dlt-abstract.AbstractDLT)
+  * [.AbstractDLT](#module_overledger-dlt-abstract.AbstractDLT)
 
     * [new AbstractDLT(sdk)](#new_module_overledger-dlt-abstract.AbstractDLT_new)
 
@@ -120,6 +103,23 @@ Core Overledger SDK class. Individual dlt packages must be installed manually.
     * [.setAccount(AccountInfo)](#module_overledger-dlt-abstract.AbstractDLT+setAccount)
 
     * [.getEcho()](#module_overledger-dlt-abstract.AbstractDLT+getEcho)
+
+  * [.default](#module_overledger-dlt-abstract.default)
+
+
+<a name="module_overledger-dlt-abstract.AbstractDLT"></a>
+
+### *overledger-dlt-abstract*.AbstractDLT
+
+* [.AbstractDLT](#module_overledger-dlt-abstract.AbstractDLT)
+
+  * [new AbstractDLT(sdk)](#new_module_overledger-dlt-abstract.AbstractDLT_new)
+
+  * [.createAccount()](#module_overledger-dlt-abstract.AbstractDLT+createAccount)
+
+  * [.setAccount(AccountInfo)](#module_overledger-dlt-abstract.AbstractDLT+setAccount)
+
+  * [.getEcho()](#module_overledger-dlt-abstract.AbstractDLT+getEcho)
 
 
 <a name="new_module_overledger-dlt-abstract.AbstractDLT_new"></a>
@@ -163,15 +163,15 @@ Abstract class for DLT modules. All DLT packages need to extend this class.
 
 * [overledger-dlt-bitcoin](#module_overledger-dlt-bitcoin)
 
-    * [.default](#module_overledger-dlt-bitcoin.default)
+  * [.default](#module_overledger-dlt-bitcoin.default)
 
-    * [.log](#module_overledger-dlt-bitcoin.log)
+  * [.log](#module_overledger-dlt-bitcoin.log)
 
 
 <a name="module_overledger-dlt-bitcoin.default"></a>
 
 ### *overledger-dlt-bitcoin*.default
-Development package for Substrate blockchain.
+Development package for Bitcoin blockchain.
 
 <a name="module_overledger-dlt-bitcoin.log"></a>
 
@@ -182,9 +182,9 @@ Development package for Substrate blockchain.
 
 * [overledger-dlt-ethereum](#module_overledger-dlt-ethereum)
 
-    * [.default](#module_overledger-dlt-ethereum.default)
+  * [.default](#module_overledger-dlt-ethereum.default)
 
-    * [.log](#module_overledger-dlt-ethereum.log)
+  * [.log](#module_overledger-dlt-ethereum.log)
 
 
 <a name="module_overledger-dlt-ethereum.default"></a>
@@ -201,15 +201,15 @@ Development package for Ethereum.
 
 * [overledger-dlt-xrp-ledger](#module_overledger-dlt-xrp-ledger)
 
-    * [.default](#module_overledger-dlt-xrp-ledger.default)
+  * [.default](#module_overledger-dlt-xrp-ledger.default)
 
-    * [.log](#module_overledger-dlt-xrp-ledger.log)
+  * [.log](#module_overledger-dlt-xrp-ledger.log)
 
 
 <a name="module_overledger-dlt-xrp-ledger.default"></a>
 
 ### *overledger-dlt-xrp-ledger*.default
-Development package for Substrate (XRP Ledger).
+Development package for Ripple (XRP Ledger).
 
 <a name="module_overledger-dlt-xrp-ledger.log"></a>
 
@@ -220,15 +220,15 @@ Development package for Substrate (XRP Ledger).
 
 * [overledger-provider](#module_overledger-provider)
 
-    * [.TESTNET](#module_overledger-provider.TESTNET)
+  * [.TESTNET](#module_overledger-provider.TESTNET)
 
-    * [.MAINNET](#module_overledger-provider.MAINNET)
+  * [.MAINNET](#module_overledger-provider.MAINNET)
 
-    * [.default](#module_overledger-provider.default)
+  * [.default](#module_overledger-provider.default)
 
-    * [.log](#module_overledger-provider.log)
+  * [.log](#module_overledger-provider.log)
 
-    * [.log](#module_overledger-provider.log)
+  * [.log](#module_overledger-provider.log)
 
 
 <a name="module_overledger-provider.TESTNET"></a>
@@ -264,21 +264,21 @@ Network provider package.
 
 * [OverledgerSDK](#OverledgerSDK)
 
-    * [new OverledgerSDK(options)](#new_OverledgerSDK_new)
+  * [new OverledgerSDK(options)](#new_OverledgerSDK_new)
 
-    * [.dlts](#OverledgerSDK+dlts)
+  * [.dlts](#OverledgerSDK+dlts)
 
-    * [.validateOptions(options)](#OverledgerSDK+validateOptions)
+  * [.validateOptions(options)](#OverledgerSDK+validateOptions)
 
-    * [.loadDlt(config)](#OverledgerSDK+loadDlt)
+  * [.loadDlt(config)](#OverledgerSDK+loadDlt)
 
-    * [.getEcho(echoRequest)](#OverledgerSDK+getEcho)
+  * [.getEcho(echoRequest)](#OverledgerSDK+getEcho)
 
-    * [.refreshAccessToken()](#OverledgerSDK+refreshAccessToken)
+  * [.refreshAccessToken()](#OverledgerSDK+refreshAccessToken)
 
-    * [.getTokensUsingClientIdAndSecret()](#OverledgerSDK+getTokensUsingClientIdAndSecret)
+  * [.getTokensUsingClientIdAndSecret()](#OverledgerSDK+getTokensUsingClientIdAndSecret)
 
-    * [.sign(unsignedData)](#OverledgerSDK+sign)
+  * [.sign(unsignedData)](#OverledgerSDK+sign)
 
 
 <a name="new_OverledgerSDK_new"></a>
@@ -347,49 +347,49 @@ get new set of tokens using username, password, clientId and clientSecret
 
 Signing a prepared object
 
-<a name="Substrate"></a>
+<a name="Bitcoin"></a>
 
-## Substrate
+## Bitcoin
 
-* [Substrate](#Bitcoin)
+* [Bitcoin](#Bitcoin)
 
-    * [new Substrate(sdk, options)](#new_Bitcoin_new)
+  * [new Bitcoin(sdk, options)](#new_Bitcoin_new)
 
-    * [.name](#Bitcoin+name)
+  * [.name](#Bitcoin+name)
 
-    * [.symbol](#Bitcoin+symbol)
+  * [.symbol](#Bitcoin+symbol)
 
-    * [.createAccount()](#Bitcoin+createAccount)
+  * [.createAccount()](#Bitcoin+createAccount)
 
-    * [.setAccount(accountInfo)](#Bitcoin+setAccount)
+  * [.setAccount(accountInfo)](#Bitcoin+setAccount)
 
 
 <a name="new_Bitcoin_new"></a>
 
-### new Substrate(sdk, options)
+### new Bitcoin(sdk, options)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sdk | <code>any</code> | the sdk instance |
 | options | <code>Object</code> | any additional options to instantiate this dlt |
 
-<a name="Substrate+name"></a>
+<a name="Bitcoin+name"></a>
 
 ### *bitcoin*.name
 Name of the DLT
 
-<a name="Substrate+symbol"></a>
+<a name="Bitcoin+symbol"></a>
 
 ### *bitcoin*.symbol
 Symbol of the DLT
 
-<a name="Substrate+createAccount"></a>
+<a name="Bitcoin+createAccount"></a>
 
 ### *bitcoin*.createAccount()
-Create a Substrate account
+Create a Bitcoin account
 
-**Returns**: [<code>Account</code>](#Account) - the new Substrate account  
-<a name="Substrate+setAccount"></a>
+**Returns**: [<code>Account</code>](#Account) - the new Bitcoin account  
+<a name="Bitcoin+setAccount"></a>
 
 ### *bitcoin*.setAccount(accountInfo)
 
@@ -405,15 +405,15 @@ Set an account for signing transactions for a specific DLT
 
 * [Ethereum](#Ethereum)
 
-    * [new Ethereum(sdk)](#new_Ethereum_new)
+  * [new Ethereum(sdk)](#new_Ethereum_new)
 
-    * [.name](#Ethereum+name)
+  * [.name](#Ethereum+name)
 
-    * [.symbol](#Ethereum+symbol)
+  * [.symbol](#Ethereum+symbol)
 
-    * [.createAccount()](#Ethereum+createAccount)
+  * [.createAccount()](#Ethereum+createAccount)
 
-    * [.setAccount(accountInfo)](#Ethereum+setAccount)
+  * [.setAccount(accountInfo)](#Ethereum+setAccount)
 
 
 <a name="new_Ethereum_new"></a>
@@ -450,50 +450,50 @@ Create an Ethereum account
 
 Set an account for signing transactions for a specific DLT
 
-<a name="Substrate"></a>
+<a name="Ripple"></a>
 
-## Substrate
+## Ripple
 
-* [Substrate](#Ripple)
+* [Ripple](#Ripple)
 
-    * [new Substrate(sdk)](#new_Ripple_new)
+  * [new Ripple(sdk)](#new_Ripple_new)
 
-    * [.name](#Ripple+name)
+  * [.name](#Ripple+name)
 
-    * [.symbol](#Ripple+symbol)
+  * [.symbol](#Ripple+symbol)
 
-    * [.createAccount()](#Ripple+createAccount)
+  * [.createAccount()](#Ripple+createAccount)
 
-    * [.setAccount(accountInfo)](#Ripple+setAccount)
+  * [.setAccount(accountInfo)](#Ripple+setAccount)
 
-    * [.isValidSeed()](#Ripple+isValidSeed)
+  * [.isValidSeed()](#Ripple+isValidSeed)
 
 
 <a name="new_Ripple_new"></a>
 
-### new Substrate(sdk)
+### new Ripple(sdk)
 
 | Param | Type |
 | --- | --- |
 | sdk | <code>any</code> | 
 
-<a name="Substrate+name"></a>
+<a name="Ripple+name"></a>
 
 ### *ripple*.name
 Name of the DLT
 
-<a name="Substrate+symbol"></a>
+<a name="Ripple+symbol"></a>
 
 ### *ripple*.symbol
 Symbol of the DLT
 
-<a name="Substrate+createAccount"></a>
+<a name="Ripple+createAccount"></a>
 
 ### *ripple*.createAccount()
 Create an XRP account
 
 **Returns**: [<code>Account</code>](#Account) - (privateKey, address)  
-<a name="Substrate+setAccount"></a>
+<a name="Ripple+setAccount"></a>
 
 ### *ripple*.setAccount(accountInfo)
 
@@ -503,7 +503,7 @@ Create an XRP account
 
 Set an account for signing for a specific DLT
 
-<a name="Substrate+isValidSeed"></a>
+<a name="Ripple+isValidSeed"></a>
 
 ### *ripple*.isValidSeed()
 ripple seed validation
@@ -514,9 +514,9 @@ ripple seed validation
 
 * [Provider](#Provider)
 
-    * [new Provider(mappId, bpiKey, ProviderOptions)](#new_Provider_new)
+  * [new Provider(mappId, bpiKey, ProviderOptions)](#new_Provider_new)
 
-    * [.createRequest(path, accessToken, contentType, acceptString)](#Provider+createRequest)
+  * [.createRequest(path, accessToken, contentType, acceptString)](#Provider+createRequest)
 
 
 <a name="new_Provider_new"></a>
