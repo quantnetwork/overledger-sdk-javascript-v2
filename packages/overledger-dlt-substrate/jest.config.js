@@ -183,4 +183,25 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  moduleNameMapper: {
+    "^@polkadot/x-bigint/(.*)": "@polkadot/x-bigint/$1.cjs",
+    "^@polkadot/x-bigint$": "@polkadot/x-bigint/index.cjs",
+    "^@polkadot/x-noble-secp256k1$": "@polkadot/x-noble-secp256k1/index.cjs",
+    "^@polkadot/x-noble-hashes/(.*)": "@polkadot/x-noble-hashes/$1.cjs",
+    "^@polkadot/x-noble-hashes$": "@polkadot/x-noble-hashes/index.cjs",
+    "^@polkadot/wasm-crypto$": "@polkadot/wasm-crypto/index.cjs",
+    "^@polkadot/wasm-crypto-wasm/(.*)": "@polkadot/wasm-crypto-wasm/$1.cjs",
+    "^@polkadot/wasm-crypto-wasm$": "@polkadot/wasm-crypto-wasm/data.cjs",
+    "^@polkadot/wasm-crypto-asmjs/(.*)": "@polkadot/wasm-crypto-asmjs/$1.cjs",
+    "^@polkadot/wasm-crypto-asmjs$": "@polkadot/wasm-crypto-asmjs/empty.cjs",
+    "^@polkadot/networks/(.*).cjs$": "@polkadot/networks/$1.cjs",
+    "^@polkadot/networks/(.*)": "@polkadot/networks/$1.cjs",
+    "^@polkadot/networks$": "@polkadot/networks/index.cjs",
+    "^@polkadot/types/create/(.*)": "@polkadot/types/create/$1.cjs",
+    "^@polkadot/types/create$": "@polkadot/types/create/index.cjs",
+    "^@polkadot/types/extrinsic/v4/(.*)": "@polkadot/types/extrinsic/v4/$1.cjs",
+    "^@polkadot/types/extrinsic/v4$": "@polkadot/types/extrinsic/v4/index.cjs",
+    "^@polkadot/types/metadata/decorate/(.*)": "@polkadot/types/metadata/decorate/$1.cjs",
+    "^@polkadot/types/metadata/decorate$": "@polkadot/types/metadata/decorate/index.cjs",
+  }
 };
