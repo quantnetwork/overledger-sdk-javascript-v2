@@ -5,7 +5,6 @@ const mockSeed = 'circle umbrella admit renew length shrimp dinosaur ivory etern
 const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.SUBSTRATE },],
     provider: { network: 'westend' },
-    envFilePassword: 'password',
 };
 describe('Unit Tests:', () => {
 
