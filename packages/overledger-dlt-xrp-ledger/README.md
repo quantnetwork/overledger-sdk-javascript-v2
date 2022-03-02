@@ -3,7 +3,7 @@
 
 # @quantnetwork/overledger-dlt-xrp-ledger
 
-[Overledger SDK][repo] module for interaction with the Substrate distributed ledger technology.
+[Overledger SDK][repo] module for interaction with the Ripple distributed ledger technology.
 
 ## Installation
 
@@ -30,7 +30,7 @@ yarn add @quantnetwork/overledger-dlt-xrp-ledger
 ## Classes
 
 <dl>
-<dt><a href="#Ripple">Substrate</a></dt>
+<dt><a href="#Ripple">Ripple</a></dt>
 <dd></dd>
 </dl>
 
@@ -48,18 +48,18 @@ yarn add @quantnetwork/overledger-dlt-xrp-ledger
 <a name="module_overledger-dlt-xrp-ledger.default"></a>
 
 ### *overledger-dlt-xrp-ledger*.default
-Development package for Substrate (XRP Ledger).
+Development package for Ripple (XRP Ledger).
 
 <a name="module_overledger-dlt-xrp-ledger.log"></a>
 
 ### *overledger-dlt-xrp-ledger*.log
-<a name="Substrate"></a>
+<a name="Ripple"></a>
 
-## Substrate
+## Ripple
 
-* [Substrate](#Ripple)
+* [Ripple](#Ripple)
 
-    * [new Substrate(sdk)](#new_Ripple_new)
+    * [new Ripple(sdk)](#new_Ripple_new)
 
     * [.name](#Ripple+name)
 
@@ -74,29 +74,29 @@ Development package for Substrate (XRP Ledger).
 
 <a name="new_Ripple_new"></a>
 
-### new Substrate(sdk)
+### new Ripple(sdk)
 
 | Param | Type |
 | --- | --- |
 | sdk | <code>any</code> | 
 
-<a name="Substrate+name"></a>
+<a name="Ripple+name"></a>
 
 ### *ripple*.name
 Name of the DLT
 
-<a name="Substrate+symbol"></a>
+<a name="Ripple+symbol"></a>
 
 ### *ripple*.symbol
 Symbol of the DLT
 
-<a name="Substrate+createAccount"></a>
+<a name="Ripple+createAccount"></a>
 
 ### *ripple*.createAccount()
 Create an XRP account
 
 **Returns**: <code>Account</code> - (privateKey, address)  
-<a name="Substrate+setAccount"></a>
+<a name="Ripple+setAccount"></a>
 
 ### *ripple*.setAccount(accountInfo)
 
@@ -106,7 +106,7 @@ Create an XRP account
 
 Set an account for signing for a specific DLT
 
-<a name="Substrate+isValidSeed"></a>
+<a name="Ripple+isValidSeed"></a>
 
 ### *ripple*.isValidSeed()
 ripple seed validation
