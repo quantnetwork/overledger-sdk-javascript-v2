@@ -12,11 +12,10 @@ const preparedTransaction = require('./substrate-prepared-transaction.json');
 // Constructing the Overledger library
 const overledger = new OverledgerSDK({
     dlts: [{ dlt: DltNameOptions.SUBSTRATE }],
-    provider: { network: 'westend' },
-    envFilePassword: 'password'
+    provider: { network: 'westend' }
 });
 // Setting our private key from the encrypted .env file
-overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({privateKey: '//Alice'}); // You can load a mnemonic from .env instead
+overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({privateKey: '//EXAMPLE_MNEMONIC', address: 'EXAMPLE_ADDRESS'}); // You can load a mnemonic from .env instead
 // Wraping the main function in an async block to be able to call the sign function
 ; (async () => {
     try {

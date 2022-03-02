@@ -29,7 +29,7 @@ describe('Unit Tests:', () => {
     // test('Can create an account', async () => {
     //
     //     const sdk = new OverledgerSDK(sdkOptions);
-    //     const account = await sdk.dlts[DltNameOptions.BITCOIN].createAccount();
+    //     const account = await sdk.dlts[DltNameOptions.SUBSTRATE].createAccount();
     //
     //     expect(typeof account.privateKey).toBe('string');
     //     expect(account.privateKey.length).toEqual(52);

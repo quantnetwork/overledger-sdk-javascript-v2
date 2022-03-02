@@ -1,4 +1,3 @@
-import * as bitcoin from 'bitcoinjs-lib';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import {Account, PreparedTransaction, SubstratePreparedTransactionNativeData} from '@quantnetwork/overledger-types';
 import log4js from 'log4js';
@@ -14,7 +13,6 @@ import { cryptoWaitReady } from '@polkadot/util-crypto';
 const log = log4js.getLogger('Substrate');
 log.level = 'info';
 class Substrate extends AbstractDLT {
-  addressType: bitcoin.Network;
   account: Account;
   substrateKeypair: KeyringPair;
 
@@ -56,7 +54,7 @@ class Substrate extends AbstractDLT {
 
     const thisAccount = {
       privateKey: accountInfo.privateKey,
-      address: '',
+      address: accountInfo.address,
       publicKey: '',
       provider: '',
       password: '',
