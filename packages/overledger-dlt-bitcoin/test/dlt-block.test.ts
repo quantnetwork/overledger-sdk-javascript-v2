@@ -61,14 +61,12 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.status.message).toBe('string');
             expect(typeof overledgerResponse2.data.status.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.block.blockId).toBe('string');
-            //TIMESTAMP IS DIFFERENT OBJECT
             expect(typeof overledgerResponse2.data.block.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.block.number).toBe('number');
             expect(typeof overledgerResponse2.data.block.hashes[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.block.hashes[0].type).toBe('string');
             expect(typeof overledgerResponse2.data.block.linkedBlocks.parent).toBe('string');
-            //child doesn't exist in the latest bitcoin block
-            //expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
+            expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
             expect(typeof overledgerResponse2.data.block.size[0].type).toBe('string');
             expect(typeof overledgerResponse2.data.block.size[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.block.numberOfTransactions).toBe('number');
@@ -82,7 +80,6 @@ describe('Integration Tests:', () => {
             //no data check needed on status.description or status.message. Rely on status.value or status.code only
             expect(parseInt(overledgerResponse2.data.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.blockId.length).toEqual(64);
-            //TIMESTAMP IS DIFFERENT OBJECT
             expect(parseInt(overledgerResponse2.data.block.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.number).toBeGreaterThan(2104198);
             expect(overledgerResponse2.data.block.hashes.length).toEqual(3);
