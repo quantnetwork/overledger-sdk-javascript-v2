@@ -3,13 +3,13 @@
 
 # @quantnetwork/overledger-dlt-substrate
 
-[Overledger SDK][repo] module for interaction with the Substrate technology.
+[Overledger SDK][repo] module for interaction with the Substrate distributed ledger technology.
 
 ## Installation
 
 Install using [npm](https://www.npmjs.org/):
 ```
-npm install @quantnetwork/overledger-dlt-substrate
+npm install @quantnetwork/overledger-dlt-ethereum
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
@@ -59,43 +59,28 @@ Development package for Substrate.
 
 * [Substrate](#Substrate)
 
-    * [new Substrate(sdk)](#new_Substrate_new)
-
-    * [.name](#Substrate+name)
-
-    * [.symbol](#Substrate+symbol)
+    * [new Substrate(sdk, options)](#new_Substrate_new)
 
     * [.createAccount()](#Substrate+createAccount)
 
     * [.setAccount(accountInfo)](#Substrate+setAccount)
 
-    * [.isValidSeed()](#Substrate+isValidSeed)
-
 
 <a name="new_Substrate_new"></a>
 
-### new Substrate(sdk)
+### new Substrate(sdk, options)
 
-| Param | Type |
-| --- | --- |
-| sdk | <code>any</code> | 
-
-<a name="Substrate+name"></a>
-
-### *substrate*.name
-Name of the DLT
-
-<a name="Substrate+symbol"></a>
-
-### *substrate*.symbol
-Symbol of the DLT
+| Param | Type | Description |
+| --- | --- | --- |
+| sdk | <code>any</code> | the sdk instance |
+| options | <code>Object</code> | any additional options to instantiate this dlt |
 
 <a name="Substrate+createAccount"></a>
 
 ### *substrate*.createAccount()
-Create a Substrate (Polkadot) account
+Create a Substrate account
 
-**Returns**: <code>Account</code> - (privateKey, address)  
+**Returns**: <code>Account</code> - the new Substrate account  
 <a name="Substrate+setAccount"></a>
 
 ### *substrate*.setAccount(accountInfo)
@@ -104,5 +89,5 @@ Create a Substrate (Polkadot) account
 | --- | --- | --- |
 | accountInfo | <code>Account</code> | The standardised account information |
 
-Set an account for signing for a specific DLT
+Set an account for signing transactions for a specific DLT
 

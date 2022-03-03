@@ -25,7 +25,7 @@
     "axios": "^0.21.1",
     "dmd-clear": "^0.1.2",
     "jest": "^27.0.0",
-    "jsdoc-to-markdown": "^5.0.1",
+    "jsdoc-to-markdown": "^7.1.1",
     "lerna": "^4.0.0",
     "merge": ">=1.2.1",
     "nodemon": "^2.0.13",
