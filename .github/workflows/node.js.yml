@@ -20,7 +20,7 @@ jobs:
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
     strategy:
       matrix:
-        node-version: [14.15.0, 16.1.0, 17.1.0]
+        node-version: [14.15.0, 16.1.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
