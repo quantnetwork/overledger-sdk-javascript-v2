@@ -61,14 +61,12 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.status.message).toBe('string');
             expect(typeof overledgerResponse2.data.status.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.block.blockId).toBe('string');
-            //TIMESTAMP IS DIFFERENT OBJECT
-            expect(typeof overledgerResponse2.data.block.timestamp).toBe('number');
+            expect(typeof overledgerResponse2.data.block.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.block.number).toBe('number');
             expect(typeof overledgerResponse2.data.block.hashes[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.block.hashes[0].type).toBe('string');
             expect(typeof overledgerResponse2.data.block.linkedBlocks.parent).toBe('string');
-            //child doesn't exist in the latest bitcoin block
-            //expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
+            expect(typeof overledgerResponse2.data.block.linkedBlocks.child).toBe('string');
             expect(typeof overledgerResponse2.data.block.size[0].type).toBe('string');
             expect(typeof overledgerResponse2.data.block.size[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.block.numberOfTransactions).toBe('number');
@@ -82,24 +80,19 @@ describe('Integration Tests:', () => {
             //no data check needed on status.description or status.message. Rely on status.value or status.code only
             expect(parseInt(overledgerResponse2.data.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.blockId.length).toEqual(64);
-            //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.block.timestamp).toBeGreaterThan(1637082153);
+            expect(parseInt(overledgerResponse2.data.block.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
+            expect(overledgerResponse2.data.block.hashes.length).toEqual(3);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
-            expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.blockId);
-            expect(overledgerResponse2.data.block.hashes[1].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.block.hashes[2].type).toBe('TRANSACTIONS_MERKLE_ROOT');
+            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
+            expect(overledgerResponse2.data.block.hashes[0].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.block.linkedBlocks.parent.length).toEqual(64);
             //child block doesn't exist in bitcoin latest block search
             //expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(0);
-            expect(overledgerResponse2.data.block.size.length).toEqual(3);
+            expect(overledgerResponse2.data.block.size.length).toEqual(1);
             expect(overledgerResponse2.data.block.size[0].type).toBe('MEMORY');
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.block.size[1].type).toBe('MEMORY_WITHOUT_SIGNATURES');
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.block.size[2].type).toBe('WEIGHT');
-            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBeGreaterThan(3);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
         }
@@ -133,16 +126,14 @@ describe('Integration Tests:', () => {
             //status information is not takenn directly from native block data
             expect(overledgerResponse2.data.block.blockId).toBe(overledgerResponse2.data.block.nativeData.hash);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.block.timestamp).toBe(overledgerResponse2.data.block.nativeData.time);
+            expect(overledgerResponse2.data.block.timestamp).toBe(overledgerResponse2.data.block.nativeData.time.toString());
             expect(overledgerResponse2.data.block.number).toBe(overledgerResponse2.data.block.nativeData.height);
-            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.nativeData.merkleroot);
-            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.nativeData.hash);
+            expect(overledgerResponse2.data.block.hashes[2].value).toEqual(overledgerResponse2.data.block.nativeData.merkleroot);
+            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.nativeData.hash);
             expect(overledgerResponse2.data.block.linkedBlocks.parent).toBe(overledgerResponse2.data.block.nativeData.previousblockhash);
             //child is not found directly from native data
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBe(overledgerResponse2.data.block.nativeData.size);
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;
@@ -202,7 +193,7 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.status.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.block.blockId).toBe('string');
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(typeof overledgerResponse2.data.block.timestamp).toBe('number');
+            expect(typeof overledgerResponse2.data.block.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.block.number).toBe('number');
             expect(typeof overledgerResponse2.data.block.hashes[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.block.hashes[0].type).toBe('string');
@@ -222,22 +213,18 @@ describe('Integration Tests:', () => {
             expect(parseInt(overledgerResponse2.data.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.blockId.length).toEqual(64);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.block.timestamp).toBeGreaterThan(1637082153);
+            expect(parseInt(overledgerResponse2.data.block.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
+            expect(overledgerResponse2.data.block.hashes.length).toEqual(4);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
-            expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.blockId);
-            expect(overledgerResponse2.data.block.hashes[1].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.block.hashes[3].type).toBe('TRANSACTIONS_MERKLE_ROOT');
+            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
+            expect(overledgerResponse2.data.block.hashes[0].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.block.linkedBlocks.parent.length).toEqual(64);
             expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(64);
-            expect(overledgerResponse2.data.block.size.length).toEqual(3);
+            expect(overledgerResponse2.data.block.size.length).toEqual(1);
             expect(overledgerResponse2.data.block.size[0].type).toBe('MEMORY');
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.block.size[1].type).toBe('MEMORY_WITHOUT_SIGNATURES');
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.block.size[2].type).toBe('WEIGHT');
-            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBeGreaterThan(3);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
         }
@@ -272,16 +259,14 @@ describe('Integration Tests:', () => {
             //status information is not takenn directly from native block data
             expect(overledgerResponse2.data.block.blockId).toBe(overledgerResponse2.data.block.nativeData.hash);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.block.timestamp).toBe(overledgerResponse2.data.block.nativeData.time);
+            expect(overledgerResponse2.data.block.timestamp).toBe(overledgerResponse2.data.block.nativeData.time.toString());
             expect(overledgerResponse2.data.block.number).toBe(overledgerResponse2.data.block.nativeData.height);
-            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.nativeData.merkleroot);
-            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.nativeData.hash);
+            expect(overledgerResponse2.data.block.hashes[3].value).toEqual(overledgerResponse2.data.block.nativeData.merkleroot);
+            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.nativeData.hash);
             expect(overledgerResponse2.data.block.linkedBlocks.parent).toBe(overledgerResponse2.data.block.nativeData.previousblockhash);
             //child is not found directly from native data
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBe(overledgerResponse2.data.block.nativeData.size);
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;
@@ -341,7 +326,7 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.status.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.block.blockId).toBe('string');
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(typeof overledgerResponse2.data.block.timestamp).toBe('number');
+            expect(typeof overledgerResponse2.data.block.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.block.number).toBe('number');
             expect(typeof overledgerResponse2.data.block.hashes[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.block.hashes[0].type).toBe('string');
@@ -361,22 +346,18 @@ describe('Integration Tests:', () => {
             expect(parseInt(overledgerResponse2.data.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.blockId.length).toEqual(64);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.block.timestamp).toBeGreaterThan(1637082153);
+            expect(parseInt(overledgerResponse2.data.block.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.block.hashes.length).toEqual(2);
+            expect(overledgerResponse2.data.block.hashes.length).toEqual(4);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(64);
-            expect(overledgerResponse2.data.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.blockId);
-            expect(overledgerResponse2.data.block.hashes[1].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.block.hashes[3].type).toBe('TRANSACTIONS_MERKLE_ROOT');
+            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.blockId);
+            expect(overledgerResponse2.data.block.hashes[0].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.block.linkedBlocks.parent.length).toEqual(64);
             expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(64);
-            expect(overledgerResponse2.data.block.size.length).toEqual(3);
+            expect(overledgerResponse2.data.block.size.length).toEqual(1);
             expect(overledgerResponse2.data.block.size[0].type).toBe('MEMORY');
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.block.size[1].type).toBe('MEMORY_WITHOUT_SIGNATURES');
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.block.size[2].type).toBe('WEIGHT');
-            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBeGreaterThan(3);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse2.data.block.transactionIds.length).toBe(overledgerResponse2.data.block.numberOfTransactions);
         }
@@ -411,16 +392,14 @@ describe('Integration Tests:', () => {
             //status information is not takenn directly from native block data
             expect(overledgerResponse2.data.block.blockId).toBe(overledgerResponse2.data.block.nativeData.hash);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.block.timestamp).toBe(overledgerResponse2.data.block.nativeData.time);
+            expect(overledgerResponse2.data.block.timestamp).toBe(overledgerResponse2.data.block.nativeData.time.toString());
             expect(overledgerResponse2.data.block.number).toBe(overledgerResponse2.data.block.nativeData.height);
-            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.nativeData.merkleroot);
-            expect(overledgerResponse2.data.block.hashes[1].value).toEqual(overledgerResponse2.data.block.nativeData.hash);
+            expect(overledgerResponse2.data.block.hashes[3].value).toEqual(overledgerResponse2.data.block.nativeData.merkleroot);
+            expect(overledgerResponse2.data.block.hashes[0].value).toEqual(overledgerResponse2.data.block.nativeData.hash);
             expect(overledgerResponse2.data.block.linkedBlocks.parent).toBe(overledgerResponse2.data.block.nativeData.previousblockhash);
             //child is not found directly from native data
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.block.size[0].value)).toBe(overledgerResponse2.data.block.nativeData.size);
-            expect(parseInt(overledgerResponse2.data.block.size[1].value)).toBe(overledgerResponse2.data.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.block.size[2].value)).toBe(overledgerResponse2.data.block.nativeData.weight);
             expect(overledgerResponse2.data.block.numberOfTransactions).toBe(overledgerResponse2.data.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;
@@ -471,7 +450,7 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.status.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe('string');
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe('number');
+            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.number).toBe('number');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('string');
@@ -492,23 +471,19 @@ describe('Integration Tests:', () => {
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId.length).toEqual(64);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBeGreaterThan(1637082153);
+            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(2);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(3);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value.length).toEqual(64);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.blockId);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[2].type).toBe('TRANSACTIONS_MERKLE_ROOT');
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.blockId);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent.length).toEqual(64);
             //child block doesn't exist in bitcoin latest block search
             //expect(overledgerResponse2.data.block.linkedBlocks.child.length).toEqual(0);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size.length).toEqual(3);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size.length).toEqual(1);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].type).toBe('MEMORY');
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].type).toBe('MEMORY_WITHOUT_SIGNATURES');
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].type).toBe('WEIGHT');
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].value)).toBeGreaterThan(3);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
         }
@@ -540,16 +515,14 @@ describe('Integration Tests:', () => {
             //status information is not takenn directly from native block data
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.time);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.time.toString());
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.height);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.merkleroot);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[2].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.merkleroot);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.previousblockhash);
             //child is not found directly from native data
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.size);
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.weight);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;
@@ -598,7 +571,7 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.status.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe('string');
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe('number');
+            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.number).toBe('number');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('string');
@@ -618,22 +591,18 @@ describe('Integration Tests:', () => {
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId.length).toEqual(64);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBeGreaterThan(1637082153);
+            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(2);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value.length).toEqual(64);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.blockId);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(4);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[3].value.length).toEqual(64);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[3].type).toBe('TRANSACTIONS_MERKLE_ROOT');
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.blockId);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent.length).toEqual(64);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.child.length).toEqual(64);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size.length).toEqual(3);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size.length).toEqual(1);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].type).toBe('MEMORY');
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].type).toBe('MEMORY_WITHOUT_SIGNATURES');
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].type).toBe('WEIGHT');
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].value)).toBeGreaterThan(3);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
         }
@@ -664,18 +633,16 @@ describe('Integration Tests:', () => {
 
             //location information is not taken from nativeData
             //status information is not takenn directly from native block data
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash.toString());
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.time);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.time.toString());
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.height);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.merkleroot);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[3].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.merkleroot);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.previousblockhash);
             //child is not found directly from native data
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.size);
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.weight);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;
@@ -724,7 +691,7 @@ describe('Integration Tests:', () => {
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.status.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe('string');
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe('number');
+            expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.number).toBe('number');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toBe('string');
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('string');
@@ -744,22 +711,18 @@ describe('Integration Tests:', () => {
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.status.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId.length).toEqual(64);
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBeGreaterThan(1637082153);
+            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp)).toBeGreaterThan(1637082153);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(2104198);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(2);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value.length).toEqual(64);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('TRANSACTIONS_MERKLE_ROOT');
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.blockId);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].type).toBe('BLOCK_HASH');
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(4);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[3].value.length).toEqual(64);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[3].type).toBe('TRANSACTIONS_MERKLE_ROOT');
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.blockId);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].type).toBe('BLOCK_HASH');
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent.length).toEqual(64);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.child.length).toEqual(64);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size.length).toEqual(3);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size.length).toEqual(1);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].type).toBe('MEMORY');
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].type).toBe('MEMORY_WITHOUT_SIGNATURES');
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].value)).toBeGreaterThan(3);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].type).toBe('WEIGHT');
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].value)).toBeGreaterThan(3);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBeGreaterThanOrEqual(0);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.transactionIds.length).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions);
         }
@@ -790,18 +753,16 @@ describe('Integration Tests:', () => {
 
             //location information is not taken from nativeData
             //status information is not takenn directly from native block data
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash.toString());
             //TIMESTAMP IS DIFFERENT OBJECT
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.time);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.time.toString());
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.height);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.merkleroot);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[3].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.merkleroot);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[0].value).toEqual(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.hash);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.linkedBlocks.parent).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.previousblockhash);
             //child is not found directly from native data
             //memory is not found directly from a native data parameter
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[0].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.size);
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[1].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.strippedsize);
-            expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.size[2].value)).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.weight);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.numberOfTransactions).toBe(overledgerResponse2.data.executionBlockSearchResponse.block.nativeData.nTx);
             let count = 0;
             let txsSame = true;

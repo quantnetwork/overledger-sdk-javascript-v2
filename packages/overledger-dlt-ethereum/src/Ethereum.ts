@@ -1,6 +1,5 @@
 // import Accounts from 'web3-eth-accounts';
 import Web3 from 'web3';
-import { MAINNET } from '@quantnetwork/overledger-provider';
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import { Account, PreparedTransaction } from '@quantnetwork/overledger-types';
 import log4js from 'log4js';
@@ -11,7 +10,6 @@ import log4js from 'log4js';
 const log = log4js.getLogger('Ethereum');
 log.level = 'info';
 class Ethereum extends AbstractDLT {
-  chainId: number;
   account: Account;
   web3: Web3;
 
@@ -32,12 +30,6 @@ class Ethereum extends AbstractDLT {
     super(sdk);
 
     this.web3 = new Web3();
-
-    if (sdk.network === MAINNET) {
-      this.chainId = 1;
-    } else {
-      this.chainId = 3;
-    }
   }
 
   /**

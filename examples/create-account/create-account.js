@@ -22,7 +22,8 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN },
             { dlt: DltNameOptions.ETHEREUM },
-            { dlt: DltNameOptions.XRP_LEDGER }
+            { dlt: DltNameOptions.XRP_LEDGER },
+            { dlt: DltNameOptions.SUBSTRATE }
             ],
             provider: { network: 'testnet' },
             envFilePassword: 'password',
@@ -34,6 +35,10 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 
         const ethAccount = await overledger.dlts.ethereum.createAccount();
         console.log('Ethereum account:\n', ethAccount);
+        console.log("");
+
+        const subAccount = await overledger.dlts.substrate.createAccount();
+        console.log('Substrate account:\n', subAccount);
         console.log("");
 
         const xrpAccount = await overledger.dlts["xrp-ledger"].createAccount();

@@ -73,9 +73,9 @@ Main Overledger SDK bundle. Includes all the packages for all supported DLTs.
 
 * [overledger-core](#module_overledger-core)
 
-    * [.default](#module_overledger-core.default)
+  * [.default](#module_overledger-core.default)
 
-    * [.log](#module_overledger-core.log)
+  * [.log](#module_overledger-core.log)
 
 
 <a name="module_overledger-core.default"></a>
@@ -94,24 +94,7 @@ Core Overledger SDK class. Individual dlt packages must be installed manually.
 
 * [overledger-dlt-abstract](#module_overledger-dlt-abstract)
 
-    * [.AbstractDLT](#module_overledger-dlt-abstract.AbstractDLT)
-
-        * [new AbstractDLT(sdk)](#new_module_overledger-dlt-abstract.AbstractDLT_new)
-
-        * [.createAccount()](#module_overledger-dlt-abstract.AbstractDLT+createAccount)
-
-        * [.setAccount(AccountInfo)](#module_overledger-dlt-abstract.AbstractDLT+setAccount)
-
-        * [.getEcho()](#module_overledger-dlt-abstract.AbstractDLT+getEcho)
-
-    * [.default](#module_overledger-dlt-abstract.default)
-
-
-<a name="module_overledger-dlt-abstract.AbstractDLT"></a>
-
-### *overledger-dlt-abstract*.AbstractDLT
-
-* [.AbstractDLT](#module_overledger-dlt-abstract.AbstractDLT)
+  * [.AbstractDLT](#module_overledger-dlt-abstract.AbstractDLT)
 
     * [new AbstractDLT(sdk)](#new_module_overledger-dlt-abstract.AbstractDLT_new)
 
@@ -120,6 +103,23 @@ Core Overledger SDK class. Individual dlt packages must be installed manually.
     * [.setAccount(AccountInfo)](#module_overledger-dlt-abstract.AbstractDLT+setAccount)
 
     * [.getEcho()](#module_overledger-dlt-abstract.AbstractDLT+getEcho)
+
+  * [.default](#module_overledger-dlt-abstract.default)
+
+
+<a name="module_overledger-dlt-abstract.AbstractDLT"></a>
+
+### *overledger-dlt-abstract*.AbstractDLT
+
+* [.AbstractDLT](#module_overledger-dlt-abstract.AbstractDLT)
+
+  * [new AbstractDLT(sdk)](#new_module_overledger-dlt-abstract.AbstractDLT_new)
+
+  * [.createAccount()](#module_overledger-dlt-abstract.AbstractDLT+createAccount)
+
+  * [.setAccount(AccountInfo)](#module_overledger-dlt-abstract.AbstractDLT+setAccount)
+
+  * [.getEcho()](#module_overledger-dlt-abstract.AbstractDLT+getEcho)
 
 
 <a name="new_module_overledger-dlt-abstract.AbstractDLT_new"></a>
@@ -163,9 +163,9 @@ Abstract class for DLT modules. All DLT packages need to extend this class.
 
 * [overledger-dlt-bitcoin](#module_overledger-dlt-bitcoin)
 
-    * [.default](#module_overledger-dlt-bitcoin.default)
+  * [.default](#module_overledger-dlt-bitcoin.default)
 
-    * [.log](#module_overledger-dlt-bitcoin.log)
+  * [.log](#module_overledger-dlt-bitcoin.log)
 
 
 <a name="module_overledger-dlt-bitcoin.default"></a>
@@ -182,9 +182,9 @@ Development package for Bitcoin blockchain.
 
 * [overledger-dlt-ethereum](#module_overledger-dlt-ethereum)
 
-    * [.default](#module_overledger-dlt-ethereum.default)
+  * [.default](#module_overledger-dlt-ethereum.default)
 
-    * [.log](#module_overledger-dlt-ethereum.log)
+  * [.log](#module_overledger-dlt-ethereum.log)
 
 
 <a name="module_overledger-dlt-ethereum.default"></a>
@@ -201,9 +201,9 @@ Development package for Ethereum.
 
 * [overledger-dlt-xrp-ledger](#module_overledger-dlt-xrp-ledger)
 
-    * [.default](#module_overledger-dlt-xrp-ledger.default)
+  * [.default](#module_overledger-dlt-xrp-ledger.default)
 
-    * [.log](#module_overledger-dlt-xrp-ledger.log)
+  * [.log](#module_overledger-dlt-xrp-ledger.log)
 
 
 <a name="module_overledger-dlt-xrp-ledger.default"></a>
@@ -220,15 +220,15 @@ Development package for Ripple (XRP Ledger).
 
 * [overledger-provider](#module_overledger-provider)
 
-    * [.TESTNET](#module_overledger-provider.TESTNET)
+  * [.TESTNET](#module_overledger-provider.TESTNET)
 
-    * [.MAINNET](#module_overledger-provider.MAINNET)
+  * [.MAINNET](#module_overledger-provider.MAINNET)
 
-    * [.default](#module_overledger-provider.default)
+  * [.default](#module_overledger-provider.default)
 
-    * [.log](#module_overledger-provider.log)
+  * [.log](#module_overledger-provider.log)
 
-    * [.log](#module_overledger-provider.log)
+  * [.log](#module_overledger-provider.log)
 
 
 <a name="module_overledger-provider.TESTNET"></a>
@@ -264,21 +264,21 @@ Network provider package.
 
 * [OverledgerSDK](#OverledgerSDK)
 
-    * [new OverledgerSDK(options)](#new_OverledgerSDK_new)
+  * [new OverledgerSDK(options)](#new_OverledgerSDK_new)
 
-    * [.dlts](#OverledgerSDK+dlts)
+  * [.dlts](#OverledgerSDK+dlts)
 
-    * [.validateOptions(options)](#OverledgerSDK+validateOptions)
+  * [.validateOptions(options)](#OverledgerSDK+validateOptions)
 
-    * [.loadDlt(config)](#OverledgerSDK+loadDlt)
+  * [.loadDlt(config)](#OverledgerSDK+loadDlt)
 
-    * [.getEcho(echoRequest)](#OverledgerSDK+getEcho)
+  * [.getEcho(echoRequest)](#OverledgerSDK+getEcho)
 
-    * [.refreshAccessToken()](#OverledgerSDK+refreshAccessToken)
+  * [.refreshAccessToken()](#OverledgerSDK+refreshAccessToken)
 
-    * [.getTokensUsingClientIdAndSecret()](#OverledgerSDK+getTokensUsingClientIdAndSecret)
+  * [.getTokensUsingClientIdAndSecret()](#OverledgerSDK+getTokensUsingClientIdAndSecret)
 
-    * [.sign(unsignedData)](#OverledgerSDK+sign)
+  * [.sign(unsignedData)](#OverledgerSDK+sign)
 
 
 <a name="new_OverledgerSDK_new"></a>
@@ -353,15 +353,15 @@ Signing a prepared object
 
 * [Bitcoin](#Bitcoin)
 
-    * [new Bitcoin(sdk, options)](#new_Bitcoin_new)
+  * [new Bitcoin(sdk, options)](#new_Bitcoin_new)
 
-    * [.name](#Bitcoin+name)
+  * [.name](#Bitcoin+name)
 
-    * [.symbol](#Bitcoin+symbol)
+  * [.symbol](#Bitcoin+symbol)
 
-    * [.createAccount()](#Bitcoin+createAccount)
+  * [.createAccount()](#Bitcoin+createAccount)
 
-    * [.setAccount(accountInfo)](#Bitcoin+setAccount)
+  * [.setAccount(accountInfo)](#Bitcoin+setAccount)
 
 
 <a name="new_Bitcoin_new"></a>
@@ -405,15 +405,15 @@ Set an account for signing transactions for a specific DLT
 
 * [Ethereum](#Ethereum)
 
-    * [new Ethereum(sdk)](#new_Ethereum_new)
+  * [new Ethereum(sdk)](#new_Ethereum_new)
 
-    * [.name](#Ethereum+name)
+  * [.name](#Ethereum+name)
 
-    * [.symbol](#Ethereum+symbol)
+  * [.symbol](#Ethereum+symbol)
 
-    * [.createAccount()](#Ethereum+createAccount)
+  * [.createAccount()](#Ethereum+createAccount)
 
-    * [.setAccount(accountInfo)](#Ethereum+setAccount)
+  * [.setAccount(accountInfo)](#Ethereum+setAccount)
 
 
 <a name="new_Ethereum_new"></a>
@@ -456,17 +456,17 @@ Set an account for signing transactions for a specific DLT
 
 * [Ripple](#Ripple)
 
-    * [new Ripple(sdk)](#new_Ripple_new)
+  * [new Ripple(sdk)](#new_Ripple_new)
 
-    * [.name](#Ripple+name)
+  * [.name](#Ripple+name)
 
-    * [.symbol](#Ripple+symbol)
+  * [.symbol](#Ripple+symbol)
 
-    * [.createAccount()](#Ripple+createAccount)
+  * [.createAccount()](#Ripple+createAccount)
 
-    * [.setAccount(accountInfo)](#Ripple+setAccount)
+  * [.setAccount(accountInfo)](#Ripple+setAccount)
 
-    * [.isValidSeed()](#Ripple+isValidSeed)
+  * [.isValidSeed()](#Ripple+isValidSeed)
 
 
 <a name="new_Ripple_new"></a>
@@ -514,9 +514,9 @@ ripple seed validation
 
 * [Provider](#Provider)
 
-    * [new Provider(mappId, bpiKey, ProviderOptions)](#new_Provider_new)
+  * [new Provider(mappId, bpiKey, ProviderOptions)](#new_Provider_new)
 
-    * [.createRequest(path, accessToken, contentType, acceptString)](#Provider+createRequest)
+  * [.createRequest(path, accessToken, contentType, acceptString)](#Provider+createRequest)
 
 
 <a name="new_Provider_new"></a>
