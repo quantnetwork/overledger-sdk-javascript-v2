@@ -2,14 +2,13 @@
  * @memberof module:overledger-types
  */
 
-
 type SubstratePreparedTransactionNativeData = {
   value: string,
   dest: string,
   runtimeVersion: {
     specVersion: number,
     transactionVersion: number,
-    specName
+    specName,
   }
   nonce: any,
   blockHash: string,

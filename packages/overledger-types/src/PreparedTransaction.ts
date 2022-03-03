@@ -3,7 +3,6 @@ import BitcoinPreparedTransactionNativeData from './BitcoinPreparedTransactionNa
 import XRPLedgerPreparedTransactionNativeData from './XRPLedgerPreparedTransactionNativeData';
 import SubstratePreparedTransactionNativeData from './SubstratePreparedTransactionNativeData';
 
-
 /**
  */
 

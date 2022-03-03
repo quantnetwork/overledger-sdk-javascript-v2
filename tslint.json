@@ -1,6 +1,10 @@
 {
-  "extends": "tslint-config-airbnb",
   "rules": {
+    "semicolon": false,
+    "no-import-default-of-export-equals": false,
+    "whitespace": false,
+    "no-unnecessary-class": false,
+    "unified-signatures": false,
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     "import-name": [false],
     "max-line-length": [true, 200],
