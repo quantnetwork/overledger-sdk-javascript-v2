@@ -48,6 +48,7 @@
     "dotenv": "^8.2.0",
     "jks-js": "^1.0.0",
     "log4js": "^6.3.0",
+    "msgpackr": "^1.5.5",
     "neat-csv": "^5.2.0",
     "node-fetch": "^2.6.0",
     "node-gyp": "^8.2.0",
