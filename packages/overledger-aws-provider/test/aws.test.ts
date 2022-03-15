@@ -9,7 +9,7 @@ describe('Integration Tests:', () => {
       },1000);
 
     test('Can get tokens using client ID and client secret', async () => {
-
+        jest.setTimeout(7500);
         if (typeof process.env.USER_NAME == 'undefined') {
             //do not run tests
             expect(0).toEqual(0);
@@ -22,7 +22,7 @@ describe('Integration Tests:', () => {
                 { dlt: DltNameOptions.ETHEREUM },
                 { dlt: DltNameOptions.XRP_LEDGER }],
                 userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
-                provider: { network: 'https://auth.overledger.io/' }
+                provider: { network: 'https://auth.overledger.io/', timeout: 7500  }
             });
             const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);
@@ -43,7 +43,7 @@ describe('Integration Tests:', () => {
     });
 
     test('Can refresh access token', async () => {
-
+        jest.setTimeout(7500);
         if (typeof process.env.USER_NAME == 'undefined') {
             //do not run tests
             expect(0).toEqual(0);
@@ -56,7 +56,7 @@ describe('Integration Tests:', () => {
                 { dlt: DltNameOptions.ETHEREUM },
                 { dlt: DltNameOptions.XRP_LEDGER }],
                 userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
-                provider: { network: 'https://auth.overledger.io/' }
+                provider: { network: 'https://auth.overledger.io/', timeout: 7500 }
             });
             const refreshTokensResponse1 = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);
