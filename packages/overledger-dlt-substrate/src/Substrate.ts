@@ -115,7 +115,6 @@ class Substrate extends AbstractDLT {
 
     const metadataBuffer = Buffer.from(nativeData.metadata,"base64");
     let data = unpack(metadataBuffer);
-    console.log("data: " + JSON.stringify(data));
     
     const metadataRpc = data;
 
