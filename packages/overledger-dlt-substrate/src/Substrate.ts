@@ -10,6 +10,7 @@ import {
   mnemonicGenerate,
 } from "@polkadot/util-crypto";
 import { u8aToHex } from "@polkadot/util";
+import { unpack } from 'msgpackr';
 
 /**
  * @memberof module:overledger-dlt-substrate
@@ -34,7 +35,6 @@ class Substrate extends AbstractDLT {
 
   /**
    * Create a Substrate account
-   *
    * @return {Account} the new Substrate account
    */
   createAccount(): Account {
@@ -113,7 +113,10 @@ class Substrate extends AbstractDLT {
     const transactionVersion = nativeData.runtimeVersion.transactionVersion;
     const specName = nativeData.runtimeVersion.specName;
 
-    const metadataRpc = nativeData.metadata;
+    const metadataBuffer = Buffer.from(nativeData.metadata,"base64");
+    let data = unpack(metadataBuffer);
+    
+    const metadataRpc = data;
 
     const nonce = nativeData.nonce as number;
     const blockHash = nativeData.blockHash;

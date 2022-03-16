@@ -25,22 +25,22 @@ describe('Unit Tests:', () => {
         expect(sdk.dlts[DltNameOptions.SUBSTRATE].account.privateKey).toEqual(mockSeed);
     });
 
-    // test('Can create an account', async () => {
-    //
-    //     const sdk = new OverledgerSDK(sdkOptions);
-    //     const account = await sdk.dlts[DltNameOptions.SUBSTRATE].createAccount();
-    //
-    //     expect(typeof account.privateKey).toBe('string');
-    //     expect(account.privateKey.length).toEqual(52);
-    //     expect(typeof account.address).toBe('string');
-    //     expect(account.address.length).toEqual(34);
-    //     expect(typeof account.publicKey).toBe('string');
-    //     expect(account.publicKey.length).toEqual(66);
-    //     expect(typeof account.password).toBe('string');
-    //     expect(account.password.length).toEqual(0);
-    //     expect(typeof account.provider).toBe('string');
-    //     expect(account.provider.length).toEqual(0);
-    // });
+     test('Can create an account', async () => {
+    
+         const sdk = new OverledgerSDK(sdkOptions);
+         const account = await sdk.dlts[DltNameOptions.SUBSTRATE].createAccount();
+    
+         expect(typeof account.privateKey).toBe('string');
+         expect(account.privateKey.length).toBeGreaterThan(30);
+         expect(typeof account.address).toBe('string');
+         expect(account.address.length).toEqual(48);
+         expect(typeof account.publicKey).toBe('string');
+         expect(account.publicKey.length).toEqual(66);
+         expect(typeof account.password).toBe('string');
+         expect(account.password.length).toEqual(0);
+         expect(typeof account.provider).toBe('string');
+         expect(account.provider.length).toEqual(0);
+     });
 
     test('Can sign a transaction', async () => {
 
