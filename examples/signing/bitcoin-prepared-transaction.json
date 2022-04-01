@@ -1,32 +1,28 @@
 {
-    "requestId": "5ca9349e-67f3-4787-8977-bfa87342f676",
+    "requestId": "aaec96f5-ef36-442b-bcb1-504ed9988134",
     "gatewayFee": {
         "amount": "0",
         "unit": "QNT"
     },
     "dltFee": {
-        "amount": "0.0000031",
+        "amount": "0.0000027",
         "unit": "BTC"
     },
     "nativeData": {
         "data": "OVL Transaction Message",
         "inputs": [
             {
-                "hash": "226a59a182652bda05d4fb40316bca99c882ced2ec9633dddec20e7c990cd17d",
-                "index": 1,
-                "rawTransaction": "0200000000010190dc489b993b43b90a3177e2573563016fc8e9d7e01e0af67d52f072f985cb05000000001716001449851913bee7bd866f5b3a72ed7530bf41bbc12afeffffff02860e11000000000017a914ad7a1dd3ae242b3ab8cbfa513c48cf118e89da2c87a0860100000000001976a914345d9effc144797ca31788910896ca066d6883cd88ac0247304402205d49b5ca8074d4fb3021c765dc84499bbc40129d7ed8f3e7b65e1eb9ca8ea4b50220186775d2dbe495c1e90bf229ac8f53006ed887eadedcc93792594f2d28ac9a110121029ef7fc0e29acab62d0449bde8d518cb3aae45e5771bed3b52d298eb2a6d91a3a00082000"
+                "hash": "e05300ce214668d3f5e275ef2a7cc595b63b2c39b8b5c2113faeb5aa3c84f17d",
+                "index": 0,
+                "rawTransaction": "0200000000010163a65ae060b2906e96ed1077c8425ca95ec17b539440027d324ba55a97a162c00000000000feffffff0210270000000000001976a9143a97ac97889007fdcfb3b70710c86c4129223c9a88aca284bb6008000000160014e3b7db1779e56ef6ab6dafc5b860430df5d7d67e02473044022030aa2eaeaa04c740da4ca8309dff049f3eb58aa0cf03d8e0dbe486060af2db5f022015400bfb94f7330656815511e374b2e1c66f04cb57017686e98d80c4144d001701210292e596be964549b1fdfea7b4a6e32b1e4607c3f5a9bd2c15504b4d9d9cf0493991742100"
             }
         ],
         "outputs": [
             {
-                "address": "mtHsSjGeVhSQVqcM3fv5A79qoSJ5TgEjtj",
-                "value": 10
-            },
-            {
-                "address": "msvRtgZy4R3TUfi8jwkn4fDDxdH9DqFmfZ",
-                "value": 9690
+                "address": "2NBMEXVyNG7MoZ25qmPrRhC28sgPRgGN36d",
+                "value": 730
             }
         ],
-        "fee": "0.0000031"
+        "fee": "0.0000027"
     }
 }

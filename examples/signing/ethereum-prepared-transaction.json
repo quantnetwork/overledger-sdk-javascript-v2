@@ -1,23 +1,23 @@
 {
-    "requestId": "691e0005-d690-4913-a9ac-892bec1cb94d",
+    "requestId": "a8746cff-a0ff-4d3e-abed-dee1bff7a864",
     "gatewayFee": {
         "amount": "0",
         "unit": "QNT"
     },
     "dltFee": {
-        "amount": "0.00213680000042736",
+        "amount": "0.002144381869231776",
         "unit": "ETH"
     },
     "nativeData": {
-        "nonce": 25,
+        "nonce": 0,
         "chainId": 3,
         "chain": "ropsten",
         "hardfork": "london",
         "to": "0xfD218E9A20400535ffaa8FAe54D07d375B3A3827",
         "gas": "21368",
-        "maxFeePerGas": "100000000020",
+        "maxFeePerGas": "100354823532",
         "maxPriorityFeePerGas": "100000000000",
-        "value": "10000000000000",
+        "value": "1",
         "data": "4f564c205472616e73616374696f6e204d657373616765"
     }
 }

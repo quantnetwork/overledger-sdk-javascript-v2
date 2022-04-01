@@ -16,7 +16,7 @@ const overledger = new OverledgerSDK({
     envFilePassword: 'password'
 });
 // Setting our private key from the encrypted .env file
-overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({privateKey: '//EXAMPLE_MNEMONIC'}); // You can load a mnemonic from .env instead
+overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({secret: process.env.PARTY_A_SUBSTRATE_SECRET}); // You can load a mnemonic from .env instead
 // Wraping the main function in an async block to be able to call the sign function
 ; (async () => {
     try {

@@ -53,7 +53,7 @@ yarn add @quantnetwork/overledger-dlt-ethereum
 The Overledger JavaScript SDK manages multiple packages through [Lerna](https://lerna.js.org/). To build the SDK, first we need to globally install the lerna dependency:
 
 ```
-npm install -g lerna@3.22.0
+npm install -g lerna@4.0.0
 ```
 
 To build the project, first download the yarn package manager:
@@ -77,6 +77,8 @@ To test if the package built correctly, you can run:
 ```
 yarn run test
 ```
+
+**Note: to run all the tests locally, you will need to have an available completed (and unencrypted) env file. What should go in the env is discussed [here](./examples/README.md).**
 
 #### Installing
 
@@ -144,6 +146,8 @@ yarn run lint
 ```
 
 ### Running tests
+
+**Note: to run all the tests locally, you will need to have an available completed (and unencrypted) env file. What should go in the env is discussed [here](./examples/README.md).**
 
 Make your changes and then from the root directory:
 

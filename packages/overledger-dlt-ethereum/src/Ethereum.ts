@@ -41,6 +41,7 @@ class Ethereum extends AbstractDLT {
     const web3Account = this.web3.eth.accounts.create();
     const thisAccount = {
       privateKey: web3Account.privateKey,
+      secret: web3Account.privateKey,
       address: web3Account.address,
       publicKey: '',
       password: '',
@@ -55,22 +56,22 @@ class Ethereum extends AbstractDLT {
    * @param {Account} accountInfo The standardised account information
    */
   setAccount(accountInfo: Account): void {
-    if ((typeof accountInfo.privateKey === 'undefined') && ((typeof accountInfo.provider === 'undefined') || (typeof accountInfo.password === 'undefined') || (typeof accountInfo.address !== 'undefined'))) {
-      throw 'Either accountInfo.privateKey must be set (signing client side) or, accountInfo.provider AND accountInfo.password AND accountInfo.address must be set (signing via the node)';
+    if ((typeof accountInfo.privateKey === 'undefined')&&(typeof accountInfo.secret === 'undefined')) {
+      throw 'accountInfo.privateKey or accountInfo.secret must be set';
     }
     let thisPrivateKey = '';
     let thisAddress = '';
     let thisPublicKey = '';
     let thisProvider = '';
     let thisPassword = '';
-    if ((typeof accountInfo.privateKey !== 'undefined')) {
-      const web3Account = this.web3.eth.accounts.privateKeyToAccount(accountInfo.privateKey);
-      thisPrivateKey = web3Account.privateKey;
-      thisAddress = web3Account.address;
-    } else if ((typeof accountInfo.provider !== 'undefined') && (typeof accountInfo.password !== 'undefined') && (typeof accountInfo.address !== 'undefined')) {
-      thisPrivateKey = '';
-      thisAddress = accountInfo.address;
-    }
+    if (typeof accountInfo.privateKey === 'undefined') {
+      thisPrivateKey = accountInfo.secret;
+    } else {
+      thisPrivateKey = accountInfo.privateKey;
+    } 
+    const web3Account = this.web3.eth.accounts.privateKeyToAccount(thisPrivateKey);
+    thisPrivateKey = web3Account.privateKey;
+    thisAddress = web3Account.address;
     if ((typeof accountInfo.publicKey !== 'undefined')) {
       thisPublicKey = accountInfo.publicKey;
     } else {
@@ -88,6 +89,7 @@ class Ethereum extends AbstractDLT {
     }
     const thisAccount = {
       privateKey: thisPrivateKey,
+      secret: thisPrivateKey,
       address: thisAddress,
       publicKey: thisPublicKey,
       provider: thisProvider,

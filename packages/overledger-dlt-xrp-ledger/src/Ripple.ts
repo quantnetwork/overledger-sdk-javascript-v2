@@ -44,10 +44,11 @@ class Ripple extends AbstractDLT {
    */
   createAccount(): Account {
     const generated = this.rippleAPI.generateAddress();
-    const keypair = deriveKeypair(generated.secret);
+    let keypair = deriveKeypair(generated.secret);
     const account = {
       address: generated.address,
-      privateKey: generated.secret,
+      privateKey: keypair.privateKey,
+      secret: generated.secret,
       publicKey: keypair.publicKey,
       password: '',
       provider: '',
@@ -67,22 +68,27 @@ class Ripple extends AbstractDLT {
    * @param {Account} accountInfo The standardised account information
    */
   setAccount(accountInfo: Account): void {
-    if (typeof accountInfo.privateKey === 'undefined') {
-      throw 'accountInfo.privateKey must be set';
+    if ((typeof accountInfo.privateKey === 'undefined')&&(typeof accountInfo.secret === 'undefined')) {
+      throw 'accountInfo.privateKey or accountInfo.secret must be set';
     }
     let thisPrivateKey = '';
+    let thisSecret = '';
     let thisAddress = '';
     let thisPublicKey = '';
     let thisProvider = '';
     let thisPassword = '';
     let keypair;
-
-    if (this.isValidSeed(accountInfo.privateKey)) {
+    if (typeof accountInfo.privateKey === 'undefined') {
+      thisSecret = accountInfo.secret;
+    } else {
+      thisSecret = accountInfo.privateKey;
+    } 
+    if (this.isValidSeed(thisSecret)) {
       log.info('Using seed to set account.');
-      keypair = deriveKeypair(accountInfo.privateKey);
+      keypair = deriveKeypair(thisSecret);
     } else {
       log.info('Using privateKey to se account.');
-      const privateKey = this.formatPrivateKey(accountInfo.privateKey);
+      const privateKey = this.formatPrivateKey(thisSecret);
       const publicKey = bytesToHex(secp256k1.keyFromPrivate(privateKey.slice(2)).getPublic().encodeCompressed());
       this.validateKeyPair(privateKey, publicKey);
       keypair = { privateKey, publicKey };
@@ -104,6 +110,7 @@ class Ripple extends AbstractDLT {
     }
     const thisAccount = {
       privateKey: thisPrivateKey,
+      secret: thisSecret,
       address: thisAddress,
       publicKey: thisPublicKey,
       provider: thisProvider,

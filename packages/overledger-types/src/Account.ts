@@ -15,6 +15,7 @@
 type Account = {
   privateKey: string,
   address: string,
+  secret?: string,
   publicKey?: string,
   password?: string,
   provider?: string,

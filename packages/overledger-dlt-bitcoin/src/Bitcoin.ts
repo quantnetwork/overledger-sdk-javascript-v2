@@ -50,6 +50,7 @@ class Bitcoin extends AbstractDLT {
       privateKey,
       address,
       publicKey: pubkey.toString('hex'),
+      secret: privateKey,
       password: '',
       provider: '',
     };
@@ -62,16 +63,20 @@ class Bitcoin extends AbstractDLT {
    * @param {Account} accountInfo The standardised account information
    */
   setAccount(accountInfo: Account): void {
-    if (typeof accountInfo.privateKey === 'undefined') {
-      throw 'accountInfo.privateKey must be set';
+    if ((typeof accountInfo.privateKey === 'undefined')&&(typeof accountInfo.secret === 'undefined')) {
+      throw 'accountInfo.privateKey or accountInfo.secret must be set';
     }
     let thisPrivateKey = '';
     let thisAddress = '';
     let thisPublicKey = '';
     let thisProvider = '';
     let thisPassword = '';
-    const keyPair = bitcoin.ECPair.fromWIF(accountInfo.privateKey, this.addressType);
-    thisPrivateKey = accountInfo.privateKey;
+    if (typeof accountInfo.privateKey === 'undefined') {
+      thisPrivateKey = accountInfo.secret;
+    } else {
+      thisPrivateKey = accountInfo.privateKey;
+    } 
+    const keyPair = bitcoin.ECPair.fromWIF(thisPrivateKey, this.addressType);
     thisAddress = bitcoin.payments
       .p2pkh({ pubkey: keyPair.publicKey, network: this.addressType }).address;
 
@@ -88,6 +93,7 @@ class Bitcoin extends AbstractDLT {
     }
     const thisAccount = {
       privateKey: thisPrivateKey,
+      secret: thisPrivateKey,
       address: thisAddress,
       publicKey: thisPublicKey,
       provider: thisProvider,
