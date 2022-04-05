@@ -521,7 +521,8 @@ describe('Integration Tests:', () => {
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp)).toBeGreaterThan(1637058121);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(11436732);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(5);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toBeGreaterThan(4);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toBeLessThan(7);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value.length).toEqual(66);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value.substring(0,2)).toBe('0x');
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].type).toBe('PARENT_HASH');

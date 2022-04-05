@@ -84,10 +84,8 @@ class Ripple extends AbstractDLT {
       thisSecret = accountInfo.privateKey;
     } 
     if (this.isValidSeed(thisSecret)) {
-      log.info('Using seed to set account.');
       keypair = deriveKeypair(thisSecret);
     } else {
-      log.info('Using privateKey to se account.');
       const privateKey = this.formatPrivateKey(thisSecret);
       const publicKey = bytesToHex(secp256k1.keyFromPrivate(privateKey.slice(2)).getPublic().encodeCompressed());
       this.validateKeyPair(privateKey, publicKey);
