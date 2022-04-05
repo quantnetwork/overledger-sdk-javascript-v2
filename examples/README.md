@@ -2,17 +2,17 @@
 
 ## Setup
 
-First, we need to create a file called '.env' in the root directory of the project and paste in the required variables that you will be securing. Before doing so, you will need to create accounts and fund them. 
+To run the examples we need to modify the file called '.env' in the root directory of the project and paste in the required variables that you will be securing. Before doing so, you will need to create accounts and fund them. 
 
 ### Creating Accounts
 
-You will need to have DLT accounts to create transactions. The following example will create and console log new DLT accounts for all of the Bitcoin testnet, Ethereum Ropsten testnet, Polkadot Westend Testnet (which is a Substrate DLT network) and the XRP ledger testnet:
+You will need to have DLT accounts to create transactions. The following example will create and console log new DLT accounts for all of the Bitcoin, Ethereum, Substrate and XRP ledger distributed ledger technologies:
 
 ```
 node examples/account-creation/generate-accounts.js
 ```
 
-**NOTE that key pairs can be reused on different DLT networks including mainnets, so we recommend for you to only use these generated accounts for these tutorials.**
+**NOTE that key pairs can be reused on different DLT networks of the same DLT type including mainnets, so we recommend for you to only use these generated accounts on one particular DLT network.**
 
 **TAKEAWAY: Do not mix the accounts that you use on testnets and mainnets!**
 
@@ -32,7 +32,7 @@ Note that faucets can be occasionally empty or can change frequently, if your ha
 
 **IMPORTANT NOTE 1: For Bitcoin, Ethereum and Substrate DLTs, note that the faucet funding transactions needs to be in a block of the corresponding blockchain before it can be used. Whereas XRP ledger funds will be available as soon as you see the generated information on the XRP ledger faucet screen.**
 
-**IMPORTANT NOTE 2: For Bitcoin you will need to note down the transactionId the faucet uses to provide you with funds. This is so you are prepare a transaction correctly later.**
+**IMPORTANT NOTE 2: For Bitcoin you will need to note down the transactionId the faucet uses to provide you with funds. This is so you can prepare a transaction correctly later.**
  
 **IMPORTANT NOTE 3: For Ethereum, there are many different test networks available (e.g. Ropsten, Rinkeby, Kovan,...). Tokens issued on one test network cannot be used on another test network. So make sure that any faucet you use is a Ropsten testnet faucet.** 
 
@@ -40,7 +40,7 @@ Note that faucets can be occasionally empty or can change frequently, if your ha
 
 ### Adding DLT accounts to the Environment File
 
-To use these generated accounts (or any others), see the example `/.env` file. For ease of use, we have included some example secrets (used to generate accounts with the DLT native libraries) and addresses for accounts that have test tokens. But you can replaces these examples with your own if required.
+To use these generated accounts (or any others), see the example `/.env` file. For ease of use, we have included some example secrets (used to generate accounts with the DLT native libraries) and addresses for accounts that have test tokens. But you can replace these examples with your own if required.
 
 You will need to set the USER_NAME, PASSWORD, CLIENT_ID and CLIENT_SECRET parameters yourself, replacing the section on the right of the ='s sign with the corresponding information.
 
