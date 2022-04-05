@@ -17,12 +17,12 @@ describe('Unit Tests:', () => {
 
         const sdk = new OverledgerSDK(sdkOptions);
         sdk.dlts[DltNameOptions.SUBSTRATE].setAccount({
-            privateKey: mockSeed,
+            secret: mockSeed,
             address: 'test',
         });
 
         expect(sdk.dlts[DltNameOptions.SUBSTRATE].name).toEqual(DltNameOptions.SUBSTRATE);
-        expect(sdk.dlts[DltNameOptions.SUBSTRATE].account.privateKey).toEqual(mockSeed);
+        expect(sdk.dlts[DltNameOptions.SUBSTRATE].account.secret).toEqual(mockSeed);
     });
 
      test('Can create an account', async () => {
@@ -30,8 +30,8 @@ describe('Unit Tests:', () => {
          const sdk = new OverledgerSDK(sdkOptions);
          const account = await sdk.dlts[DltNameOptions.SUBSTRATE].createAccount();
     
-         expect(typeof account.privateKey).toBe('string');
-         expect(account.privateKey.length).toBeGreaterThan(30);
+         expect(typeof account.secret).toBe('string');
+         expect(account.secret.length).toBeGreaterThan(30);
          expect(typeof account.address).toBe('string');
          expect(account.address.length).toEqual(48);
          expect(typeof account.publicKey).toBe('string');
@@ -47,7 +47,7 @@ describe('Unit Tests:', () => {
 
         const sdk = new OverledgerSDK(sdkOptions);
         sdk.dlts[DltNameOptions.SUBSTRATE].setAccount({
-                                                          privateKey: mockSeed,
+                                                          secret: mockSeed,
                                                           address: 'test',
                                                       });
 

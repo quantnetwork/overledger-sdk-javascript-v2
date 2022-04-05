@@ -37,9 +37,10 @@ class Substrate extends AbstractDLT {
    * Create a Substrate account
    * @return {Account} the new Substrate account
    */
-  createAccount(): Account {
+  async createAccount(): Promise<Account> {
 
-    const keyring = new Keyring();
+    await cryptoWaitReady();
+    const keyring = new Keyring({type: 'sr25519'});
 
     // Create mnemonic string for Alice using BIP39
     const mnemonic = mnemonicGenerate();
@@ -48,7 +49,6 @@ class Substrate extends AbstractDLT {
     // Create valid address
     let thisAddress;
     if (this.network.toLowerCase() === 'testnet') {
-      keyring.setSS58Format(0);
       thisAddress = pair.address;
     } else if (this.network.toLowerCase() === 'mainnet'){
       keyring.setSS58Format(0);
@@ -65,7 +65,8 @@ class Substrate extends AbstractDLT {
     //const { publicKey, secretKey } = naclKeypairFromSeed(seed);
 
     return {
-      privateKey: mnemonic,
+      privateKey: '',
+      secret: mnemonic,
       address: thisAddress,
       publicKey: u8aToHex(pair.publicKey),
       password: '',
@@ -80,17 +81,23 @@ class Substrate extends AbstractDLT {
    * @param {Account} accountInfo The standardised account information
    */
   setAccount(accountInfo: Account): void {
-    if (typeof accountInfo.privateKey === 'undefined') {
-      throw 'accountInfo.privateKey must be set';
+    if ((typeof accountInfo.privateKey === 'undefined')&&(typeof accountInfo.secret === 'undefined')) {
+      throw 'accountInfo.privateKey or accountInfo.secret must be set';
     }
+    let thisSecret;
+    if (typeof accountInfo.privateKey === 'undefined') {
+      thisSecret = accountInfo.secret;
+    } else {
+      thisSecret = accountInfo.privateKey;
+    } 
     //address and private key to be added later
     const thisAccount = {
-      privateKey: accountInfo.privateKey,
+      privateKey: '',
+      secret: thisSecret,
       address: '',
       publicKey: '',
       provider: '',
       password: '',
-
     };
     this.account = thisAccount;
   }
@@ -101,7 +108,7 @@ class Substrate extends AbstractDLT {
     const keyring = new Keyring({ type: "sr25519" });
     // Some mnemonic phrase
     // Add an account, straight mnemonic
-    this.substrateKeypair = keyring.addFromUri(this.account.privateKey);
+    this.substrateKeypair = keyring.addFromUri(this.account.secret);
     this.account.address = deriveAddress(this.substrateKeypair.publicKey, PolkadotSS58Format.polkadot);
     this.account.publicKey = u8aToHex(this.substrateKeypair.publicKey);
 

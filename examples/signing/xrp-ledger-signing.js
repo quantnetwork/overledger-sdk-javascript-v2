@@ -16,7 +16,7 @@ const overledger = new OverledgerSDK({
     envFilePassword: 'password'
 });
 // Setting our private key from the encrypted .env file
-overledger.dlts[DltNameOptions.XRP_LEDGER].setAccount({privateKey: process.env.PARTY_A_XRP_LEDGER_PRIVATE_KEY});
+overledger.dlts[DltNameOptions.XRP_LEDGER].setAccount({secret: process.env.PARTY_A_XRP_LEDGER_SECRET});
 // Wraping the main function in an async block to be able to call the sign function
 ; (async () => {
     try {

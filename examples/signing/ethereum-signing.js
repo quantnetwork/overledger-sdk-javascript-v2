@@ -16,7 +16,7 @@ const overledger = new OverledgerSDK({
     envFilePassword: 'password'
 });
 // Setting our private key from the encrypted .env file
-overledger.dlts[DltNameOptions.ETHEREUM].setAccount({privateKey: process.env.PARTY_A_ETHEREUM_PRIVATE_KEY});
+overledger.dlts[DltNameOptions.ETHEREUM].setAccount({secret: process.env.PARTY_A_ETHEREUM_SECRET});
 // Wraping the main function in an async block to be able to call the sign function
 ; (async () => {
     try {
