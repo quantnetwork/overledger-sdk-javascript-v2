@@ -40,6 +40,8 @@ class Substrate extends AbstractDLT {
   async createAccount(): Promise<Account> {
 
     await cryptoWaitReady();
+    //substrate can handle keys generated with the ed25519, ecdsa & sr25519 curves.
+    //but the signing curve must match the curve used when generating the account.
     const keyring = new Keyring({type: 'sr25519'});
 
     // Create mnemonic string for Alice using BIP39
@@ -105,7 +107,9 @@ class Substrate extends AbstractDLT {
   async sign(unsignedTransaction: PreparedTransaction): Promise<string> {
 
     await cryptoWaitReady();
-    const keyring = new Keyring({ type: "sr25519" });
+    //substrate can handle keys generated with the ed25519, ecdsa & sr25519 curves.
+    //but the signing curve must match the curve used when generating the account.
+    const keyring = new Keyring({ type: "sr25519" }); 
     // Some mnemonic phrase
     // Add an account, straight mnemonic
     this.substrateKeypair = keyring.addFromUri(this.account.secret);

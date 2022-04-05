@@ -85,20 +85,20 @@ yarn run test
 After building, you can install it in your own project. Make sure to specify the version if you'd like to use this version of the SDK vs the public one from NPM.
 
 ```
-npm install @quantnetwork/overledger-bundle@2.1.1
+npm install @quantnetwork/overledger-bundle@2.2.0
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
 
 ```
-yarn add @quantnetwork/overledger-bundle@2.1.1
+yarn add @quantnetwork/overledger-bundle@2.2.0
 ```
 
 Alternatively, the suite of packages allows developers to chose which DLTs they would like to utilise by installing the core package and the individual DLT packages. For example, if you only want to use the Ethereum blockchain, you will need only the overledger-core and overledger-ethereum packages, which you can install via:
 
 ```
-npm install @quantnetwork/overledger-core@2.1.1
-npm install @quantnetwork/overledger-dlt-ethereum@2.1.1
+npm install @quantnetwork/overledger-core@2.2.0
+npm install @quantnetwork/overledger-dlt-ethereum@2.2.0
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
@@ -110,7 +110,11 @@ yarn add @quantnetwork/overledger-dlt-ethereum
 
 ## Getting started
 
-To get started, you can take a look at the examples folder for basic use cases. For more complicated use cases, please explore our Overledger demo application github [here](https://github.com/quantnetwork/quant-demo-application).
+To get started, you can take a look at the examples folder for basic use cases. 
+
+Alternatively, you can investigate the exercises used in Quant's Beginner's Guide to Blockchain course [here](https://github.com/quantnetwork/blockchain-developer-exercises-foundations).
+
+Finally, you can also explore our Overledger demo application github [here](https://github.com/quantnetwork/quant-demo-application).
 
 ## API Reference
 
