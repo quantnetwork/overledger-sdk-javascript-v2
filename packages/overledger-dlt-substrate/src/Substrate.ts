@@ -37,9 +37,10 @@ class Substrate extends AbstractDLT {
    * Create a Substrate account
    * @return {Account} the new Substrate account
    */
-  createAccount(): Account {
+  async createAccount(): Promise<Account> {
 
-    const keyring = new Keyring();
+    await cryptoWaitReady();
+    const keyring = new Keyring({type: 'sr25519'});
 
     // Create mnemonic string for Alice using BIP39
     const mnemonic = mnemonicGenerate();
@@ -48,7 +49,6 @@ class Substrate extends AbstractDLT {
     // Create valid address
     let thisAddress;
     if (this.network.toLowerCase() === 'testnet') {
-      keyring.setSS58Format(0);
       thisAddress = pair.address;
     } else if (this.network.toLowerCase() === 'mainnet'){
       keyring.setSS58Format(0);
