@@ -112,7 +112,7 @@ yarn add @quantnetwork/overledger-dlt-ethereum
 
 To get started, you can take a look at the examples folder for basic use cases. 
 
-Alternatively, you can investigate the examples used in Quant's Beginner's Guide to Blockchain course [here](https://github.com/quantnetwork/blockchain-developer-exercises-foundations).
+Alternatively, you can investigate the exercises used in Quant's Beginner's Guide to Blockchain course [here](https://github.com/quantnetwork/blockchain-developer-exercises-foundations).
 
 Finally, you can also explore our Overledger demo application github [here](https://github.com/quantnetwork/quant-demo-application).
 
