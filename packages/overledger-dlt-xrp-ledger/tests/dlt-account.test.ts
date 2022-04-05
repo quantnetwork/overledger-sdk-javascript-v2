@@ -8,6 +8,12 @@ const sdkOptions = {
 };
 
 describe('Unit Tests:', () => {
+
+    beforeAll(async() => {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + 1000);
+      },1000);
+    
     test('Can construct the DLT', () => {
 
         const mockPrivateKeyVersionOfSeed = '000FEA7F693B30168E216DA364DC45A0D6D18E0D84AFC1A2D4C9150BC8CA688B2A';
@@ -28,7 +34,9 @@ describe('Unit Tests:', () => {
         const account = await sdk.dlts[DltNameOptions.XRP_LEDGER].createAccount();
 
         expect(typeof account.privateKey).toBe('string');
-        expect(account.privateKey.length).toEqual(29);
+        expect(account.privateKey.length).toEqual(66);
+        expect(typeof account.secret).toBe('string');
+        expect(account.secret.length).toEqual(29);
         expect(typeof account.address).toBe('string');
         // between 25-35 characters: https://support.uphold.com/hc/en-us/articles/360000879426-How-do-I-send-XRP-from-my-Uphold-account-to-an-external-XRP-ledger-address-
         expect(account.address.length).toBeGreaterThanOrEqual(25);

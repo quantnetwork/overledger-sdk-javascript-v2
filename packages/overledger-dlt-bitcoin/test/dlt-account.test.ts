@@ -7,6 +7,12 @@ const sdkOptions = {
     dlts: [{ dlt: DltNameOptions.BITCOIN },],
 };
 describe('Unit Tests:', () => {
+
+    beforeAll(async() => {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + 1000);
+      },1000);
+    
     test('Can construct the DLT', () => {
 
         const sdk = new OverledgerSDK(sdkOptions);

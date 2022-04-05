@@ -10,7 +10,7 @@ The Overledger SDK enables developers to create blockchain accounts, create sign
 
 ## Technologies
 
-The Overledger SDK is a collection of node packages written in Typescript. Currently, the supported DLTs are Bitcoin, Ethereum and the XRP Ledger.
+The Overledger SDK is a collection of node packages written in Typescript. Currently, the supported DLTs are Bitcoin, Substrate, Ethereum and the XRP Ledger.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ yarn add @quantnetwork/overledger-dlt-ethereum
 The Overledger JavaScript SDK manages multiple packages through [Lerna](https://lerna.js.org/). To build the SDK, first we need to globally install the lerna dependency:
 
 ```
-npm install -g lerna@3.22.0
+npm install -g lerna@4.0.0
 ```
 
 To build the project, first download the yarn package manager:
@@ -78,25 +78,27 @@ To test if the package built correctly, you can run:
 yarn run test
 ```
 
+**Note: to run all the tests locally, you will need to have an available completed (and unencrypted) env file. What should go in the env is discussed [here](./examples/README.md).**
+
 #### Installing
 
 After building, you can install it in your own project. Make sure to specify the version if you'd like to use this version of the SDK vs the public one from NPM.
 
 ```
-npm install @quantnetwork/overledger-bundle@2.1.1
+npm install @quantnetwork/overledger-bundle@2.2.0
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
 
 ```
-yarn add @quantnetwork/overledger-bundle@2.1.1
+yarn add @quantnetwork/overledger-bundle@2.2.0
 ```
 
 Alternatively, the suite of packages allows developers to chose which DLTs they would like to utilise by installing the core package and the individual DLT packages. For example, if you only want to use the Ethereum blockchain, you will need only the overledger-core and overledger-ethereum packages, which you can install via:
 
 ```
-npm install @quantnetwork/overledger-core@2.1.1
-npm install @quantnetwork/overledger-dlt-ethereum@2.1.1
+npm install @quantnetwork/overledger-core@2.2.0
+npm install @quantnetwork/overledger-dlt-ethereum@2.2.0
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
@@ -108,7 +110,11 @@ yarn add @quantnetwork/overledger-dlt-ethereum
 
 ## Getting started
 
-To get started, you can take a look at the examples folder for basic use cases. For more complicated use cases, please explore our Overledger demo application github [here](https://github.com/quantnetwork/quant-demo-application).
+To get started, you can take a look at the examples folder for basic use cases. 
+
+Alternatively, you can investigate the exercises used in Quant's Beginner's Guide to Blockchain course [here](https://github.com/quantnetwork/blockchain-developer-exercises-foundations).
+
+Finally, you can also explore our Overledger demo application github [here](https://github.com/quantnetwork/quant-demo-application).
 
 ## API Reference
 
@@ -119,7 +125,7 @@ The full Overledger API Swagger docs can be found [here](https://docs.overledger
 
 ## Development
 
-If updating the SDK, please follow this short development guide.
+If updating the SDK, please follow this short development guide. Note that when you perform any modification on this SDK, you will need to re-lint, re-test and re-document before merging your code. Your pull request will fail if there is any issue with these three components.
 
 The Overledger JavaScript SDK manages multiple packages through [Lerna](https://lerna.js.org/). To develop the SDK, first install lerna:
 
@@ -144,6 +150,8 @@ yarn run lint
 ```
 
 ### Running tests
+
+**Note: to run all the tests locally, you will need to have an available completed (and unencrypted) env file. What should go in the env is discussed [here](./examples/README.md).**
 
 Make your changes and then from the root directory:
 

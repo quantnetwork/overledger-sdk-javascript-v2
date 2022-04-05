@@ -1,0 +1,56 @@
+{
+  "name": "@quantnetwork/overledger-dlt-substrate",
+  "version": "2.2.0",
+  "description": "Quant Network Overledger Substrate software development kit (SDK) for the JavaScript (JS) programming language.",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest --runInBand",
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "yarn run clean && tsc --declaration",
+    "lint": "tslint -c ../../tslint.json --project tsconfig.json 'src/**/*.ts'",
+    "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
+  },
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-dlt-substrate",
+  "contributors": [
+    {
+      "name": "Joao Alves",
+      "email": "joao.alves@quant.network",
+      "url": "https://github.com/jvaralves"
+    },
+    {
+      "name": "Luke Riley",
+      "email": "luke.riley@quant.network",
+      "url": "https://github.com/lukerQuant"
+    },
+    {
+      "name": "Kjell-Erik Marstein",
+      "email": "kjell-erik.marstein@quant.network",
+      "url": "https://github.com/kemarstein"
+    }
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@quantnetwork/overledger-dlt-abstract": "^2.2.0",
+    "@quantnetwork/overledger-provider": "^2.2.0",
+    "@quantnetwork/overledger-types": "^2.2.0",
+    "@substrate/txwrapper-polkadot": "^1.5.1",
+    "axios": "^0.21.1",
+    "elliptic": "^6.5.2",
+    "log4js": "^6.3.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "lerna": "^4.0.0",
+    "nodemon": "^2.0.13",
+    "ts-jest": "^27.0.0",
+    "tslint": "^5.16.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^4.5.5"
+  },
+  "gitHead": "495102725e8f19529765d1ce031298a7cb7914fd"
+}

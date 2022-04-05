@@ -1,32 +1,28 @@
 {
-    "requestId": "5ca9349e-67f3-4787-8977-bfa87342f676",
+    "requestId": "30ddaca6-714c-43b2-a49c-d92e3264fab8",
     "gatewayFee": {
         "amount": "0",
         "unit": "QNT"
     },
     "dltFee": {
-        "amount": "0.0000031",
+        "amount": "0.0000027",
         "unit": "BTC"
     },
     "nativeData": {
         "data": "OVL Transaction Message",
         "inputs": [
             {
-                "hash": "226a59a182652bda05d4fb40316bca99c882ced2ec9633dddec20e7c990cd17d",
-                "index": 1,
-                "rawTransaction": "0200000000010190dc489b993b43b90a3177e2573563016fc8e9d7e01e0af67d52f072f985cb05000000001716001449851913bee7bd866f5b3a72ed7530bf41bbc12afeffffff02860e11000000000017a914ad7a1dd3ae242b3ab8cbfa513c48cf118e89da2c87a0860100000000001976a914345d9effc144797ca31788910896ca066d6883cd88ac0247304402205d49b5ca8074d4fb3021c765dc84499bbc40129d7ed8f3e7b65e1eb9ca8ea4b50220186775d2dbe495c1e90bf229ac8f53006ed887eadedcc93792594f2d28ac9a110121029ef7fc0e29acab62d0449bde8d518cb3aae45e5771bed3b52d298eb2a6d91a3a00082000"
+                "hash": "704e47227fed5d259284bf6cc5d430a5f3c55c01d5e1325cc0c42b01dab771b7",
+                "index": 0,
+                "rawTransaction": "02000000000102d51ea05dcbc0216fc1d3eade536f2cad45973a4f6702033c8507328c629c9d380000000000feffffff194bccefff749964643213b99c2c288b9441711904665132f9d8dee51499f6660000000000feffffff0210270000000000001976a91482a54b2976bf6eaa91ad7ff71c45acbd10b64e0d88ac5305000000000000160014589610a40e5db73d89fc63f563deaec7bcd436ec02463043021f096a7a15a11b222c43ac87485780b9794a9d54f658e117d973293f79ca940802200b155f2dabd6e999926d5a5891f43dc21224e1b12d637d7653035b813b579b20012102fd8a78bdf5a869923eed75276f129a4bbd8d78124cd8ff2c2819ed6a82ad7f810247304402206ead06d4b04cf48c7e82a9d2a0835ad51ed90033543e02d22277150d2dcaba2002200ebc07f9e8aef185c473786faff08ba12b629b54e74382aea771037db6c8842a012102861cc299df005eb573d5390f6dce52548c63d28e430fb2e635f5532d8d1c0de6e8752100"
             }
         ],
         "outputs": [
             {
-                "address": "mtHsSjGeVhSQVqcM3fv5A79qoSJ5TgEjtj",
-                "value": 10
-            },
-            {
-                "address": "msvRtgZy4R3TUfi8jwkn4fDDxdH9DqFmfZ",
-                "value": 9690
+                "address": "2NBMEXVyNG7MoZ25qmPrRhC28sgPRgGN36d",
+                "value": 730
             }
         ],
-        "fee": "0.0000031"
+        "fee": "0.0000027"
     }
 }

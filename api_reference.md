@@ -13,6 +13,8 @@
 <dd></dd>
 <dt><a href="#module_overledger-dlt-ethereum">overledger-dlt-ethereum</a></dt>
 <dd></dd>
+<dt><a href="#module_overledger-dlt-substrate">overledger-dlt-substrate</a></dt>
+<dd></dd>
 <dt><a href="#module_overledger-dlt-xrp-ledger">overledger-dlt-xrp-ledger</a></dt>
 <dd></dd>
 <dt><a href="#module_overledger-provider">overledger-provider</a></dt>
@@ -29,6 +31,8 @@
 <dt><a href="#Bitcoin">Bitcoin</a></dt>
 <dd></dd>
 <dt><a href="#Ethereum">Ethereum</a></dt>
+<dd></dd>
+<dt><a href="#Substrate">Substrate</a></dt>
 <dd></dd>
 <dt><a href="#Ripple">Ripple</a></dt>
 <dd></dd>
@@ -195,6 +199,25 @@ Development package for Ethereum.
 <a name="module_overledger-dlt-ethereum.log"></a>
 
 ### *overledger-dlt-ethereum*.log
+<a name="module_overledger-dlt-substrate"></a>
+
+## overledger-dlt-substrate
+
+* [overledger-dlt-substrate](#module_overledger-dlt-substrate)
+
+    * [.default](#module_overledger-dlt-substrate.default)
+
+    * [.log](#module_overledger-dlt-substrate.log)
+
+
+<a name="module_overledger-dlt-substrate.default"></a>
+
+### *overledger-dlt-substrate*.default
+Development package for Substrate.
+
+<a name="module_overledger-dlt-substrate.log"></a>
+
+### *overledger-dlt-substrate*.log
 <a name="module_overledger-dlt-xrp-ledger"></a>
 
 ## overledger-dlt-xrp-ledger
@@ -443,6 +466,44 @@ Create an Ethereum account
 <a name="Ethereum+setAccount"></a>
 
 ### *ethereum*.setAccount(accountInfo)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| accountInfo | [<code>Account</code>](#Account) | The standardised account information |
+
+Set an account for signing transactions for a specific DLT
+
+<a name="Substrate"></a>
+
+## Substrate
+
+* [Substrate](#Substrate)
+
+    * [new Substrate(sdk, options)](#new_Substrate_new)
+
+    * [.createAccount()](#Substrate+createAccount)
+
+    * [.setAccount(accountInfo)](#Substrate+setAccount)
+
+
+<a name="new_Substrate_new"></a>
+
+### new Substrate(sdk, options)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| sdk | <code>any</code> | the sdk instance |
+| options | <code>Object</code> | any additional options to instantiate this dlt |
+
+<a name="Substrate+createAccount"></a>
+
+### *substrate*.createAccount()
+Create a Substrate account
+
+**Returns**: [<code>Account</code>](#Account) - the new Substrate account  
+<a name="Substrate+setAccount"></a>
+
+### *substrate*.setAccount(accountInfo)
 
 | Param | Type | Description |
 | --- | --- | --- |

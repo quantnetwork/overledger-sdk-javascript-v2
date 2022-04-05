@@ -16,6 +16,8 @@ import BitcoinPreparedTransactionNativeData from './BitcoinPreparedTransactionNa
 import XRPLedgerPreparedTransactionNativeData from './XRPLedgerPreparedTransactionNativeData';
 import XRPLedgerPreparedMemos from './XRPLedgerPreparedMemos';
 import RefreshTokensResponse from './RefreshTokensResponse';
+import SubstratePreparedTransactionNativeData from './SubstratePreparedTransactionNativeData';
+import SubstratePreparedTransactionNativeDataHexMetaData from './SubstratePreparedTransactionNativeDataHexMetaData';
 
 /**
  * Types used by the Overledger SDK packages.
@@ -29,6 +31,8 @@ export {
   DltNameOptions,
   EchoRequest,
   PreparedTransaction,
+  SubstratePreparedTransactionNativeData,
+  SubstratePreparedTransactionNativeDataHexMetaData,
   SignedPreparedTransaction,
   EthereumPreparedTransactionNativeData,
   BitcoinPreparedTransactionNativeData,

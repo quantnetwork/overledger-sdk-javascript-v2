@@ -1,7 +1,7 @@
 {
   "name": "overledger-sdk-javascript-version2",
   "private": true,
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
   "scripts": {
     "dev": "nodemon --config nodemon.json --exec yarn run build",
@@ -21,25 +21,25 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "devDependencies": {
+    "@npmcli/fs": "^1.0.0",
     "axios": "^0.21.1",
     "dmd-clear": "^0.1.2",
     "jest": "^27.0.0",
-    "jsdoc-to-markdown": "^5.0.1",
+    "jsdoc-to-markdown": "^7.1.1",
     "lerna": "^4.0.0",
     "merge": ">=1.2.1",
     "nodemon": "^2.0.13",
     "ts-jest": "^27.0.0",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.9.7",
-    "@npmcli/fs": "^1.0.0"
+    "typescript": "^4.5.5"
   },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
-    "@quantnetwork/overledger-bundle": "^2.1.1",
-    "@quantnetwork/overledger-dlt-abstract": "^2.1.1",
+    "@quantnetwork/overledger-bundle": "^2.2.0",
+    "@quantnetwork/overledger-dlt-abstract": "^2.2.0",
     "aws-sdk": "2.1002.0",
     "bitcoinjs-lib": "^5.1.10",
     "coinselect": "^3.1.12",
@@ -48,6 +48,7 @@
     "dotenv": "^8.2.0",
     "jks-js": "^1.0.0",
     "log4js": "^6.3.0",
+    "msgpackr": "^1.5.5",
     "neat-csv": "^5.2.0",
     "node-fetch": "^2.6.0",
     "node-gyp": "^8.2.0",

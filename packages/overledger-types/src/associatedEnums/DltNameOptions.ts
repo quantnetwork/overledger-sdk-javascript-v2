@@ -11,6 +11,7 @@ export enum DltNameOptions {
     XRP_LEDGER = 'xrp-ledger',
     ETHEREUM = 'ethereum',
     BITCOIN = 'bitcoin',
+    SUBSTRATE = 'substrate',
 }
 
 export default DltNameOptions;
