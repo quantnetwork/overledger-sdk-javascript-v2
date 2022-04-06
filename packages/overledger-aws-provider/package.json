@@ -1,6 +1,6 @@
 {
   "name": "@quantnetwork/overledger-aws-provider",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Quant Network Overledger aws provider package to be used by the other packages",
   "main": "dist/index.js",
   "publishConfig": {
@@ -18,7 +18,7 @@
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@quantnetwork/overledger-types": "^2.2.0",
+    "@quantnetwork/overledger-types": "^2.2.1",
     "amazon-cognito-identity-js": "^4.6.0",
     "aws-sdk": "^2.1002.0",
     "axios": "^0.21.1"

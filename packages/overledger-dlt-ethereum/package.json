@@ -1,6 +1,6 @@
 {
   "name": "@quantnetwork/overledger-dlt-ethereum",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Quant Network Overledger Ethereum software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
@@ -45,9 +45,9 @@
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@quantnetwork/overledger-dlt-abstract": "^2.2.0",
-    "@quantnetwork/overledger-provider": "^2.2.0",
-    "@quantnetwork/overledger-types": "^2.2.0",
+    "@quantnetwork/overledger-dlt-abstract": "^2.2.1",
+    "@quantnetwork/overledger-provider": "^2.2.1",
+    "@quantnetwork/overledger-types": "^2.2.1",
     "axios": "^0.21.1",
     "log4js": "^6.3.0",
     "web3": "^1.7.1"
