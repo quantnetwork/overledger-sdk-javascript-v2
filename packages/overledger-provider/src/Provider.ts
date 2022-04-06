@@ -14,8 +14,6 @@ class Provider {
   network: NetworkOptions;
 
   /**
-   * @param {string} mappId The Multi-chain Application ID
-   * @param {string} bpiKey The Overledger Blockchain Programming Interface license key
    * @param {ProviderOptions} ProviderOptions Overledger network provider options
    */
   constructor(options: ProviderOptions = {}) {

@@ -119,7 +119,7 @@ Finally, you can also explore our Overledger demo application github [here](http
 ## API Reference
 
 The SDK packages provide functions for interacting with some of the Overledger API Gateway as well as support for offline account generation and transaction signing.
-The functions which interact with the Overledger API (get, post) return a promise with a standard Axios response which includes the BPI data in the `data` field.
+The functions which interact with the Overledger API (get, post) return a promise with a standard Axios response which includes the API response data in the `data` field.
 
 The full Overledger API Swagger docs can be found [here](https://docs.overledger.io/).
 
