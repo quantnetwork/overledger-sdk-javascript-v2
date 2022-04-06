@@ -575,19 +575,17 @@ ripple seed validation
 
 * [Provider](#Provider)
 
-    * [new Provider(mappId, bpiKey, ProviderOptions)](#new_Provider_new)
+    * [new Provider(ProviderOptions)](#new_Provider_new)
 
     * [.createRequest(path, accessToken, contentType, acceptString)](#Provider+createRequest)
 
 
 <a name="new_Provider_new"></a>
 
-### new Provider(mappId, bpiKey, ProviderOptions)
+### new Provider(ProviderOptions)
 
 | Param | Type | Description |
 | --- | --- | --- |
-| mappId | <code>string</code> | The Multi-chain Application ID |
-| bpiKey | <code>string</code> | The Overledger Blockchain Programming Interface license key |
 | ProviderOptions | [<code>ProviderOptions</code>](#ProviderOptions) | Overledger network provider options |
 
 <a name="Provider+createRequest"></a>
