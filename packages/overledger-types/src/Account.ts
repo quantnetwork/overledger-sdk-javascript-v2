@@ -13,7 +13,7 @@
  * @memberof module:overledger-types
  */
 type Account = {
-  privateKey: string,
+  privateKey?: string,
   address: string,
   secret?: string,
   publicKey?: string,
