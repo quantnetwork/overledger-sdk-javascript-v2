@@ -8,15 +8,6 @@
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 
-//  ---------------------------------------------------------
-//  -------------- BEGIN VARIABLES TO UPDATE ----------------
-//  ---------------------------------------------------------
-//const mappId = '...';
-//const bpiKey = '...';
-//  ---------------------------------------------------------
-//  -------------- END VARIABLES TO UPDATE ------------------
-//  ---------------------------------------------------------
-
 ; (async () => {
     try {
         const overledger = new OverledgerSDK({

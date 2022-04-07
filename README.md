@@ -85,20 +85,20 @@ yarn run test
 After building, you can install it in your own project. Make sure to specify the version if you'd like to use this version of the SDK vs the public one from NPM.
 
 ```
-npm install @quantnetwork/overledger-bundle@2.2.0
+npm install @quantnetwork/overledger-bundle@2.2.1
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
 
 ```
-yarn add @quantnetwork/overledger-bundle@2.2.0
+yarn add @quantnetwork/overledger-bundle@2.2.1
 ```
 
 Alternatively, the suite of packages allows developers to chose which DLTs they would like to utilise by installing the core package and the individual DLT packages. For example, if you only want to use the Ethereum blockchain, you will need only the overledger-core and overledger-ethereum packages, which you can install via:
 
 ```
-npm install @quantnetwork/overledger-core@2.2.0
-npm install @quantnetwork/overledger-dlt-ethereum@2.2.0
+npm install @quantnetwork/overledger-core@2.2.1
+npm install @quantnetwork/overledger-dlt-ethereum@2.2.1
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
@@ -119,7 +119,7 @@ Finally, you can also explore our Overledger demo application github [here](http
 ## API Reference
 
 The SDK packages provide functions for interacting with some of the Overledger API Gateway as well as support for offline account generation and transaction signing.
-The functions which interact with the Overledger API (get, post) return a promise with a standard Axios response which includes the BPI data in the `data` field.
+The functions which interact with the Overledger API (get, post) return a promise with a standard Axios response which includes the API response data in the `data` field.
 
 The full Overledger API Swagger docs can be found [here](https://docs.overledger.io/).
 
