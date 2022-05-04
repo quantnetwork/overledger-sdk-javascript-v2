@@ -33,7 +33,7 @@ describe('Unit Tests:', () => {
         expect(typeof account.privateKey).toBe('string');
         expect(account.privateKey.length).toEqual(52);
         expect(typeof account.address).toBe('string');
-        expect(account.address.length).toEqual(34);
+        expect(account.address.length).toEqual(42);
         expect(typeof account.publicKey).toBe('string');
         expect(account.publicKey.length).toEqual(66);
         expect(typeof account.password).toBe('string');
