@@ -63,7 +63,13 @@ PARTY_A_SUBSTRATE_ADDRESS=5HY7UXhVKXRwtMb12kBV7tVZd5cjCsUCBaX8o3r5ebQcXhXn
 
 **NOTE: the addresses are provided so you understand what addresses were linked to the given secrets**
 
-Once you have created this file, you will need to secure it by using "secure-env". To do so, you should install this program via:
+Once you have created this file, you will need to secure it by using "secure-env". To do so, you should install this program via entering in the root folder:
+
+```
+npm install secure-env
+```
+
+or alternatively:
 
 ```
 npm install -g secure-env
