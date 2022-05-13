@@ -1,6 +1,6 @@
 {
   "name": "@quantnetwork/overledger-dlt-substrate",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Quant Network Overledger Substrate software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
@@ -35,9 +35,9 @@
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@quantnetwork/overledger-dlt-abstract": "^2.2.1",
-    "@quantnetwork/overledger-provider": "^2.2.1",
-    "@quantnetwork/overledger-types": "^2.2.1",
+    "@quantnetwork/overledger-dlt-abstract": "^2.3.0",
+    "@quantnetwork/overledger-provider": "^2.3.0",
+    "@quantnetwork/overledger-types": "^2.3.0",
     "@substrate/txwrapper-polkadot": "^1.5.1",
     "axios": "^0.21.1",
     "elliptic": "^6.5.2",

@@ -1,6 +1,6 @@
 {
   "name": "@quantnetwork/overledger-bundle",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
@@ -38,11 +38,11 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "dependencies": {
-    "@quantnetwork/overledger-core": "^2.2.1",
-    "@quantnetwork/overledger-dlt-bitcoin": "^2.2.1",
-    "@quantnetwork/overledger-dlt-ethereum": "^2.2.1",
-    "@quantnetwork/overledger-dlt-substrate": "^2.2.1",
-    "@quantnetwork/overledger-dlt-xrp-ledger": "^2.2.1"
+    "@quantnetwork/overledger-core": "^2.3.0",
+    "@quantnetwork/overledger-dlt-bitcoin": "^2.3.0",
+    "@quantnetwork/overledger-dlt-ethereum": "^2.3.0",
+    "@quantnetwork/overledger-dlt-substrate": "^2.3.0",
+    "@quantnetwork/overledger-dlt-xrp-ledger": "^2.3.0"
   },
   "devDependencies": {
     "jest": "^27.0.0",

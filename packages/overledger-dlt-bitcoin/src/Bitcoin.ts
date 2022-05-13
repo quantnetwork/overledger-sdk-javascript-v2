@@ -44,8 +44,7 @@ class Bitcoin extends AbstractDLT {
 
     const keyPair = bitcoin.ECPair.makeRandom({ network: this.addressType });
     const privateKey = keyPair.toWIF();
-    const { address, pubkey } = bitcoin.payments
-      .p2pkh({ pubkey: keyPair.publicKey, network: this.addressType });
+    const { address, pubkey } = bitcoin.payments.p2wpkh({ pubkey: keyPair.publicKey, network: this.addressType });
     return {
       privateKey,
       address,
@@ -78,7 +77,7 @@ class Bitcoin extends AbstractDLT {
     } 
     const keyPair = bitcoin.ECPair.fromWIF(thisPrivateKey, this.addressType);
     thisAddress = bitcoin.payments
-      .p2pkh({ pubkey: keyPair.publicKey, network: this.addressType }).address;
+      .p2wpkh({ pubkey: keyPair.publicKey, network: this.addressType }).address;
 
     thisPublicKey = keyPair.publicKey.toString('hex');
     if ((typeof accountInfo.provider !== 'undefined')) {
@@ -109,7 +108,16 @@ class Bitcoin extends AbstractDLT {
 
     // Set maximum fee rate = 0 to be flexible on fee rate
     const transaction = new bitcoin.Psbt({ network: this.addressType });
-    transactionData.inputs.forEach(input => transaction.addInput({ hash: input.hash, index: input.index, nonWitnessUtxo: Buffer.from(input.rawTransaction, 'hex') }));
+
+    transactionData.inputs.forEach(input => {
+      const isSegwit = input.rawTransaction.substring(8, 12) === '0001';
+      transaction.addInput({
+        hash: input.hash,
+        index: input.index,
+        nonWitnessUtxo: Buffer.from(input.rawTransaction.toString(), 'hex'),
+        witnessUtxo: (isSegwit ? {script: Buffer.from(input.scriptPubKey.toString(), 'hex'), value: input.value,} : undefined)
+      });
+    });
     // For bitcoin scripts the next line needs to change (see v1 sdk)
     transactionData.outputs.forEach(output => transaction.addOutput({ value: output.value, address: output.address }));
 
