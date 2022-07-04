@@ -67,13 +67,15 @@ To build the project, first download the yarn package manager:
 npm install -g yarn
 ```
 
+
+> Note: For Windows users, please use git bash as the build currently uses UNIX-based commands. Furthermore, depending on your NodeJS installation, you might not be able to use any npm dependencies before you add nodejs and npm to your Environment Variables Path. For example, adding to Path: `C:\Program Files\nodejs` and `C:\Users\your-username\AppData\Roaming\npm`. You will also need to make sure you have 'make' installed for Windows. This is done by running git bash as administrator and installing make with chocolatey: `choco install make`
+
+
 Then, we can run build:
 
 ```
 yarn run build
 ```
-
->Note: For Windows users, please use git bash as the build currently uses UNIX-based commands. You will also need to make sure you have 'make' installed for windows. This is done by running powershell first as Administrator and then installing make with chocolatey: ```choco install make```
 
 This will build and link the packages together.
 
