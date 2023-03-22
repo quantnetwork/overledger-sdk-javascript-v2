@@ -3,6 +3,7 @@ default:
 	
 	cd packages/overledger-types && yarn run build && cd ../..
 	cd packages/overledger-aws-provider && yarn run build && cd ../..
+	cd packages/overledger-oauth-provider && yarn run build && cd ../..
 	cd packages/overledger-provider && yarn run build && cd ../..
 	cd packages/overledger-dlt-abstract && yarn run build && cd ../..
 	cd packages/overledger-core && yarn run build && cd ../..

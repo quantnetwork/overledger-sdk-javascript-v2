@@ -17,6 +17,8 @@
 <dd></dd>
 <dt><a href="#module_overledger-dlt-xrp-ledger">overledger-dlt-xrp-ledger</a></dt>
 <dd></dd>
+<dt><a href="#module_overledger-oauth-provider">overledger-oauth-provider</a></dt>
+<dd></dd>
 <dt><a href="#module_overledger-provider">overledger-provider</a></dt>
 <dd></dd>
 <dt><a href="#module_overledger-types">overledger-types</a></dt>
@@ -237,6 +239,14 @@ Development package for Ripple (XRP Ledger).
 <a name="module_overledger-dlt-xrp-ledger.log"></a>
 
 ### *overledger-dlt-xrp-ledger*.log
+<a name="module_overledger-oauth-provider"></a>
+
+## overledger-oauth-provider
+<a name="module_overledger-oauth-provider.default"></a>
+
+### *overledger-oauth-provider*.default
+Oauth provider package.
+
 <a name="module_overledger-provider"></a>
 
 ## overledger-provider
@@ -248,6 +258,8 @@ Development package for Ripple (XRP Ledger).
     * [.MAINNET](#module_overledger-provider.MAINNET)
 
     * [.default](#module_overledger-provider.default)
+
+    * [.log](#module_overledger-provider.log)
 
     * [.log](#module_overledger-provider.log)
 
@@ -269,6 +281,9 @@ Constant for the mainnet URL (placeholder).
 ### *overledger-provider*.default
 Network provider package.
 
+<a name="module_overledger-provider.log"></a>
+
+### *overledger-provider*.log
 <a name="module_overledger-provider.log"></a>
 
 ### *overledger-provider*.log
