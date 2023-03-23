@@ -46,8 +46,8 @@
     "axios": "^0.21.1",
     "elliptic": "^6.5.2",
     "log4js": "^6.3.0",
-    "ripple-keypairs": "^1.0.3",
-    "ripple-lib": "^1.10.0"
+    "ripple-keypairs": "^1.1.5",
+    "xrpl": "^2.7.0"
   },
   "devDependencies": {
     "jest": "^27.0.0",
