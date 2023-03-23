@@ -7,10 +7,18 @@ const sdkOptions = {
     provider: { network: 'https://api.sandbox.overledger.io/v2' }
 };
 
+//setup overledger preparation request
+const overledgerRequest = {
+    "location": {
+        "technology": "Ethereum",
+        "network": "Ethereum Goerli Testnet"
+    }
+}
+
 //the changeable links after .../block/
 const latestBlock = "latest";
-const blockByHash = "0x9cadecd455be78ad94cd01e07a4321022c042214f46b88f888b2dc493e2d2843";
-const blockByNumber = "11437136";
+const blockByHash = "0xf31d7362c5aa70180603c2b6c4844a3bc807512fd8737d45f1364b1ece56e2c6";
+const blockByNumber = "8699316";
 
 describe('Integration Tests:', () => {
 
@@ -33,13 +41,6 @@ describe('Integration Tests:', () => {
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + latestBlock,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse.data.requestId).toBe('string');
@@ -76,7 +77,7 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.location.network.toLowerCase() === 'ropsten testnet')||(overledgerResponse2.data.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -89,7 +90,7 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.block.blockId.substring(0,2)).toBe('0x');
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(parseInt(overledgerResponse2.data.block.timestamp)).toBeGreaterThan(1637058121);
-            expect(overledgerResponse2.data.block.number).toBeGreaterThan(11436732);
+            expect(overledgerResponse2.data.block.number).toBeGreaterThan(8699300);
             expect(overledgerResponse2.data.block.hashes.length).toEqual(5);
             expect(overledgerResponse2.data.block.hashes[0].value.length).toEqual(66);
             expect(overledgerResponse2.data.block.hashes[0].value.substring(0,2)).toBe('0x');
@@ -132,13 +133,7 @@ describe('Integration Tests:', () => {
             const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
+
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + latestBlock,overledgerRequest);
 
             const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
@@ -178,13 +173,6 @@ describe('Integration Tests:', () => {
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByHash,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse.data.requestId).toBe('string');
@@ -221,7 +209,7 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.location.network.toLowerCase() === 'ropsten testnet')||(overledgerResponse2.data.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -234,7 +222,7 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.block.blockId.substring(0,2)).toBe('0x');
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(parseInt(overledgerResponse2.data.block.timestamp)).toBeGreaterThan(1637058121);
-            expect(overledgerResponse2.data.block.number).toBeGreaterThan(11436732);
+            expect(overledgerResponse2.data.block.number).toBeGreaterThan(8699300);
             expect(overledgerResponse2.data.block.hashes.length).toEqual(6);
             expect(overledgerResponse2.data.block.hashes[1].value.length).toEqual(66);
             expect(overledgerResponse2.data.block.hashes[1].value.substring(0,2)).toBe('0x');
@@ -279,13 +267,7 @@ describe('Integration Tests:', () => {
             const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
+
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByHash,overledgerRequest);
 
             const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
@@ -326,13 +308,6 @@ describe('Integration Tests:', () => {
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByNumber,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse.data.requestId).toBe('string');
@@ -369,7 +344,7 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.location.network.toLowerCase() === 'ropsten testnet')||(overledgerResponse2.data.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -382,7 +357,7 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.block.blockId.substring(0,2)).toBe('0x');
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(parseInt(overledgerResponse2.data.block.timestamp)).toBeGreaterThan(1637058121);
-            expect(overledgerResponse2.data.block.number).toBeGreaterThan(11436732);
+            expect(overledgerResponse2.data.block.number).toBeGreaterThan(8699300);
             expect(overledgerResponse2.data.block.hashes.length).toEqual(6);
             expect(overledgerResponse2.data.block.hashes[1].value.length).toEqual(66);
             expect(overledgerResponse2.data.block.hashes[1].value.substring(0,2)).toBe('0x');
@@ -426,13 +401,7 @@ describe('Integration Tests:', () => {
             const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
+
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByNumber,overledgerRequest);
 
             const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
@@ -475,13 +444,6 @@ describe('Integration Tests:', () => {
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + latestBlock,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('string');
@@ -507,7 +469,7 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ropsten testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -520,7 +482,7 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId.substring(0,2)).toBe('0x');
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp)).toBeGreaterThan(1637058121);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(11436732);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(8699300);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toBeGreaterThan(4);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toBeLessThan(7);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value.length).toEqual(66);
@@ -563,13 +525,7 @@ describe('Integration Tests:', () => {
             const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
+
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + latestBlock,overledgerRequest);
             //location information is not taken from nativeData
             //status information is not takenn directly from native block data
@@ -606,13 +562,6 @@ describe('Integration Tests:', () => {
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByHash,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('string');
@@ -638,7 +587,7 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ropsten testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -651,7 +600,7 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId.substring(0,2)).toBe('0x');
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp)).toBeGreaterThan(1637058121);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(11436732);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(8699300);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(6);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value.length).toEqual(66);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value.substring(0,2)).toBe('0x');
@@ -696,13 +645,7 @@ describe('Integration Tests:', () => {
             const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
+
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByHash,overledgerRequest);
             //location information is not taken from nativeData
             //status information is not takenn directly from native block data
@@ -740,13 +683,6 @@ describe('Integration Tests:', () => {
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByNumber,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('string');
@@ -772,7 +708,7 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ropsten testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -785,7 +721,7 @@ describe('Integration Tests:', () => {
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.blockId.substring(0,2)).toBe('0x');
             //TIMESTAMP IS DIFFERENT OBJECT
             expect(parseInt(overledgerResponse2.data.executionBlockSearchResponse.block.timestamp)).toBeGreaterThan(1637058121);
-            expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(11436732);
+            expect(overledgerResponse2.data.executionBlockSearchResponse.block.number).toBeGreaterThan(8699300);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes.length).toEqual(6);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value.length).toEqual(66);
             expect(overledgerResponse2.data.executionBlockSearchResponse.block.hashes[1].value.substring(0,2)).toBe('0x');
@@ -828,13 +764,7 @@ describe('Integration Tests:', () => {
             const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
                 process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
                 const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
-            //setup overledger preparation request
-            const overledgerRequest = {
-                "location": {
-                    "technology": "Ethereum",
-                    "network": "Ropsten Testnet"
-                }
-            }
+
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByNumber,overledgerRequest);
             //location information is not taken from nativeData
             //status information is not takenn directly from native block data

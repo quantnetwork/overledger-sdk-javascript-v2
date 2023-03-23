@@ -23,8 +23,8 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
             process.env.CLIENT_ID, process.env.CLIENT_SECRET);
             console.log('accessToken:\n', refreshTokensResponse.accessToken)
-            console.log('refreshToken:\n', refreshTokensResponse.refreshToken);
-            console.log('idToken:\n', refreshTokensResponse.idToken);
+            console.log('expiresIn:\n', refreshTokensResponse.expiresIn);
+            console.log('tokenType:\n', refreshTokensResponse.tokenType);
     } catch (e) {
         console.error('error', e);
     }
