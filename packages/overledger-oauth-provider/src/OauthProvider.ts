@@ -1,4 +1,3 @@
-
 import log4js from 'log4js';
 import { RefreshTokensResponse } from '@quantnetwork/overledger-types';
 import axios from 'axios';
@@ -20,7 +19,7 @@ class OauthProvider {
       const response = await axios.request({
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         method: 'POST',
-        baseURL: 'https://auth.overledger.io/',
+        baseURL: 'https://auth.overledger.io',
         url: 'oauth2/token',
         auth: {
           username: clientId,
