@@ -33,10 +33,11 @@ class OauthProvider {
         idToken: '',
         expiresIn: response.data.expires_in,
         tokenType: response.data.token_type,
-      }
+      };
       return refreshTokensResponse;
     } catch (err) {
       log.error(JSON.stringify(err, null, 2));
+      return undefined;
     }
   }
 }
