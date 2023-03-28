@@ -2,14 +2,14 @@
 
 ## Setup
 
-To run the examples we need to modify the file called '.env' in the root directory of the project and paste in the required variables that you will be securing. Before doing so, you will need to create accounts and fund them. 
+To run the examples we need to modify the file called '.env' in the root directory of the project and paste in the required variables that you will be securing. Then, you will need to create accounts and fund them, before adding further details to the '.env' file and securing it again.
 
 ### Creating Accounts
 
 You will need to have DLT accounts to create transactions. The following example will create and console log new DLT accounts for all of the Bitcoin, Ethereum, Substrate and XRP ledger distributed ledger technologies:
 
 ```
-node examples/account-creation/generate-accounts.js
+node examples/create-account/create-account.js
 ```
 
 **NOTE that key pairs can be reused on different DLT networks of the same DLT type including mainnets, so we recommend for you to only use these generated accounts on one particular DLT network.**
