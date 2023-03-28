@@ -1,10 +1,10 @@
-import { RippleAPI } from 'ripple-lib';
 import { deriveKeypair, deriveAddress, sign, verify } from 'ripple-keypairs';
 import { bytesToHex } from 'ripple-keypairs/dist/utils';
+import * as xrpl from 'xrpl';
+import ECDSA from 'xrpl/dist/npm/ECDSA';
 import BN from 'bn.js';
-
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
-import { Account, PreparedTransaction, XRPLedgerPreparedTransactionNativeData } from '@quantnetwork/overledger-types';
+import { Account, PreparedTransaction } from '@quantnetwork/overledger-types';
 import log4js from 'log4js';
 
 /**
@@ -15,7 +15,6 @@ const elliptic = require('elliptic');
 const secp256k1 = elliptic.ec('secp256k1');
 log.level = 'info';
 class Ripple extends AbstractDLT {
-  rippleAPI: RippleAPI;
   account: Account;
   /**
    * Name of the DLT
@@ -32,9 +31,6 @@ class Ripple extends AbstractDLT {
    */
   constructor(sdk: any) {
     super(sdk);
-
-    this.rippleAPI = new RippleAPI();
-
   }
 
   /**
@@ -43,13 +39,12 @@ class Ripple extends AbstractDLT {
    * @return {Account} (privateKey, address)
    */
   createAccount(): Account {
-    const generated = this.rippleAPI.generateAddress();
-    let keypair = deriveKeypair(generated.secret);
+    const generated = xrpl.Wallet.generate(ECDSA.secp256k1);
     const account = {
-      address: generated.address,
-      privateKey: keypair.privateKey,
-      secret: generated.secret,
-      publicKey: keypair.publicKey,
+      address: generated.classicAddress,
+      privateKey: generated.privateKey,
+      secret: generated.seed,
+      publicKey: generated.publicKey,
       password: '',
       provider: '',
     };
@@ -118,14 +113,10 @@ class Ripple extends AbstractDLT {
   }
 
   sign(unsignedTransaction: PreparedTransaction): Promise<string> {
-
-    const transactionData = unsignedTransaction.nativeData as XRPLedgerPreparedTransactionNativeData;
-
-    const signedData = this.rippleAPI.sign(JSON.stringify(transactionData), {
-      privateKey: this.account.privateKey,
-      publicKey: this.account.publicKey,
-    });
-    return Promise.resolve(signedData.signedTransaction);
+    const wallet = xrpl.Wallet.fromSeed(this.account.secret);
+    //@ts-ignore
+    const signedData = wallet.sign(unsignedTransaction.nativeData as xrpl.Transaction);
+    return Promise.resolve(signedData.tx_blob);
   }
 
   /**

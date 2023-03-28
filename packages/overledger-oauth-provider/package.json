@@ -1,46 +1,23 @@
 {
-  "name": "@quantnetwork/overledger-provider",
+  "name": "@quantnetwork/overledger-oauth-provider",
   "version": "2.4.0",
-  "description": "Quant Network Overledger provider package to be used by the other packages",
+  "description": "Quant Network Overledger oauth provider package to be used by the other packages",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
-    "test": "jest --runInBand --passWithNoTests",
+    "test": "jest --runInBand",
     "build": "yarn run clean && tsc --declaration",
     "lint": "eslint -c ../../.eslintrc.json --ext .ts src",
     "docs": "tsc --declaration && jsdoc2md --no-cache --plugin dmd-clear -t README_tpl.hbs --files './dist/**/*.js' > README.md"
   },
-  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-provider",
-  "contributors": [
-    {
-      "name": "Luke Riley",
-      "email": "luke.riley@quant.network",
-      "url": "https://github.com/lukerQuant"
-    },
-    {
-      "name": "Najla Chamseddine",
-      "email": "najla.chamseddine@quant.network",
-      "url": "https://github.com/najla-quant"
-    },
-    {
-      "name": "Alexandru Chiriac",
-      "email": "alexandru.chiriac@quant.network",
-      "url": "https://github.com/alexchiriac"
-    },
-    {
-      "name": "Mahsa Bayat",
-      "email": "mahsa.bayat@quant.network",
-      "url": "https://github.com/mahsa-bytt"
-    }
-  ],
+  "repository": "https://github.com/quantnetwork/overledger-sdk-javascript-version2/tree/develop/packages/overledger-oauth-provider",
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@quantnetwork/overledger-dlt-abstract": "^2.4.0",
     "@quantnetwork/overledger-types": "^2.4.0",
     "axios": "^1.3.4",
     "log4js": "^6.9.1"

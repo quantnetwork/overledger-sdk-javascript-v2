@@ -14,7 +14,9 @@ The Overledger SDK is a collection of node packages written in Typescript. Curre
 
 ## Prerequisites
 
-- nodejs v14 >= 14.15.0, or >= v15
+- nodejs v14 >= 14.18.0, or v16 >= 16.10.0
+- yarn
+- lerna
 
 ## Installation
 

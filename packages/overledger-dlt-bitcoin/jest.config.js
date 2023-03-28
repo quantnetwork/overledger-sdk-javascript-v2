@@ -55,11 +55,7 @@ module.exports = {
     // globalTeardown: null,
   
     // A set of global variables that need to be available in all test environments
-    globals: {
-      'ts-jest': {
-        diagnostics: false,
-      },
-    },
+    // globals: { },
   
     // An array of directory names to be searched recursively up from the requiring module's location
     // moduleDirectories: [
@@ -184,4 +180,3 @@ module.exports = {
     // Whether to use watchman for file crawling
     // watchman: true,
   };
-  

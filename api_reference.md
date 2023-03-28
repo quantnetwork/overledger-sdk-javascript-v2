@@ -1,8 +1,6 @@
 ## Modules
 
 <dl>
-<dt><a href="#module_overledger-aws-provider">overledger-aws-provider</a></dt>
-<dd></dd>
 <dt><a href="#module_overledger-bundle">overledger-bundle</a></dt>
 <dd></dd>
 <dt><a href="#module_overledger-core">overledger-core</a></dt>
@@ -16,6 +14,8 @@
 <dt><a href="#module_overledger-dlt-substrate">overledger-dlt-substrate</a></dt>
 <dd></dd>
 <dt><a href="#module_overledger-dlt-xrp-ledger">overledger-dlt-xrp-ledger</a></dt>
+<dd></dd>
+<dt><a href="#module_overledger-oauth-provider">overledger-oauth-provider</a></dt>
 <dd></dd>
 <dt><a href="#module_overledger-provider">overledger-provider</a></dt>
 <dd></dd>
@@ -60,9 +60,6 @@
 </dd>
 </dl>
 
-<a name="module_overledger-aws-provider"></a>
-
-## overledger-aws-provider
 <a name="module_overledger-bundle"></a>
 
 ## overledger-bundle
@@ -237,6 +234,14 @@ Development package for Ripple (XRP Ledger).
 <a name="module_overledger-dlt-xrp-ledger.log"></a>
 
 ### *overledger-dlt-xrp-ledger*.log
+<a name="module_overledger-oauth-provider"></a>
+
+## overledger-oauth-provider
+<a name="module_overledger-oauth-provider.default"></a>
+
+### *overledger-oauth-provider*.default
+Oauth provider package.
+
 <a name="module_overledger-provider"></a>
 
 ## overledger-provider

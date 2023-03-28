@@ -20,6 +20,11 @@ yarn add @quantnetwork/overledger-provider
 
 ## API Reference
 
-<a name="module_overledger-aws-provider"></a>
+<a name="module_overledger-oauth-provider"></a>
 
-## overledger-aws-provider
+## overledger-oauth-provider
+<a name="module_overledger-oauth-provider.default"></a>
+
+### *overledger-oauth-provider*.default
+Oauth provider package.
+

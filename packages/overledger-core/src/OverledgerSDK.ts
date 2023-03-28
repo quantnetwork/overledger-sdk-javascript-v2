@@ -1,9 +1,9 @@
 import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import Provider, { TESTNET } from '@quantnetwork/overledger-provider';
 import { NetworkOptions, DLTOptions, SDKOptions, EchoRequest, PreparedTransaction, SignedPreparedTransaction, RefreshTokensResponse } from '@quantnetwork/overledger-types';
+import OauthProvider from '@quantnetwork/overledger-oauth-provider';
 import { AxiosInstance } from 'axios';
 import log4js from 'log4js';
-import CognitoProvider from '@quantnetwork/overledger-aws-provider';
 
 /**
  * **
@@ -19,7 +19,7 @@ class OverledgerSDK {
   network: NetworkOptions;
   provider: Provider;
   request: AxiosInstance;
-  cognitoProvider: CognitoProvider;
+  oauthProvider: OauthProvider;
 
   /**
   * Create the Overledger SDK
@@ -38,7 +38,7 @@ class OverledgerSDK {
     });
 
     this.provider = new Provider(options.provider);
-    this.cognitoProvider = new CognitoProvider(options.userPoolID);
+    this.oauthProvider = new OauthProvider();
     if (typeof options.envFilePassword !== 'undefined') {
       // Private keys may not aways be in the secure env file, e.g. in our test scripts
       const secureEnv = require('secure-env');
@@ -114,14 +114,14 @@ class OverledgerSDK {
   * get new set of tokens using username, password, clientId and clientSecret
   */
   public async getTokensUsingClientIdAndSecret(username: string, password: string, clientId: string, clientSecret: string): Promise<RefreshTokensResponse> {
-    const refreshExpiredTokensResult = await this.cognitoProvider.getNewSetOfTokens(username, password, clientId, clientSecret);
+    const refreshExpiredTokensResult = await this.oauthProvider.getNewSetOfTokens(username, password, clientId, clientSecret);
     return {
       // note that these are the only params returned in the refreshExpiredTokensResult object
       accessToken: refreshExpiredTokensResult.accessToken,
       refreshToken: refreshExpiredTokensResult.refreshToken,
       idToken: refreshExpiredTokensResult.idToken,
-      expiresIn: -1, // no expiration given
-      tokenType: '',
+      expiresIn: refreshExpiredTokensResult.expiresIn,
+      tokenType: refreshExpiredTokensResult.tokenType,
     };
   }
 
