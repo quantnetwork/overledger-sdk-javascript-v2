@@ -1,8 +1,6 @@
 ## Modules
 
 <dl>
-<dt><a href="#module_overledger-aws-provider">overledger-aws-provider</a></dt>
-<dd></dd>
 <dt><a href="#module_overledger-bundle">overledger-bundle</a></dt>
 <dd></dd>
 <dt><a href="#module_overledger-core">overledger-core</a></dt>
@@ -62,9 +60,6 @@
 </dd>
 </dl>
 
-<a name="module_overledger-aws-provider"></a>
-
-## overledger-aws-provider
 <a name="module_overledger-bundle"></a>
 
 ## overledger-bundle
@@ -263,8 +258,6 @@ Oauth provider package.
 
     * [.log](#module_overledger-provider.log)
 
-    * [.log](#module_overledger-provider.log)
-
 
 <a name="module_overledger-provider.TESTNET"></a>
 
@@ -281,9 +274,6 @@ Constant for the mainnet URL (placeholder).
 ### *overledger-provider*.default
 Network provider package.
 
-<a name="module_overledger-provider.log"></a>
-
-### *overledger-provider*.log
 <a name="module_overledger-provider.log"></a>
 
 ### *overledger-provider*.log

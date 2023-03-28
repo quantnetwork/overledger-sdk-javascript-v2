@@ -1,6 +1,6 @@
 {
   "name": "@quantnetwork/overledger-bundle",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Quant Network Overledger software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
@@ -33,16 +33,21 @@
       "name": "Mahsa Bayat",
       "email": "mahsa.bayat@quant.network",
       "url": "https://github.com/mahsa-bytt"
+    },
+    {
+      "name": "Kjell-Erik Marstein",
+      "email": "kjell-erik.marstein@quant.network",
+      "url": "https://github.com/kemarstein"
     }
   ],
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "dependencies": {
-    "@quantnetwork/overledger-core": "^2.3.0",
-    "@quantnetwork/overledger-dlt-bitcoin": "^2.3.0",
-    "@quantnetwork/overledger-dlt-ethereum": "^2.3.0",
-    "@quantnetwork/overledger-dlt-substrate": "^2.3.0",
-    "@quantnetwork/overledger-dlt-xrp-ledger": "^2.3.0"
+    "@quantnetwork/overledger-core": "^2.4.0",
+    "@quantnetwork/overledger-dlt-bitcoin": "^2.4.0",
+    "@quantnetwork/overledger-dlt-ethereum": "^2.4.0",
+    "@quantnetwork/overledger-dlt-substrate": "^2.4.0",
+    "@quantnetwork/overledger-dlt-xrp-ledger": "^2.4.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.56.0",
