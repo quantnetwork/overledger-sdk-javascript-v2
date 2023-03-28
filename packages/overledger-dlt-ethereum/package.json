@@ -1,6 +1,6 @@
 {
   "name": "@quantnetwork/overledger-dlt-ethereum",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Quant Network Overledger Ethereum software development kit (SDK) for the JavaScript (JS) programming language.",
   "main": "dist/index.js",
   "publishConfig": {
@@ -39,15 +39,20 @@
       "name": "Joao Alves",
       "email": "Joao.Alves@quant.network",
       "url": "https://github.com/jvaralves"
+    },
+    {
+      "name": "Kjell-Erik Marstein",
+      "email": "kjell-erik.marstein@quant.network",
+      "url": "https://github.com/kemarstein"
     }
   ],
   "license": "Apache-2.0",
   "homepage": "https://github.com/quantnetwork/overledger-sdk-javascript-version2#readme",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@quantnetwork/overledger-dlt-abstract": "^2.3.0",
-    "@quantnetwork/overledger-provider": "^2.3.0",
-    "@quantnetwork/overledger-types": "^2.3.0",
+    "@quantnetwork/overledger-dlt-abstract": "^2.4.0",
+    "@quantnetwork/overledger-provider": "^2.4.0",
+    "@quantnetwork/overledger-types": "^2.4.0",
     "axios": "^1.3.4",
     "log4js": "^6.9.1",
     "web3": "^1.7.1"
