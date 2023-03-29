@@ -9,7 +9,7 @@
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 
-; (async () => {
+(async () => {
     try {
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN },
@@ -21,11 +21,15 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         });
 
         //get required token
-        const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-            process.env.CLIENT_ID, process.env.CLIENT_SECRET);
-            console.log('accessToken:\n', refreshTokensResponse.accessToken);
-            console.log('refreshToken:\n', refreshTokensResponse.refreshToken);
-            console.log('idToken:\n', refreshTokensResponse.idToken);
+        const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(
+            process.env.USER_NAME,
+            process.env.PASSWORD,
+            process.env.CLIENT_ID,
+            process.env.CLIENT_SECRET,
+        );
+        console.log('accessToken:\n', refreshTokensResponse.accessToken);
+        console.log('refreshToken:\n', refreshTokensResponse.refreshToken);
+        console.log('idToken:\n', refreshTokensResponse.idToken);
 
         //setup overledger preparation request
         const overledgerRequest = {
@@ -33,7 +37,7 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
                 "technology": "Ethereum",
                 "network": "Ropsten Testnet"
             }
-        }
+        };
         const overledgerInstance = overledger.provider.createRequest(refreshTokensResponse.accessToken.toString());
 
         //send overledger preparation request

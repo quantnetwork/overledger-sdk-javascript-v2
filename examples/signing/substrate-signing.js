@@ -18,7 +18,7 @@ const overledger = new OverledgerSDK({
 // Setting our private key from the encrypted .env file
 overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({secret: process.env.PARTY_A_SUBSTRATE_SECRET}); // You can load a mnemonic from .env instead
 // Wraping the main function in an async block to be able to call the sign function
-; (async () => {
+(async () => {
     try {
         // Signing the prepared transaction
         let signedTransaction = (await overledger.sign(DltNameOptions.SUBSTRATE, preparedTransaction)).signedTransaction;
@@ -26,7 +26,7 @@ overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({secret: process.env.PARTY_
         let executeTransactionRequest = {
             requestId: preparedTransaction.requestId,
             signed: signedTransaction
-        }
+        };
 
         console.log('Overledger Transaction Execution Request: \n' + JSON.stringify(executeTransactionRequest, null, 2));
     

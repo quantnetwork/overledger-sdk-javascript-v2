@@ -2,8 +2,7 @@ import AbstractDLT from '@quantnetwork/overledger-dlt-abstract';
 import {Account, PreparedTransaction, SubstratePreparedTransactionNativeData} from '@quantnetwork/overledger-types';
 import log4js from 'log4js';
 import {Keyring} from '@polkadot/api';
-import {construct, deriveAddress, getRegistry, KeyringPair, methods, PolkadotSS58Format} from '@substrate/txwrapper-polkadot';
-import {BlockNumber} from '@polkadot/types/interfaces';
+import {construct, deriveAddress, getRegistry, KeyringPair, methods} from '@substrate/txwrapper-polkadot';
 import {EXTRINSIC_VERSION} from '@polkadot/types/extrinsic/v4/Extrinsic';
 import {
   cryptoWaitReady,
@@ -113,7 +112,7 @@ class Substrate extends AbstractDLT {
     // Some mnemonic phrase
     // Add an account, straight mnemonic
     this.substrateKeypair = keyring.addFromUri(this.account.secret);
-    this.account.address = deriveAddress(this.substrateKeypair.publicKey, PolkadotSS58Format.polkadot);
+    this.account.address = deriveAddress(this.substrateKeypair.publicKey, 0);
     this.account.publicKey = u8aToHex(this.substrateKeypair.publicKey);
 
     const nativeData = unsignedTransaction.nativeData as SubstratePreparedTransactionNativeData;
@@ -149,8 +148,7 @@ class Substrate extends AbstractDLT {
         {
           address: this.account.address,
           blockHash,
-          blockNumber: (registry
-              .createType('BlockNumber', blockNumber) as unknown as BlockNumber).toNumber(),
+          blockNumber: registry.createType('BlockNumber', blockNumber).toNumber(),
           eraPeriod: 50,
           genesisHash,
           metadataRpc,

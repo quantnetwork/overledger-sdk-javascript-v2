@@ -50,6 +50,8 @@
         "padded-blocks": "off",
         "prefer-const": "off",
         "prefer-destructuring": "off",
+        "prefer-template": "off",
+        "quote-props": "off",
         "quotes": "off",
         "space-before-blocks": "off",
         "space-infix-ops": "off",

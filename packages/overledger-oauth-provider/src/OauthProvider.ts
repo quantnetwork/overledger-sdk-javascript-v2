@@ -3,7 +3,7 @@ import { RefreshTokensResponse } from '@quantnetwork/overledger-types';
 import axios from 'axios';
 
 /**
- * @memberof module:overledger-provider
+ * @memberof module:overledger-oauth-provider
  */
 const log = log4js.getLogger('OauthProvider');
 log.level = 'info';

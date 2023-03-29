@@ -18,7 +18,7 @@ const overledger = new OverledgerSDK({
 // Setting our private key from the encrypted .env file
 overledger.dlts[DltNameOptions.BITCOIN].setAccount({secret: process.env.PARTY_A_BITCOIN_SECRET});
 // Wraping the main function in an async block to be able to call the sign function
-; (async () => {
+(async () => {
     try {
         // Signing the prepared transaction
         let signedTransaction = (await overledger.sign(DltNameOptions.BITCOIN, preparedTransaction)).signedTransaction;
@@ -26,7 +26,7 @@ overledger.dlts[DltNameOptions.BITCOIN].setAccount({secret: process.env.PARTY_A_
         let executeTransactionRequest = {
             requestId: preparedTransaction.requestId,
             signed: signedTransaction
-        }
+        };
 
         console.log('Overledger Transaction Execution Request: \n' + JSON.stringify(executeTransactionRequest, null, 2));
 
