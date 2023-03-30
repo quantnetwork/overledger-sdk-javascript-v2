@@ -29,9 +29,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -39,7 +43,7 @@ describe('Integration Tests:', () => {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + latestBlock,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse.data.requestId).toBe('string');
@@ -108,16 +112,20 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + latestBlock,overledgerRequest);
 
             const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
@@ -160,9 +168,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -170,7 +182,7 @@ describe('Integration Tests:', () => {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByHash,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse.data.requestId).toBe('string');
@@ -241,16 +253,20 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByHash,overledgerRequest);
 
             const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
@@ -293,9 +309,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -303,7 +323,7 @@ describe('Integration Tests:', () => {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByNumber,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse.data.requestId).toBe('string');
@@ -374,16 +394,20 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByNumber,overledgerRequest);
 
             const overledgerResponse2 = await overledgerInstance.post("/execution/search/block?requestId="+overledgerResponse.data.requestId);
@@ -428,9 +452,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -438,7 +466,7 @@ describe('Integration Tests:', () => {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + latestBlock,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('string');
@@ -499,16 +527,20 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + latestBlock,overledgerRequest);
 
             //location information is not taken from nativeData
@@ -549,9 +581,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -559,7 +595,7 @@ describe('Integration Tests:', () => {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByHash,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('string');
@@ -619,16 +655,20 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByHash,overledgerRequest);
 
             //location information is not taken from nativeData
@@ -669,9 +709,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -679,7 +723,7 @@ describe('Integration Tests:', () => {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByNumber,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('string');
@@ -739,16 +783,20 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
             //setup overledger preparation request
             const overledgerRequest = {
                 "location": {
                     "technology": "Bitcoin",
                     "network": "Testnet"
                 }
-            }
+            };
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByNumber,overledgerRequest);
 
             //location information is not taken from nativeData

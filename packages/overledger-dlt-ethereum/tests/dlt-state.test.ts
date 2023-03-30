@@ -27,9 +27,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -37,7 +41,7 @@ describe('Integration Tests:', () => {
                     "technology": "Ethereum",
                     "network": "Ropsten Testnet"
                 }
-            }
+            };
             const overledgerResponse = await overledgerInstance.post("/preparation/search/address/balance/" + address,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse.data.requestId).toBe('string');
@@ -75,9 +79,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -85,7 +93,7 @@ describe('Integration Tests:', () => {
                     "technology": "Ethereum",
                     "network": "Ropsten Testnet"
                 }
-            }
+            };
             const overledgerResponse = await overledgerInstance.post("/preparation/search/address/sequence/" + address,overledgerRequest);
             //typeof checks
             expect(typeof overledgerResponse.data.requestId).toBe('string');
@@ -123,9 +131,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -133,7 +145,7 @@ describe('Integration Tests:', () => {
                     "technology": "Ethereum",
                     "network": "Ropsten Testnet"
                 }
-            }
+            };
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/address/balance/" + address,overledgerRequest);
             //typeof checks
                 //location is currently missing
@@ -166,9 +178,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             //setup overledger preparation request
             const overledgerRequest = {
@@ -176,7 +192,7 @@ describe('Integration Tests:', () => {
                     "technology": "Ethereum",
                     "network": "Ropsten Testnet"
                 }
-            }
+            };
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/address/sequence/" + address,overledgerRequest);
                 //typeof checks
                 expect(typeof overledgerResponse2.data.executionAddressSequenceSearchResponse.location.technology).toBe('string');
