@@ -14,7 +14,7 @@ The Overledger SDK is a collection of node packages written in Typescript. Curre
 
 ## Prerequisites
 
-- nodejs v14 >= 14.18.0, or v16 >= 16.10.0
+- nodejs v14 >= 14.18.0, or v16 >= 16.13.0
 - yarn
 - lerna
 
@@ -60,7 +60,7 @@ If updating the SDK, please follow this short development guide. Note that when 
 The Overledger JavaScript SDK manages multiple packages through [Lerna](https://lerna.js.org/). To build the SDK, first we need to globally install the lerna dependency:
 
 ```
-npm install -g lerna@4.0.0
+npm install -g lerna@6.6.1
 ```
 
 To build the project, first download the yarn package manager:

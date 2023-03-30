@@ -237,11 +237,22 @@ Development package for Ripple (XRP Ledger).
 <a name="module_overledger-oauth-provider"></a>
 
 ## overledger-oauth-provider
+
+* [overledger-oauth-provider](#module_overledger-oauth-provider)
+
+    * [.default](#module_overledger-oauth-provider.default)
+
+    * [.log](#module_overledger-oauth-provider.log)
+
+
 <a name="module_overledger-oauth-provider.default"></a>
 
 ### *overledger-oauth-provider*.default
 Oauth provider package.
 
+<a name="module_overledger-oauth-provider.log"></a>
+
+### *overledger-oauth-provider*.log
 <a name="module_overledger-provider"></a>
 
 ## overledger-provider
@@ -253,8 +264,6 @@ Oauth provider package.
     * [.MAINNET](#module_overledger-provider.MAINNET)
 
     * [.default](#module_overledger-provider.default)
-
-    * [.log](#module_overledger-provider.log)
 
     * [.log](#module_overledger-provider.log)
 
@@ -274,9 +283,6 @@ Constant for the mainnet URL (placeholder).
 ### *overledger-provider*.default
 Network provider package.
 
-<a name="module_overledger-provider.log"></a>
-
-### *overledger-provider*.log
 <a name="module_overledger-provider.log"></a>
 
 ### *overledger-provider*.log

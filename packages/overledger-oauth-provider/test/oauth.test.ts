@@ -25,8 +25,12 @@ describe('Integration Tests:', () => {
                 userPoolID: 'us-east-1_xfjNg5Nv9', //your userpool id
                 provider: { network: 'https://auth.overledger.io/', timeout: 7500 }
             });
-            const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);
+            const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );
             // access token is variable in length but must have at least 3 sections split by .
             expect(typeof refreshTokensResponse.accessToken).toBe('string');
             expect(refreshTokensResponse.accessToken.length).toBeGreaterThan(4);

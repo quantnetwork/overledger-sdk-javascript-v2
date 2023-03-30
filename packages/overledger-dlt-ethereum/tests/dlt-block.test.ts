@@ -13,7 +13,7 @@ const overledgerRequest = {
         "technology": "Ethereum",
         "network": "Ethereum Goerli Testnet"
     }
-}
+};
 
 //the changeable links after .../block/
 const latestBlock = "latest";
@@ -37,9 +37,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + latestBlock,overledgerRequest);
             //typeof checks
@@ -130,9 +134,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + latestBlock,overledgerRequest);
 
@@ -169,9 +177,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByHash,overledgerRequest);
             //typeof checks
@@ -264,9 +276,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByHash,overledgerRequest);
 
@@ -304,9 +320,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByNumber,overledgerRequest);
             //typeof checks
@@ -398,9 +418,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse = await overledgerInstance.post("/preparation/search/block/" + blockByNumber,overledgerRequest);
 
@@ -440,9 +464,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + latestBlock,overledgerRequest);
             //typeof checks
@@ -469,7 +497,8 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')
+                || (overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -522,9 +551,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + latestBlock,overledgerRequest);
             //location information is not taken from nativeData
@@ -558,9 +591,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByHash,overledgerRequest);
             //typeof checks
@@ -587,7 +624,8 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')
+                || (overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -642,9 +680,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByHash,overledgerRequest);
             //location information is not taken from nativeData
@@ -679,9 +721,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByNumber,overledgerRequest);
             //typeof checks
@@ -708,7 +754,8 @@ describe('Integration Tests:', () => {
             //data checks
             expect(overledgerResponse2.data.executionBlockSearchResponse.location.technology).toBe('Ethereum');
             let networkCheck = false;
-            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')||(overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
+            if ((overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'ethereum goerli testnet')
+                || (overledgerResponse2.data.executionBlockSearchResponse.location.network.toLowerCase() === 'mainnet')){
                 networkCheck = true;
             }
             expect(networkCheck).toBe(true);
@@ -761,9 +808,13 @@ describe('Integration Tests:', () => {
             //setup sdk
             const sdk = new OverledgerSDK(sdkOptions);
             //get required token if secrets are available
-            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-                process.env.CLIENT_ID, process.env.CLIENT_SECRET);   
-                const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
+            const refreshTokensResponse = await sdk.getTokensUsingClientIdAndSecret(
+                process.env.USER_NAME,
+                process.env.PASSWORD,
+                process.env.CLIENT_ID,
+                process.env.CLIENT_SECRET,
+            );   
+            const overledgerInstance = sdk.provider.createRequest(refreshTokensResponse.accessToken.toString()); 
 
             const overledgerResponse2 = await overledgerInstance.post("/autoexecution/search/block/" + blockByNumber,overledgerRequest);
             //location information is not taken from nativeData
