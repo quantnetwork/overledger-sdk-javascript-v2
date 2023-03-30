@@ -9,7 +9,7 @@
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 
-; (async () => {
+(async () => {
     try {
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN },
@@ -20,11 +20,15 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
             envFilePassword: 'password',
         });
 
-        const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(process.env.USER_NAME, process.env.PASSWORD,
-            process.env.CLIENT_ID, process.env.CLIENT_SECRET);
-            console.log('accessToken:\n', refreshTokensResponse.accessToken)
-            console.log('expiresIn:\n', refreshTokensResponse.expiresIn);
-            console.log('tokenType:\n', refreshTokensResponse.tokenType);
+        const refreshTokensResponse = await overledger.getTokensUsingClientIdAndSecret(
+            process.env.USER_NAME,
+            process.env.PASSWORD,
+            process.env.CLIENT_ID,
+            process.env.CLIENT_SECRET,
+        );
+        console.log('accessToken:\n', refreshTokensResponse.accessToken);
+        console.log('expiresIn:\n', refreshTokensResponse.expiresIn);
+        console.log('tokenType:\n', refreshTokensResponse.tokenType);
     } catch (e) {
         console.error('error', e);
     }

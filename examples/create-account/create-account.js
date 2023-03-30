@@ -8,7 +8,7 @@
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
 
-; (async () => {
+(async () => {
     try {
         const overledger = new OverledgerSDK({
             dlts: [{ dlt: DltNameOptions.BITCOIN },

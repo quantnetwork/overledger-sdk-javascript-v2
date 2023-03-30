@@ -9,7 +9,7 @@
 
 Install using [npm](https://www.npmjs.org/):
 ```
-npm install @quantnetwork/overledger-dlt-ethereum
+npm install @quantnetwork/overledger-dlt-substrate
 ```
 
 Or, if you prefer using [yarn](https://yarnpkg.com/):
