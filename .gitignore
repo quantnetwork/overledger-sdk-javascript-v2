@@ -9,6 +9,6 @@ yarn.lock
 */.env.enc
 /packages/*/dist
 ~/.nvm
-
+./package-lock.json
 
 *DS_STORE
