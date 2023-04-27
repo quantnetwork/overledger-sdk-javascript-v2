@@ -28,8 +28,12 @@ const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
         console.log('Ethereum account:\n', ethAccount);
         console.log("");
 
-        const subAccount = await overledger.dlts.substrate.createAccount();
-        console.log('Substrate account:\n', subAccount);
+        const subAccount1 = await overledger.dlts.substrate.createAccount();
+        console.log('Substrate ECDSA account:\n', subAccount1);
+        console.log("");
+
+        const subAccount2 = await overledger.dlts.substrate.createAccountSr25519();
+        console.log('Substrate SR1559 account:\n', subAccount2);
         console.log("");
 
         const xrpAccount = await overledger.dlts["xrp-ledger"].createAccount();

@@ -7,6 +7,8 @@
 
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
 const DltNameOptions = require('@quantnetwork/overledger-types').DltNameOptions;
+const ApiPromise =  require('@polkadot/api/promise').ApiPromise;
+
 // Importing an example preparedTransaction from the Overledger Preparation API
 const preparedTransaction = require('./substrate-prepared-transaction.json');
 // Constructing the Overledger library
@@ -16,7 +18,7 @@ const overledger = new OverledgerSDK({
     envFilePassword: 'password'
 });
 // Setting our private key from the encrypted .env file
-overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({secret: process.env.PARTY_A_SUBSTRATE_SECRET}); // You can load a mnemonic from .env instead
+overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({secret: 'will tenant method tobacco salt thing pill clump boat throw someone other'}); // You can load a mnemonic from .env instead
 // Wraping the main function in an async block to be able to call the sign function
 (async () => {
     try {
@@ -30,6 +32,9 @@ overledger.dlts[DltNameOptions.SUBSTRATE].setAccount({secret: process.env.PARTY_
 
         console.log('Overledger Transaction Execution Request: \n' + JSON.stringify(executeTransactionRequest, null, 2));
     
+     //   const tx = await ApiPromise.tx(signedTransaction);
+       // console.log('tx is: ' + JSON.stringify(tx));
+
     } catch (e) {
         console.error('error', e);
     }
