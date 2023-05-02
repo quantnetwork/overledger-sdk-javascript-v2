@@ -214,12 +214,15 @@ async function signAWSStyle(preparedTransaction, secret){
         //polkadot libraries don't like 0x...
     const testpk = 'f2360e871c830d397fe221382b503f07ddd8763df81a94bb2504390a2fb91f59';
     const validpk = secp256k1.utils.isValidPrivateKey(testpk);
+        //the following returns true:
     console.log("validpk: " + validpk);
     //generates compatible public key
     const validPublicKey = secp256k1.getPublicKey(testpk);
     console.log("validPublicKey: " + validPublicKey);
     //converts to hex and removes 0x at the start
     const validPublicKeyHex = u8aToHex(validPublicKey).substring(2);
+        // the following returns 036b0aa6beab469dd2b748a0ff5ddbe3d13df1e15c9d28a2aa057212994e127bea
+        // as expected from https://github.com/polkadot-js/common/blob/e5cb0ba2b4a6b5817626cc964b4f66334f2410e4/packages/util-crypto/src/secp256k1/pair/fromSeed.spec.ts#L20
     console.log("validPublicKeyHex: " + validPublicKeyHex);
     //signs the message
         //documentation stats that "Generates low-s deterministic-k RFC6979 ECDSA signature."
