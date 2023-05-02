@@ -44,6 +44,7 @@
   "dependencies": {
     "@quantnetwork/overledger-bundle": "^2.4.1",
     "@quantnetwork/overledger-dlt-abstract": "^2.4.1",
+    "aws-lambda": "^1.0.7",
     "conventional-changelog-core": "^4.2.4",
     "conventional-changelog-writer": "^5.0.1",
     "conventional-commits-parser": "^3.2.4",
