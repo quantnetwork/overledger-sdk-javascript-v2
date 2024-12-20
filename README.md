@@ -1,3 +1,11 @@
+> ❗**IMPORTANT**❗
+>
+> This repository, including the SDK within it, has been archived and will no longer be maintained.
+>
+> For transaction signing using Overledger, you can use the Authorise and/or Overwallet services, as described in Quant’s Developer Hub pages, beginning [here](https://www.overledger.dev/).
+>
+> ❗**IMPORTANT**❗
+
 # Overledger JavaScript SDK V2
 
 Welcome to the developer's guide to use the Overledger SDK written in Javascript by Quant Network.
